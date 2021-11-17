@@ -1,0 +1,65 @@
+body{
+    display: flex;
+    margin:0;
+    padding: 0;
+   
+}
+ul,li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black ;
+}
+main{
+    width: 100%;
+    height: 640px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color:  #F07B22; */
+}
+
+h1{
+    margin-top: 35px;
+    color: #1D1617;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+span{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#checkboxAll{
+    display: none;
+}
+
+#checkbox1{
+    display: none;
+}
+
+#checkbox2{
+    display: none;
+}
+
+
+textarea{
+    width: 315px;
+    height: 155px;
+    box-sizing: border-box;
+    border-radius: 19px;
+}
+ .nextButton{
+    display: block;
+    margin:20px 20px;
+    width: 315px;
+    border: none;
+    border-radius: 99px;
+    background-color: #f2f2f2;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 20px;
+}

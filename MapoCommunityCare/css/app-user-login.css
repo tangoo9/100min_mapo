@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'SDSamliphopangche_Basic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Basic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    display: flex;
+    margin:0;
+    padding: 0;
+}
+ul,li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black ;
+}
+
+main{
+    width: 100%;
+    height: 640px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color:  #eaebdf;
+}
+.title{
+    margin: 10px 20px;
+    font-weight: 500;
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
+.title_1{
+    font-family: 'SDSamliphopangche_Basic';
+    color: #3170BB;
+}
+.title_2{
+    font-family: 'SDSamliphopangche_Outline';
+    color: #68BB76;
+}
+.title_3{
+    font-family: 'SDSamliphopangche_Outline';
+    color: #de8344;
+}
+.titleText{
+    margin:10px 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #1D1617;
+}
+.id_box{
+    margin:10px 20px;
+    margin-top: 40px;
+    background-color: #F7F8F8;
+    width: 315px;
+    height: 48px;
+    line-height: 48px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    text-align: start;
+    padding-left: 20px;
+}
+.pw_box{
+    margin:10px 20px;
+    background-color: #F7F8F8;
+    width: 315px;
+    height: 48px;
+    line-height: 48px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    text-align: start;
+    padding-left: 20px;
+}
+input{
+    margin-left: 5px;
+    width: 85%;
+    height: 65%;
+    border: none;
+}
+.loginButton{
+    margin: 10px 20px;
+    width:315px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 99px;
+    background-color: #F2994A;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+}
+
+.loginButton label{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-270%,-50%);
+}
+
+.loginButton span{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%,-53%);
+}
+
+.loginButton_kakao{
+    margin: 10px 20px;
+    width:315px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 99px;
+    background-color: #F2C94C;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+}
+.signUpButton{
+    margin: 10px 20px;
+    width:315px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 99px;
+    background-color: #F2F2F2;
+    font-weight: bold;
+    font-size: 16px;
+}

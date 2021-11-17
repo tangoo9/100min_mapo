@@ -1,0 +1,101 @@
+/* 
+memo 
+    큰틀만 잡음.
+    
+    디테일한 레이아웃 조정 필요. 21.11.17
+    (버튼 border 크기 등)
+*/
+
+/* --header Start----- */
+header{
+    position: relative;
+}
+
+.returnButton_cont{
+    width: 100px;
+    height: 26px;
+    line-height: 26px;
+    /* background-color: teal ; */
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    transform : translate(-170%, -50%);
+}
+
+.returnButton_icon{
+    width: 30px;
+    height: 26px;
+    border: none;
+    background-color:#ffffff;
+    cursor: pointer;
+}
+header p{
+    top: 50%;
+    left: 50%;
+     transform : translate(5%, -15%);
+    display: inline-block;
+    font-size: 17px;
+}
+/* --header End----- */
+
+
+main h1{
+    margin:30px auto;
+}
+#boxContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 450px;
+    /* background-color: rgb(212, 212, 236); */
+    overflow:hidden;
+}
+
+.listContainer{
+    margin: auto;
+    width: 301px;
+    height: 90%;
+    /* background-color: rgb(196, 150, 240); */
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    border-collapse:collapse;
+}
+.listMenu{
+   width:301px;
+   height: 43px;
+   box-sizing: border-box;
+}
+.listMenu .listMenu_button{
+    display: inline-block;
+    width: 147px;
+    height: 43px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    
+}
+.listContainer .listMenu p{
+    display: inline-block;
+}
+
+.list{
+    margin: 10px auto;
+    width: 100%;
+
+}
+.list tr thead{
+    text-transform: uppercase;
+}
+.list thead td{
+    font-weight: bold;
+    font-size: 11px;
+}
+.list tbody td{
+    font-size: 11px;
+}
+.list tbody .detail{
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
