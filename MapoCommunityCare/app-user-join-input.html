@@ -10,7 +10,9 @@
 <body>
     <main>
         <h1>회원가입</h1>
-        <form id="signUpForm" action="#" method="post">
+        
+        <form id="signUpForm" action="app-user-main.html" method="get">
+            <!-- 임시로 method get / 수정필요 -->
             <div class="inputBox">
                 <input class="inputStyle" type="email" placeholder="이메일을 입력해 주세요.">
             </div>
@@ -30,7 +32,9 @@
             </div>
             <input class="signUpButton" type="submit" value="회원가입">
         </form>
-        <button class="returnButton" type ="button">이전</button>
+        <a href="app-user-join-accept.html">
+            <button class="returnButton" type ="button">이전</button>
+        </a>
     </main>
 </body>
 </html>

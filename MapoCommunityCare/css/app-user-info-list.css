@@ -38,10 +38,17 @@ header p{
 }
 /* --header End----- */
 
-
-main h1{
-    margin:30px auto;
+.title{
+ width: 100%;
+ height: 50px;
+ text-align: center;
+ /* background-color: red; */
 }
+
+.title h1{
+    margin :10px auto;
+}
+
 #boxContainer{
     display: flex;
     flex-flow: column nowrap;
@@ -53,36 +60,41 @@ main h1{
 
 .listContainer{
     margin: auto;
-    width: 301px;
+    width: 310px;
     height: 90%;
     /* background-color: rgb(196, 150, 240); */
     text-align: center;
     box-sizing: border-box;
     border: 1px solid #000000;
     border-radius: 5px;
-    border-collapse:collapse;
 }
 .listMenu{
-   width:301px;
-   height: 43px;
+    display: flex;
+   width: 100%;
+   height: 45px;
    box-sizing: border-box;
+   /* background-color: red; */
 }
 .listMenu .listMenu_button{
-    display: inline-block;
-    width: 147px;
-    height: 43px;
+    cursor: pointer;
+    margin: 0px 0px;
+    display: block;
+    width: 50%;
+    height: 45px;
     box-sizing: border-box;
     border: 1px solid #000000;
+    /* background-color: blue; */
     
 }
 .listContainer .listMenu p{
     display: inline-block;
 }
 
-.list{
-    margin: 10px auto;
-    width: 100%;
 
+.list{
+    /* margin: 10px auto; */
+    width: 100%;
+    /* background-color: red; */
 }
 .list tr thead{
     text-transform: uppercase;
@@ -96,6 +108,15 @@ main h1{
 }
 .list tbody .detail{
     border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.list button{
+    width: 100%;
+    height: 100%;
+    font-size: 11px;
+    border: none;
     box-sizing: border-box;
     border-radius: 10px;
 }

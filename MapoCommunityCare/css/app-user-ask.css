@@ -1,0 +1,182 @@
+/* 
+    memo 
+    .box 박스내 높이는 line-height로 조정
+
+    
+    1) app-user-ask 연관 css스타일 : 
+    faq,polices,version에 대한 스타일을 이 css파일에서 공유함.
+    
+*/
+
+
+/* scrollbar option */
+/* body{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; } */
+/*scrollbar option End */
+
+
+
+/* --header Start----- */
+header{
+    position: relative;
+}
+
+.returnButton_cont{
+    width: 100px;
+    height: 26px;
+    line-height: 26px;
+    /* background-color: teal ; */
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    transform : translate(-170%, -50%);
+}
+
+.returnButton_icon{
+    width: 30px;
+    height: 26px;
+    border: none;
+    background-color:#ffffff;
+    cursor: pointer;
+}
+header p{
+    top: 50%;
+    left: 50%;
+     transform : translate(5%, -15%);
+    display: inline-block;
+    font-size: 17px;
+}
+/* --header End----- */
+
+.mainContainer{
+    width: 90%;
+    height: 100%;
+    /* background-color: chartreuse; */
+    position: relative;
+}
+.title{
+    width: 100%;
+    height: 40px;
+    /* background-color: #c4c4c4; */
+}
+main h1{
+    margin:10px auto;
+    text-align: center;
+}
+#boxContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 350px;
+    /* background-color: blue; */
+    margin-top: 30px;
+    overflow:hidden;
+}
+
+.box{
+    cursor: pointer;
+    margin: 10px 20px;
+    width:90%;
+    height: 53px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 22px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 53px;
+}
+
+.box p{
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+/* CSS : app-user-ask-faq  Start*/
+#boxContainer_faq{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+    height: 420px;
+    /* background-color: blue; */
+    margin-top: 10px;
+    overflow:hidden;
+}
+
+.searchBox_faq{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background: rgba(118, 118, 128, 0.12);
+    border-radius: 10px;
+}
+.search_icon{
+    margin: 0px 10px;
+}
+.search{
+    width: 85%;
+}
+.textBox_faq{
+    width: 100%;
+    height: 360px;
+    /* background-color: red; */
+}
+/* CSS : app-user-ask-faq  End*/
+/* CSS : app-user-ask-polices  Start*/
+#boxContainer_polices{
+    /* background-color: red; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content:space-around;
+    align-items: center;
+    width: 340px;
+    height: 450px;
+    /* background-color: blue; */
+    margin-top: 10px;
+    overflow:hidden;
+}
+
+#boxContainer_polices .subContainer{
+    width: 100%;
+    height: 200px;
+    /* background-color: yellow; */
+}
+
+.subContainer .textTitle{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    /* background-color: pink; */
+}
+.textBox_polices{
+    width: 100%;
+    height:85%;
+    border: 1px solid #d4d4d4;
+    overflow-y: scroll;
+    /* background-color: red; */
+}    
+
+
+/* CSS : app-user-ask-polices  End*/
+/* CSS : app-user-ask-version  Start*/
+#boxContainer_version{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height: 460px;
+    /* background-color: khaki; */
+}
+
+/* CSS : app-user-ask-version  End*/
