@@ -1,0 +1,24 @@
+================================
+단축키 정리
+ctrl shift m : 콘솔 띄우기(에러영역)
+f2 : 동일한 문자열 검색
+ctrl f2 : 동일한 문자열 전체 선택(커서 대기)
+
+=================================
+
+Issue - 211109
+
+문제점 1)  : 360*640 기준으로 잡은 레이아웃이 height값 조절이 자유롭지 않음.
+해결 내용 : 
+	0.구글 검색글 참고함. https://ryuseunghyun.tistory.com/889
+	1.html, body태그의 css height 값을 100%설정
+	2.main 태그는 height: 640px - > 100%변경후 아래의 속성을 부여
+	  flex-flow: column nowrap; justify-content: space-around; align-items:center;
+	3.이후 조정이 필요한 요소에 대해 각각 +- margin값 부여.
+	4.font-size : px -> em으로 부여(눈대중)	
+	
+예상문제점
+	1. font-size : 모바일 환경에서는 큰 문제가 없겠으나, 추후 일정 크기 이상에서는 
+	별도의 font-size지정이 필요할것으로 예상됨.
+	2.chrome브라우저에서 테스트했음. 기타 브라우저 환경에서 별도의 테스트 필요. 
+
