@@ -12,75 +12,70 @@ a{
     text-decoration: none;
     color: black ;
 }
-
 h1{
+    margin-top: 8vh;
     color: #1D1617;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 4vmax;
 }
 main{
     width: 100%;
-    height: 640px;
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
 #signUpForm{
+    width: 100vw;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    /*  */
 }    
 .inputBox{
     margin: 8px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 315px;
-    height: 48px;
-    line-height: 48px;
+    width: 80vw;
+    height: 9vh;
+    line-height: 9vh;
     background:  #F7F8F8;
     border: 1px solid #F7F8F8;
     box-sizing: border-box;
     border-radius: 14px;
+    /* background-color:blue; */
 }
 .inputStyle{
+    width: 80vw;
+    height: 95%;
+    padding-left: 2vw;
     border: none;
-    width: 90%;
-    height: 90%;
-    padding-left: 5px;
+    border-radius: 14px;
     background:  #F7F8F8;
+    outline: none;
+    font-size: 2vmax;
 }
 .inputStyle::placeholder{
     color: #ADA4A5;
 }
 
-.inputBox2{
-    margin: 8px 10px;
-    padding-left: 0px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    width: 315px;
-    height: 48px;
-    line-height: 48px;
-    /* background:  #3fe0e0; */
-    border: 1px solid #F7F8F8;
-    box-sizing: border-box;
-    border-radius: 14px;
-}
 .inputStyle2{
-    margin:10px 15px 10px 8px;
+    margin-right: 4vw;
+    width: 50vw;
+    height: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     border-radius: 14px;
-    width: 70%;
-    height: 90%;
-    padding-left: 5px;
+    padding-left: 2vw;
+    font-size: 1.5vmax;
     background:  #F7F8F8;
+    outline: none;
+   
 }
 
 .inputStyle2::placeholder{
@@ -88,33 +83,61 @@ main{
 }
 
 .buttonStyle_inner{
-    width: 25%;
-    height: 90%;
-    font-size: 12px;
+    width: 30vw;
+    font-size: 1vw;
     font-weight: 600;
     background:  #F7F8F8;
     border: none;
     border-radius: 14px;
     box-sizing: border-box;
     color: #000000;
+    
+    
 }
 .signUpButton{
     margin:10px 10px;
-    width: 315px;
-    height: 60px;
+    width: 80vw;
+    height: 9vh;
     border: none;
     background: #F2F2F2;
     border-radius: 99px; 
     font-weight: bold;
-    font-size: 16px;
+    font-size: 2.5vmax
 }
 .returnButton{
     margin:10px 10px;
-    width: 315px;
-    height: 60px;
+    margin-bottom: 5vw;
+    width: 80vw;
+    height: 9vh;
     border: none;
     background: #F2F2F2;
     border-radius: 99px; 
     font-weight: bold;
-    font-size: 16px;
+    font-size: 2.5vmax
+}
+
+@media screen and (min-width:720px) {
+    /* .inputBox{
+        margin: 8px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40vmax;
+        height: 48px;
+        line-height: 48px;
+    }
+    .inputStyle2{
+        margin: 5vw 7vw 5vw 4vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 14px;
+        width: 100%;
+        height: 48px;
+        padding-left: 1vw;
+        background:  #F7F8F8;
+        
+        outline: none;
+    } */
 }

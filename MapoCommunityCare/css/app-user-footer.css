@@ -1,33 +1,38 @@
 footer{
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    height: 60px;
+    height: 15vh;
     /* background-color: teal; */
 }
 #navBar{
     display: flex;
-    justify-content: space-between;
     width: 100%;
-    height: 50px;
-    /* background-color: yellow; */
-    background: rgba(249, 249, 249, 0.94);
+    height: 15vh;
+    background: rgba(249, 249, 249);
     border-top: solid 2px #ababab;
 }
 .navButton{
-    margin-top: 4px;
+    cursor: pointer;
     display: block;
+    margin-top: 3vh;
     width: 100%;
-    height: 100%;
+    height: 15vh;
+    /* line-height: 15vh; */
     /* background: rgba(184, 32, 32, 0.94); */
-    background: rgba(249, 249, 249, 0.94);
+    background: rgba(249, 249, 249);
     text-align: center;
     
 }
 .navButton svg { 
     display: block;
-    margin: 5px auto;
+    margin: 1vh auto;
     margin-bottom: 0px;
 }
 .navButton span{
-  font-size: 10px;
+  font-size: 2vh;
   font-family: SDSamliphopangche_Basic;  
 }

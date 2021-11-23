@@ -15,24 +15,25 @@ body{
 /* ---------------- */
 
 /* --header Start----- */
-header{
+ header{
+    width: 100%;
+    height: 8vh;
     position: relative;
+    /* background-color: blue; */
 }
 
 .returnButton_cont{
-    width: 100px;
-    height: 26px;
-    line-height: 26px;
-    /* background-color: teal ; */
+    width: 100%;
+    height: 8vh;
+    line-height: 8vh;
     position : absolute;
     left : 50%;
     top : 50%;
-    transform : translate(-170%, -50%);
+    transform: translate(-50%);
 }
-
 .returnButton_icon{
-    width: 30px;
-    height: 26px;
+    width: 3vmax;
+    height: 3vmax;
     border: none;
     background-color:#ffffff;
     cursor: pointer;
@@ -40,23 +41,25 @@ header{
 header p{
     top: 50%;
     left: 50%;
-     transform : translate(5%, -15%);
+    transform : translate(10%,-5%);
     display: inline-block;
     font-size: 17px;
 }
+
 /* --header End----- */
 
 /* --main Start--------- */
 main{
     margin: 0 auto;
-    /* background-color: rgb(235, 164, 164); */
     justify-content: flex-start;
+    margin-top: 8vh;
+    margin-bottom: 15vh;
 }
 .textSection{
     display: block;
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 .textBox{
     margin: 10px auto;

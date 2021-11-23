@@ -5,53 +5,94 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-join-accept.css">
 </head>
 <body>
     <main>
-        <h1>약관동의</h1>
+        <div class="title">
+            <h1>약관동의</h1>
+        </div>
+        <p>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="18" height="18" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18Z" fill="#F07B22"/>
+                <path d="M5.71154 9.17307L7.78846 10.9038L12.2885 6.40384" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input type="checkbox" class="check_all">
+            <label for="check_all">전체동의</label>
+        </p>
+        <div class="checkbox_group">       
             <p>
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="18" height="18" fill="white"/>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18Z" fill="#F07B22"/>
                     <path d="M5.71154 9.17307L7.78846 10.9038L12.2885 6.40384" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <input id="checkboxAll" type="checkbox">
-                <span>전체동의</span>
-           </p>
-           <div>
+                <input id="check_1" class="normal" type="checkbox">
+                <label for="check_1">이용약관</label>
+            </p>
+            <textarea name="" readonly>
+                < ㅇㅇ >('ㅇㅇ'이하 'ㅇㅇ')은(는) 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
 
-                <p>
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="18" height="18" fill="white"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18Z" fill="#F07B22"/>
-                        <path d="M5.71154 9.17307L7.78846 10.9038L12.2885 6.40384" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <input id="checkbox1" type="checkbox">
-                    <span>이용약관</span>
-                </p>
+            제1조(개인정보의 처리목적)
 
-                <textarea name="" readonly></textarea>
-                
-                <p>
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="18" height="18" fill="white"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18Z" fill="#F07B22"/>
-                        <path d="M5.71154 9.17307L7.78846 10.9038L12.2885 6.40384" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <input id="checkbox2" type="checkbox"> 
-                    <span>개인정보 이용동의</span>
-                </p>
+            < ㅇㅇ >(이)가 개인정보 보호법 제32조에 따라 등록․공개하는 개인정보파일의 처리목적은 다음과 같습니다.
 
-                <textarea name="" readonly></textarea>
-           </div>
-           
-            <button class="nextButton" type="button">
-                <a href="app-user-join-input.html">
-                다음
-                 </a>
-            </button>
+            1. 개인정보 파일명 :
+            개인정보의 처리목적 :
+            수집방법 :
+            보유근거 :
+            보유기간 :
+            관련법령 :
+            </textarea>
+            
+            <p>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="18" height="18" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18Z" fill="#F07B22"/>
+                    <path d="M5.71154 9.17307L7.78846 10.9038L12.2885 6.40384" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <input id="check_2" class="normal" type="checkbox">
+                <label for="check_2">개인정보 이용동의</label>
+            </p>
 
+            <textarea name="" readonly>
+                < ㅇㅇ >('ㅇㅇ'이하 'ㅇㅇ')은(는) 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
+
+                제1조(개인정보의 처리목적)
+
+                < ㅇㅇ >(이)가 개인정보 보호법 제32조에 따라 등록․공개하는 개인정보파일의 처리목적은 다음과 같습니다.
+
+                1. 개인정보 파일명 :
+                개인정보의 처리목적 :
+                수집방법 :
+                보유근거 :
+                보유기간 :
+                관련법령 :     
+            </textarea>
+        </div>   
+        <button class="nextButton" type="button">
+            <a href="app-user-join-input.html">
+            다음
+                </a>
+        </button>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+        $(".checkbox_group").on("click", ".check_all", function () {
+        $(this).parents(".checkbox_group").find('input').prop("checked", $(this).is(":checked"));
+    });
+
+    // 체크박스 개별 선택
+    $(".checkbox_group").on("click", ".normal", function() {
+        var is_checked = true;
+        
+        $(".checkbox_group .normal").each(function(){
+            is_checked = is_checked && $(this).is(":checked");
+        });
+
+        $(".check_all").prop("checked", is_checked);
+    });
+    </script>
 </body>
 </html>

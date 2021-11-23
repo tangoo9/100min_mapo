@@ -1,9 +1,11 @@
+/* scrollbar option */
 body{
-    display: flex;
-    margin:0;
-    padding: 0;
-   
+    -ms-overflow-style: none; 
 }
+::-webkit-scrollbar { display: none; }
+/* ---------------- */
+
+
 ul,li{
     list-style-type: none;
 }
@@ -11,57 +13,62 @@ a{
     text-decoration: none;
     color: black ;
 }
+
 main{
     width: 100%;
-    height: 640px;
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
     /* background-color:  #F07B22; */
 }
-
+.title{
+    margin-top: 8vh;
+    width: 100%;
+    height: 6vh;
+    line-height: 6vh;
+    /* background-color: #c4c4c4; */
+    text-align: center;
+}
 h1{
-    margin-top: 35px;
+    margin:0 auto;
     color: #1D1617;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 4vh;
 }
-
 span{
     font-weight: bold;
-    font-size: 14px;
+    font-size: 2vh;
 }
-
-#checkboxAll{
-    display: none;
+.checkbox_group{
+    text-align: start;
 }
-
-#checkbox1{
-    display: none;
-}
-
-#checkbox2{
+.check_all, #check_1, #check_2{
     display: none;
 }
 
 
 textarea{
-    width: 315px;
-    height: 155px;
+    width: 40vmax;
+    height: 20vh;
     box-sizing: border-box;
     border-radius: 19px;
+    resize: none;
+    outline: none;
 }
 
  .nextButton{
     display: block;
-    margin:20px 20px;
-    width: 315px;
+    margin:5vh 5vh;
+    width: 40vmax;
+    height: 10vh;
     border: none;
     border-radius: 99px;
     background-color: #f2f2f2;
     /* background-color: red; */
-    font-size: 16px;
+    font-size: 3vh;
+    line-height: 3vh;
     font-weight: bold;
-    padding: 20px;
 }
