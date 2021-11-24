@@ -33,3 +33,61 @@ Issue - 211122
 	2. <textarea>태그 관련.
    	 resize: none;
    	 outline: none;
+
+
+	3.button a태그 안감싸고 링크주기
+	onclick="location.href='app-user-info-detail boot.html'"
+	
+
+Issue - 211123
+--------------------------------------------------------------
+문제점 1) 전역 css 속성떄문에 특정 페이지에서 특정 환경에서 헤더영역 짤림 발생
+   	ex) galaxy fold (280*653px)
+
+해결내용 : 
+	0.body height값 100%때문에 생기는문제였음.
+	1.body{height : initial;} 
+	해당페이지만 height값 초기화
+
+
+=========================================
+
+복붙용
+
+/* --header Start----- */
+header{
+    width: 100%;
+    height: 8vh;
+    position: relative;
+    /* background-color: blue;   */
+}
+
+.returnButton_cont{
+    width: 100%;
+    height: 8vh;
+    line-height: 8vh;
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    transform: translate(-50%,-50%);
+}
+.returnButton_icon{
+    width: 3vmax;
+    height: 3vmax;
+    border: none;
+    background-color:#ffffff;
+    cursor: pointer;
+}
+header p{
+    top: 50%;
+    left: 50%;
+    transform : translate(10%,-5%);
+    display: inline-block;
+    font-size: 17px;
+}
+
+/* --header End----- */
+
+
+
+

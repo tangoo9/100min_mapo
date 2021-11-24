@@ -6,7 +6,20 @@ memo
     (버튼 border 크기 등)
 */
 
-/* --header Start----- */
+/* scrollbar option */
+body{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; }
+/* ---------------- */
+/* --header Start
+
+
+user-info-list  전용 헤더부분
+(타 페이지랑 중복 스타일 불가)
+
+
+----- */
 header{
     width: 100%;
     height: 8vh;
@@ -21,7 +34,7 @@ header{
     position : absolute;
     left : 50%;
     top : 50%;
-    transform: translate(-50%);
+    transform: translate(-50%,-50%);
 }
 .returnButton_icon{
     width: 3vmax;
@@ -33,7 +46,7 @@ header{
 header p{
     top: 50%;
     left: 50%;
-    transform : translate(10%,-5%);
+    transform : translate(10%,-6%);
     display: inline-block;
     font-size: 17px;
 }
@@ -42,71 +55,98 @@ header p{
 
 .title{
  width: 100%;
- height: 50px;
+ height: 8vh;
+ line-height: 8vh;
  text-align: center;
- /* background-color: red; */
+ background-color: red;
 }
 
 .title h1{
-    margin :10px auto;
+    margin: 0 auto;
 }
 
 #boxContainer{
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
-    height: 450px;
+    height: 100%;
     /* background-color: rgb(212, 212, 236); */
-    overflow:hidden;
+    /* overflow:hidden; */
+    margin-bottom: 15vh;
+    
 }
 
 .listContainer{
-    margin: auto;
-    width: 310px;
-    height: 90%;
+    margin: 2vmax auto;
+    width: 80vw;
+    height: 60vh;
     /* background-color: rgb(196, 150, 240); */
     text-align: center;
     box-sizing: border-box;
     border: 1px solid #000000;
     border-radius: 5px;
+    
 }
 .listMenu{
-    display: flex;
+display: flex;
    width: 100%;
-   height: 45px;
+   height: 8vh;
    box-sizing: border-box;
    /* background-color: red; */
 }
 .listMenu .listMenu_button{
     cursor: pointer;
-    margin: 0px 0px;
     display: block;
     width: 50%;
-    height: 45px;
+    height: 8vh;
+    line-height: 8vh;
     box-sizing: border-box;
     border: 1px solid #000000;
     /* background-color: blue; */
     
 }
 .listContainer .listMenu p{
-    display: inline-block;
+    display: inline;
 }
-
 
 .list{
-    /* margin: 10px auto; */
+    display: block;
+    margin-top: 1vh ;
+    margin-bottom: 8vh;
     width: 100%;
+    height: 50vh;
+    border-spacing: 1vh;
+    border-collapse: separate;
     /* background-color: red; */
+    overflow-y: scroll;
 }
-.list tr thead{
+.list thead{
     text-transform: uppercase;
 }
 .list thead td{
     font-weight: bold;
     font-size: 11px;
 }
+.list thead .th_time{
+    width: 20vw;
+    /* background-color:blue; */
+}
+.list thead .th_name{
+    width: 20vw;
+}
+.list thead .th_status{
+    width: 20vw;
+}
+.list thead .th_detail{
+    width: 20vw;
+}
 .list tbody td{
+    height: 2.5vh;
     font-size: 11px;
+    /* background-color: red; */
+}
+.list tbody tr{
+
 }
 .list tbody .detail{
     border: 1px solid #000000;
@@ -120,5 +160,6 @@ header p{
     font-size: 11px;
     border: none;
     box-sizing: border-box;
+    background-color: #ffffff;
     border-radius: 10px;
 }
