@@ -37,10 +37,11 @@ main{
 }
 
 .title{
-    height: 25vh;
+    height: 25vmin;
 }
 .title h1{
-    margin: 8vh 2vh;
+    /* margin: 8vh 2vh; */
+    margin : 0 auto;
     font-weight: 500;
     font-size: 12vw;
     letter-spacing: 1px;
@@ -72,7 +73,7 @@ main{
     box-sizing: border-box;
     margin-bottom: 15vh;
 }
-.boxColumn{
+.boxRow{
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -81,7 +82,17 @@ main{
     margin-top: 0.5vh;
     padding: 0 auto;
     /* width: 100%; */
-}     
+}
+.boxRow_bottom{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+    margin-top: 0.5vh;
+    padding: 0 auto;
+    /* width: 100%; */
+}       
 .box{
     cursor: pointer;
     margin:5px;

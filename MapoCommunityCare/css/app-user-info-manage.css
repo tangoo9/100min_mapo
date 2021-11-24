@@ -120,11 +120,11 @@ header p{
     display: none;
     /* display: block; */
     
-    z-index: 99;
+    z-index: 1001;
     position: absolute;
     top: 15%;
-    width: 300px;
-    height: 60%;
+    width: 70vw;
+    height: 60vh;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -143,37 +143,39 @@ header p{
 .app-user-info-manage-tel .popup_selectListContianer{
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 110px;
-    /* background-color: black; */
+    height: 25vh;
+    background-color: black;
 }
 .app-user-info-manage-tel .popup_selectListContianer .inputBox{
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 44px;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 20vh;
     border: none;
     box-sizing: border-box;
     border-radius: 14px;
 }
 .app-user-info-manage-tel .popup_selectListContianer .inputStyle{
-    width: 100%;
-    height: 44px;
+    width: 50vw;
+    height: 10vh;
     border: none;
     border-radius: 14px;
     padding-left: 5px;
-    font-size: 12px;
+    font-size: 0.35rem;
     background:  #F7F8F8;
 }
 .app-user-info-manage-tel .popup_selectListContianer .inputStyle::placeholder{
     color: #ADA4A5;
 }
 .app-user-info-manage-tel .popup_selectListContianer .telBox_button{
-    margin-left: 15px;
-    width: 100px;
-    height: 44px;
-    font-size: 12px;
+    margin-left: 3.5vw;
+    width: 50vw;
+    height: 10vh;
+    font-size: 0.35rem;
     font-weight: 600;
     background:  #F7F8F8; 
     border: none;
@@ -199,12 +201,11 @@ header p{
 .app-user-info-manage-addr{
     display: none;
     /* display: block; */
-    
-    z-index: 99;
+    z-index: 1001;
     position: absolute;
     top: 15%;
-    width: 300px;
-    height: 60%;
+    width: 70vw;
+    height: 60vh;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -245,7 +246,7 @@ header p{
     border: none;
     border-radius: 14px;
     padding-left: 5px;
-    font-size: 12px;
+    font-size: 0.35rem;
     background:  #F7F8F8;
 }
 .app-user-info-manage-addr .popup_selectListContianer .inputStyle::placeholder{
@@ -255,7 +256,7 @@ header p{
     margin-left: 15px;
     width: 90px;
     height: 44px;
-    font-size: 12px;
+    font-size: 0.35rem;
     font-weight: 600;
     background:  #F7F8F8;
     border: none;
@@ -285,18 +286,18 @@ header p{
     flex-flow: column nowrap;
     justify-content: space-around;
     
-    z-index: 99;
+    z-index: 1001;
     position: absolute;
     top: 20%;
-    width: 300px;
-    height: 40%;
+    width: 80vw;
+    height: 50vh;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
     text-align: center;
 }
 .app-user-info-manage-logout h2{
-    font-size: 25px;
+    font-size: 1.3rem;
     font-weight: bolder;
 }
 /* Layer popup app-user-info-manage-logout End */
@@ -308,11 +309,11 @@ header p{
     flex-flow: column nowrap;
     justify-content: space-around;
     
-    z-index: 99;
+    z-index: 1001;
     position: absolute;
     top: 20%;
-    width: 300px;
-    height: 40%;
+    width: 80vw;
+    height: 50vh;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -320,7 +321,7 @@ header p{
 }
 
 .app-user-info-manage-out h2{
-    font-size: 20px;
+    font-size: 1.3rem;
     font-weight: bolder;
 }
 .app-user-info-manage-out .popup_selectListContianer{

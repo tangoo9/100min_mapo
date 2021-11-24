@@ -58,7 +58,7 @@ header p{
  height: 8vh;
  line-height: 8vh;
  text-align: center;
- background-color: red;
+ /* background-color: red; */
 }
 
 .title h1{
@@ -128,17 +128,21 @@ display: flex;
     font-size: 11px;
 }
 .list thead .th_time{
-    width: 20vw;
+    width: 25vw;
+    font-size: 0.325rem;
     /* background-color:blue; */
 }
 .list thead .th_name{
-    width: 20vw;
+    width: 30vw;
+    font-size: 0.325rem;
 }
 .list thead .th_status{
-    width: 20vw;
+    width: 10vw;
+    font-size: 0.325rem;
 }
 .list thead .th_detail{
-    width: 20vw;
+    width: 15vw;
+    font-size: 0.325rem;
 }
 .list tbody td{
     height: 2.5vh;
