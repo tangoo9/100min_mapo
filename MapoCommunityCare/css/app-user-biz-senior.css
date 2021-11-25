@@ -16,34 +16,29 @@ body{
 
 /* --header Start----- */
  header{
+    display: block;
     width: 100%;
     height: 8vh;
-    position: relative;
-    /* background-color: blue; */
+    position: fixed;
+    z-index: 99;
+    background-color:#ffffff;
 }
 
 .returnButton_cont{
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 35vw;
     height: 8vh;
-    line-height: 8vh;
-    position : absolute;
-    left : 50%;
-    top : 50%;
-    transform: translate(-50%);
-}
-.returnButton_icon{
-    width: 3vmax;
-    height: 3vmax;
+    /* background-color: red; */
+    background-color: #ffffff;
     border: none;
-    background-color:#ffffff;
-    cursor: pointer;
 }
 header p{
-    top: 50%;
-    left: 50%;
-    transform : translate(10%,-5%);
+    margin-left: 4vw;
     display: inline-block;
-    font-size: 17px;
+    font-size: 1rem;
 }
 
 /* --header End----- */
@@ -58,7 +53,7 @@ main{
 .textSection{
     display: block;
     width: 100%;
-    margin-bottom: 15vh;
+    margin-bottom: 8vh;
     overflow-y: scroll;
 }
 .textBox{
@@ -66,10 +61,10 @@ main{
     align-items: center;
     justify-content: flex-start;
     flex-flow: column nowrap;
-    margin: 10px auto;
+    margin: 5vw auto;
     width: 90%;
     font-size: 14px;
-    margin-bottom: 15vh;
+    margin-bottom: 8vh;
     /* overflow-y: scroll; */
 }
 .textBox img{

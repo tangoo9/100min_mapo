@@ -1,41 +1,33 @@
-/* --header Start
-
-
-user-info-list  전용 헤더부분
-(타 페이지랑 중복 스타일 불가)
-
-
------ */
+/* --header Start----- */
 header{
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 8vh;
-    position: relative;
-    /* background-color: blue;   */
+    position: fixed;
+    z-index: 99;
+    background-color:#ffffff;
 }
 
 .returnButton_cont{
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 35vw;
     height: 8vh;
-    line-height: 8vh;
-    position : absolute;
-    left : 50%;
-    top : 50%;
-    transform: translate(-50%,-50%);
-}
-.returnButton_icon{
-    width: 3vmax;
-    height: 3vmax;
+    /* background-color: red; */
+    background-color: #ffffff;
     border: none;
-    background-color:#ffffff;
-    cursor: pointer;
 }
 header p{
-    top: 50%;
-    left: 50%;
-    transform : translate(10%,5%);
+    margin-left: 4vw;
     display: inline-block;
-    font-size: 17px;
+    font-size: 1rem;
 }
+
 /* --header End----- */
 
 /* scrollbar option */
@@ -44,12 +36,14 @@ header p{
 }
 ::-webkit-scrollbar { display: none; }
 /* ---------------- */
-
+body{
+    margin-top: 4vh;
+}
 .mainContainer{
-    margin-bottom: 15vh;
-    width: 90%;
+    margin-bottom: 8.5vh;
+    width: 90vw;
     height: 77vh;
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
     position: relative;
 }
 .title{
@@ -65,7 +59,6 @@ header p{
 .boxContainer{
     display: flex;
     flex-flow: column nowrap;
-    margin-top: 4vh;
     text-align: start;
     width: 90%;
     height: 100%;
@@ -90,7 +83,8 @@ header p{
 .boxContainer .buttonStyle{
     margin : 10px 0px;
     height: 33px;
-    background-color: #c4c4c4;
+    background-color: #0d6efd;
+    color: white;
     border-radius: 10px;
     border: none;
 }
@@ -101,15 +95,18 @@ header p{
 }
 
 .selectBox{
-     margin:7vmin auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 5vh;
 }
 
 .selectBox .selectButton{
     cursor: pointer;
     margin : 0px 2vw;
-    width: 35vw;
+    width: 45vw;
     height: 5vh;
-    background-color: #c4c4c4;
+    /* background-color: #c4c4c4; */
     border: none;
 }
 
@@ -147,7 +144,7 @@ header p{
     align-items: center;
     width: 100%;
     height: 25vh;
-    background-color: black;
+    /* background-color: black; */
 }
 .app-user-info-manage-tel .popup_selectListContianer .inputBox{
     display: flex;
@@ -161,7 +158,7 @@ header p{
 }
 .app-user-info-manage-tel .popup_selectListContianer .inputStyle{
     width: 50vw;
-    height: 10vh;
+    height: 8vh;
     border: none;
     border-radius: 14px;
     padding-left: 5px;
@@ -173,15 +170,15 @@ header p{
 }
 .app-user-info-manage-tel .popup_selectListContianer .telBox_button{
     margin-left: 3.5vw;
-    width: 50vw;
-    height: 10vh;
+    width: 20vw;
+    height: 8vh;
     font-size: 0.35rem;
     font-weight: 600;
     background:  #F7F8F8; 
     border: none;
     border-radius: 14px;
     box-sizing: border-box;
-    color: #000000;
+    
 }
 
 .app-user-info-manage-tel .selectBox{
@@ -205,7 +202,7 @@ header p{
     position: absolute;
     top: 15%;
     width: 70vw;
-    height: 60vh;
+    height: 70vh;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;

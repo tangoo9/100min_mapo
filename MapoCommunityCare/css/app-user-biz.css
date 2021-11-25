@@ -15,20 +15,37 @@ main h1{
 }
 
 .box{
+    position: relative;
     cursor: pointer;
     margin: 1vmax auto;
     width: 90vw;
     height: 20vh;
-    border: 1px solid #000000;
+    border: 1px solid #bcbcbc;
     box-sizing: border-box;
     border-radius: 22px;
     text-align: center;
     font-weight: 500;
     font-size: 4vh;
-    line-height: 20vh;
+    /* line-height: 20vh; */
 }
 
-.box p{
-    width: 80vw;
+.childCare{
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    background:url('/image/child_care.png') no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+
+.box .childCare p{
+    position:absolute;
+    width: 100%;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     margin: 0 auto;
+    background-color:rgba(0, 0, 0, 0.33);
+    color: #ffffff;
+    /* background-color: rgba(0,0,0,0.05); */
 }
