@@ -1,7 +1,5 @@
 /* 
     memo 
-    .box 박스내 높이는 line-height로 조정
-
     1) app-user-order 연관 css스타일 : 
     exec-complete, child-... 등 에 대한 스타일을 이 css파일에서 공유함.
 
@@ -21,7 +19,7 @@ body{
     height: initial;
 }
 main{
-
+    
 }
 
 .title{
@@ -32,7 +30,9 @@ main{
 }
 .title h1{
     margin: 0 auto;
+    margin-top: 10vw;
     text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 #boxContainer{
@@ -49,6 +49,7 @@ main{
 .box{
     cursor: pointer;
     margin: 5vh 10vw;
+    margin-top: 9vh;
     width:80vw;
     height: 45vh;
     line-height: 45vh;
@@ -57,37 +58,14 @@ main{
     border-radius: 22px;
     text-align: center;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 
 .box p{
     margin: 0 auto;
 }
 
-/* CSS : app-user-order-exec-complete  Start */
-.boxContainer_order_exec_complete{
-    display: flex;
-    flex-flow: column nowrap;
-    width: 100%;
-    height: 100%;
-    margin-top: 15px;
-    /* background-color: rgb(212, 212, 236); */
-    /* overflow-y:scroll; */
-}
-.boxContainer_order_exec_complete p{
-    margin: 5px;
-    font-size: 12px;
-}
-.boxContainer_order_exec_complete input{
-    height: 33px;
-    padding-left: 10px;
-    /* background-color: coral; */
-    background-color: #f4f5f5;
-    border-radius: 14px;
-    border:none;
-}
 
-/* CSS : app-user-order-exec-complete  End */
 /* CSS : app-user-order-child Start */
 #boxContainer_child{
     display: flex;
@@ -103,27 +81,24 @@ main{
     /* background-color: salmon; */
     /* overflow-y:scroll; */
 }
-#boxContainer_child p{
+#boxContainer_child > p{
     font-size: 12px;
 }
 #boxContainer_child .textBox{
     margin: 5vh 10vw;
+    margin-top: 9vh;
     width:80vw;
     height: 45vh;
+    padding : 2vw;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 22px;
     font-weight: 500;
     font-size: 0.9rem;
     overflow-y: scroll;
+    text-align: start;
 }
 
-.boxContainer_child .subtitle h1{
-    margin:0 auto;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 48px;
-}   
 
 /* CSS : app-user-order-child End */
 /* CSS : app-user-order-child-list-nouse Start */
@@ -139,9 +114,9 @@ main{
     /* background-color: red; */
 }
 .boxContainer_order-child-list-nouse .subtitle{
+    margin-top: 3vh;
     width: 100%;
     height: 8vh;
-    line-height: 5vh;
     /* background-color: red; */
 }
 
@@ -183,8 +158,38 @@ main{
 
 /* CSS : app-user-order-child-list-nouse End */
 
+
+/* CSS : app-user-order-child-to Start */
+.boxContainer_order-child-to{
+    width: 100%;
+    height: 100%;
+    margin-top: 3vh;
+    margin-bottom: 8vh;
+    /* background-color: red; */
+}
+.boxContainer_order-child-to h1{
+    margin-top: 3vh;
+}
+.boxContainer_order-child-to .textBox_child_to{
+    cursor: pointer;
+    margin: 0 auto;
+    width:80vw;
+    height: 46vh;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 22px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    overflow-y: scroll;
+}
+.boxContainer_order-child-to .textBox_child_to > p{
+
+}
+/* CSS : app-user-order-child-to End */
+
 /* CSS : app-user-order-child-order Start */
 .boxContainer_order-child-order{
+    margin-top: 3vh;
     width: 100%;
     height: 100%;
     display: flex;
@@ -199,7 +204,7 @@ main{
 
 .boxContainer_order-child-order p{
     margin: 5px;
-    font-size: 12px;
+    font-size: 1.1em;
 }
 .boxContainer_order-child-order input{
     width: 80vw;
@@ -209,7 +214,7 @@ main{
     background-color: #f4f5f5;
     border-radius: 6px;
     border:none;
-    font-size: 12px;
+    font-size: 1.1em;
     outline: none;
 }
 
@@ -217,26 +222,7 @@ main{
 /* CSS : app-user-order-child-order End */
 
 
-/* CSS : app-user-order-child-to Start */
-.boxContainer_order-child-to{
-    width: 100%;
-    height: 100%;
-    margin-bottom: 15vh;
-}
-.boxContainer_order-child-to .textBox_child_to{
-    cursor: pointer;
-    margin: 0 auto;
-    width:80vw;
-    height: 48vh;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    border-radius: 22px;
-    font-weight: 500;
-    font-size: 20px;
-    overflow-y: scroll;
-}
 
-/* CSS : app-user-order-child-to End */
 
 /* CSS : app-user-order-child-order-complete Start */
 .boxContainer_order_child_order_complete{
@@ -246,7 +232,7 @@ main{
     flex-flow: column nowrap;
     width: 100%;
     height: 100%;
-    margin-top: 15px;
+    margin-top: 7vh;
     /* background-color: rgb(212, 212, 236); */
     /* overflow-y:scroll; */
 }
@@ -259,12 +245,12 @@ main{
 
 .boxContainer_order_child_order_complete p{
     margin: 5px;
-    font-size: 12px;
+    font-size: 1em;
 }
 .boxContainer_order_child_order_complete input{
     width: 80vw;
     height: 4vh;
-    padding-left: 10px;
+    padding-left: 1.5vw;
     /* background-color: coral; */
     background-color: #f4f5f5;
     border-radius: 14px;
@@ -274,34 +260,59 @@ main{
 /* CSS : app-user-order-child-order-complete End */
 
 
+/* CSS : app-user-order-exec-complete  Start */
+.boxContainer_order_exec_complete{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+    /* background-color: rgb(212, 212, 236); */
+    /* overflow-y:scroll; */
+}
+.boxContainer_order_exec_complete p{
+    margin: 5px;
+    font-size: 12px;
+}
+.boxContainer_order_exec_complete input{
+    height: 33px;
+    padding-left: 10px;
+    /* background-color: coral; */
+    background-color: #f4f5f5;
+    border-radius: 14px;
+    border:none;
+}
+
+/* CSS : app-user-order-exec-complete  End */
+
 
 
 /* CSS : selectBox Style Start */
 .selectBox{
     display: flex;
     justify-content: center;
-    margin:3vh auto;
+    align-items: center;
+    margin:2vh auto;
     width: 80vw;
     height:10vh;
     /* background-color: red; */
 }
 
-.selectBox a{
-    width: 100%;
-    justify-content: center;
-}
-
 .selectBox .selectButton{
     cursor: pointer;
     margin: 0 auto;
-    width: 100%;
+    width: 80vw;
     height: 8vh;
     border:none;
-    background-color: #F2F2F2;
+    background-color: #0d6efd;
+    color: #ffffff;
     /* background-color: red; */
     border-radius: 99px;
 }
 
+.selectBox .btnDiv2{
+    width: 35vw;
+}
 
 .selectBox .selectButton > p{
     margin: 0 auto;

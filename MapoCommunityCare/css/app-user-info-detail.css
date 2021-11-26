@@ -1,6 +1,9 @@
 /* --header Start----- */
 header{
     display: block;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 8vh;
     position: fixed;
@@ -41,30 +44,30 @@ main{
     margin-bottom: 8.5vh;
 }
 .mainContainer{
-    width: 90%;
+    width: 90vw;
     height: 78vh;
 
     /* background-color: chartreuse; */
     position: relative;
 }
 .title{
+    display: block;
     width: 100%;
     height: 7vh;
-    line-height: 7vh;
-    /* background-color: #c4c4c4; */
+    /* background-color: red; */
 }
 .title h1{
     margin: 0 auto;
+    font-family: 'Noto Sans KR', sans-serif;
     /* background-color: red; */
 }
 .boxContainer{
     margin: 0 auto;
     display: flex;
-    justify-content: flex-start;
     flex-flow: column nowrap;
     width: 100%;
     height: 100%;
-    padding : 1vmax;
+    padding : 1vw;
     /* background-color: green; */
     overflow-y:scroll;
 }
@@ -85,15 +88,16 @@ main{
 .selectBox{
     margin-top: 5vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-flow: row nowrap;
+    width: 100%;
     /* background-color: red; */
 }
 
 .selectBox .change{
     cursor: pointer;
-    margin : 0px 2vw;
+    margin : 1vw auto;
     width: 35vw;
     height: 5.5vh;
     /* background-color: #c4c4c4; */
@@ -102,7 +106,7 @@ main{
 
 .selectBox .cancel{
     cursor: pointer;
-    margin : 0px 2vw;
+    margin : 1vw auto;
     width: 35vw;
     height: 5.5vh;
     /* background-color: #c4c4c4; */
@@ -138,9 +142,6 @@ main{
 }
 
 
-.app-user-info-detail-change{
-
-}
 
 .app-user-info-detail-change .selectBox{
     display: flex;
@@ -162,7 +163,7 @@ main{
     position: absolute;
     top: 15%;
     width: 70vw;
-    height: 70vh;
+    height: 50vh;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -181,7 +182,6 @@ main{
     font-size: 24px;
 }
 
-
 .form-select{
     margin:0 auto;
     width: 55vw;
@@ -192,7 +192,9 @@ main{
 }
 
 .app-user-info-detail-cancel .selectBox{
+    margin: 15vw auto;
     display: flex;
+    width: 55vw;
     justify-content: space-between;
     /* background-color: yellow; */
 }

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-join-accept.css">
 </head>
@@ -13,22 +14,18 @@
         <div class="title">
             <h1>약관동의</h1>
         </div>
-        <p></p>
         <label for="chk">
-            <input type="checkbox" id="chk">
+            <input type="checkbox" id="chk" name="agree" onclick="selectAll(this)">
             <i class="circle"></i>
             <span class="check_text">전체동의</span>
         </label>
         <div class="checkbox_group"> 
-                  
-        <p>
-            <label for="chk1">
-                <input type="checkbox" id="chk1">
-                <i class="circle"></i>
-                <span class="check_text">이용약관</span>
-            </label>
-        </p>
-        <textarea name="" readonly><예시 내용 -> 삽입 요망>
+        <label for="chk1">
+            <input type="checkbox" id="chk1" name="agree">
+            <i class="circle"></i>
+            <span class="check_text">이용약관</span>
+        </label>
+        <textarea name="" readonly>(예시 내용) -> 삽입 요망
 중구스마트케어 서비스이용약관
 
 제1조(목적) 
@@ -44,17 +41,14 @@
 ④ “중구스마트케어”가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 중구스마트케어의 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지합니다. 다만, 이용자에게 불리하게 약관내용을 변경하는 경우에는 최소한 30일 이상의 사전 유예기간을 두고 공지합니다. 이 경우“중구스마트케어”는 개정 전 내용과 개정 후 내용을 명확하게 비교하여 이용자가 알기 쉽도록 표시합니다. 
 ⑤ “중구스마트케어”가 약관을 개정할 경우에는 그 개정약관은 그 적용일자 이후에 체결되는 계약에만 적용되고 그 이전에 이미 체결된 계약에 대해서는 개정 전의 약관조항이 그대로 적용됩니다. 다만 이미 계약을 체결한 이용자가 개정약관 조항의 적용을 받기를 원하는 뜻을 제3항에 의한 개정약관의 공지 기간 내에 “중구스마트케어”에 송신하여 “중구스마트케어”의 동의를 받은 경우에는 개정약관 조항이 적용됩니다. ⑥ 이 약관에서 정하지 아니한 사항과 이 약관의 해석에 관하여는 전자상거래 등에서의 소비자보호에 관한 법률, 약관의 규제 등에 관한 법률, 공정거래위원회가 정하는 전자상거래 등에서의 소비자 보호 지침 및 관계 법령 또는 상관례에 따릅니다. 제4조(서비스의 제공 및 변경) ① “중구스마트케어”는 다음과 같은 서비스를 제공합니다. 1. 서비스 제공 계약 및 제공 관련 업무 지원 서비스 2. 재화 또는 용역에 대한 정보 제공 및 구매계약의 체결 3. 구매계약이 체결된 재화 또는 용역의 제공 4. 기타 “중구스마트케어”가 정하는 업무 ② “중구스마트케어”는 ‘돌봄서비스 공급자’가 재화 또는 용역의 품절 또는 기술적 사양의 등을 변경하는 경우에는 장차 체결되는 계약에 의해 제공할 재화 또는 용역의 내용을 변경할 수 있습니다. 이 경우에는 변경된 재화 또는 용역의 내용 및 제공 일자를 명시하여 현재의 재화 또는 용역의 내용을 게시한 곳에 즉시 공지합니다. ③ “중구스마트케어”는 ‘돌봄서비스 공급자’제공하기로
 
-
         </textarea>
-        <p>
-            <label for="chk2">
-                <input type="checkbox" id="chk2">
-                <i class="circle"></i>
-                <span class="check_text">개인정보 이용동의</span>
-            </label>
-        </p>
 
-        <textarea name="" readonly><예시 내용 -> 삽입 요망>
+        <label for="chk2">
+            <input type="checkbox" id="chk2" name="agree">
+            <i class="circle"></i>
+            <span class="check_text">개인정보 이용동의</span>
+        </label>
+        <textarea name="" readonly>(예시 내용) -> 삽입 요망
 
 < ㅇㅇ >('ㅇㅇ'이하 'ㅇㅇ')은(는) 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
 
@@ -187,25 +181,12 @@
 연락처 : , ,
         </textarea>
         </div>   
-        <button class="nextButton" type="button" onclick="location.href='app-user-join-input.html'">
-            <p>다음</p>
+        <button class="btn btn-primary nextButton" type="button" onclick="location.href='app-user-join-input.html'">
+            다음
         </button>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-        $(".checkbox_group").on("click", ".check_all", function () {
-        $(this).parents(".checkbox_group").find('input').prop("checked", $(this).is(":checked"));
-    });
-
-    // 체크박스 개별 선택
-    $(".checkbox_group").on("click", ".normal", function() {
-        var is_checked = true;
-        
-        $(".checkbox_group .normal").each(function(){
-            is_checked = is_checked && $(this).is(":checked");
-        });
-
-        $(".check_all").prop("checked", is_checked);
-    });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="js/app-user-join-accept.js"></script>
 </body>
 </html>

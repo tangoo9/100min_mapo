@@ -15,7 +15,7 @@ static-style.css 적용함. 나중에 전체적인 수정필요.
     }
 
 */
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 @font-face {
     font-family: 'SDSamliphopangche_Basic';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Basic.woff') format('woff');

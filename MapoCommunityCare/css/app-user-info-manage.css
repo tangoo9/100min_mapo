@@ -47,13 +47,15 @@ body{
     position: relative;
 }
 .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 40px;
+    height: 7vh;
     /* background-color: #c4c4c4; */
 }
 .title h1{
-    display: inline;
-    line-height: 40px;
+    font-family: 'Noto Sans KR', sans-serif;
     margin:0 auto;
 }
 .boxContainer{
@@ -66,8 +68,8 @@ body{
     overflow-y:scroll;
 }
 .boxContainer p{
-    margin: 2px;
-    font-size: 12px;
+    margin: 1vw;
+    font-size: 1rem;
 }
 .boxContainer input{
     width: 100%;
@@ -81,8 +83,8 @@ body{
 }
 
 .boxContainer .buttonStyle{
-    margin : 10px 0px;
-    height: 33px;
+    margin : 1.5vw;
+    height: 6vh;
     background-color: #0d6efd;
     color: white;
     border-radius: 10px;
@@ -103,9 +105,9 @@ body{
 
 .selectBox .selectButton{
     cursor: pointer;
-    margin : 0px 2vw;
-    width: 45vw;
-    height: 5vh;
+    margin : 2vw;
+    width: 40vw;
+    height: 5.5vh;
     /* background-color: #c4c4c4; */
     border: none;
 }
@@ -116,7 +118,6 @@ body{
 .app-user-info-manage-tel{
     display: none;
     /* display: block; */
-    
     z-index: 1001;
     position: absolute;
     top: 15%;
