@@ -17,9 +17,6 @@ faq,polices,version에 대한 스타일을 이 css파일에서 공유함.
 
 
 /* --header Start----- */
-
-
-/* --header Start----- */
 header{
     display: block;
     top: 0;
@@ -39,9 +36,14 @@ header{
     flex-flow: row nowrap;
     width: 35vw;
     height: 8vh;
-    /* background-color: red; */
     background-color: #ffffff;
+    /* background-color: red; */
     border: none;
+}
+.returnButton_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 header p{
     margin-left: 4vw;

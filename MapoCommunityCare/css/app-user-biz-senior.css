@@ -34,16 +34,20 @@ header{
     flex-flow: row nowrap;
     width: 35vw;
     height: 8vh;
-    /* background-color: red; */
     background-color: #ffffff;
+    /* background-color: red; */
     border: none;
+}
+.returnButton_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 header p{
     margin-left: 4vw;
     display: inline-block;
     font-size: 1rem;
 }
-
 /* --header End----- */
 
 /* --main Start--------- */
@@ -83,6 +87,6 @@ main{
     height: 62.5vh;
     resize: none;
     outline: none;
-    font-size: 0.2rem;
+    font-size: 0.8rem;
     border:1px solid #ababab;
 }

@@ -18,9 +18,14 @@ header{
     flex-flow: row nowrap;
     width: 35vw;
     height: 8vh;
-    /* background-color: red; */
     background-color: #ffffff;
+    /* background-color: red; */
     border: none;
+}
+.returnButton_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 header p{
     margin-left: 4vw;

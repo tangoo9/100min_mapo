@@ -12,14 +12,7 @@ body{
 }
 ::-webkit-scrollbar { display: none; }
 /* ---------------- */
-/* --header Start
 
-
-user-info-list  전용 헤더부분
-(타 페이지랑 중복 스타일 불가)
-
-
------ */
 /* --header Start----- */
 header{
     display: block;
@@ -44,6 +37,11 @@ header{
     /* background-color: red; */
     border: none;
 }
+.returnButton_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 header p{
     margin-left: 4vw;
     display: inline-block;
@@ -51,10 +49,12 @@ header p{
 }
 
 /* --header End----- */
-
-
 main{
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
     margin-top: 8vh;
+    margin-bottom: 8.5vh;
 }
 .title{
     width: 100%;
@@ -66,7 +66,6 @@ main{
 .title h1{
     margin: 0 auto;
     font-family: 'Noto Sans KR', sans-serif;
-    line-height: initial;
 }
 
 #boxContainer{
@@ -78,8 +77,6 @@ main{
     height: 100%;
     /* background-color: rgb(212, 212, 236); */
     /* overflow:hidden; */
-    margin-bottom: 8.5vh;
-    
 }
 
 .listContainer{

@@ -24,12 +24,14 @@ main h1{
 }
 
 .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     margin: 2vw auto;
     margin-top: 2.5vh;
     width :77vw;
-    height: 10vh;
-    line-height: 10vh;
+    height: 9vh;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 22px;
