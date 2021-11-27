@@ -77,3 +77,12 @@ main{
 .textBox span{
     display: inline;
 }
+
+.textarea{
+    width: 85vw;
+    height: 62.5vh;
+    resize: none;
+    outline: none;
+    font-size: 0.2rem;
+    border:1px solid #ababab;
+}

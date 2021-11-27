@@ -51,54 +51,52 @@ main{
     /* background-color: blue; */
 }    
 .inputBox{
-    margin: 3vw 2vw;
+    margin: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 80vw;
-    height: 19vw;
-    line-height: 19vw;
+    height: 12.5vw;
     background:  #F7F8F8;
     border: 1px solid #F7F8F8;
     box-sizing: border-box;
     border-radius: 14px;
     /* background-color:blue; */
 }
+.inputBox:nth-child(1){
+    margin-top: 5vw;
+}
 .inputStyle{
     width: 90vw;
-    height: 18vw;
+    height: 12.5vw;
     padding-left: 2vw;
     border: none;
     border-radius: 14px;
     background:  #F7F8F8;
     outline: none;
-    font-size: 0.7rem;
+    font-size: 1rem;
 }
 .inputStyle::placeholder{
     color: #ADA4A5;
 }
 
-.inputStyle2{
-    margin-right: 4vw;
+.ver2{
     width: 58vw;
-    height: 18vw;
+    height: 12.5vw;
+    margin-right: 4vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
-    border-radius: 14px;
-    padding-left: 2vw;
-    font-size: 0.7rem;
     background:  #F7F8F8;
-    outline: none; 
+    font-size: 0.7rem;
 }
-.inputStyle2::placeholder{
+.ver2::placeholder{
     color: #ADA4A5;
 }
 .buttonStyle_inner{
     width: 25vw;
-    height: 18vw;
-    margin: 0 auto;
+    height: 12.5vw;
+    margin: 1vw auto;
     font-size: 0.8rem;
     font-family: 'SDSamliphopangche_Basic';
 /*

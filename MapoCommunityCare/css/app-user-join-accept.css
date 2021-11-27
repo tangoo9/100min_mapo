@@ -17,7 +17,7 @@ a{
 }
 
 main{
-    margin-top: 20vw;
+    margin-top: 10vw;
     width: 100%;
     height: initial;
     display: flex;
@@ -27,9 +27,12 @@ main{
     text-align: center;
     /* background-color:  #F07B22; */
 }
+main .left{
+    text-align: start;
+}
 .title{
     margin-top: 4vh;
-    margin-bottom: 8vh;
+    margin-bottom: 4vh;
     width: 100%;
     height: 6vh;
     text-align: center;
@@ -48,10 +51,14 @@ span{
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 0.8rem;
 }
-hr{
-    width: 100%;
-    border: 1px solid black;
+
+.subtitle{
+    margin: 1vw;
+    text-align: start;
+    /* color: red; */
 }
+
+
 
 .checkbox_group{
     margin-top: 2vh;

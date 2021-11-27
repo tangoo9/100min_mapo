@@ -37,7 +37,7 @@ header p{
 ::-webkit-scrollbar { display: none; }
 /* ---------------- */
 body{
-    margin-top: 4vh;
+    margin-top: 2vh;
 }
 .mainContainer{
     margin-bottom: 8.5vh;
@@ -107,7 +107,7 @@ body{
     cursor: pointer;
     margin : 2vw;
     width: 40vw;
-    height: 5.5vh;
+    height: 6.5vh;
     /* background-color: #c4c4c4; */
     border: none;
 }
@@ -122,7 +122,7 @@ body{
     position: absolute;
     top: 15%;
     width: 70vw;
-    height: 60vh;
+    height: 55vh;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -136,7 +136,7 @@ body{
 }
 .app-user-info-manage-tel .popup_title h1{
     margin: auto;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 .app-user-info-manage-tel .popup_selectListContianer{
     display: flex;
@@ -151,19 +151,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 95%;
+    width: 60vw;
     height: 20vh;
     border: none;
     box-sizing: border-box;
     border-radius: 14px;
+    /* background-color: red; */
 }
 .app-user-info-manage-tel .popup_selectListContianer .inputStyle{
-    width: 50vw;
+    width: 42vw;
     height: 8vh;
     border: none;
     border-radius: 14px;
     padding-left: 5px;
-    font-size: 0.35rem;
+    font-size: 0.8rem;
     background:  #F7F8F8;
 }
 .app-user-info-manage-tel .popup_selectListContianer .inputStyle::placeholder{
@@ -173,9 +174,9 @@ body{
     margin-left: 3.5vw;
     width: 20vw;
     height: 8vh;
-    font-size: 0.35rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    background:  #F7F8F8; 
+    /* background:  #F7F8F8;  */
     border: none;
     border-radius: 14px;
     box-sizing: border-box;
@@ -189,8 +190,8 @@ body{
 }
 
 .selectBox .btn {
-    width: 45%;
-    font-family: 'SDSamliphopangche_Basic';
+    width: 100%;
+    /* font-family: 'SDSamliphopangche_Basic'; */
 }
 
 /* --app-user-info-manage-tel End*/
@@ -203,36 +204,37 @@ body{
     position: absolute;
     top: 15%;
     width: 70vw;
-    height: 70vh;
+    height: 55vh;
     background-color:#ffffff;
     border: 1px solid #000000;
-    padding :20px;
+    padding : 4vw;
 }
 .popup_title{
     display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    height: 60px;
-    line-height: 60px;
+    height: 10vh;
     /* background-color: royalblue; */
 }
 .popup_title h1{
     margin: auto;
-    font-size: 24px;
+    font-size: 1.5em;
 }
 .app-user-info-manage-addr .popup_selectListContianer{
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 110px;
+    height: 20vh ;
     /* background-color: black; */
 }
 .app-user-info-manage-addr .popup_selectListContianer .inputBox{
     display: flex;
-    justify-content: space-between;
     width: 100%;
-    height: 44px;
-    padding:1px;
+    height: 8vh;
+    padding:1.5vw;
     /* background:  #3fe0e0; */
     border: none;
     box-sizing: border-box;
@@ -240,39 +242,40 @@ body{
 }
 .app-user-info-manage-addr .popup_selectListContianer .inputStyle{
     width: 100%;
-    height: 44px;
+    height: 7vh;
     border: none;
     border-radius: 14px;
-    padding-left: 5px;
-    font-size: 0.35rem;
+    padding-left: 1vw;
+    font-size: 0.8rem;
     background:  #F7F8F8;
+    outline: none;
 }
 .app-user-info-manage-addr .popup_selectListContianer .inputStyle::placeholder{
     color: #ADA4A5;
 }
 .app-user-info-manage-addr .popup_selectListContianer .addrBox_button{
-    margin-left: 15px;
-    width: 90px;
-    height: 44px;
-    font-size: 0.35rem;
+    margin-left: 2vw;
+    width: 20vw;
+    height: 7vh;
+    font-size: 0.8rem;
     font-weight: 600;
     background:  #F7F8F8;
     border: none;
     border-radius: 14px;
     box-sizing: border-box;
-    color: #000000;
+    color:white;
+    background-color: #0d6efd;
 }
 
 .app-user-info-manage-addr .selectBox{
     display: flex;
     justify-content: space-between;
-    margin-top: 150px;
+    margin-top: 9vh;
     /* background-color: saddlebrown; */
 }
 
 .selectBox .btn {
     width: 45%;
-    font-family: 'SDSamliphopangche_Basic';
 }
 
 /* --Layer popup app-user-info-manage-addr End*/
@@ -283,7 +286,6 @@ body{
     /* display: flex; */
     flex-flow: column nowrap;
     justify-content: space-around;
-    
     z-index: 1001;
     position: absolute;
     top: 20%;
@@ -291,7 +293,7 @@ body{
     height: 50vh;
     background-color:#ffffff;
     border: 1px solid #000000;
-    padding :20px;
+    padding :2vw;
     text-align: center;
 }
 .app-user-info-manage-logout h2{
@@ -306,7 +308,6 @@ body{
     /* display: flex; */
     flex-flow: column nowrap;
     justify-content: space-around;
-    
     z-index: 1001;
     position: absolute;
     top: 20%;
@@ -314,7 +315,7 @@ body{
     height: 50vh;
     background-color:#ffffff;
     border: 1px solid #000000;
-    padding :20px;
+    padding :2vw;
     text-align: center;
 }
 
@@ -324,12 +325,15 @@ body{
 }
 .app-user-info-manage-out .popup_selectListContianer{
     width: 100%;
-    height: 40px;
+    height: 10vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
     justify-content: space-between;
     /* background-color: red; */
 }
 .app-user-info-manage-out .popup_selectListContianer .btn{
     width: 45%;
+    height: 7vh;
 }
 /* Layer popup app-user-info-manage-out End */

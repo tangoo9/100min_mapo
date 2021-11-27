@@ -47,21 +47,34 @@ main{
 }
 
 .box{
+    position: relative;
     cursor: pointer;
     margin: 5vh 10vw;
     margin-top: 9vh;
     width:80vw;
     height: 45vh;
-    line-height: 45vh;
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 22px;
     text-align: center;
     font-weight: 500;
     font-size: 1.5rem;
+    background:url('../image/child_care.png') no-repeat;
+    background-size:cover;
+    background-position:center;
 }
 
 .box p{
+    position:absolute;
+    width: 100%;
+    height: 6vh;
+    line-height: 6vh;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0 auto;
+    background-color:rgba(0, 0, 0, 0.50);
+    color: #ffffff;
     margin: 0 auto;
 }
 
