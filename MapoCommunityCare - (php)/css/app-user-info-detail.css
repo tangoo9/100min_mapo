@@ -36,6 +36,8 @@ header p{
 /* --header End----- */
 
 
+
+
 /* scrollbar option */
 .boxContainer{
     -ms-overflow-style: none; 
@@ -46,14 +48,13 @@ main{
     margin-top: 8vh;
     margin-bottom: 8.5vh;
 }
-
 .mainContainer{
     width: 90vw;
     height: 78vh;
+
     /* background-color: chartreuse; */
     position: relative;
 }
-
 .title{
     display: block;
     width: 100%;
@@ -124,10 +125,11 @@ main{
     z-index: 1001;
     display: none;
     /* display: block; */
+
     position: absolute;
     top: 15%;
     width: 70vw;
-    height: 55vh;
+    height: 60vh;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -135,11 +137,13 @@ main{
 .popup_title{
     display: flex;
     text-align: center;
+    height: 60px;
+    line-height: 60px;
     /* background-color: royalblue; */
 }
 .popup_title h1{
     margin: auto;
-    font-size: 1.4rem;
+    font-size: 24px;
 }
 
 
@@ -164,7 +168,7 @@ main{
     position: absolute;
     top: 15%;
     width: 70vw;
-    height: 55vh;
+    height: 60vh;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -174,7 +178,8 @@ main{
 .popup_title{
     display: flex;
     text-align: center;
-    height: 7vh;
+    height: 60px;
+    line-height: 60px;
     /* background-color: royalblue; */
 }
 .popup_title h1{

@@ -10,9 +10,16 @@
 </head>
 <body>
         <main class="introPage_1">
-            <h1 class="title">인트로4</h1>
-            <button class="nextButton" type="button" onclick="location.href='app-user-login.html'">
-                >
-            </button>
+            <h1 class="title">인트로1</h1>
+            <p>
+                마포구 내 틈새 돌봄이 필요한 아동, 어르신 누구나..
+            </p>
+            <p>
+                마포에서 만나는 통합돌봄서비스
+            </p>
+        <button class="nextButton" type="button" onclick="location.href='app-user-intro2'">
+            >
+        </button>
+
 </body>
 </html>

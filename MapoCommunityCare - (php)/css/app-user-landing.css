@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'SDSamliphopangche_Basic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Basic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html{
+    height: 101%;
+}
+body{
+    display: flex;
+    margin:0;
+    padding: 0;
+    height: 101%;
+}
+ul,li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black ;
+}
+main{
+    width: 100%;
+    height: 101%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items:center;
+    background-color:  #F07B22;
+}
+.logo{
+    margin: 80px auto;
+    margin-bottom: -50px;
+    width: 128px;
+    height: 128px;
+    /* border:solid 1px #ffffff; */
+    border-radius: 5px;
+    text-align: center;
+}
+.title{
+    font-family: SDSamliphopangche_Basic;
+    font-weight: 500;
+    font-size: 2.5em;
+    letter-spacing: 1.6px;
+    color: #ffffff;
+}
+.copyright{
+    /* position: fixed; */
+    margin-top: 20px;
+    font-family: SDSamliphopangche_Basic;
+    color: #ffffff;
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+}
+
+/* 
+@media screen and (max-width:360px ){
+    main{
+        width: 360px;
+        height: 640px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        background-color:  #F07B22;
+    
+    }
+    .logo{
+        width: 128px;
+        height: 128px;
+        border:solid 1px #ffffff;
+        border-radius: 5px;
+    }
+    .title{
+        font-family: SDSamliphopangche_Basic;
+        font-weight: 500;
+        font-size: 36px;
+        color: #ffffff;
+    }
+    .copyright{
+        color: #ffffff;
+    }
+
+    
+} */

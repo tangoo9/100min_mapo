@@ -11,7 +11,7 @@
 <body>
         <main class="introPage_1">
             <h1 class="title">인트로4</h1>
-            <button class="nextButton" type="button" onclick="location.href='app-user-login.html'">
+            <button class="nextButton" type="button" onclick="location.href='app-user-login'">
                 >
             </button>
 </body>

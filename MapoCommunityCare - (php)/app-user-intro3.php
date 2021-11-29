@@ -10,8 +10,15 @@
 </head>
 <body>
         <main class="introPage_1">
-            <h1 class="title">인트로4</h1>
-            <button class="nextButton" type="button" onclick="location.href='app-user-login.html'">
+            <h1 class="title">인트로3</h1>
+            <p>
+                이용자 관련 수집할 개인정보 내용 추가 부분 ⟶
+            </p>
+            <p>
+                이용자 성별추가(필수)/아동의 경우 학교/학년(선택)
+            </p>
+
+            <button class="nextButton" type="button" onclick="location.href='app-user-intro4'">
                 >
             </button>
 </body>

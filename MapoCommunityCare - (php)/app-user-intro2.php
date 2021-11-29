@@ -10,8 +10,11 @@
 </head>
 <body>
         <main class="introPage_1">
-            <h1 class="title">인트로4</h1>
-            <button class="nextButton" type="button" onclick="location.href='app-user-login.html'">
+            <h1 class="title">인트로2</h1>
+            <p>
+                앱 약관 및 개인정보 이용동의 ⟶ 표준약관
+            </p>
+            <button class="nextButton" type="button" onclick="location.href='app-user-intro3'">
                 >
             </button>
 </body>
