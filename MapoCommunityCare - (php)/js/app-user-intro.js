@@ -2,7 +2,7 @@
 
 setTimeout(function(){
     location.href="app-user-intro"
-},5000);
+},2000);
 
 
 

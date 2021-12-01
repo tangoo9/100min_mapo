@@ -24,8 +24,7 @@
         <main>
             <section class="textSection">
                     <div class="textBox">
-                        <!-- 21.11.29  폰트 수정-->
-                        <h2>홈케어 돌봄 소개</h2>
+                        <h1>홈케어 돌봄 소개</h1>
                         <textarea class="textarea">
 FAQ 정보(홈케어)
 

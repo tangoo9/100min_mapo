@@ -1,0 +1,209 @@
+/* 
+memo 
+
+1) app-user-ask 연관 css스타일 : 
+faq,polices,version에 대한 스타일을 이 css파일에서 공유함.
+    
+*/
+
+
+/* scrollbar option */
+/* body{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; } */
+/*scrollbar option End */
+
+
+
+/* --header Start----- */
+header{
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 8vh;
+    position: fixed;
+    z-index: 99;
+    background-color:#ffffff;
+}
+
+.returnButton_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 35vw;
+    height: 8vh;
+    background-color: #ffffff;
+    /* background-color: red; */
+    border: none;
+}
+.returnButton_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header p{
+    margin-left: 4vw;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+/* --header End----- */
+body{
+    height: initial;
+}
+.mainContainer{
+    margin: 0 auto;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+    width: 90%;
+    height: 100%;
+    /* background-color: chartreuse; */
+    position: relative;
+}
+.title{
+    width: 100%;
+    height: 8vh;
+    line-height: 8vh;
+    /* background-color: #c4c4c4; */
+}
+main h1{
+    margin:0 auto;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+}
+.boxContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+    /* margin-top: 15vh; */
+    overflow:hidden;
+}
+
+.box{
+    cursor: pointer;
+    margin: 4vmin auto;
+    margin-top: 2.5vh;
+    width :80vw;
+    height: 10vh;
+    line-height: 10vh;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 22px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+.box p{
+    margin: 0 auto;
+}
+.box:nth-child(1){
+    margin-top: 5vh;
+}
+
+/* CSS : app-user-ask-faq  Start*/
+#boxContainer_faq{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content:space-between;
+    align-items: center;
+    width: 90%;
+    /* background-color: blue; */
+    margin-top: 3vh;
+    margin-bottom: 15vh;
+    overflow:hidden;
+}
+
+.searchBox_faq{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80vw;
+    height: 8vh;
+    background: rgba(118, 118, 128, 0.12);
+    border-radius: 10px;
+}
+.search_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8vw;
+    height: 8vh;
+    /* margin: 0 auto; */
+    /* background-color: red; */
+}
+.search{
+    padding-left: 0.5vw;
+    width: 67vw;
+    height: 6.9vh;
+    border: none;
+    outline: none;
+}
+.textBox_faq{
+    width: 100%;
+    height: 360px;
+    /* background-color: red; */
+}
+/* CSS : app-user-ask-faq  End*/
+/* CSS : app-user-ask-polices  Start*/
+#boxContainer_polices{
+    /* background-color: red; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+    overflow:hidden;
+}
+
+#boxContainer_polices .subContainer{
+    margin-top: 3vh;
+    width: 100%;
+    height: 100%;
+    /* background-color: yellow; */
+}
+
+.subContainer .textTitle{
+    display: inline-block;
+    margin-top: 1.5vh;
+    margin-bottom: 0.5vh;
+    margin-left: 0.3vw;
+    font-size: 1em;
+    font-weight: bold;
+    /* background-color: pink; */
+}
+.textBox_polices{
+    width: 100%;
+    height:27vh;
+    border: 1px solid #d4d4d4;
+    overflow-y: scroll;
+    /* background-color: red; */
+}    
+
+
+/* CSS : app-user-ask-polices  End*/
+/* CSS : app-user-ask-version  Start*/
+.boxContainer_version{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+    /* background-color: khaki;  */
+}
+
+.boxContainer_version p{
+
+}
+
+/* CSS : app-user-ask-version  End*/

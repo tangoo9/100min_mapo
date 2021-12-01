@@ -24,8 +24,7 @@
         <main>
             <section class="textSection">
                     <div class="textBox">
-                        <!-- 21.11.29  폰트 수정-->
-                        <h2>아동 돌봄 소개</h2>
+                        <h1>아동 돌봄 소개</h1>
                         <textarea class="textarea">
 <거점형 초등돌봄 + 교육지원공간 마포자람>
 

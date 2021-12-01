@@ -1,3 +1,15 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$sql = "select * from order_info o 
+left join partner p on p.p_no = o.p_no
+where o_no = '{$_GET[o_no]}' and m_no = '{$_SESSION[m_no]}' order by o_order_date asc";
+$r = sqlresult($sql)[0];
+
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -29,19 +41,17 @@
                 </div>
                 <div class="boxContainer">
                     <p>주문번호</p>
-                    <input type="text" value="10101010" disabled>
+                    <input type="text" value="<?=$r[o_no]?>" disabled>
                     <p>서비스명</p>
-                    <input type="text" value="테스트 텍스트" disabled>
+                    <input type="text" value="<?=$r[o_service]?>" disabled>
                     <p>상세서비스</p>
-                    <input type="text" value="테스트 텍스트" disabled>
+                    <input type="text" value="<?=$r[o_service_detail]?>" disabled>
                     <p>예약시간</p>
-                    <input type="text" value="테스트 텍스트" disabled>
-                    <p>완료시간</p>
-                    <input type="text" value="테스트 텍스트" disabled>
+                    <input type="text" value="<?=$r[o_order_date]?>" disabled>
                     <p>서비스비고</p>
-                    <input type="text" value="테스트 텍스트" disabled>
+                    <input type="text" value="<?=$r[o_cmt]?>" disabled>
                     <p>서비스 제공자</p>
-                    <input type="text" value="테스트 텍스트" disabled>
+                    <input type="text" value="<?=$r[p_name]?>" disabled>
                     <div class="selectBox">
                         <button class="btn btn-primary change" type="button">변경하기</button>
                         <button class="btn btn-light cancel" type="button">취소하기</button>

@@ -17,8 +17,7 @@
         <div id="boxContainer_child">
             <div class="boxContainer_order-child-list-nouse">
                 <div class="subtitle">
-                     <!-- 21.11.29  폰트 수정-->
-                    <h2>1단계 : 업체선정</h2>
+                    <h1>1단계 : 업체선정</h1>
                 </div>
                 <div class="company_list">
                     <div class="listRow">

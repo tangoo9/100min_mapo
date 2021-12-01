@@ -18,8 +18,7 @@
             <div id="boxContainer_child">
                 <div class="boxContainer_order-child-order">
                     <div class="subtitle">
-                        <!-- 21.11.29  폰트 수정-->
-                        <h2>2단계 : 상세 내용 입력</h2>
+                        <h1>2단계 : 상세 내용 입력</h1>
                     </div>
                     <div class="company_list">
                         <p>서비스명</p>

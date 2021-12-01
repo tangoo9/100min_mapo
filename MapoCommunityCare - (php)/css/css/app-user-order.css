@@ -1,0 +1,335 @@
+/* 
+    memo 
+    1) app-user-order 연관 css스타일 : 
+    exec-complete, child-... 등 에 대한 스타일을 이 css파일에서 공유함.
+
+
+    2) 선택버튼 css 맨 아래에 분리함.
+
+    
+*/
+/* scrollbar option */
+body{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; }
+/* ---------------- */
+
+body{
+    height: initial;
+}
+main{
+    
+}
+
+.title{
+    width: 100%;
+    height: 15vh;
+    line-height: 15vh;
+    /* background-color: green; */
+}
+.title h1{
+    margin: 0 auto;
+    margin-top: 10vw;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#boxContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+    /* overflow:hidden; */
+}
+
+.box{
+    position: relative;
+    cursor: pointer;
+    margin: 5vh 10vw;
+    margin-top: 9vh;
+    width:80vw;
+    height: 45vh;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 22px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+    background:url('../image/child_care.png') no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+
+.box p{
+    position:absolute;
+    width: 100%;
+    height: 6vh;
+    line-height: 6vh;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0 auto;
+    background-color:rgba(0, 0, 0, 0.50);
+    color: #ffffff;
+    margin: 0 auto;
+}
+
+
+/* CSS : app-user-order-child Start */
+#boxContainer_child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    /* margin-top: 15px; */
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    /* background-color: salmon; */
+    /* overflow-y:scroll; */
+}
+#boxContainer_child > p{
+    font-size: 12px;
+}
+#boxContainer_child .textBox{
+    margin: 5vh 10vw;
+    margin-top: 9vh;
+    width:80vw;
+    height: 45vh;
+    padding : 2vw;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 22px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    overflow-y: scroll;
+    text-align: start;
+}
+
+
+/* CSS : app-user-order-child End */
+/* CSS : app-user-order-child-list-nouse Start */
+
+.boxContainer_order-child-list-nouse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 15vh;
+    /* background-color: red; */
+}
+.boxContainer_order-child-list-nouse .subtitle{
+    margin-top: 3vh;
+    width: 100%;
+    height: 8vh;
+    /* background-color: red; */
+}
+
+.boxContainer_order-child-list-nouse .company_list{
+    width: 87vw;
+    height: 48vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
+.boxContainer_order-child-list-nouse .company_list .listRow{
+    margin-bottom: 2vh;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 10vh;
+    line-height: 10vh;
+    background: #F7F8F8;
+    border: 1px solid #F7F8F8;
+    box-sizing: border-box;
+    border-radius: 14px;
+}
+
+.listRow label{
+    width: 20%;
+    font-size: 12px;
+    color: #ADA4A5;
+    text-align: center;
+}
+.listRow input{
+    width: 80%;
+    height: 100%;
+    padding-left: 10px;
+    color: #ADA4A5;
+    border: none;
+}
+
+/* CSS : app-user-order-child-list-nouse End */
+
+
+/* CSS : app-user-order-child-to Start */
+.boxContainer_order-child-to{
+    width: 100%;
+    height: 100%;
+    margin-top: 3vh;
+    margin-bottom: 8vh;
+    /* background-color: red; */
+}
+.boxContainer_order-child-to h1{
+    margin-top: 3vh;
+}
+.boxContainer_order-child-to .textBox_child_to{
+    cursor: pointer;
+    margin: 0 auto;
+    width:80vw;
+    height: 46vh;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 22px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    overflow-y: scroll;
+}
+.boxContainer_order-child-to .textBox_child_to > p{
+
+}
+/* CSS : app-user-order-child-to End */
+
+/* CSS : app-user-order-child-order Start */
+.boxContainer_order-child-order{
+    margin-top: 3vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+.boxContainer_order-child-order .company_list{
+    text-align: left;
+}
+
+.boxContainer_order-child-order p{
+    margin: 5px;
+    font-size: 1.1em;
+}
+.boxContainer_order-child-order input{
+    width: 80vw;
+    height: 4vh;
+    padding-left: 0.5vw;
+    /* background-color: coral; */
+    background-color: #f4f5f5;
+    border-radius: 6px;
+    border:none;
+    font-size: 1.1em;
+    outline: none;
+}
+
+
+/* CSS : app-user-order-child-order End */
+
+
+
+
+/* CSS : app-user-order-child-order-complete Start */
+.boxContainer_order_child_order_complete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    margin-top: 7vh;
+    /* background-color: rgb(212, 212, 236); */
+    /* overflow-y:scroll; */
+}
+.boxContainer_order_child_order_complete .textBox_child_order_complete{
+    width: 80vw;
+    height: 100%;
+    border: none;
+
+}
+
+.boxContainer_order_child_order_complete p{
+    margin: 5px;
+    font-size: 1em;
+}
+.boxContainer_order_child_order_complete input{
+    width: 80vw;
+    height: 4vh;
+    padding-left: 1.5vw;
+    /* background-color: coral; */
+    background-color: #f4f5f5;
+    border-radius: 14px;
+    border:none;
+    outline: none;
+}
+/* CSS : app-user-order-child-order-complete End */
+
+
+/* CSS : app-user-order-exec-complete  Start */
+.boxContainer_order_exec_complete{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+    /* background-color: rgb(212, 212, 236); */
+    /* overflow-y:scroll; */
+}
+.boxContainer_order_exec_complete p{
+    margin: 5px;
+    font-size: 12px;
+}
+.boxContainer_order_exec_complete input{
+    height: 33px;
+    padding-left: 10px;
+    /* background-color: coral; */
+    background-color: #f4f5f5;
+    border-radius: 14px;
+    border:none;
+}
+
+/* CSS : app-user-order-exec-complete  End */
+
+
+
+/* CSS : selectBox Style Start */
+.selectBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:2vh auto;
+    width: 80vw;
+    height:10vh;
+    /* background-color: red; */
+}
+
+.selectBox .selectButton{
+    cursor: pointer;
+    margin: 0 auto;
+    width: 80vw;
+    height: 8vh;
+    border:none;
+    background-color: #0d6efd;
+    color: #ffffff;
+    /* background-color: red; */
+    border-radius: 99px;
+}
+
+.selectBox .btnDiv2{
+    width: 35vw;
+}
+
+.selectBox .selectButton > p{
+    margin: 0 auto;
+    font-size: 20px !important;
+}
+
+/* CSS : selectBox Style End */

@@ -1,3 +1,15 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$sql = "select * from order_info o 
+left join partner p on p.p_no = o.p_no
+where o_status!= '취소' and m_no = '{$_SESSION[m_no]}' order by o_order_date asc";
+$r = sqlresult($sql);
+$rr = sqlrow($sql);
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -29,10 +41,10 @@
             <div class="listContainer">
                 <div class="listMenu">
                     <div class="listMenu_button">
-                        <p>진행예정</p>
+                        <p onclick="location.href='app-user-info-list'">진행예정</p>
                     </div>
                     <div class="listMenu_button">
-                        <p>완료 및 취소 내역</p>
+                        <p onclick="location.href='app-user-info-list-cancel'">완료 및 취소 내역</p>
                     </div>
                 </div>
                 <table class="list">
@@ -45,56 +57,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    for($i=0;$i<$rr;$i++){
+                        ?>
                         <tr>
-                            <td><span>10월 1일 </span><br>13시</td>
+                            <td><span><?=date("n월 j일", strtotime($r[$i][o_order_date]))?></span><br><?=date("h시", strtotime($r[$i][o_order_date]))?></td>
                             <td>아동돌봄</td>
-                            <td>예정</td>
+                            <td><?=$r[$i][o_status]?></td>
                             <td class="detail">
-                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail'">
+                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail?o_no=<?=$r[$i][o_no]?>'">
                                     상세
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td><span>10월 1일 </span><br>13시</td>
-                            <td>아동돌봄</td>
-                            <td>예정</td>
-                            <td class="detail">
-                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail'">
-                                    상세
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span>10월 1일 </span><br>13시</td>
-                            <td>아동돌봄</td>
-                            <td>예정</td>
-                            <td class="detail">
-                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail'">
-                                    상세
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span>10월 1일</span><br>13시</td>
-                            <td>아동돌봄</td>
-                            <td>예정</td>
-                            <td class="detail">
-                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail'">
-                                    상세
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span>10월 1일</span><br>13시</td>
-                            <td>아동돌봄</td>
-                            <td>예정</td>
-                            <td class="detail">
-                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail'">
-                                    상세
-                                </button>
-                            </td>
-                        </tr>
+                    <?php
+                    }
+                    ?>
+
                     </tbody>
                 </table>    
             </div>

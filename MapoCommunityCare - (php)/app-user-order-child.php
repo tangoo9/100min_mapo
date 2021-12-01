@@ -13,8 +13,7 @@
     <div id="container">
         <main>
             <div class="title">
-                <!-- 21.11.29  폰트 수정-->
-                <h2>아동돌봄신청</h2>
+                <h1>아동돌봄신청</h1>
             </div>
             <div id="boxContainer_child">
                 <div class="textBox">
@@ -76,7 +75,7 @@
                     </span>
                 </div>
                 <div class="selectBox">
-                    <button class="selectButton" type="button" onclick="location.href='app-user-order-child-list-nouse'">
+                    <button class="selectButton" type="button" onclick="location.href='app-user-order-child-to'">
                         <p>신청하기</p>
                     </button>
                 </div>

@@ -20,9 +20,6 @@
                 <div class="box" onclick="location.href='app-user-info-manage'">
                     <p>내 정보 관리</p>
                 </div>
-                <div class="box" onclick="location.href='app-user-info-manage'">
-                    <p>주소 관리</p>
-                </div>
                 <div class="box" onclick="location.href='app-user-ask'">
                     <p>문의사항</p>
                 </div>

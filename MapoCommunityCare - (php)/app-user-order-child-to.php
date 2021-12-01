@@ -18,8 +18,7 @@
             <div id="boxContainer_child">
                 <div class="boxContainer_order-child-to">
                     <div class="subtitle">
-                        <!-- 21.11.29  폰트 수정-->
-                        <h2>1단계 : 시간선택</h2>
+                        <h1>1단계 : 시간선택</h1>
                     </div>
                     <div class="textBox_child_to">
                         <p>정책에 따라 시간설정 테이블 버튼 구현예정</p>

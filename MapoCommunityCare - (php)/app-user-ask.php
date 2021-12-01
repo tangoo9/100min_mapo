@@ -31,7 +31,7 @@
             <div class="box" onclick="location.href='app-user-ask-polices'">
                 <p>서비스 약관</p>
             </div>
-            <div class="box" onclick="">
+            <div class="box" onclick="location.href='http://pf.kakao.com/_xdNjEb'">
                 <p>카카오톡 문의</p>
             </div>
             <div class="box" onclick="location.href='app-user-ask-version'">

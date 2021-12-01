@@ -12,8 +12,7 @@
 <body>
     <main>
         <div class="title">
-            <!-- 21.11.29  폰트 수정-->
-            <h2>아동돌봄 신청 완료!</h2>
+            <h1>아동돌봄 신청 완료!</h1>
         </div>
         <div class="boxContainer_order_child_order_complete">
             <div class="textBox_child_order_complete">

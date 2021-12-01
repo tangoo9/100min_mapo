@@ -1,3 +1,15 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$sql = "select * from order_info o 
+left join partner p on p.p_no = o.p_no
+where o_status!= '취소' and m_no = '{$_SESSION[m_no]}' order by o_order_date asc";
+$r = sqlresult($sql);
+$rr = sqlrow($sql);
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -9,6 +21,54 @@
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-info-manage.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
+    <script src="/src/jquery.js"></script>
+    <script>
+        function sms(){
+            var request = $.ajax({
+                type: "POST",
+                url: "/api/order_join",
+                data: { method : 'get', phone : $('#fix_tel').val() },
+                timeout: 10000,
+            });
+            request.done(function( msg ) {
+                alert(msg);
+            });
+        }
+        function check(){
+            var request = $.ajax({
+                type: "POST",
+                url: "/api/order_join",
+                data: { method : 'check', code : $('#code').val() },
+                timeout: 10000,
+            });
+            request.done(function( msg ) {
+                alert(msg);
+            });
+        }
+        function notice(){
+            var request = $.ajax({
+                type: "POST",
+                url: "/api/order_join",
+                data: { method : 'notice', code : $('#btnradio1').is(":checked") },
+                timeout: 3000,
+            });
+            request.done(function( msg ) {
+                alert(msg);
+            });
+        }
+        function unregister(){
+            var request = $.ajax({
+                type: "POST",
+                url: "/api/order_join",
+                data: { method : 'unregister'},
+                timeout: 3000,
+            });
+            request.done(function( msg ) {
+                alert(msg);
+                location.href="/app/app-user-login";
+            });
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -27,20 +87,20 @@
         </div>
         <div class="boxContainer">
             <p>이름</p>
-            <input type="text" disabled>
+            <input type="text" disabled value="<?=$_SESSION[m_name]?>">
             <p>주소</p>
-            <input type="text" disabled>
+            <input type="text" value="<?=$_SESSION[m_addr]?>">
             <button id="change_addr" class="buttonStyle" type="button">주소 변경</button>
             <p>전화번호</p>
-            <input type="text" disabled>
+            <input type="text" value="<?=$_SESSION[m_tel]?>">
             <button id="change_tel" class="buttonStyle" type="button">전화번호 변경</button>
             <p>알림</p>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked onclick="notice();" value="Y">
                 <label class="btn btn-outline-primary" for="btnradio1">켜기</label>
                 
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-primary" for="btnradio2">끄기</label>
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="notice();" value="N">
+                <label class="btn btn-outline-primary" for="btnradio2" >끄기</label>
                 </div>
             <div class="selectBox">
                 <button id="logout" class="btn btn-primary selectButton" type="button">로그아웃</button>
@@ -54,15 +114,14 @@
             </div>
             <div class="popup_selectListContianer">
                 <div class="inputBox">
-                    <input class="inputStyle" type="tel" placeholder="주소 입력">
-                    <button class="btn btn-primary btn-sm addrBox_button" type="button">검색</button>
-                </div>
-                <div class="inputBox">
-                    <input class="inputStyle" type="text" placeholder="상세 주소 입력">
+                    <form method="post" action="/api/app_process">
+                        <input type="hidden" name="method" value="fix_addr">
+                    <input class="inputStyle" type="text" name='fix_addr' placeholder="주소 입력">
                 </div>
             </div>
             <div class="selectBox">
-                <button type="button" class="btn btn-primary btn-sm">변경하기</button>
+                <button type="submit" class="btn btn-primary btn-sm">변경하기</button>
+            </form>
                 <button type="button" class="goBack btn btn-light btn-sm" onclick=goBack();>
                     돌아가기
                 </button>
@@ -75,20 +134,22 @@
             </div>
             <div class="popup_selectListContianer">
                 <div class="inputBox">
-                    <input class="inputStyle" type="tel" placeholder="전화번호를 입력해 주세요.">
-                    <button class="btn btn-primary btn-sm telBox_button" type="button">
+                    <form action="/api/app_process" method="post">
+                    <input class="inputStyle" type="tel" name="fix_tel" id="fix_tel" placeholder="전화번호를 입력해 주세요.">
+                    <button class="btn btn-primary btn-sm telBox_button" type="button" onclick="sms();">
                         인증
                     </button>
                 </div>
                 <div class="inputBox">
-                    <input class="inputStyle" type="text" placeholder="인증번호를 입력해 주세요.">
-                    <button class="btn btn-primary btn-sm telBox_button" type="button">
+                    <input class="inputStyle" type="text" name="code" id="code" placeholder="인증번호를 입력해 주세요.">
+                    <button class="btn btn-primary btn-sm telBox_button" type="button" onclick="check();">
                         인증하기
                     </button>
                 </div>
             </div>
             <div class="selectBox">
-                <button type="button" class="btn btn-primary btn-sm">변경하기</button>
+                <button type="submit" class="btn btn-primary btn-sm">변경하기</button>
+            </form>
                 <button type="button" class="goBack btn btn-light btn-sm" onclick=goBack();>돌아가기</button>
             </div>
         </div>
@@ -96,13 +157,13 @@
         <!-- Layer popup app-user-info-manage-logout -->
         <div class="app-user-info-manage-logout">
             <h2>로그아웃 되었습니다.</h2>
-            <button type="button" class="btn btn-primary" onclick="location.href='app-user-login'">메인화면</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='/app/app-logout'">메인화면</button>
         </div>
         <!-- Layer popup app-user-info-manage-out -->
         <div class="app-user-info-manage-out">
             <h2>정말 탈퇴하시겠습니까?</h2>
             <div class="popup_selectListContianer">
-                <button type="button" class="btn btn-danger btn-sm">탈퇴하기</button>
+                <button type="button" class="btn btn-danger btn-sm" onclick="unregister();">탈퇴하기</button>
                 <button type="button" class="btn btn-secondary btn-sm" onclick=goBack();>취소</button>
             </div>
         </div>
