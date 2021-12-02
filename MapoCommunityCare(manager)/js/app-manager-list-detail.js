@@ -6,6 +6,8 @@ startjob.onclick = () => {
     location.href="app-manager-job.html"
 }
 
+abc = window.matchMedia(mediaQueryString)
+
 
 
 // const cancel = document.querySelector('.cancel');

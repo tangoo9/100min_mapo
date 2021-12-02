@@ -196,3 +196,9 @@ main{
 
 
 /* --app-manager-job-complete End*/
+
+/* @media screen and (min-width:800px){
+    body{
+        max-width: 800px;
+    }
+} */
