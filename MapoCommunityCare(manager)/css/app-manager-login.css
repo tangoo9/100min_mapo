@@ -157,10 +157,10 @@ h2{
     left: 50%;
     transform: translate(-40%,-50%);
 }
-
+/* Layer Pop-Up */
 .app-manager-login-fail{
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column nowrap;
@@ -178,7 +178,7 @@ h2{
 
 .app-manager-login-fail .btn_loginfail{
     width: 70vw;
-    height: 10vw;
+    height: 12vw;
     margin: 3vw;
     margin-top: 10vw;
 }
