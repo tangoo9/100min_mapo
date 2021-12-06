@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>백의민족 바코드 시스템</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/list.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="container">
+
+        <div class="sidebar">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="바코드 리더기를 인식해 주세요." 
+                        aria-label="Username" aria-describedby="basic-addon1" onblur="load()">
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">순번</th>
+                    <th scope="col">시간</th>
+                    <th scope="col">바코드</th>
+                    <th scope="col">상태</th>
+                    </tr>
+                </thead>
+                <tbody class="table_body">
+
+                </tbody>
+            </table>
+        </div>
+        <main>
+
+        </main>
+    </main>
+    <script>
+
+
+    // $.ajax({
+    //         type: "post",
+    //         url : "http://localhost:127.0.0.1:5500/barcode.json",
+    //         ////////Content-Type 명시함
+    //         headers: {'Content-Type': 'application/json'},
+    //         ////////보낼 데이터를 JSON.stringify()로 감싸주어야 함
+    //         data : JSON.stringify(obj),
+    //         success : function (data){
+    //             console.log(data);
+    //         },
+    //         error : function(e){
+    //         }
+    // })
+
+
+
+        // // 필요한 값들만 가져오기
+        //     const params = {
+        //     param1 : $("#param1").val(),
+        //     param2 : $("#param2").val()
+        //     }
+
+        //     // JSON.stringify를 이용해서 JSON 형식의 문자열로 변환
+        //     // POST 방식의 경우 data가 요청본문에 담기기 때문에 서버에서 @RequestBody를 사용하여 받야야한다.
+        //     // 만약 @RequestBody를 사용하지 않으면 메서드를 타지 않는다.
+        //     $.ajax({
+        //         url: `${CONTEXT_PATH}/xxx/aaa/api/edit`,
+        //         data: JSON.stringify(params),
+        //         method: 'POST',
+        //         dataType: 'json',
+        //         contentType:'application/json',
+        //         success : function (res) {
+        //             alert("저장되었습니다.");
+        //         },
+        //         error: function (xhr) {
+        //             alert("실패하였습니다.");
+        //         }
+        //     });
+
+
+
+        function load(){
+            const xml = new XMLHttpRequest();
+            xml.onreadystatechange = function(){
+                if(this.readyState === 4){
+                    const response = JSON.parse(this.responseText);
+                    for(let i = 0; i < response.length; i++)
+                    loadBarcodes(response[i]);
+                }
+                function loadBarcodes(barcode){
+                    let date = new Date();
+                    datenow = date.getFullYear() + "/" +
+                                    (date.getMonth()+1) + "/" +
+                                    date.getDate() + " ----- " +
+                                    date.getHours() + "h:" +
+                                    date.getMinutes() + "m:" +
+                                    date.getSeconds() + "s: " +
+                                    date.getMilliseconds() + "ms" ;  
+                    const html = `
+                    <tr>
+                        <th>${barcode.id}</th>
+                        <td>${datenow}</td>
+                        <td>${barcode.barcodeId}</td>
+                        <td>${barcode.status}</td>
+                    </tr>
+                    `;
+                    const table = document.querySelector('.table_body');
+                    table.innerHTML += html;
+                }
+            }
+            xml.open('post', 'barcode.json', true );
+            xml.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xml.send();
+        }
+
+
+
+
+        function load(){
+            const xml = new XMLHttpRequest();
+            xml.onreadystatechange = function(){
+                if(this.readyState === 4){
+                    const response = JSON.parse(this.responseText);
+                    for(let i = 0; i < response.length; i++)
+                    loadBarcodes(response[i]);
+                }
+                function loadBarcodes(barcode){
+                    let date = new Date();
+                    datenow = date.getFullYear() + "/" +
+                                    (date.getMonth()+1) + "/" +
+                                    date.getDate() + " ----- " +
+                                    date.getHours() + "h:" +
+                                    date.getMinutes() + "m:" +
+                                    date.getSeconds() + "s: " +
+                                    date.getMilliseconds() + "ms" ;  
+                    const insert = `
+                    <tr>
+                        <th>${barcode.id}</th>
+                        <td>${datenow}</td>
+                        <td>${barcode.barcodeId}</td>
+                        <td>${barcode.status}</td>
+                    </tr>
+                    `;
+                    const table = document.querySelector('.table_body');
+                    table.innerHTML += insert;
+                }
+            }
+            xml.open('get', 'barcode.json', true );
+            xml.send();
+        }
+
+
+    let start = setInterval(load,2500);
+
+
+
+
+
+
+        
+    //        $.ajax({
+    //     url: `${CONTEXT_PATH}/xxx/aaa/edit`,
+    //     method: 'GET',
+    //     async : true,
+    //     data : { param1 : param1, param2 : param2 },
+    //     dataType : 'html',
+    //     success : function (res) {
+    //         // 서번단에서 HTML을 반환해서 기존 페이지를 깜빡임없이 새로 고친다.
+    //         document.querySelector("#appendHtml").innerHTML = res;
+    //     },
+    //     error: function (xhr) {
+    //         alert("fail");
+    //     }
+    // });
+    </script>
+</body>
+</html>

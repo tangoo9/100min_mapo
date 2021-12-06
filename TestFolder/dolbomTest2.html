@@ -123,15 +123,24 @@
         xml.send();
     }
 
-    function replaceArticles(){
+    function replaceArticles(jsontest){
         const table = document.querySelector('#list');
-
+        const title = document.querySelector('.title');
+        const body = document.querySelector('.body');
+        const email = document.querySelector('#email');
+        const replace = `
+            <tr>
+                <td class="title">${jsontest.title}</td>
+                <td class="body">${jsontest.body}</td>
+                <td id="email">${jsontest.userId}</td>
+            </tr>
+        `;
         fetch('jsontest.json')
         .then(response => response.json())
         .then(data =>{
             console.log(data);
-            table.insertAdjacentHTML('afterend',data);
-            // table.innerHTML.replace()
+            
+            tableReplace.innerHTML += replace;
         })
         // document.querySelector('.title').innerHTML="우리가 어떤민족입니까?"
         // document.querySelector('.body').innerHTML="백의민족임"
