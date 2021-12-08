@@ -15,8 +15,8 @@
 
         <div class="sidebar">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="바코드 리더기를 인식해 주세요." 
-                        aria-label="Username" aria-describedby="basic-addon1" onblur="load()">
+                <input type="text" id="barcode" class="form-control" name="barcode" placeholder="바코드 리더기를 인식해 주세요." 
+                        aria-label="Username" aria-describedby="basic-addon1" onkeyup="enterkey()">
             </div>
             <table class="table">
                 <thead>
@@ -33,9 +33,127 @@
                     <td id="status"></td>
                 </tbody>
             </table>
+            <button onclick="enterkey()">클릭</button>
+            <div id="userInfo"></div>
         </div>
 
     <script>
+
+function enterkey() { //사용자가 키보드의 키를 눌렀다가 뗐을때 이벤트 발생
+            if (window.event.keyCode == 13) { //윈도우의 'Enter'키가 눌러졌을 경우
+                $.ajax({    //ajax 통신 실행(제이쿼리)
+                    type:'get',    //post방식
+                    url:'https://jsonplaceholder.typicode.com/posts', //data.php로 부터 받아옴
+                    data:{barcode : $('input[name=barcode]').val()},
+                    //input태그의 name=barcode에 입력된 value값 
+                    //상태 : init
+                    success : function(data){
+                        console.log('ajax 연결성공임');
+                        $( '.table_body').empty();
+                        var results = JSON.parse(data);
+                        str = '<TR>'; 
+                        $.each(results , function(i){
+                            str += '<TD>' + results[i].no + '</TD><TD>' + results[i].data + '</TD><TD>' + results[i].status + '</TD><TD>' + results[i].regat + '</TD>';
+                            str += '</TR>';
+                        });
+                        $('.table_body').append(str);
+                        str='<tr>';
+                        $.each(data, function(index){
+                            str +='</tr>'
+                        })
+                    },
+                    error : function() {
+                        alert('ajax 연결 에러');			
+                    }
+                });
+            $('#barcode').val('');
+            $('#barcode').focus();
+            //input 박스의 value값을 공백으로 만들고, 커서 포커스를 맞춤.
+            }
+
+        }
+    // let start = setInterval(load,2500);
+
+
+        //     function load() {
+
+        //     fetch("https://jsonplaceholder.typicode.com/post", {
+        //     method:'post',
+        //     // headers: {
+        //     // 'Content-type': 'application/json; charset=UTF-8',
+        //     // }
+        //     // foreach
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //     const name = document.createElement("td");
+        //     const email = document.createElement("td");
+        //     const phone = document.createElement("td");
+        //     name.textContent = data.website;
+        //     email.textContent = data.email;
+        //     phone.textContent = data.phone;
+        //     const userInfo = document.querySelector(".table_body");
+        //     userInfo.appendChild(name);
+        //     userInfo.appendChild(email);
+        //     userInfo.appendChild(phone);
+        //     })
+        //     // for(let i =0; i < data.length; i++)
+        //     // )
+        //     .catch(error => console.log(error));
+        // }    
+
+
+            // fetch("https://jsonplaceholder.typicode.com/posts", {
+            //     method:'post',
+            //     // headers: {
+            //     // 'Content-type': 'application/json; charset=UTF-8',
+            //     // }
+            //     // foreach
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     const name = document.createElement("td");
+            //     const email = document.createElement("td");
+            //     const phone = document.createElement("td");
+            //     name.textContent = data.website;
+            //     email.textContent = data.email;
+            //     phone.textContent = data.phone;
+            //     const userInfo = document.querySelector(".table_body");
+            //     userInfo.appendChild(name);
+            //     userInfo.appendChild(email);
+            //     userInfo.appendChild(phone);
+            // })
+            // // for(let i =0; i < data.length; i++)
+            // // )
+            // .catch(error => console.log(error));
+
+
+
+        // function getUser(){
+        //     let table = document.querySelector('.table_body')
+        //     fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        //     method: 'get',
+        //     headers: {
+        //         'Content-type': 'application/json; charset=UTF-8',
+        //     },
+        //     })
+        //     .then((response) => response.json())
+        //     .then((json) => console.log(json))
+        //     .then(json => {
+        //         const name = document.createElement("div");
+        //         const email = document.createElement("div");
+        //         const phone = document.createElement("div");
+        //         name.textContent = json.title;
+        //         email.textContent = json.body;
+        //         phone.textContent = json.phone;
+        //         const userInfo = document.getElementById("userInfo");
+        //         userInfo.appendChild(name);
+        //         userInfo.appendChild(email);
+        //         userInfo.appendChild(phone);
+        //     })
+        //     .catch(error => console.log("fetch 에러!"));
+        // }
+
         // function load(){
         //     // var params = "subject=" + $("#subject").val() + 
         //     //     "&content=" + $("#content").val(); //쿼리임 데이터만 넘길 것!
@@ -64,26 +182,61 @@
         //         }
         //     });
         // };
-        function load() {
-                $.ajax({
-                type: "post",
-                url: "barcode.json",
-                dataType: "json",
-                cache: false,
-                success: function(data){
-                    $.each(data.dataList,function(index){
-                        $('li').eq(index).html(data.dataList[index].val);
-                    });
+        // function load() {
+        //         $.ajax({
+        //         type: "post",
+        //         url: "barcode.json",
+        //         dataType: "json",
+        //         cache: false,
+        //         success: function(data){
+        //             $.each(data.dataList,function(index){
+        //                 $('li').eq(index).html(data.dataList[index].val);
+        //             });
                                     
-                },
-                beforeSend:function(xhr){
-                xhr.setRequestHeader("access-control-allow-origin : *");
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                    console.log("Status: " + textStatus);
-                },timeout: 3000
-                });  
-            }
+        //         },
+        //         beforeSend:function(xhr){
+        //         xhr.setRequestHeader("access-control-allow-origin : *");
+        //         },
+        //         error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        //             console.log("Status: " + textStatus);
+        //         },timeout: 3000
+        //         });  
+        //     }
+
+
+
+    //     function load(){
+    //     $.ajax({
+    //     type:'post',
+    //     url:'https://jsonplaceholder.typicode.com/posts',
+    //     dataType:'json',
+    //     success:function(data){
+
+    //         console.log("성공!");
+    //         console.log(data);
+    //         const html = `
+    //                 <tr>
+    //                     <th>${data.id}</th>
+    //                     <td>${data.barcodeId}</td>
+    //                     <td>${data.status}</td>
+    //                     <td>${data.title}</td>
+    //                 </tr>
+    //                 `;
+    //                 const table = document.querySelector('.table_body');
+    //                 table.innerHTML += html;
+
+
+    //         $.each(data, function(index, item){
+    //             $(".table_body").append(item.id + " ");
+    //             $(".table_body").append(item.title + " ");
+    //             $(".table_body").append(item.body + " ");
+    //         })
+    //     },
+    //     error:function(){
+    //         console.log("실패!");
+    //     }        
+    // })
+    // }
 
 
 
