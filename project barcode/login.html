@@ -14,15 +14,18 @@
     <main>
         <img src="" alt="">
         <h1 class="title">백의민족 <br>바코드 시스템</h1>
-        <form action="list.html" method="get">
+        <!-- <form action="list.html" method="post">
+        </form> -->
             <div class="input-group mb-3">
                 <input type="text" name="barcodeId" class="form-control" placeholder="바코드를 인식해 주세요." aria-label="Username" aria-describedby="basic-addon1">
             </div>
-            <button type="submit" id="submit">전송</button>
+            <button type="button" id="submit" onclick="location.href='list.html'">전송</button>
             
-        </form>
-        <!-- <button type="button" onclick="getNum()">sss </button> -->
 
+        <!-- <button type="button" onclick="getNum()">sss </button> -->
+        <p>
+
+        </p>
 
     </main>
     <script>
@@ -35,8 +38,27 @@
                     data:sendData,   //위의 변수에 담긴 데이터를 전송해준다.
                     dataType:'json',   //html 파일 형식으로 값을 담아온다.
                 });
+                console.log(sendData)
             });
         });
+
+
+
+
+
+
+        // $(document).ready(function(){
+        //     $('#submit').click(function(){   //submit 버튼을 클릭하였을 때
+        //         let sendData = "barcodeId="+$('input[name=barcodeId]').val();   //폼의 이름 값을 변수 안에 담아줌
+        //         $.ajax({
+        //             type:'get',   
+        //             url:'barcode.json',   //데이터를 주고받을 파일 주소
+        //             data:sendData,   //위의 변수에 담긴 데이터를 전송해준다.
+        //             dataType:'json',   //html 파일 형식으로 값을 담아온다.
+        //         });
+        //     });
+        // });
+
 
 
 
