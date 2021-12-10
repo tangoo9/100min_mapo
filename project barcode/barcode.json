@@ -1,20 +1,32 @@
 [
-    {
-      "id": 1,
-      "time": " ",
-      "barcodeId": "12521058",
-      "status": "B-OK"
+  {
+    "id": 1,
+    "time": " ",
+    "barcodeId": "12521058",
+    "status": "B-OK"
+  },
+  {
+    "id": 2,
+    "time": " ",
+    "barcodeId": "45678978",
+    "status": "B-OK"
+  },
+  {
+    "id": 3,
+    "time": " ",
+    "barcodeId": "98765421",
+    "status": "B-ERROR!!"
     },
     {
-      "id": 2,
-      "time": " ",
-      "barcodeId": "45678978",
-      "status": "B-OK"
-    },
-    {
-      "id": 3,
-      "time": " ",
+      "id": 4,
+      "time": "img/care.png",
       "barcodeId": "98765421",
       "status": "B-ERROR!!"
-      }
+      },
+    {
+      "id": 3,
+      "time": "https://www.naver.com/",
+      "barcodeId": "98765421",
+      "status": "B-ERROR!!"
+    }  
 ]
