@@ -16,7 +16,7 @@
         <div class="sidebar">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="바코드 리더기를 인식해 주세요." 
-                        aria-label="Username" aria-describedby="basic-addon1" onblur="load()">
+                        aria-label="Username" aria-describedby="basic-addon1" onChange="load()">
             </div>
             <table class="table">
                 <thead>
@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody class="table_body">
-
+                    
                 </tbody>
             </table>
         </div>
@@ -37,6 +37,65 @@
         </main>
     </main>
     <script>
+    function load(){
+        $.ajax({
+        type:'get',
+        url:'https://jsonplaceholder.typicode.com/posts?=2',
+        dataType:'json',
+        success:function(data){
+
+            console.log("성공!");
+            console.log(data);
+            const html = `
+                    <tr>
+                        <th>${data.id}</th>
+                        <td>${data.barcodeId}</td>
+                        <td>${data.status}</td>
+                        <td>${data.title}</td>
+                    </tr>
+                    `;
+                    const table = document.querySelector('.table_body');
+                    table.innerHTML += html;
+
+
+            $.each(data, function(index, item){
+                $(".table_body").append(item.id + " ");
+                $(".table_body").append(item.title + " ");
+                $(".table_body").append(item.body + " ");
+            })
+
+
+        },
+        error:function(){
+            console.log("실패!");
+        }
+        
+    })
+    }
+
+
+// function load(){
+//             const xml = new XMLHttpRequest();
+//             xml.onreadystatechange = function(){
+//                 if(this.readyState === 4){
+//                     const response = JSON.parse(this.responseText);
+//                     console.log(response);   
+//                     }
+//                 }
+//             xml.open('post', 'https://jsonplaceholder.typicode.com/posts', true );
+//             xml.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//             xml.send();
+//             }
+
+
+
+
+
+
+
+
+
+
 
 
     // $.ajax({
@@ -80,78 +139,78 @@
 
 
 
-        function load(){
-            const xml = new XMLHttpRequest();
-            xml.onreadystatechange = function(){
-                if(this.readyState === 4){
-                    const response = JSON.parse(this.responseText);
-                    for(let i = 0; i < response.length; i++)
-                    loadBarcodes(response[i]);
-                }
-                function loadBarcodes(barcode){
-                    let date = new Date();
-                    datenow = date.getFullYear() + "/" +
-                                    (date.getMonth()+1) + "/" +
-                                    date.getDate() + " ----- " +
-                                    date.getHours() + "h:" +
-                                    date.getMinutes() + "m:" +
-                                    date.getSeconds() + "s: " +
-                                    date.getMilliseconds() + "ms" ;  
-                    const html = `
-                    <tr>
-                        <th>${barcode.id}</th>
-                        <td>${datenow}</td>
-                        <td>${barcode.barcodeId}</td>
-                        <td>${barcode.status}</td>
-                    </tr>
-                    `;
-                    const table = document.querySelector('.table_body');
-                    table.innerHTML += html;
-                }
-            }
-            xml.open('post', 'barcode.json', true );
-            xml.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xml.send();
-        }
+        // function load(){
+        //     const xml = new XMLHttpRequest();
+        //     xml.onreadystatechange = function(){
+        //         if(this.readyState === 4){
+        //             const response = JSON.parse(this.responseText);
+        //             for(let i = 0; i < response.length; i++)
+        //             loadBarcodes(response[i]);
+        //         }
+        //         function loadBarcodes(barcode){
+        //             let date = new Date();
+        //             datenow = date.getFullYear() + "/" +
+        //                             (date.getMonth()+1) + "/" +
+        //                             date.getDate() + " ----- " +
+        //                             date.getHours() + "h:" +
+        //                             date.getMinutes() + "m:" +
+        //                             date.getSeconds() + "s: " +
+        //                             date.getMilliseconds() + "ms" ;  
+        //             const html = `
+        //             <tr>
+        //                 <th>${barcode.id}</th>
+        //                 <td>${datenow}</td>
+        //                 <td>${barcode.barcodeId}</td>
+        //                 <td>${barcode.status}</td>
+        //             </tr>
+        //             `;
+        //             const table = document.querySelector('.table_body');
+        //             table.innerHTML += html;
+        //         }
+        //     }
+        //     xml.open('post', 'barcode.json', true );
+        //     xml.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        //     xml.send();
+        // }
 
 
 
 
-        function load(){
-            const xml = new XMLHttpRequest();
-            xml.onreadystatechange = function(){
-                if(this.readyState === 4){
-                    const response = JSON.parse(this.responseText);
-                    for(let i = 0; i < response.length; i++)
-                    loadBarcodes(response[i]);
-                }
-                function loadBarcodes(barcode){
-                    let date = new Date();
-                    datenow = date.getFullYear() + "/" +
-                                    (date.getMonth()+1) + "/" +
-                                    date.getDate() + " ----- " +
-                                    date.getHours() + "h:" +
-                                    date.getMinutes() + "m:" +
-                                    date.getSeconds() + "s: " +
-                                    date.getMilliseconds() + "ms" ;  
-                    const insert = `
-                    <tr>
-                        <th>${barcode.id}</th>
-                        <td>${datenow}</td>
-                        <td>${barcode.barcodeId}</td>
-                        <td>${barcode.status}</td>
-                    </tr>
-                    `;
-                    const table = document.querySelector('.table_body');
-                    table.innerHTML += insert;
-                }
-            }
-            xml.open('get', 'barcode.json', true );
-            xml.send();
-        }
+        // function load(){
+        //     const xml = new XMLHttpRequest();
+        //     xml.onreadystatechange = function(){
+        //         if(this.readyState === 4){
+        //             const response = JSON.parse(this.responseText);
+        //             for(let i = 0; i < response.length; i++)
+        //             loadBarcodes(response[i]);
+        //         }
+        //         function loadBarcodes(barcode){
+        //             let date = new Date();
+        //             datenow = date.getFullYear() + "/" +
+        //                             (date.getMonth()+1) + "/" +
+        //                             date.getDate() + " ----- " +
+        //                             date.getHours() + "h:" +
+        //                             date.getMinutes() + "m:" +
+        //                             date.getSeconds() + "s: " +
+        //                             date.getMilliseconds() + "ms" ;  
+        //             const insert = `
+        //             <tr>
+        //                 <th>${barcode.id}</th>
+        //                 <td>${datenow}</td>
+        //                 <td>${barcode.barcodeId}</td>
+        //                 <td>${barcode.status}</td>
+        //             </tr>
+        //             `;
+        //             const table = document.querySelector('.table_body');
+        //             table.innerHTML += insert;
+        //         }
+        //     }
+        //     xml.open('get', 'barcode.json', true );
+        //     xml.send();
+        // }
 
 
-    let start = setInterval(load,2500);
+    // let start = setInterval(load,2500);
 
 
 
