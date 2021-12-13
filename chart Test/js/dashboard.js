@@ -77,9 +77,12 @@
       scales: {
         yAxes: [{
           ticks: {
-            beginAtZero: false
+            suggestedMin: 100,
+            suggestedMax: 350,
+            beginAtZero: false,
           }
         }]
+        
       },
       legend: {
         display: false
@@ -89,7 +92,7 @@
 })()
 
 
-//Chart2 , pie
+// Chart2 , pie
 // const DATA_COUNT = 5;
 // const NUMBER_CFG = {count: DATA_COUNT, min: 0, max: 100};
 
@@ -103,14 +106,58 @@
 //     }
 //   ]
 // };
+
+
+// const data = {
+//   labels: [
+//     'Deposit',
+//     'Expese',
+//     'payable',
+//     ''
+//   ],
+//   datasets: [{
+//     label: 'My First Dataset',
+//     data: [75, 50, 55, 120],
+//     backgroundColor: [
+//       'rgb(255, 205, 86)',
+//       'rgb(255, 99, 132)',
+//       'rgb(54, 162, 235)',
+//       'rgb(222,222,222)'
+//     ],
+//     hoverOffset: 4
+//   }]
+// };
+// const config = {
+//   type: 'doughnut',
+//   data: data,
+//   options: {
+//     responsive: true,
+//     plugins: {
+//       legend: {
+//         position: 'top',
+//       },
+//       title: {
+//         display: true,
+//         text: 'Chart.js Doughnut Chart'
+//       }
+//     }
+//   },
+// };
+// const myChart_pie = new Chart(
+//   document.getElementById('myChart_pie'),
+//   config
+// );
+
+
 const data = {
   labels: [
     'Deposit',
     'Expese',
     'payable',
-    ''
+    'etc'
   ],
   datasets: [{
+
     label: 'My First Dataset',
     data: [75, 50, 55, 120],
     backgroundColor: [
@@ -122,24 +169,25 @@ const data = {
     hoverOffset: 4
   }]
 };
+
 const config = {
+
   type: 'doughnut',
   data: data,
   options: {
     responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Doughnut Chart'
-      }
-    }
+    legend: {
+      // display:false,
+      align : 'start',
+      position: 'bottom',
+    },
+    title: {
+      display: false,
+      text: 'Earning in Month'
+    },
   },
 };
 const myChart_pie = new Chart(
-  document.getElementById('myChart_pie'),
+  document.getElementById('myChart_pie'), 
   config
 );
-
