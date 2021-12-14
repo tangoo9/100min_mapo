@@ -43,14 +43,26 @@
 
         // 색바꾸기
         let heading = document.querySelector('#heading');
-        for(i=0; i<1; i++){
-            heading.onclick = function(i){
-            heading.style.color="red";
-            }
-            if(heading.style.color="red"){
-                    heading.style.color="blue";
+        let flag = false;
+        heading.onclick = function(flag){
+            if(flag =false){
+                heading.style.color="red";
+                flag = true;
+                console.log(flag)
+                return flag;
             }
         }
+        if(flag = true){
+            heading.onclick =function(flag){
+                console.log('레드일때 클릭')
+                heading.style.color="blue";
+                flag = false;
+                return
+            }
+        }
+        
+
+
 
         // prompt , alert
         var name = prompt('이름을 입력하세요')
