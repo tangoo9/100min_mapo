@@ -59,11 +59,11 @@ body{
     height: initial;
 }
 main{
-    
+    margin-bottom: 8.5vh;
 }
 
 .title{
-    margin-top: 5em;
+    margin-top: 8vh;
     width: 75vw;
     height: 10vh;
     line-height: 10vh;
@@ -71,7 +71,7 @@ main{
 .title h1{
     margin: 0 auto;
     text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'GyeonggiTitle-M';
 }
 
 #boxContainer{

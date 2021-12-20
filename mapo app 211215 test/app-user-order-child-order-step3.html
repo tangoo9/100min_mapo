@@ -31,16 +31,17 @@
             showMonthAfterYear: true,
             yearSuffix: '년'
         });
-        $( function() { $( "#datepicker" ).datepicker(); } ); 
+        $( function() { $( "#datepicker" ,  ).datepicker(); } ); 
         // alert("테스트")
 
         function fn_timePicker(obj) {
             var id = $(obj).attr("id");
-            $("#" + id).timepicker({
-                timeFormat : "hh:mm p",
+            $("#" + id ).timepicker({
+                timeFormat : "p hh:mm",
                 interval : 30,
                 minTime:'9',
                 maxTime:'19:30pm',
+                defaultTime:'13:00',
                 dynamic : false,
                 dropdown : true,
                 scrollbar : true
@@ -84,15 +85,15 @@
                     <div class="time_container">
                         <input id="timepicker" class="timepicker" name="timepicker" onclick="javascript:fn_timePicker(this);" />
                         ~
-                        <input id="timepicker" class="timepicker" name="timepicker" onclick="javascript:fn_timePicker(this);" />
+                        <input id="timepicker2" class="timepicker" name="timepicker2" onclick="javascript:fn_timePicker(this);" />
                     </div>
                 </div>
                 <div class="care_time text_line">
                     <span>놀이돌봄만</span>
                     <div class="time_container">
-                        <input id="timepicker" class="timepicker" name="timepicker" onclick="javascript:fn_timePicker(this);" />
+                        <input id="timepicker3" class="timepicker" name="timepicker3" onclick="javascript:fn_timePicker(this);" />
                         ~
-                        <input id="timepicker" class="timepicker" name="timepicker" onclick="javascript:fn_timePicker(this);" />
+                        <input id="timepicker4" class="timepicker" name="timepicker4" onclick="javascript:fn_timePicker(this);" />
                     </div>
                 </div>
             </div>
@@ -157,8 +158,6 @@
             </div>
         </nav>
     </footer>
-    <script>
-        feather.replace({ 'aria-hidden': 'true' })
-    </script>
+
 </body>
 </html>

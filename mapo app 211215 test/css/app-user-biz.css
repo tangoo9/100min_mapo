@@ -3,7 +3,7 @@
 main h1{
     margin:5vh auto;
     margin-top: 15vw;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'GyeonggiTitle-M';
 }
 #boxContainer{
     display: flex;

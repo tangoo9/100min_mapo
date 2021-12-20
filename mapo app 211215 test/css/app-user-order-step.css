@@ -65,7 +65,7 @@ body{
     height: initial;
 }
 main{
-    
+    margin-bottom: 8.5vh;
 }
 
 
@@ -292,6 +292,7 @@ main{
 }
 
 .boxContainer_order_step3 input{
+    color : #898989;
     border: 1px solid #c6c6c6;
     padding : 5px;
     border-radius: 8px;
@@ -435,7 +436,9 @@ main{
 .progress_cont .progress{
     height: 0.7rem;
 }
-
+.progress_cont .progress-bar{
+    width: 60% ;
+}
 /*  CSS : progress Bar Stlye End  */
 
 /* CSS : selectBox Style Start */

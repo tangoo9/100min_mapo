@@ -41,7 +41,7 @@ main .left{
 h1{
     margin:0 auto;
     color: #1D1617;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'GyeonggiTitle-M';
     font-weight: bold;
     font-size: 2rem;
     /* background-color: red; */
@@ -126,6 +126,6 @@ textarea{
     width: 85vw;
     height: 8vh;
     border: none;
-
+    font-family: 'GyeonggiTitle-M';
     font-weight: bold;
 }

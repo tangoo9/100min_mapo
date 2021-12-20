@@ -12,20 +12,25 @@ body{
     height: initial;
 }
 main{
+    margin-top: 8.5vh;
     padding: 0.5rem;
     margin-bottom: 8.5vh;
 }
 
+br{
+
+}
+
 .title{
-    margin-top: 10vw;
     width: 100%;
-    height: 15vh;
-    line-height: 15vh;
+    height: 8vh;
 }
 .title h1{
     margin: 0 auto;
     text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.3em;
+    font-weight: bolder;
+    font-family: 'GyeonggiTitle-M';
 }
 
 #boxContainer{
@@ -140,9 +145,9 @@ textarea{
     width: 80vw;
     height: 8vh;
     border:none;
-    background-color: #0d6efd;
+    /* background-color: #0d6efd; */
+    background-color: #F69E30;
     color: #ffffff;
-    /* background-color: red; */
     border-radius: 99px;
 }
 

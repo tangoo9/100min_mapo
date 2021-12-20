@@ -1,3 +1,4 @@
+/* footer 적용시 main에 8.5vh 여유 필요 , (푸터 높이 만큼) */
 footer{
     position: fixed;
     z-index: 999;
@@ -38,5 +39,5 @@ footer{
 }
 .navButton span{
   font-size: 0.7rem;
-  font-family: SDSamliphopangche_Basic;  
+  font-family: 'GyeonggiTitle-M'; 
 }

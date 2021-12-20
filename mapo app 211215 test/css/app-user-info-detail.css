@@ -63,7 +63,7 @@ main{
 }
 .title h1{
     margin: 0 auto;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'GyeonggiTitle-M';
     /* background-color: red; */
 }
 .boxContainer{
@@ -106,6 +106,7 @@ main{
     width: 35vw;
     height: 5.5vh;
     /* background-color: #c4c4c4; */
+    background-color: #F69E30;
     border: none;
 }
 
@@ -152,12 +153,10 @@ main{
     display: flex;
     justify-content: space-between;
     /* background-color: saddlebrown; */
+    
 }
 
-.selectBox .btn {
-    width: 45%;
-    font-family: 'SDSamliphopangche_Basic';
-}
+
 
 /* --app-user-info-detail-change End*/
 /* --app-user-info-detail-cancel Start*/
@@ -201,12 +200,14 @@ main{
     display: flex;
     width: 55vw;
     justify-content: space-between;
+    
     /* background-color: yellow; */
 }
 
-.selectBox .btn {
+.selectBox .btn{
     width: 45%;
-    font-family: 'SDSamliphopangche_Basic';
+    font-family: 'GyeonggiTitle-M';
+    
 }
 
 /* --app-user-info-detail-cancel End*/
