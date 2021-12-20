@@ -1,0 +1,158 @@
+/* 
+memo
+*/
+/* scrollbar option */
+body{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; }
+/* ---------------- */
+
+body{
+    height: initial;
+}
+main{
+    padding: 0.5rem;
+    margin-bottom: 8.5vh;
+}
+
+.title{
+    margin-top: 10vw;
+    width: 100%;
+    height: 15vh;
+    line-height: 15vh;
+}
+.title h1{
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#boxContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+    /* overflow:hidden; */
+}
+
+
+/* CSS : app-user-order-child-accept  Start */
+
+th{
+    padding : 0.5rem 0rem !important;
+}
+
+.subtitle{
+    margin: 1vw;
+    /* text-align: start; */
+    /* color: red; */
+}
+
+.checkbox_group{
+    margin-top: 2vh;
+    /* text-align: start; */
+}
+.check_text{
+    font-size: 0.9rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+}
+
+.agree_title{
+    font-weight: bold;
+}
+.agree_contents{
+    font-size: 0.8rem;
+}
+.agree_all{
+    text-align: center;
+    margin-bottom: 5vh;
+}
+.circle{
+    display: inline-block; /* 영역적용가능해짐 */
+    width: 20px; height: 20px;
+    border: 2px solid #ababab;
+    box-sizing: border-box;
+    border-radius: 10px; /* 모서리둥글게 처리 */
+    position: relative; top: 4px;
+    cursor: pointer; /* 마우스 올렸을때 손모양 처리 */
+
+    background-image: url(https://blog.kakaocdn.net/dn/XTnSL/btrhtUIVtpB/5FungHN6IXVXG8bLbhE9Dk/img.png);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#chk:checked + .circle{
+    background-color: #F07B22;
+    border-color: #F07B22;
+    background-image: url(https://blog.kakaocdn.net/dn/t7a2D/btrhtVgLYmG/dUxzAkBy9hIZ4gHmyllQrk/img.png);
+}
+#chk1:checked + .circle{
+    background-color: #F07B22;
+    border-color: #F07B22;
+    background-image: url(https://blog.kakaocdn.net/dn/t7a2D/btrhtVgLYmG/dUxzAkBy9hIZ4gHmyllQrk/img.png);
+}
+#chk2:checked + .circle{
+background-color: #F07B22;
+border-color: #F07B22;
+background-image: url(https://blog.kakaocdn.net/dn/t7a2D/btrhtVgLYmG/dUxzAkBy9hIZ4gHmyllQrk/img.png);
+}
+
+
+/* 체크박스는 display:none;을 주면 데이터 처리가 안됨 */
+#chk, #chk1, #chk2{ position: absolute; left: -999em; }
+
+
+
+textarea{
+    width: 85vw;
+    height: 20vh;
+    box-sizing: border-box;
+    border-radius: 19px;
+    padding:2vw;
+    font-size: 0.8rem;
+    text-align: left;
+    resize: none;
+    outline: none;
+}
+
+
+/* CSS : app-user-order-child-accept  End */
+/* CSS : selectBox Style Start */
+.selectBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:2vh auto;
+    width: 80vw;
+    height:10vh;
+    /* background-color: red; */
+}
+
+.selectBox .selectButton{
+    cursor: pointer;
+    margin: 0 auto;
+    width: 80vw;
+    height: 8vh;
+    border:none;
+    background-color: #0d6efd;
+    color: #ffffff;
+    /* background-color: red; */
+    border-radius: 99px;
+}
+
+.selectBox .btnDiv2{
+    width: 35vw;
+}
+
+.selectBox .selectButton > p{
+    margin: 0 auto;
+    font-size: 20px !important;
+}
+
+/* CSS : selectBox Style End */
