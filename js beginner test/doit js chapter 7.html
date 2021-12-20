@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-
+    <p id = "hidden">이 텍스트는 감춰질 것입니다.</p>
     <script>
-        // == part7. 변수 , 자료형 ,연산자 ============
+        // == part7. Array ============
 
         var baba = ["a","b","c","d"]
         document.write(baba.length +"<p>")
@@ -22,7 +22,40 @@
         for (let i = 0; i < baba.length; i++) {
             document.write("<br>"+ baba[i])
         }
-         
+        
+        // 자바스크립트 배열부터 
+        var nums =["1","2","3"]
+        var nums2 =["4","5","6"]
+        var nums3 =[7,"8",9]
+        nums.push("ㅋㅋ") //배열 뒤에
+        nums.unshift("ㅎㅎ")  //배열 앞에
+        var abc = nums.concat(nums2, nums3)
+        console.log(abc)
+        abc.pop() //배열 맨 뒤 요소를 추출
+        console.log(abc)
+        abc.shift() //배열 맨 앞 요소를 추출
+        console.log(abc)
+        
+        //spilce (index, 개수, 새로 추가할 요소)
+        //abc.splice(0) //배열 index 0부터 끝까지 삭제함
+        console.log(abc)
+
+        abc.splice(0,3) //배열 index 0부터 3개 까지 삭제
+        console.log(abc)
+        
+        abc.splice(0,0,"1","2","3") //2번째 인수를 3주면 맞교환 형태로 바뀜(삭제하고 다시추가) , 여기서는 지우는거 없이 추가만하기 위해 0넣음
+        console.log(abc)
+
+        var sliceabc = abc.slice(3) //slice 원하는 요소들을 추출함
+        console.log(sliceabc)
+        
+
+
+         // == part8. DOM 요소 ============
+        document.querySelector('#hidden').style.visibility="hidden"
+
+          // DOM 트리 구조 보여주는 사이트 Live DOM viewer
+          // https://software.hixie.ch/utilities/js/live-dom-viewer/
     </script>
 </body>
 </html>
