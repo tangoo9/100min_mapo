@@ -15,8 +15,7 @@
 <body>
     <header>
         <div class="header_container">
-            <div class="header_title">
-
+            <div class="header_title" >
                 <p>돌봄 서비스 신청하기</p>    
             </div>
         </div>
@@ -24,34 +23,39 @@
     <main>
         <div class="boxContainer_order_step2">
             <div class="title">
-                <h2>어떤 돌봄이 필요하세요?</h2>
+                <h2>아이정보를<br>입력해주세요</h2>
+                <p>*최대 두명의 아이까지 돌봄이 가능해요.</p>
             </div>
-            <form action="app-user-order-child-order-step3-2.html" method="get" target="" >
-                <div class="care_select_cont">
-                    <div class="care_selectBtn">
-                        <span class="textBold">정기 돌봄</span>
-                        <span>매달 정해진 요일에 선생님이 돌봐주세요</span>
+            <div class="care_select_cont">
+                <div class="care_selectBtn">
+                    <div class="text_row">
+                        <span class="textBold">이소윤</span>
+                        <div>
+                            <span class="icon delete" data-feather="trash-2"></span>
+                        </div>    
                     </div>
-                    <div class="care_selectBtn">
-                        <span class="textBold">비정기 돌봄</span>
-                        <span>단기로 정해진 날에 선생님이 돌봐주세요</span>
-                    </div>
-                </div>
-                <div class="progress_cont">
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="text_row">
+                        <span>2020-10-01 / 여자</span>
+                        <span  class="icon edit" data-feather="edit"></span>
                     </div>
                 </div>
-                <div class="selectBox">
-                    <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step1.html'">
-                        <p>이전</p>
-                    </button>
-                    <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step3-2.html'">
-                        <p>다음</p>
-                        <input type="hidden" value="">
-                    </button>
+                <div class="add_child">
+                    + 아이 추가하기
                 </div>
-            </form>
+            </div>
+            <div class="progress_cont">
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="selectBox">
+                <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step1'">
+                    <p>이전</p>
+                </button>
+                <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step3'">
+                    <p>확인</p>
+                </button>
+            </div>
         </div>
     </main>
     <footer>

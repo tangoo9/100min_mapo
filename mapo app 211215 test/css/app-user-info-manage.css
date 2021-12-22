@@ -41,6 +41,10 @@ header p{
 }
 ::-webkit-scrollbar { display: none; }
 /* ---------------- */
+
+form{
+    display:contents
+}
 body{
     margin-top: 2vh;
 }
