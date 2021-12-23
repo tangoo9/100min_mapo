@@ -21,7 +21,7 @@ header{
     height: 8vh;
     position: fixed;
     z-index: 99;
-    background-color:#ffffff;
+    color: #fafafa;
     background-color: #F69E30;
     box-sizing: border-box;
 }
@@ -103,13 +103,17 @@ form{
     /* background-color: red; */
 }
 
+.boxContainer_order_step1 .care_select_cont .care_selectBtn li:nth-child(2n){
+    margin-bottom: 1rem;
+}
+
 .boxContainer_order_step1 .care_select_cont .textBold{
     font-weight: bolder;
     font-size: 1.08rem;
     color:#F69E30;
 }
 .boxContainer_order_step1 .care_select_cont span{
-
+    
 }
 
 
@@ -191,26 +195,50 @@ form{
     font-size: 0.8em;
 }
 
-.boxContainer_order_step1 .care_select_cont{
-    width: 75vw;
+.boxContainer_order_step1_add .care_select_cont{
+    width: 80vw;
     display: flex;
     justify-content: center;
     align-items :center; 
     flex-flow: column nowrap;
     /* background-color: red; */
 }
+.boxContainer_order_step1_add .input-group-text{
+    width: 20%;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+.boxContainer_order_step1_add .form-select{
+    font-size: 0.6rem;
+    background-size: 12px 8px;
+}
+.boxContainer_order_step1_add .care_select_cont .input-group{
+    width: 100%;
+}
 
-.boxContainer_order_step1 .care_select_cont .textBold{
+.boxContainer_order_step1_add .care_select_cont .select_text{
+    padding-left: 1rem;
+    display: flex;
+    /* background-color: red; */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.boxContainer_order_step1_add .care_select_cont .form-check:nth-last-child(1){
+    margin-left: 0.8rem;
+}
+
+
+.boxContainer_order_step1_add .care_select_cont .textBold{
     font-weight: bolder;
-    font-size: 1.08rem;
     color:#F69E30;
 }
-.boxContainer_order_step1 .care_select_cont span{
+.boxContainer_order_step1_add .care_select_cont span{
 
 }
 
 
-.boxContainer_order_step1 .care_select_cont .care_selectBtn{
+.boxContainer_order_step1_add .care_select_cont .care_selectBtn{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,31 +254,10 @@ form{
     background-color: #f8f8f8;
     box-shadow: 5px 5px 5px #e2e2e2;
 }
-.boxContainer_order_step1 .care_select_cont .care_selectBtn .text_row{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-flow: row nowrap;
-    width: 60vw;
-    font-size: 0.8rem;
-    font-family: 'GyeonggiTitle-M';
-    /* background-color: red; */
-}
-.boxContainer_order_step1 .care_select_cont .care_selectBtn .text_row .icon{
-    color: #c6c6c6;
-    width: 18px;
-    height: 18px;
-}
 
-.boxContainer_order_step1 .add_child{
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: bolder;
-    font-family: 'Noto Sans KR';
-    border-bottom: 1px solid black;
-}
 
-.boxContainer_order_step1 .care_select_cont .care_selectBtn2{
+
+.boxContainer_order_step1_add .care_select_cont .care_selectBtn2{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -266,7 +273,7 @@ form{
     font-size: 0.9rem;
     /* background-color: #ffeed4; */
 }
-
+/* --boxContainer_order_step1_add End-------------------- */
 
 
 
@@ -328,7 +335,7 @@ form{
 
 
 /* --boxContainer_order_step3 Start-------------------- */
-.boxContainer_order_step3{
+.boxContainer_order_step3_1{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -337,18 +344,18 @@ form{
     height: 100%;
 }
 
-.boxContainer_order_step3 .title{
+.boxContainer_order_step3_1 .title{
     margin-top: 5em;
     width: 75vw;
     height: 20vh;
 }
-.boxContainer_order_step3 .title p{
+.boxContainer_order_step3_1 .title p{
     color: #c6c6c6;
     margin: 0;
     font-size: 0.6em;
 }
 
-.boxContainer_order_step3 .care_select_cont{
+.boxContainer_order_step3_1 .care_select_cont{
     width: 75vw;
     display: flex;
     justify-content: center;
@@ -357,16 +364,16 @@ form{
     /* background-color: red; */
 }
 
-.boxContainer_order_step3 .care_select_cont .textBold{
+.boxContainer_order_step3_1 .care_select_cont .textBold{
     font-weight: bolder;
     font-size: 1.08rem;
     color:#F69E30;
 }
-.boxContainer_order_step3 .care_select_cont span{
+.boxContainer_order_step3_1 .care_select_cont span{
 
 }
 
-.boxContainer_order_step3 .care_date_container{
+.boxContainer_order_step3_1 .care_date_container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -375,10 +382,24 @@ form{
     color: #c6c6c6;
     /* background-color: red; */
 }
-.boxContainer_order_step3 .care_date_container  .fa-calendar-alt{
+.boxContainer_order_step3_1 .care_date_container  .fa-calendar-alt{
     color: #FFC107;
 }
-.boxContainer_order_step3 .care_date_container .care_date, .care_time{
+
+.boxContainer_order_step3_2 .care_date_container .care_info{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    color: black;
+    font-family: 'GyeonggiTitle-M';
+    font-size: 1em;
+}
+
+.boxContainer_order_step3_1 .care_date_container .care_date, .care_time{
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -389,26 +410,26 @@ form{
     font-family: 'GyeonggiTitle-L';
     font-size: 0.8em;
 }
-.boxContainer_order_step3 .care_date_container .care_date, .care_time:last-child{
+.boxContainer_order_step3_1 .care_date_container .care_date, .care_time:last-child{
     border-bottom: 1px solid #c6c6c6;
 }
 
-.boxContainer_order_step3 input{
+.boxContainer_order_step3_1 input{
     color : #898989;
     border: 1px solid #c6c6c6;
     padding : 5px;
     border-radius: 8px;
     text-align: center;
 }
-.boxContainer_order_step3 .datepicker{
+.boxContainer_order_step3_1 .datepicker{
     width: 20vw;
     margin-right: 0.5em;
 }
-.boxContainer_order_step3 .timepicker{
+.boxContainer_order_step3_1 .timepicker{
     width: 20vw;
     font-size: 0.5em;
 }
-.boxContainer_order_step3 .care_select_cont .care_selectBtn{
+.boxContainer_order_step3_1 .care_select_cont .care_selectBtn{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -424,7 +445,7 @@ form{
     background-color: #f8f8f8;
     box-shadow: 5px 5px 5px #e2e2e2;
 }
-.boxContainer_order_step3 .care_select_cont .care_selectBtn .text_row{
+.boxContainer_order_step3_1 .care_select_cont .care_selectBtn .text_row{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -434,23 +455,222 @@ form{
     font-family: 'GyeonggiTitle-M';
     /* background-color: red; */
 }
-.boxContainer_order_step3 .care_select_cont .care_selectBtn .text_row .care_content{ 
+.boxContainer_order_step3_1 .care_select_cont .care_selectBtn .text_row .care_content{ 
     display: flex;
     flex-flow: column nowrap;
 }
-.boxContainer_order_step3 .care_select_cont .care_selectBtn .text_row .icon{
+.boxContainer_order_step3_1 .care_select_cont .care_selectBtn .text_row .icon{
     color: #c6c6c6;
     width: 18px;
     height: 18px;
 }
 
-.boxContainer_order_step3 .care_select_cont .add_child{
+.boxContainer_order_step3_1 .care_select_cont .add_child{
     cursor: pointer;
     font-size: 0.8rem;
     font-weight: bolder;
     font-family: 'Noto Sans KR';
     border-bottom: 1px solid black;
 }
+
+/* --boxContainer_order_step3_2 Start-------------------- */
+.boxContainer_order_step3_2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+}
+
+.boxContainer_order_step3_2 .title{
+    margin-top: 5em;
+    width: 75vw;
+    /* height: 20vh; */
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c6c6c6;
+}
+.boxContainer_order_step3_2 .title p{
+    color: #c6c6c6;
+    margin: 0;
+    font-size: 0.6em;
+}
+
+
+
+.boxContainer_order_step3_2 .care_date_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80vw;
+    color: #c6c6c6;
+    /* background-color: red; */
+    font-size: 0.9rem;
+}
+
+.boxContainer_order_step3_2 .care_date_container .calendar_container{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 80vw;
+    /* height: 30vh; */
+    /* font-size: 0.25rem; */
+    color: black;
+    padding : 5px;
+    /* border-radius: 8px; */
+    /* border: 1px solid #c6c6c6; */
+    /* background-color: red; */
+}
+.boxContainer_order_step3_2 .care_date_container .calendar_container p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.boxContainer_order_step3_2 .care_date_container .calendar_container .care_calendar{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.boxContainer_order_step3_2 .care_date_container .calendar_container .guide_text{
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+.boxContainer_order_step3_2 .care_date_container .calendar_container .guide_text:nth-last-child(2){
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    /* background-color: red; */
+}
+
+
+.boxContainer_order_step3_2 .care_date_container .calendar_container .care_calendar input{
+    width: 100%;
+    border: 1px solid #c6c6c6;
+    padding : 5px;
+    text-align: center;
+    /* background-color: red; */
+    /* border-radius: 8px; */   
+    /* height: 8vh; */
+    /* color : #898989; */
+}
+
+.boxContainer_order_step3_2 .care_date_container .calendar_container .care_calendar input:focus{
+    outline: 0;
+}
+
+.boxContainer_order_step3_2 .care_date_container  .fa-calendar-alt{
+    /* color: #FFC107; */
+    color: #fefefe;
+}
+
+ .boxContainer_order_step3_2 .care_date_container .time_container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    /* padding: 10px; */
+    font-family: 'GyeonggiTitle-M';
+    color: black;
+    /* background-color: red; */
+}
+.boxContainer_order_step3_2 .care_date_container .time_container:last-child{
+    /* border-bottom: 1px solid #c6c6c6; */
+}
+ /* .boxContainer_order_step3_2 input{
+    color : #898989;
+    border: 1px solid #c6c6c6;
+    padding : 5px;
+    border-radius: 8px;
+    text-align: center;
+}  */
+
+.boxContainer_order_step3_2 .datepicker{
+    width: 20vw;
+    margin-right: 0.5em;
+}
+.boxContainer_order_step3_2 .time_container label:nth-child(2n-1){ 
+    /* display: block; */
+    /* background-color: #e7e7e7; */
+}
+.boxContainer_order_step3_2 .time_container .check_text{
+    margin-right: 0.5rem;
+}
+.boxContainer_order_step3_2 .timepicker{
+    margin: 0.3rem;
+    width: 25vw;
+    font-size: 0.5em;
+}
+
+.boxContainer_order_step3_2 .care_select_cont .care_selectBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    margin : 1em auto;
+    padding : 10px 20px;
+    width: 75vw;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    /* background-color: #ffeed4; */
+    background-color: #f8f8f8;
+    box-shadow: 5px 5px 5px #e2e2e2;
+}
+.boxContainer_order_step3_2 .care_select_cont .care_selectBtn .text_row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 65vw;
+    font-size: 0.8rem;
+    font-family: 'GyeonggiTitle-M';
+    /* background-color: red; */
+}
+.boxContainer_order_step3_2 .care_select_cont .care_selectBtn .text_row .care_content{ 
+    display: flex;
+    flex-flow: column nowrap;
+}
+.boxContainer_order_step3_2 .care_select_cont .care_selectBtn .text_row .icon{
+    color: #c6c6c6;
+    width: 18px;
+    height: 18px;
+}
+
+.boxContainer_order_step3_2 .care_select_cont .add_child{
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    font-family: 'Noto Sans KR';
+    border-bottom: 1px solid black;
+}
+
+
+.boxContainer_order_step3_2 .care_select_cont{
+    width: 75vw;
+    display: flex;
+    justify-content: center;
+    align-items :center; 
+    flex-flow: column nowrap;
+    /* background-color: red; */
+}
+
+.boxContainer_order_step3_2 .care_select_cont .textBold{
+    font-weight: bolder;
+    font-size: 1.08rem;
+    color:#F69E30;
+}
+.boxContainer_order_step3_2 .care_select_cont span{
+
+}
+
 
 
 
@@ -524,6 +744,194 @@ form{
 
 
 
+/* --boxContainer_order_step5 Start-------------------- */
+.boxContainer_order_step5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+}
+
+.boxContainer_order_step5 .title{
+    margin-top: 5em;
+    width: 75vw;
+    height: 10vh;
+}
+.boxContainer_order_step5 .title p{
+    color: #c6c6c6;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.boxContainer_order_step5 .care_select_cont{
+    width: 75vw;
+    display: flex;
+    justify-content: center;
+    align-items :center; 
+    flex-flow: column nowrap;
+    /* background-color: red; */
+}
+
+.boxContainer_order_step5 .care_select_cont .select_div{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.boxContainer_order_step5 .care_select_cont .select_div .form-check:nth-last-child(2){
+    margin-right: 1rem;
+}
+
+.boxContainer_order_step5 .care_select_cont textarea{
+    width: 100%;
+    height: 20vh;
+    font-size: 0.9rem;
+    border : 1px solid #c6c6c6;
+}
+
+.boxContainer_order_step5 .care_select_cont .row{ 
+    
+    /* background-color: red; */
+}
+
+
+
+.boxContainer_order_step5 .care_select_cont .care_selectBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    margin : 1em auto;
+    padding : 10px 20px;
+    width: 35vw;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    font-family: 'GyeonggiTitle-M';  
+    color:#c8c8c8;
+    /* background-color: #ffeed4; */
+    background-color: #f8f8f8;
+    border: 1px solid #dedede;
+    /* box-shadow: 5px 5px 5px #e2e2e2; */
+    
+}
+.boxContainer_order_step5 .care_select_cont .care_selectBtn:nth-child(1){
+    margin-right: 1em;
+}
+
+.boxContainer_order_step5 .care_select_cont .care_selectBtn.on{
+    background-color: #ffeed4;
+    color: #F69E30;
+    border: none;
+    /* background-color: #ffeed4; */
+}
+
+/* --boxContainer_order_add_detail Start-------------------- */
+.boxContainer_order_add_detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+}
+.boxContainer_order_add_detail .title{
+    margin-top: 5em;
+    width: 80vw;
+    height: 10vh;
+}
+.boxContainer_order_add_detail .care_select_cont{
+    margin-top: 1rem;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items :center; 
+    flex-flow: column nowrap;
+    font-size: 0.8rem;
+    /* background-color: red; */
+}
+
+.boxContainer_order_add_detail .care_select_cont .input-group{
+    width: 100%;
+    /* align-items: center; */
+    /* background-color: red; */
+}
+
+.boxContainer_order_add_detail .care_select_cont .input-group.align{
+    width: 100%;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.boxContainer_order_add_detail .care_select_cont .form-check{
+    padding-left: 1.5rem;
+}
+
+.boxContainer_order_add_detail .care_select_cont .input-group-text{
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+.boxContainer_order_add_detail .care_select_cont .input-group .form_row{
+    width: 70%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-flow: row wrap;
+    /* background-color: red; */
+}
+
+.boxContainer_order_add_detail .care_select_cont .input-group select{
+    font-size: 0.8rem;
+}
+
+.boxContainer_order_add_detail .care_select_cont .input_box_etc{
+    width: 100%;
+    display: none;
+}
+
+.boxContainer_order_add_detail .care_select_cont .input_box_etc input{
+    margin-top: 0.25rem;
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding-left: 0.5rem;
+}
+
+.boxContainer_order_add_detail .care_select_cont span{
+    font-size: 0.8rem;
+    font-family: 'GyeonggiTitle-L';
+}
+.boxContainer_order_add_detail .care_select_cont .textBold{
+    font-weight: bolder;
+    font-family: 'GyeonggiTitle-M';
+}
+
+
+.boxContainer_order_add_detail .care_select_cont .care_selectBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    margin : 1em auto;
+    padding : 10px;
+    width: 75vw;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 18px;
+    border: 1px solid #c6c6c6;
+    color: #c6c6c6;
+    font-size: 0.9rem;
+    /* background-color: #ffeed4; */
+}
+.boxContainer_order_add_detail .care_select_cont .care_selectBtn.on{
+    color:#F69E30;
+    background-color: #ffeed4;
+    border: none;
+}
 
 
 /* CSS */
