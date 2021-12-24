@@ -17,35 +17,40 @@ session_check_app();
     <link rel="stylesheet" href="css/app-user-footer.css">
 </head>
 <body>
-    <div class="title">
-        <h1>
-            <span class="title_1">마포</span>
-            <span class="title_2">커뮤니티</span>
-            <span class="title_3">케어</span>
-        </h1>
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+    <div class="title_area">
+        <h3>마포에서 만나는 통합돌봄서비스</h3>
+        <h1>마포<br>커뮤니티케어</h1>
+        <img class="main_back" src="image/main_back.png" width="100" height="100">
     </div>
     <main>
         <div class="menu_container">
-            <div class="boxRow">
-                <div class="box" onclick="location.href='app-user-biz'">
-                    <img src="image/biz_pre001.png">
-                    <p>사업소개</p>
-                </div>
-                <div class="box" onclick="location.href='app-user-order'">
-                    <img src="image/biz_pre003.png">
-                    <p> 돌봄 신청</p>
-                </div>
+            <div class="sub_title">
+                <p>우리아이의 돌봄도, 부모님의 돌봄도, 지역사회의 돌봄도</p> 
+                <p><strong>마포커뮤니티케어</strong>가 함께합니다.</p>
             </div>
             <div class="boxRow">
-                <div class="box" onclick="location.href='app-user-info-list'">
+                <div class="box" onclick="location.href='app-user-info-list.html'">
+                    <p>아동돌봄</p>
                     <img src="image/biz_pre002.png">
-                    <p>돌봄내역</p>
                 </div>
-                <div class="box" onclick="location.href='app-user-info'">
-                    <img src="image/biz_pre004.png">
-                    <p>내정보</p>
+                <div class="box" onclick="location.href='app-user-order.html'">
+                    <p> 성인돌봄</p>
+                    <img src="image/biz_pre003.png">
                 </div>
             </div>
+            <div class="boxRow">
+                <div class="box" onclick="location.href='app-user-biz.html'">
+                    <p>사업소개</p>
+                    <img src="image/biz_pre001.png">
+                </div>
+                <div class="box" onclick="location.href='app-user-info.html'">
+                    <p>내정보</p>
+                    <img src="image/biz_pre004.png">
+                </div>
+            </div> 
         </div>
     </main>
     <!-- footer-->

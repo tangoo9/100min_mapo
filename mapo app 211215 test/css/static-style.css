@@ -42,6 +42,8 @@ static-style.css 적용함. 나중에 전체적인 수정필요.
     src: url("../font/TitleV.woff") format("woff");
 }
 
+/* font-family:'Noto Sans KR', sans-serif; */
+
 
 
 html{
@@ -101,7 +103,6 @@ h1, p{
 }
 
 
-
 textarea {
     resize: none;
 }
@@ -114,6 +115,18 @@ ul {
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+-webkit-appearance: none; 
+margin: 0; 
 }
+
+span{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+}
+
+/* scrollbar option */
+body{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; }
+/* ---------------- */
