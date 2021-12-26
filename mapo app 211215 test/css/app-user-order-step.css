@@ -339,7 +339,34 @@ form{
     border: none;
 }
 
+.boxContainer_order_step2 .care_select_cont .care_selectBtn .sub_title{
+    width: 100%;
+    height: 4rem;
+    text-align: center;
+    background-color: #F69E30;
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+}
 
+.boxContainer_order_step2 .care_select_cont .care_selectBtn .sub_title p{
+    margin: 0 auto;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    line-height: 4rem;
+}
+
+.boxContainer_order_step2 .care_select_cont .care_selectBtn p{
+    color: #000000;
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight: bold;
+}
+
+.boxContainer_order_step2 .care_select_cont .care_selectBtn span{
+    color: #686868;
+    font-family:'Noto Sans KR', sans-serif;
+}
+
+/*
 .boxContainer_order_step2 .care_select_cont .care_selectBtn thead{
     background-color: #F69E30;
     border-radius: 30px;
@@ -348,7 +375,6 @@ form{
 .boxContainer_order_step2 .care_select_cont .care_selectBtn table{
     border-style: hidden;
     border-collapse: collapse;
-    /* border: 1px solid black; */
     border-radius: 1.2rem
 }
 
@@ -381,7 +407,7 @@ form{
 .boxContainer_order_step2 .care_select_cont .care_selectBtn .text_mini{
     font-size: 0.5rem;
 }
-
+*/
 
 
 /* --boxContainer_order_step3 Start-------------------- */
