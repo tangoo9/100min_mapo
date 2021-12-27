@@ -1,16 +1,10 @@
-<?php
-//세션 체크 기능 모든 페이지에 추가 필요
-header("Pragma:no-cache");
-header("Cache-Control:no-cache,must-revalidate");
-include '../src/method_config.php';
-session_check_app();
-?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>마포커뮤니티케어</title>
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-main.css">
@@ -23,7 +17,10 @@ session_check_app();
     <div class="title_area">
         <h3>마포에서 만나는 통합돌봄서비스</h3>
         <h1>마포<br>커뮤니티케어</h1>
-        <img class="main_back" src="image/main_back.png" width="100" height="100">
+
+        <!-- <div class="header_backgorund">
+            <img class="main_background" src="image/main_back.png">
+        </div> -->
     </div>
     <main>
         <div class="menu_container">
@@ -32,27 +29,99 @@ session_check_app();
                 <p><strong>마포커뮤니티케어</strong>가 함께합니다.</p>
             </div>
             <div class="boxRow">
-                <div class="box" onclick="location.href='app-user-info-list.html'">
+                <!-- <div class="box" onclick="location.href='app-user-info-list'"> -->
+                <div id="child_care" class="box" >
                     <p>아동돌봄</p>
                     <img src="image/biz_pre002.png">
                 </div>
-                <div class="box" onclick="location.href='app-user-order.html'">
+                <!-- <div id="child_care" class="box" onclick="location.href='app-user-order'"> -->
+                <div id="adult_care" class="box">
                     <p> 성인돌봄</p>
                     <img src="image/biz_pre003.png">
                 </div>
             </div>
             <div class="boxRow">
-                <div class="box" onclick="location.href='app-user-biz.html'">
+                <div class="box" onclick="location.href='app-user-biz'">
                     <p>사업소개</p>
                     <img src="image/biz_pre001.png">
                 </div>
-                <div class="box" onclick="location.href='app-user-info.html'">
+                <div class="box" onclick="location.href='app-user-info'">
                     <p>내정보</p>
                     <img src="image/biz_pre004.png">
                 </div>
             </div> 
         </div>
+        <div class="biz_childcare_container">
+            <div class="title">
+                <p>아동돌봄</p>
+            </div>
+            <div class="info">
+                <span>돌봄공백이 있는 초등학생을 대상으로 마포구 내 거점공간을 통해 
+                    아이들의 학습지원과 돌봄 서비스를 전문적으로 제공합니다. 
+                </span>
+                <p>이용대상</p>
+                <span>돌봄이 필요한 초등학생이면 누구나 이용가능합니다.</span>
+                <p>이용방법</p>
+                <span>APP 또는 전화로 돌봄신청 후 이용가능합니다. 
+                    돌봄신청은 이용일 전날까지 가능하며, 
+                    당일 이용은 전화로 문의해주세요. 
+                </span>
+                <p>돌봄서비스 제공과정</p>
+                    <div class="image_info">
+                        <img src="image/child_care_info.PNG">
+                    </div>
+                <p>돌봄서비스 구성</p>
+                    <div class="image_info2">
+                        <img src="image/child_care_info2.PNG">
+                    </div>
+                <p>이용요금</p>
+                <span>돌봄은 시간당 1,500원이며, 간식은 1회 3,000원 입니다. 
+                </span>
+
+                <p>공간안내</p>
+                <span>마포자람 ㅣ  마포구 월드컵북로 353-3 1층 (상암초 정문 옆)
+                    Tel .  070-7730-0771
+                    E-mail .  mapojaram@naver.com
+                    운영시간 .  월~금 09:00~19:30 (주말 및 공휴일 휴무)
+                </span>
+            </div>
+        </div>
+        <div class="biz_adultcare_container">
+            <div class="title">
+                <p>성인돌봄</p>
+            </div>
+            <div class="info">
+                <span>돌봄 사각지대에 있는 어르신이 건강한 노년생활을 영위할 수 있도록 
+                    전문돌봄매니저가 가정을 방문하여 
+                사례진단, 서비스 계획수립 및 정기적인 돌봄서비스 제공합니다. 
+                </span>
+                <p>이용대상</p>
+                <span>마포구 관내 거주하며 돌봄서비스가 필요한 만65세 이상 어르신</span>
+                <span>※ 만65세 이하 중장년층이나 거동불편, 경제적 어려움으로 사적돌봄서비스 이용이 어려운 경우, 
+                    기타 돌봄 필요 사유가 있을 경우 사례회의를 통해 대상자로 선정될 수 있습니다. </span>
+                <p>이용방법</p>
+                <span>마포구 관내 거주하며 돌봄서비스가 필요한 어르신으로
+                    동주민센터 및 타 돌봄기관을 통해 서비스 의뢰를 받으신 분
+                </span>
+                <p>돌봄서비스 제공과정</p>
+
+                <p>돌봄서비스 구성</p>
+
+                <p>이용요금</p>
+                <span>동주민센터 및 타 돌봄기관의 의뢰로 대상자에 선정되신 분은 무료로 제공되며,
+                    사례종결  이후에도 일부 서비스 이용을 희망하실 경우 별도 자부담 비용이 발생합니다. 
+                </span>
+
+                <p>문의안내</p>
+                <span>마포커뮤니티케어사업단 ㅣ  마포구 매봉산로18 1,2층 마포구고용복지지원센터
+                    Tel .  02-303-5283                     E-mail .  mapocareu@naver.com
+                    운영시간 .  월~금 09:00~19:30 (주말 및 공휴일 휴무)
+                </span>
+            </div>
+        </div>
+        </div>
     </main>
+
     <!-- footer-->
     <footer>
         <nav id ="navBar">
@@ -82,5 +151,6 @@ session_check_app();
             </div>
         </nav>
     </footer>
+    <script src="js/app-user-main.js"></script>
 </body>
 </html>

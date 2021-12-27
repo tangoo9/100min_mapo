@@ -341,9 +341,9 @@ form{
 
 .boxContainer_order_step2 .care_select_cont .care_selectBtn .sub_title{
     width: 100%;
-    height: 4rem;
+    height: 6rem;
     text-align: center;
-    background-color: #F69E30;
+    background-color: #80caf1;
     border-top-left-radius: 1.2rem;
     border-top-right-radius: 1.2rem;
 }
@@ -352,7 +352,7 @@ form{
     margin: 0 auto;
     color: rgb(255, 255, 255);
     font-size: 1.2rem;
-    line-height: 4rem;
+    line-height: 6rem;
 }
 
 .boxContainer_order_step2 .care_select_cont .care_selectBtn p{
@@ -423,7 +423,6 @@ form{
 .boxContainer_order_step3_1 .title{
     margin-top: 5em;
     width: 75vw;
-    height: 20vh;
 }
 .boxContainer_order_step3_1 .title p{
     color: #c6c6c6;
@@ -435,9 +434,15 @@ form{
     width: 75vw;
     display: flex;
     justify-content: center;
-    align-items :center; 
+    /* align-items :center;  */
     flex-flow: column nowrap;
     /* background-color: red; */
+    font-size: 0.8rem;
+}
+
+.boxContainer_order_step3_1 .care_select_cont .subtitle{
+    margin-bottom: 0;
+    color: #ababab;
 }
 
 .boxContainer_order_step3_1 .care_select_cont .textBold{
@@ -679,6 +684,7 @@ form{
     margin-right: 0.5rem;
 }
 .boxContainer_order_step3_2 .timepicker{
+    text-align: center;
     margin: 0.3rem;
     width: 25vw;
     font-size: 0.5em;
@@ -747,7 +753,18 @@ form{
 
 }
 
+/* ui-widget ui-widget-content ui-helper-clearfix ui-corner-all */
+#ui-datepicker-div {
 
+}
+.ui-datepicker-header{
+    background-color: #F69E30;
+    color: #ffffff;
+}
+
+.ui-timepicker-container{
+    font-size: 0.8rem;
+}
 
 
 /* --boxContainer_order_step4 Start-------------------- */
