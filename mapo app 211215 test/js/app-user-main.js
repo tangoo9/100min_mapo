@@ -7,7 +7,7 @@ let adult_care = document.querySelector('.biz_adultcare_container');
 let menu_container = document.querySelector('.menu_container');
 window.onload = function(){
 }
-// menu_container.style.display = 'none';
+
 
 child_care_btn.onclick = () => {
     // biz_childcare_container.style.display = 'none'
@@ -22,3 +22,9 @@ adult_care_btn.onclick = () => {
         behavior: 'smooth', block: 'start'
     });
 }
+
+
+
+
+// menu_container.style.display = 'none';
+// child_care.style.display = 'none';
