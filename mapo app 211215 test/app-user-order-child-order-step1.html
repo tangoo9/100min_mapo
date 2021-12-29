@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order-step.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
@@ -24,6 +25,7 @@
         <div class="boxContainer_order_step1">
             <div class="title">
                 <h2>아이정보를<br>입력해주세요</h2>
+                
                 <p>*최대 3명의 아이까지 돌봄이 가능해요.</p>
             </div>
             <form>
@@ -144,11 +146,39 @@
         //     list +="</ul>";
 
 
+            // let list = "<div class='care_select_cont'>";
+            // for(let i = 0; i < dataList.length ; i ++){
+            //     list += 
+            //     "<ul class='care_selectBtn'>"+
+            //     "<li class='text_row'>" +
+            //         "<span class='textBold'>"+
+            //             dataList[i].name + 
+            //         "</span>" +
+            //         "<div><span class='icon delete' data-feather='trash-2'></span></div>" +
+            //         "</li>" +
+            //         "<li class='text_row'>" +
+            //         "<span>"+
+            //             dataList[i].birth + " / " +  dataList[i].sex+
+            //         "</span>" +
+            //         "<div><span class='icon edit' data-feather='edit' ></span></div>" +
+            //         "</li>" + 
+            //         "</ul>";
+            // }
+            // list +="</div>";
+
+
             let list = "<div class='care_select_cont'>";
             for(let i = 0; i < dataList.length ; i ++){
                 list += 
                 "<ul class='care_selectBtn'>"+
+
                 "<li class='text_row'>" +
+                    "<div class='form-check'>" +
+                "<input class='form-check-input' type='checkbox' value='' id='flexCheckChecked' >" +
+                "<label class='form-check-label' for='flexCheckChecked'>"+
+                "</label>" +
+                "<i class='far fa-trash-alt'></i>"+
+                "</div>" +
                     "<span class='textBold'>"+
                         dataList[i].name + 
                     "</span>" +
@@ -164,6 +194,8 @@
             }
             list +="</div>";
 
+
+
             document.querySelector('.care_select_cont').innerHTML += list;  // list 내용 표시
         
 
@@ -175,7 +207,7 @@
                 remove[i].addEventListener("click", removeList);  // 요소를 클릭하면 removeList() 실행
             }
         }
-        
+
 
         // var list = "<ul>";  // 목록을 시작하는 <ul> 태그 저장
         // for (var i=0; i<itemList.length; i++) {  // 배열 요소마다 반복 

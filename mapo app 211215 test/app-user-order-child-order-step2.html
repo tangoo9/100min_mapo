@@ -25,32 +25,31 @@
             <div class="title">
                 <h2>어떤 돌봄이 필요하세요?</h2>
             </div>
-            <form action="app-user-order-child-order-step3-2" method="get" target="" >
+            <form action="app-user-order-child-order-step3-2" method="#" target="" >
                 <div class="care_select_cont">
-                    <div class="care_selectBtn">
+                    <div class="care_selectBtn" onclick="select('cycle_care')">
                         <div class="sub_title">
                             <p>정기 돌봄</p>
                         </div>
                         <p>매달 정해진 요일에 선생님이 돌봐주세요.</p>
-                        <span>
-                            정기돌봄은 공간전체 운영시간 동안<br> 돌봄서비스를 이용합니다. </span>
-
+                        <!-- <span>
+                            정기돌봄은 공간전체 운영시간 동안<br> 돌봄서비스를 이용합니다. 
+                        </span> -->
                     </div>
-                    <div class="care_selectBtn">
-                        <div class="sub_title">
-                            <p>시간제 돌봄</p>
+                        <div class="care_selectBtn" onclick="select('time_care')">
+                            <div class="sub_title">
+                                <p>시간제 돌봄</p>
+                            </div>
+                            <p>단기로 정해진 날에 선생님이 돌봐주세요. </p>
+                            <!-- <span>
+                                시간제 돌봄은 공간 운영시간 중 원하는 시간대에 <br>돌봄 서비스를 이용합니다. 
+                            </span> -->
+    
+                            <!-- <p>운영시간 : </p>
+                            <p>   - 학기중 : 12:30 - 19:30</p>
+                            <p>   - 방학중 : 12:30 - 19:30</p>
+                            <p> 이용료 : 시간당 1,500원</p> --> 
                         </div>
-                        <p>단기로 정해진 날에 선생님이 돌봐주세요. </p>
-                        <span>
-                            시간제 돌봄은 공간 운영시간 중 원하는 시간대에 <Br>돌봄 서비스를 이용합니다. 
-                        </span>
-
-                        <!-- <p>운영시간 : </p>
-                        <p>   - 학기중 : 12:30 - 19:30</p>
-                        <p>   - 방학중 : 12:30 - 19:30</p>
-                        <p> 이용료 : 시간당 1,500원</p> -->
-                    </div>
-                    
                         <!-- <div class="care_footer_text">
                             <span>매달 정해진 요일에 선생님이 돌봐주세요.</span><br>
                             <span>정기돌봄은 공간전체 운영시간 동안 돌봄서비스를 이용합니다. </span>
@@ -61,6 +60,7 @@
                             <span>단기로 정해진 날에 선생님이 돌봐주세요.</span><br>
                             <span>시간제 돌봄은 공간 운영시간 중 원하는 시간대에 돌봄 서비스를 이용합니다. </span>
                         </div> -->
+                        <input type="hidden" id="care_type" name ="care_type">
                 </div>
                 <div class="progress_cont">
                     <div class="progress">
