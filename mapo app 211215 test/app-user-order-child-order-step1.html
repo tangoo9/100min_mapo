@@ -45,7 +45,7 @@
                         <!-- onclick="location.href='app-user-order-child-order-step1-add.html'" -->
                         + 아이 추가하기(추후삭제)
                     </div>
-                    <div class="add_child" onclick="location.href='app-user-order-child-order-step1-add.html'">
+                    <div id="add_child" class="add_child" onclick="location.href='app-user-order-child-order-step1-add'">
                         + 아이 추가하기
                     </div>
                 <div class="progress_cont">
@@ -54,11 +54,11 @@
                     </div>
                 </div>
                 <div class="selectBox">
-                    <!-- <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step1.html'"> -->
-                    <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order.html'">
+                    <!-- <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step1'"> -->
+                    <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order'">
                         <p>이전</p>
                     </button>
-                    <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step2.html'">
+                    <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step2'">
                         <p>다음</p>
                     </button>
                 </div>
@@ -97,11 +97,6 @@
     </footer>
     <script src="js/app-user-order-child-order-step.js"></script>
     <script>
-        
-        var addBtn = document.querySelector(".add_child");
-        addBtn.onclick = () => {
-            showList()
-        }
         var dataList = [
             {
                 "name" : "이소윤",
@@ -123,10 +118,36 @@
         console.log(Object.keys(dataList[1]))
         console.log(Object.values(dataList[0]))
 
+        var addBtn = document.querySelector(".add_child");
+        addBtn.onclick = () => {
+            showList()
+        }
+
         function showList() {
-        var list = "<ul class='care_selectBtn'>";
+        // let list = "<ul class='care_selectBtn'>";
+        //     for(let i = 0; i < dataList.length ; i ++){
+        //         list += 
+        //         "<li class='text_row'>" +
+        //             "<span class='textBold'>"+
+        //                 dataList[i].name + 
+        //             "</span>" +
+        //             "<div><span class='icon delete' data-feather='trash-2'></span></div>" +
+        //             "</li>" +
+        //             "<li class='text_row'>" +
+        //             "<span>"+
+        //                 dataList[i].birth + " / " +  dataList[i].sex+
+        //             "</span>" +
+        //             "<div><span class='icon edit' data-feather='edit' ></span></div>" +
+        //             "</li>" + 
+        //             "";
+        //     }
+        //     list +="</ul>";
+
+
+            let list = "<div class='care_select_cont'>";
             for(let i = 0; i < dataList.length ; i ++){
                 list += 
+                "<ul class='care_selectBtn'>"+
                 "<li class='text_row'>" +
                     "<span class='textBold'>"+
                         dataList[i].name + 
@@ -139,11 +160,13 @@
                     "</span>" +
                     "<div><span class='icon edit' data-feather='edit' ></span></div>" +
                     "</li>" + 
-                    "";
+                    "</ul>";
             }
-            list +="</ul>";
-            document.querySelector('.care_select_cont').innerHTML = list;  // list 내용 표시
+            list +="</div>";
+
+            document.querySelector('.care_select_cont').innerHTML += list;  // list 내용 표시
         
+
             if(dataList.length > 2){
                 addBtn.style.display = 'none';
             }

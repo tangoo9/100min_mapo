@@ -19,10 +19,10 @@ $( function() { $( "#datepicker2").datepicker(); } );
 function fn_timePicker(obj) {
     var id = $(obj).attr("id");
     $("#" + id ).timepicker({
-        timeFormat : "p hh:mm",
+        timeFormat : "HH:mm ",
         interval : 30,
         minTime:'9',
-        maxTime:'19:30pm',
+        maxTime:'19:30',
         defaultTime:'13:00',
         dynamic : false,
         dropdown : true,

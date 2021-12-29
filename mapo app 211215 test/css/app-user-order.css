@@ -18,6 +18,10 @@ body{
 ::-webkit-scrollbar { display: none; }
 /* ---------------- */
 
+p, input, textarea{
+    /* font-family:'Noto Sans KR'; */
+}
+
 /* --header Start----- */
 header{
     display: block;
@@ -309,7 +313,18 @@ main{
     border-radius: 14px;
     border:none;
     outline: none;
+    font-family:'Noto Sans KR';
 }
+.boxContainer_order_child_order_complete textarea{
+    width: 100%;
+    border-radius: 14px;
+    padding-left: 1.5vw;
+    background-color: #f4f5f5;
+    /* text-align: center; */
+    border:none;
+    font-family:'Noto Sans KR';
+}
+
 /* CSS : app-user-order-child-order-complete End */
 
 
@@ -335,6 +350,8 @@ main{
     border-radius: 14px;
     border:none;
 }
+
+
 
 /* CSS : app-user-order-exec-complete  End */
 .boxContainer_order_gaze1{
