@@ -42,42 +42,59 @@ session_start();
     <main>
         <h1>회원가입</h1>
         <form id="signUpForm" action="/api/app_process" method="post">
-            <input type="hidden" name="method" value="join">
-            <!-- 임시로 method get / 수정필요 -->
-            <div class="inputBox">
-                <input name="m_id" class="inputStyle" type="email" placeholder="이메일을 입력해 주세요." required>
+            <div class="form_container">
+                <input type="hidden" name="method" value="join">
+                <!-- 임시로 method get / 수정필요 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">이메일</span>
+                    <input name="m_id" type="email" placeholder="이메일을 입력해 주세요." 
+                                aria-label="id" class="form-control" required >
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">패스워드</span>
+                    <input name="m_pw" type="password" placeholder="패스워드를 입력해 주세요." 
+                                aria-label="password" class="form-control" required >
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">이름</span>
+                    <input name="m_name"  type="text" placeholder="이름을 입력해 주세요." 
+                                aria-label="name" class="form-control" required>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+                    <input name="m_addr" type="text" placeholder="주소를 입력해 주세요." 
+                                aria-label="name" class="form-control" required>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">성별</span>
+                    <select name="m_sex" class="form-select">
+                        <option selected disabled value="">성별을 선택하세요.</option>
+                        <option value="여">여</option>
+                        <option value="남">남</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+                    <input name="m_tel" id="m_tel" type="tel" placeholder="전화번호를 입력해 주세요."
+                                aria-label="tel" class="form-control" required>
+                    <button class="btn btn-primary buttonStyle_inner" onclick="sms();" type="button">인증</button>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">인증</span>
+                    <input type="text" id ='code' name="m_pw_confirm" placeholder="인증번호를 입력해 주세요." 
+                                aria-label="code" class="form-control" required>
+                    <button class="btn btn-primary buttonStyle_inner" onclick="check();" type="button">확인</button>
+                </div>
+                <div class="selectBox">
+                    <button class="selectButton btn_div1" type="button" onclick="window.history.back()">
+                        <p>이전</p>
+                    </button>
+                    <button class="selectButton btn_div2" type="submit">
+                        <p>회원가입</p>
+                    </button>
+                </div>
             </div>
-            <div class="inputBox">
-                <input name="m_pw" class="inputStyle" type="password" placeholder="패스워드를 입력해 주세요" required>
-            </div>
-            <div class="inputBox">
-                <input name="m_name" class="inputStyle" type="text" placeholder="이름을 입력해 주세요." required>
-            </div>
-            <div class="inputBox">
-                <input name="m_addr" class="inputStyle " type="text" placeholder="주소를 입력해 주세요." required>
-            </div>
-            <div class="inputBox">
-                <select name="m_sex" class="inputStyle ">
-                    <option value="여">여</option>
-                    <option value="남">남</option>
-                </select>
-            </div>
-            <div class="inputBox">
-                <input name="m_tel" id="m_tel" class="inputStyle ver2" type="tel" placeholder="전화번호를 입력해 주세요." required>
-                <button class="btn btn-primary buttonStyle_inner" onclick="sms();" type="button">인증</button>
-            </div>
-            <div class="inputBox">
-                <input class="inputStyle ver2" type="text" id ='code' name="m_pw_confirm" placeholder="인증번호를 입력해 주세요." required>
-                <button class="btn btn-primary buttonStyle_inner" onclick="check();" type="button">확인</button>
-            </div>
-            <button class="btn btn-primary signUpButton" type="submit" >
-                <p>회원가입</p>
-            </button>
-            <button class="btn btn-primary returnButton" type ="button" onclick="location.href='app-user-join-accept'">
-                <p>이전</p>
-            </button>
         </form>
-
     </main>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>

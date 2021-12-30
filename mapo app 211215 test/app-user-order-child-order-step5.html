@@ -26,37 +26,39 @@
                 <h2>간식 신청하기</h2>
                 <p>1회, 3000원</p>
             </div>
-            <div class="care_select_cont">
-                <div class="select_div">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            신청
-                        </label>
+            <form action="#" method="#">
+                <div class="care_select_cont">
+                    <div class="select_div">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="snack" id="yes">
+                            <label class="form-check-label" for="yes">
+                                신청
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="snack" id="no" checked>
+                            <label class="form-check-label" for="no">
+                                미신청
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            미신청
-                        </label>
+                    <p></p>
+                    <textarea placeholder="원하시는 요일과 요청사항이 있으시면 말씀해주세요."></textarea>
+                </div>
+                <div class="progress_cont">
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-                <p></p>
-                <textarea placeholder="원하시는 요일과 요청사항이 있으시면 말씀해주세요."></textarea>
-            </div>
-            <div class="progress_cont">
-                <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="selectBox">
+                    <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step4'">
+                        <p>이전</p>
+                    </button>
+                    <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-accept'">
+                        <p>다음</p>
+                    </button>
                 </div>
-            </div>
-            <div class="selectBox">
-                <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step4'">
-                    <p>이전</p>
-                </button>
-                <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-accept'">
-                    <p>다음</p>
-                </button>
-            </div>
+            </form>
             <div class="selectBox">
                 <button class="selectButton" type="button" onclick="location.href='app-user-order-child-order-add-detail'">
                     <p>돌봄서비스신청서 (1회신청 , 임시, 추후삭제)</p>

@@ -29,12 +29,13 @@ h1{
     color: #1D1617;
     font-weight: bold;
     font-size: 2rem;
+    margin-bottom: 1.5rem;
 }
 p{
     margin:0 auto;
 }
 main{
-    margin-top: 20vw;
+    margin-top: 5rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -42,73 +43,84 @@ main{
     justify-content: center;
     align-items: center;
 }
-#signUpForm{
-    width: 100vw;
+form{
+    display: contents;
+}   
+.form_container{
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    /* background-color: blue; */
-}    
-.inputBox{
-    margin: 2vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80vw;
-    height: 12.5vw;
-    background:  #F7F8F8;
-    border: 1px solid #F7F8F8;
-    box-sizing: border-box;
-    border-radius: 14px;
-    /* background-color:blue; */
-}
-.inputBox:nth-child(1){
-    margin-top: 5vw;
-}
-.inputStyle{
     width: 90vw;
-    height: 12.5vw;
-    padding-left: 2vw;
-    border: none;
-    border-radius: 14px;
-    background:  #F7F8F8;
-    outline: none;
-    font-size: 1rem;
-}
-.inputStyle::placeholder{
-    color: #ADA4A5;
+    height: 100%;
 }
 
-.ver2{
-    width: 58vw;
-    height: 12.5vw;
-    margin-right: 4vw;
+.form_container .input-group-text{
+    width: 20%;
+    justify-content: center;
+    font-size: 0.8rem;
+    /* font-weight: 600; */
+}
+
+.form_container .form-control{
+    font-size: 0.7rem;
+}
+.form_container .form-select{
+    font-size: 0.7rem;
+}
+.form_container .buttonStyle_inner{
+    width: 20%;
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family:'Noto Sans KR', sans-serif;
+    background-color: #F69E30;
+    border-color: #F69E30;
+}
+
+/* textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus{
+    border-color: rgba(229, 103, 23, 0.8);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+    outline: 0 none;
+} */
+
+.selectBox{
     display: flex;
     justify-content: center;
     align-items: center;
-    background:  #F7F8F8;
-    font-size: 0.7rem;
+    margin: 1rem auto;
+    width: 90vw;
+    height:10vh;
+    /* background-color: red; */
 }
-.ver2::placeholder{
-    color: #ADA4A5;
+
+.selectBox .selectButton{
+    cursor: pointer;
+    margin: 0 auto;
+    width: 80vw;
+    height: 7vh;
+    border:none;
+    /* background-color: #0d6efd; */
+    background-color: #F69E30;
+    color: #ffffff;
+    /* background-color: red; */
+    border-radius: 99px;
 }
-.buttonStyle_inner{
-    width: 25vw;
-    height: 12.5vw;
-    margin: 1vw auto;
-    font-size: 0.8rem;
-    font-family: 'SDSamliphopangche_Basic';
-/*
-    font-weight: 600;
-    background:  #F7F8F8;
-    background-color: red;
-    border: none;
-    border-radius: 14px;
-    box-sizing: border-box;
-    color: #000000; */
+
+.selectBox .btn_div1{
+    width: 30vw;
+    background-color: #ffffff;
+    color: #F69E30;
+    border : 1px solid #F69E30;
 }
-.signUpButton{
+
+.selectBox .btn_div2{
+    width: 50vw;
+}
+
+
+
+
+/* .signUpButton{
     margin: 3vw;
     width: 80vw;
     height: 15vw;
@@ -118,40 +130,6 @@ main{
     margin: 3vw;
     width: 80vw;
     height: 15vw;
-    /* cursor: pointer;
-    margin:10px 10px;
-    margin-bottom: 5vw;
-    width: 80vw;
-    height: 9vh;
-    border: none;
-    background: #F2F2F2;
-    border-radius: 99px; 
-    font-weight: bold;
-    font-size: 2.5vmax */
-}
+} */
 
-@media screen and (min-width:720px) {
-    /* .inputBox{
-        margin: 8px 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 40vmax;
-        height: 48px;
-        line-height: 48px;
-    }
-    .inputStyle2{
-        margin: 5vw 7vw 5vw 4vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        border-radius: 14px;
-        width: 100%;
-        height: 48px;
-        padding-left: 1vw;
-        background:  #F7F8F8;
-        
-        outline: none;
-    } */
-}
+

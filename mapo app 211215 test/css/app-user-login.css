@@ -38,13 +38,16 @@ main{
     /* background-color:#e5e5e5; */
 }
 .title{
-    margin: 20vw 2vw 2vw;
+    width: 100%;
+    margin: 0.5rem;
+    margin-top: 3rem;
     font-weight: 500;
-    font-size: 2.2rem;
+    font-size: 1.1rem;
     letter-spacing: 1px;
+    /* background-color: red; */
 }
 
-.title_1{
+/* .title_1{
     font-family: 'SDSamliphopangche_Basic';
     color: #3170BB;
 }
@@ -55,7 +58,32 @@ main{
 .title_3{
     font-family: 'SDSamliphopangche_Outline';
     color: #de8344;
+} */
+
+.title_area{
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 12rem;
+    background :url('../image/mcc_mainbackground.png') no-repeat 0 0;
+    background-size: 100% 100%;
+    /* background-color: red; */
+    color:#ffffff;
+    box-sizing: border-box;
 }
+.title_area h1,h3{
+    margin-left: 1rem;
+    font-family: 'GyeonggiTitle-M';
+    font-weight: 500;
+}    
+.title_area h3{
+    margin-top: 3rem;
+}
+.title_area h1{
+    font-size: 2.2rem;
+}  
+
+
 .titleText{
     margin: 5vw;
     font-weight: bold;

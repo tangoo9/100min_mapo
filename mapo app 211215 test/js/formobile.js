@@ -5,7 +5,7 @@ history.pushState(null, null, location.href);
 
 window.onpopstate = function(event) { 
 
-    alert("여기에 작성하고 싶은 코드를 작성하면 됩니다!");
+    alert("테스트");
     // history.back()
 
 }
