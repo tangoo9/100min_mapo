@@ -16,6 +16,14 @@ $( function() { $( "#datepicker1").datepicker(); } );
 $( function() { $( "#datepicker2").datepicker(); } ); 
 // alert("테스트")
 
+
+
+// https://kimsg.tistory.com/290
+
+
+
+
+//timepicker
 function fn_timePicker(obj) {
     var id = $(obj).attr("id");
     $("#" + id ).timepicker({

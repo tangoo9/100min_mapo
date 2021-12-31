@@ -541,6 +541,16 @@ form{
     background-color: #f8f8f8;
     box-shadow: 5px 5px 5px #e2e2e2;
 }
+
+.boxContainer_order_step3_1 .care_select_cont .care_selectBtn.on{
+    color:#F69E30;
+    background-color: #ffeed4;
+    border: none;
+}
+
+.boxContainer_order_step3_1 .care_select_cont .care_selectBtn p{
+    margin: 0 auto;
+}
 .boxContainer_order_step3_1 .care_select_cont .care_selectBtn .text_row{
     display: flex;
     justify-content: space-between;

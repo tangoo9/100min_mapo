@@ -47,7 +47,7 @@
                         <div class="care_calendar">
                             <!-- <i class="far fa-calendar-alt"></i> -->
                             <label>
-                                <input class="datepicker" type="text" placeholder="" id="datepicker1" inputmode="none">
+                                <input class="datepicker" type="text" placeholder="" id="datepicker1" inputmode="none" autocomplete="off">
                                 <input type="hidden"  >
                             </label>
                         </div>
@@ -57,7 +57,7 @@
                         <div class="care_calendar">
                             <!-- <i class="far fa-calendar-alt"></i> -->
                             <label>
-                                <input class="datepicker" type="text" placeholder="" id="datepicker2" inputmode="none">
+                                <input class="datepicker" type="text" placeholder="" id="datepicker2" inputmode="none" autocomplete="off">
                                 <input type="hidden"  >
                             </label>
                         </div>
@@ -169,5 +169,23 @@
         </nav>
     </footer>
     <!-- <script src="js/formobile.js"></script> -->
+    <script>
+        $(document).ready(function(){
+            $("#datepicker2").change(function(){
+                if($("#datepicker1").val() ==""){
+                    alert("시작일을 먼저 입력해주세요.")
+                    $("#datepicker2").val('')
+                    // $("#datepicker1").focus()
+                }
+
+                if($("#datepicker1").val() > $("#datepicker2").val()){
+                    alert(" 종료일이 시작일보다 이전입니다.")
+                    $("#datepicker2").val('')
+                }
+
+            })
+
+        })
+    </script>
 </body>
 </html>

@@ -57,7 +57,7 @@ body{
 }
 .mainContainer{
     margin: 0 auto;
-    margin-top: 8vh;
+    margin-top: 2rem;
     margin-bottom: 8vh;
     width: 90%;
     height: 100%;
@@ -163,10 +163,11 @@ main h1{
     height: 100%;
     /* background-color: blue; */
     overflow:hidden;
+    margin-bottom: 8.5vh;
 }
 
 #boxContainer_polices .subContainer{
-    margin-top: 3vh;
+    margin-top: 0.5rem;
     width: 100%;
     height: 100%;
     /* background-color: yellow; */
@@ -181,13 +182,22 @@ main h1{
     font-weight: bold;
     /* background-color: pink; */
 }
-.textBox_polices{
-    width: 100%;
-    height:27vh;
-    border: 1px solid #d4d4d4;
+
+#boxContainer_polices textarea{
+    width: 85vw;
+    height: 17vh;
+    box-sizing: border-box;
+    border-radius: 0.2rem;
+    border-color: #ababab;
+    padding:0.5rem;
+    font-size: 0.8rem;
+    text-align: left;
+    outline: none;
     overflow-y: scroll;
-    /* background-color: red; */
-}    
+    font-family: 'Noto Sans KR', sans-serif;
+    /* -ms-overflow-style: initial !important;  */
+}
+
 
 
 /* CSS : app-user-ask-polices  End*/

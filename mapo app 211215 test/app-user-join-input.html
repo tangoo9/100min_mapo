@@ -62,8 +62,20 @@ session_start();
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
-                    <input name="m_addr" type="text" placeholder="주소를 입력해 주세요." 
-                                aria-label="name" class="form-control" required>
+                    <input class="form-control addrBtn" type="button" onclick="sample3_execDaumPostcode()" value="주소 검색하기">
+                    <div id="wrap" style="display:none;border:1px solid;width:80%;height:10rem;margin:5px 0;position:relative">
+                    <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+                    </div>
+                </div>
+                <div class="addr_box">
+                    <input class="form-control" type="hidden" id="sample3_postcode" placeholder="우편번호">
+                    <input class="form-control" type="text" id="sample3_address" placeholder="주소">
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="text" id="sample3_detailAddress" placeholder="상세주소">
+                        <input class="form-control" type="text" id="sample3_extraAddress" placeholder="">
+                    </div>
+                <!-- <input name="m_addr" type="text" placeholder="주소를 입력해 주세요." 
+                    aria-label="name" class="form-control" required> -->
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">성별</span>
@@ -95,7 +107,10 @@ session_start();
                 </div>
             </div>
         </form>
+
     </main>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="js/daum_api.js"></script>
 </body>
 </html>
