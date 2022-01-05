@@ -5,70 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>돌봄이음</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/static-style.css">
-    <link rel="stylesheet" href="css/app-user-info-list.css">
+    <link rel="stylesheet" href="css/app-user-order.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
 </head>
 <body>
     <main>
-        <div class="title_area">
-            <h3>마포형 커뮤니티케어 일자리플랫폼</h3>
-            <h1>돌봄이음</h1>
-        </div>
-        <header>
-            <button class="returnButton_cont" type ="button" onclick="window.history.back();">
-                <div class="returnButton_icon" >
-                    <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.778809 10.8916C0.778809 11.2847 0.924805 11.6216 1.23926 11.9136L9.97656 20.4712C10.2236 20.7183 10.5381 20.853 10.9087 20.853C11.6499 20.853 12.2451 20.269 12.2451 19.5166C12.2451 19.146 12.0879 18.8203 11.8408 18.562L3.96826 10.8916L11.8408 3.22119C12.0879 2.96289 12.2451 2.62598 12.2451 2.2666C12.2451 1.51416 11.6499 0.930176 10.9087 0.930176C10.5381 0.930176 10.2236 1.06494 9.97656 1.31201L1.23926 9.8584C0.924805 10.1616 0.778809 10.4985 0.778809 10.8916Z" fill="black"/>
-                    </svg>
-                </div>
-                <p>돌아가기</p>    
-            </button>
-        </header>
         <div class="title">
-            <h1>신청 내역</h1>
+            <h1>아동돌봄 신청 완료!</h1>
         </div>
-        <div id="boxContainer">
-            <div class="listContainer">
-                <div class="listMenu">
-                    <div class="listMenu_button">
-                        <p onclick="location.href='app-user-info-list'">진행예정</p>
-                    </div>
-                    <div class="listMenu_button">
-                        <p onclick="location.href='app-user-info-list-cancel'">완료 및 취소 내역</p>
-                    </div>
+        <div class="boxContainer_order_child_order_complete">
+            <div class="textBox_child_order_complete">
+                <p>주문번호</p>
+                <input type="text" value="20211227_001" disabled>
+                <p>서비스명</p>
+                <input type="text" value="아동 돌봄" disabled>
+                <p>상세서비스</p>
+                <input type="text" value="시간제 돌봄" disabled>
+                <p>예약일자·시간</p>
+                <textarea disabled>2021년 12월 27일,  11시-13시30분
+                </textarea>
+                <!-- <input type="text" value="11시 - 13시30분" disabled> -->
+                <p>서비스비고</p>
+                <input type="text" value="간식 선택 안함" disabled>
+                <p>서비스 제공자</p>
+                <input type="text" value="마포자람" disabled>
+                <div class="selectBox">
+                    <button class="selectButton" type="button" onclick="location.href='app-user-main'">
+                        <p>홈으로 이동</p>
+                    </button>
                 </div>
-                <table class="list">
-                    <thead>
-                        <tr>
-                            <td class="th_time">예정시간</td>
-                            <td class="th_name">상세서비스명</td>
-                            <td class="th_status">상태</td>
-                            <td class="th_detail">상세보기</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    for($i=0;$i<$rr;$i++){
-                        ?>
-                        <tr>
-                            <td><span><?=date("n월 j일", strtotime($r[$i][o_order_date]))?></span><br><?=date("h시", strtotime($r[$i][o_order_date]))?></td>
-                            <td>아동돌봄</td>
-                            <td><?=$r[$i][o_status]?></td>
-                            <td class="detail">
-                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail?o_no=<?=$r[$i][o_no]?>'">
-                                    상세
-                                </button>
-                            </td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-
-                    </tbody>
-                </table>    
             </div>
         </div>
     </main>
@@ -100,6 +66,5 @@
             </div>
         </nav>
     </footer>
-    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

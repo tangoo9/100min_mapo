@@ -3,73 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>돌봄이음</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/static-style.css">
-    <link rel="stylesheet" href="css/app-user-info-list.css">
+    <link rel="stylesheet" href="css/app-user-order.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
 </head>
 <body>
+    <div class="title_area">
+        <h3>마포형 커뮤니티케어 일자리플랫폼</h3>
+        <h1>돌봄이음</h1>
+        <!-- <div class="header_backgorund">
+            <img class="main_background" src="image/main_back.png">
+        </div> -->
+    </div>
     <main>
-        <div class="title_area">
-            <h3>마포형 커뮤니티케어 일자리플랫폼</h3>
-            <h1>돌봄이음</h1>
-        </div>
-        <header>
-            <button class="returnButton_cont" type ="button" onclick="window.history.back();">
-                <div class="returnButton_icon" >
-                    <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.778809 10.8916C0.778809 11.2847 0.924805 11.6216 1.23926 11.9136L9.97656 20.4712C10.2236 20.7183 10.5381 20.853 10.9087 20.853C11.6499 20.853 12.2451 20.269 12.2451 19.5166C12.2451 19.146 12.0879 18.8203 11.8408 18.562L3.96826 10.8916L11.8408 3.22119C12.0879 2.96289 12.2451 2.62598 12.2451 2.2666C12.2451 1.51416 11.6499 0.930176 10.9087 0.930176C10.5381 0.930176 10.2236 1.06494 9.97656 1.31201L1.23926 9.8584C0.924805 10.1616 0.778809 10.4985 0.778809 10.8916Z" fill="black"/>
-                    </svg>
-                </div>
-                <p>돌아가기</p>    
-            </button>
-        </header>
         <div class="title">
-            <h1>신청 내역</h1>
+            <h1>돌봄신청</h1>
         </div>
         <div id="boxContainer">
-            <div class="listContainer">
-                <div class="listMenu">
-                    <div class="listMenu_button">
-                        <p onclick="location.href='app-user-info-list'">진행예정</p>
-                    </div>
-                    <div class="listMenu_button">
-                        <p onclick="location.href='app-user-info-list-cancel'">완료 및 취소 내역</p>
-                    </div>
-                </div>
-                <table class="list">
-                    <thead>
-                        <tr>
-                            <td class="th_time">예정시간</td>
-                            <td class="th_name">상세서비스명</td>
-                            <td class="th_status">상태</td>
-                            <td class="th_detail">상세보기</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    for($i=0;$i<$rr;$i++){
-                        ?>
-                        <tr>
-                            <td><span><?=date("n월 j일", strtotime($r[$i][o_order_date]))?></span><br><?=date("h시", strtotime($r[$i][o_order_date]))?></td>
-                            <td>아동돌봄</td>
-                            <td><?=$r[$i][o_status]?></td>
-                            <td class="detail">
-                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail?o_no=<?=$r[$i][o_no]?>'">
-                                    상세
-                                </button>
-                            </td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-
-                    </tbody>
-                </table>    
+            <div class="box" >
+                <p>아동돌봄</p>
+                <p class="order_btn" onclick="location.href='app-user-order-child-order-step1'">
+                    돌봄 신청하기
+                </p>
             </div>
+            <div class="box" >
+                <p>성인돌봄</p>
+                <p class="order_btn" onclick="location.href=''">
+                    돌봄 신청하기
+                </p>
+            </div>
+            <a href ="tel:023035283">
+                <div class="box ask">
+                    <p>문의하기</p>
+                    <p class="info_text">마포형 커뮤니티케어일자리플랫폼 '돌봄이음'</p>
+                    <p class="info_text">Tel .  02-303-5283 (월~금 09:00~18:00 / 주말 및 공휴일 휴무</p>
+                    <p class="info_text">E-mail .  mapocareu@naver.com</p>
+                </div>
+            </a>
+            <!-- <div class="selectBox">
+                <button class="selectButton" type="button" onclick="location.href='app-user-main'"><p>홈으로 이동</p></button>
+            </div> -->
         </div>
     </main>
     <footer>
@@ -100,6 +75,5 @@
             </div>
         </nav>
     </footer>
-    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

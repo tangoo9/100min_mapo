@@ -37,19 +37,7 @@ main{
     margin-bottom: 8.5vh;
 }
 
-.title{
-    width: 100%;
-    text-align: center;
-    /* background-color: red; */
-}
-
-.title h1{
-    margin: 0 auto;
-    margin: 0.5rem;
-    font-family: 'GyeonggiTitle-M';
-}
-
-/* --(sticky-option)header Start----- */
+/* --header Start----- */
 header{
     display: block;
     top: 0;
@@ -57,9 +45,10 @@ header{
     right: 0;
     width: 100%;
     height: 8vh;
+    position: fixed;
     z-index: 99;
-    background-color:#ffffff;
-    position: sticky;
+    background-color:#f4900a;
+    border-bottom: 1px solid #ffffff;
 }
 
 .returnButton_cont{
@@ -69,10 +58,11 @@ header{
     flex-flow: row nowrap;
     width: 35vw;
     height: 8vh;
-    background-color: #ffffff;
+    background-color: #f4900a;
     /* color: #ffffff; */
     /* background-color: red; */
     border: none;
+    border-bottom: 1px solid #ffffff;
 }
 .returnButton_icon{
     display: flex;
@@ -90,8 +80,25 @@ header p{
 }
 
 /* --header End----- */
+main{
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vh;
+    margin-bottom: 8.5vh;
+}
+.title{
+    width: 100%;
+    text-align: center;
+    /* background-color: red; */
+}
 
-
+.title h1{
+    margin: 0 auto;
+    margin: 0.5rem;
+    margin-top: 2rem;
+    font-family: 'GyeonggiTitle-M';
+}
 
 /*------------------------------  */
 .title_area{
@@ -115,10 +122,10 @@ header p{
     font-size: 0.8rem;
 }
 .title_area h1{
-    margin-top: 1.2rem;
     font-size: 2.4rem;
 }  
-/* ------------------------------- */
+
+
 #boxContainer{
     display: flex;
     justify-content: center;
@@ -133,7 +140,7 @@ header p{
 .listContainer{
     margin: 2vmax auto;
     width: 95vw;
-    height: 50vh;
+    height: 70vh;
     /* background-color: red; */
     text-align: center;
     box-sizing: border-box;
@@ -168,10 +175,10 @@ header p{
 
 .list{
     display: block;
-    margin-top: 0.5rem ;
+    margin-top: 1vh ;
     margin-bottom: 8vh;
     width: 100%;
-    height: 40vh;
+    height: 60vh;
     border-spacing: 1vh;
     border-collapse: separate;
     /* background-color: red; */
@@ -220,7 +227,6 @@ header p{
     font-size: 0.8rem;
     background-color: #f4900a;
     border-color: #f4900a;
-    color: #ffffff;
 }
 /* .list button{
     width: 100%;

@@ -7,7 +7,7 @@ const goBack = document.querySelector('.goBack');
 const goBackc = document.querySelector('.goBackc');
 
 change.onclick = () => {
-    changePop.style.display ='block';
+    changePop.style.display ='flex';
     console.log('clicked');
 }
 
@@ -23,6 +23,6 @@ goBackc.onclick = () =>{
 
 
 cancel.onclick = () => {
-    cancelPop.style.display ='block';
+    cancelPop.style.display ='flex';
     console.log('clicked');
 }

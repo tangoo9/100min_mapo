@@ -11,12 +11,12 @@ const Popup_out = document.querySelector('.app-user-info-manage-out');
 
 
 change_addr.onclick = () => {
-    Popup_addr.style.display ='block';
+    Popup_addr.style.display ='flex';
     console.log('clicked-addr');
 }
 
 change_tel.onclick = () => {
-    Popup_tel.style.display ='block';
+    Popup_tel.style.display ='flex';
     console.log('clicked-tel');
 }
 logout.onclick = () => {
@@ -30,10 +30,10 @@ out.onclick = () => {
 
 
 function goBack(){
-    if(Popup_addr.style.display='block'){
+    if(Popup_addr.style.display='flex'){
         Popup_addr.style.display = 'none';
     }
-    if(Popup_tel.style.display='block'){
+    if(Popup_tel.style.display='flex'){
         Popup_tel.style.display = 'none';
     }
     if(Popup_out.style.display='flex'){

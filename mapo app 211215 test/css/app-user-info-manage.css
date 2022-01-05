@@ -1,4 +1,61 @@
-/* --header Start----- */
+
+/* scrollbar option */
+.boxContainer{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; }
+/* ---------------- */
+
+html{
+    height: initial;
+    /* background-color: red; */
+    position: relative;
+}
+
+body{
+    display: flex;
+    margin:0;
+    padding: 0;
+    /* height: 100%; */
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    margin-bottom: 8.5vh;
+}
+
+.title_area{
+    z-index: 1;
+    /* position: relative; */
+    width: 100%;
+    height: 8rem;
+    background :url('../image/mcc_mainbackground_3.png') no-repeat 0 0;
+    background-size: 100% 100%;
+    /* background-color: red; */
+    color:#ffffff;
+    box-sizing: border-box;
+}
+.title_area h1,h3{
+    margin-left: 1rem;
+    font-family: 'GyeonggiTitle-M';
+    font-weight: 500;
+}    
+.title_area h3{
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+.title_area h1{
+    font-size: 2.4rem;
+}  
+
+/* --(sticky-option)header Start----- */
 header{
     display: block;
     top: 0;
@@ -6,9 +63,9 @@ header{
     right: 0;
     width: 100%;
     height: 8vh;
-    position: fixed;
     z-index: 99;
     background-color:#ffffff;
+    position: sticky;
 }
 
 .returnButton_cont{
@@ -19,6 +76,7 @@ header{
     width: 35vw;
     height: 8vh;
     background-color: #ffffff;
+    /* color: #ffffff; */
     /* background-color: red; */
     border: none;
 }
@@ -26,6 +84,10 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.returnButton_icon svg{
+    fill: #ffffff;
+    color: #ffffff;
 }
 header p{
     margin-left: 4vw;
@@ -35,32 +97,22 @@ header p{
 
 /* --header End----- */
 
-/* scrollbar option */
-.boxContainer{
-    -ms-overflow-style: none; 
-}
-::-webkit-scrollbar { display: none; }
-/* ---------------- */
-
 form{
     display:contents
 }
-body{
-    margin-top: 2vh;
-}
+
 .mainContainer{
     margin-bottom: 8.5vh;
     width: 90vw;
-    height: 77vh;
     /* background-color: chartreuse; */
-    position: relative;
+    /* position: relative; */
 }
 .title{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 7vh;
+    margin : 0.5rem 1.5rem;
     /* background-color: #c4c4c4; */
 }
 .title h1{
@@ -82,7 +134,7 @@ body{
 }
 .boxContainer input{
     width: 100%;
-    height: 6vh;
+    height: 2rem;
     padding-left: 1.5vw;
     /* background-color: coral; */
     background-color: #f4f5f5;
@@ -94,7 +146,7 @@ body{
 .boxContainer .buttonStyle{
     margin : 1.5vw;
     height: 6vh;
-    background-color: #0d6efd;
+    background-color: #f4900a;
     color: white;
     border-radius: 10px;
     border: none;
@@ -126,11 +178,21 @@ body{
 /* --app-user-info-manage-tel Start*/
 .app-user-info-manage-tel{
     display: none;
-    /* display: block; */
+    /* display: flex; */
     z-index: 1001;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 15%;
-    width: 70vw;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 8.5vh; */
+    background-color: rgba(0,0,0, 0.5); 
+}
+.app-user-info-manage-tel .layer_popup_cont{
+    width: 80vw;
     height: 55vh;
     background-color:#ffffff;
     border: 1px solid #000000;
@@ -139,8 +201,6 @@ body{
 .app-user-info-manage-tel .popup_title{
     display: flex;
     text-align: center;
-    height: 60px;
-    line-height: 60px;
     /* background-color: royalblue; */
 }
 .app-user-info-manage-tel .popup_title h1{
@@ -160,20 +220,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60vw;
-    height: 20vh;
+    width: 70vw;
+    height: 4.5rem;
     border: none;
     box-sizing: border-box;
     border-radius: 14px;
     /* background-color: red; */
 }
 .app-user-info-manage-tel .popup_selectListContianer .inputStyle{
-    width: 42vw;
-    height: 8vh;
+    width: 50vw;
+    height: 3.5rem;
     border: none;
     border-radius: 14px;
-    padding-left: 5px;
-    font-size: 0.8rem;
+    padding-left: 0.5rem;
+    font-size: 0.7rem;
     background:  #F7F8F8;
 }
 .app-user-info-manage-tel .popup_selectListContianer .inputStyle::placeholder{
@@ -182,14 +242,14 @@ body{
 .app-user-info-manage-tel .popup_selectListContianer .telBox_button{
     margin-left: 3.5vw;
     width: 20vw;
-    height: 8vh;
-    font-size: 0.7rem;
+    height: 3.5rem;
+    font-size: 0.8rem;
+    letter-spacing: -0.1rem;
     font-weight: 600;
     /* background:  #F7F8F8;  */
     border: none;
     border-radius: 14px;
     box-sizing: border-box;
-    
 }
 
 .app-user-info-manage-tel .selectBox{
@@ -200,23 +260,34 @@ body{
 
 .selectBox .btn {
     width: 100%;
-    /* font-family: 'SDSamliphopangche_Basic'; */
+    font-weight: 600;
+    font-weight: bolder;
+    font-family:'Noto Sans KR', sans-serif;
 }
-
 /* --app-user-info-manage-tel End*/
 
 /* --Layer popup app-user-info-manage-addr Start*/
 .app-user-info-manage-addr{
     display: none;
-    /* display: block; */
+    /* display: flex; */
     z-index: 1001;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 15%;
-    width: 70vw;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 8.5vh; */
+    background-color: rgba(0,0,0, 0.5); 
+}
+.app-user-info-manage-addr .layer_popup_cont{
+    width: 80vw;
     height: 55vh;
     background-color:#ffffff;
     border: 1px solid #000000;
-    padding : 4vw;
+    padding :20px;
 }
 .popup_title{
     display: flex;
@@ -273,7 +344,7 @@ body{
     border-radius: 14px;
     box-sizing: border-box;
     color:white;
-    background-color: #0d6efd;
+    background-color: #f4900a;
 }
 
 .app-user-info-manage-addr .selectBox{
@@ -282,10 +353,12 @@ body{
     margin-top: 9vh;
     /* background-color: saddlebrown; */
 }
-
-.selectBox .btn {
-    width: 45%;
+.app-user-info-manage-addr .addrBtn{
+    background-color: #ffc000;
+    color: #fff;
 }
+
+
 
 /* --Layer popup app-user-info-manage-addr End*/
 
@@ -293,21 +366,37 @@ body{
 .app-user-info-manage-logout{
     display: none;
     /* display: flex; */
-    flex-flow: column nowrap;
-    justify-content: space-around;
     z-index: 1001;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 20%;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 8.5vh; */
+    background-color: rgba(0,0,0, 0.5); 
+}
+.app-user-info-manage-logout .layer_popup_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
     width: 80vw;
-    height: 50vh;
+    height: 55vh;
     background-color:#ffffff;
     border: 1px solid #000000;
-    padding :2vw;
-    text-align: center;
+    padding :20px;
 }
+
 .app-user-info-manage-logout h2{
     font-size: 1.3rem;
     font-weight: bolder;
+}
+.app-user-info-manage-logout button{
+    margin : 2rem auto;
+    height: 7vh;
 }
 /* Layer popup app-user-info-manage-logout End */
 
@@ -315,24 +404,40 @@ body{
 .app-user-info-manage-out{
     display: none;
     /* display: flex; */
-    flex-flow: column nowrap;
-    justify-content: space-around;
     z-index: 1001;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 20%;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 8.5vh; */
+    background-color: rgba(0,0,0, 0.5); 
+}
+.app-user-info-manage-out .layer_popup_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
     width: 80vw;
-    height: 50vh;
+    height: 55vh;
     background-color:#ffffff;
     border: 1px solid #000000;
-    padding :2vw;
-    text-align: center;
+    padding :20px;
 }
 
 .app-user-info-manage-out h2{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bolder;
 }
+.app-user-info-manage-out button{
+    margin : 2rem auto;
+    height: 7vh;
+}
 .app-user-info-manage-out .popup_selectListContianer{
+    margin : 2rem auto;
     width: 100%;
     height: 10vh;
     display: flex;
@@ -346,3 +451,48 @@ body{
     height: 7vh;
 }
 /* Layer popup app-user-info-manage-out End */
+
+.selectBox .btn {
+    width: 45%;
+    height: 3rem;
+}
+/* btn color option */
+.btn-primary{
+    color: #fff;
+    background-color: #f4900a;
+    border-color: #f4900a;
+}
+.btn-primary:focus{
+    background-color: #f4900a;
+}
+.btn-primary:hover{
+    background-color: #f4900a;
+}
+.btn-danger{
+    color: #fff;
+    background-color: #ffc000;
+    border: #ffc000;
+}
+.btn-danger:focus{
+    background-color: #ffc000;
+}
+.btn-danger:hover{
+    background-color: #ffc000;
+}
+.btn-outline-primary{
+    border-color: #f4900a;
+    color: #f4900a;
+    /* background-color: #f4900a; */
+}
+.btn-check:checked+.btn-outline-primary{
+    border-color: #f4900a;
+    color: #fff;
+    background-color: #f4900a;
+}
+.btn:focus{
+    border-color: #f4900a;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+.btn-bordrer{
+    border: 1px solid #ababab;
+}

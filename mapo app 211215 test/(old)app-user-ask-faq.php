@@ -4,71 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>돌봄이음</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <title>마포커뮤니티케어</title>
     <link rel="stylesheet" href="css/static-style.css">
-    <link rel="stylesheet" href="css/app-user-info-list.css">
+    <link rel="stylesheet" href="css/app-user-ask.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
 </head>
 <body>
-    <main>
-        <div class="title_area">
-            <h3>마포형 커뮤니티케어 일자리플랫폼</h3>
-            <h1>돌봄이음</h1>
-        </div>
-        <header>
-            <button class="returnButton_cont" type ="button" onclick="window.history.back();">
-                <div class="returnButton_icon" >
-                    <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.778809 10.8916C0.778809 11.2847 0.924805 11.6216 1.23926 11.9136L9.97656 20.4712C10.2236 20.7183 10.5381 20.853 10.9087 20.853C11.6499 20.853 12.2451 20.269 12.2451 19.5166C12.2451 19.146 12.0879 18.8203 11.8408 18.562L3.96826 10.8916L11.8408 3.22119C12.0879 2.96289 12.2451 2.62598 12.2451 2.2666C12.2451 1.51416 11.6499 0.930176 10.9087 0.930176C10.5381 0.930176 10.2236 1.06494 9.97656 1.31201L1.23926 9.8584C0.924805 10.1616 0.778809 10.4985 0.778809 10.8916Z" fill="black"/>
-                    </svg>
-                </div>
-                <p>돌아가기</p>    
-            </button>
-        </header>
+    <header>
+        <button class="returnButton_cont" type ="button" onclick="location.href='app-user-ask'">
+            <div class="returnButton_icon" >
+                <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.778809 10.8916C0.778809 11.2847 0.924805 11.6216 1.23926 11.9136L9.97656 20.4712C10.2236 20.7183 10.5381 20.853 10.9087 20.853C11.6499 20.853 12.2451 20.269 12.2451 19.5166C12.2451 19.146 12.0879 18.8203 11.8408 18.562L3.96826 10.8916L11.8408 3.22119C12.0879 2.96289 12.2451 2.62598 12.2451 2.2666C12.2451 1.51416 11.6499 0.930176 10.9087 0.930176C10.5381 0.930176 10.2236 1.06494 9.97656 1.31201L1.23926 9.8584C0.924805 10.1616 0.778809 10.4985 0.778809 10.8916Z" fill="black"/>
+                </svg>
+            </div>
+            <p>돌아가기</p>    
+        </button>
+    </header>
+    <main class="mainContainer">
         <div class="title">
-            <h1>신청 내역</h1>
+            <h1>자주 묻는 질문</h1>
         </div>
-        <div id="boxContainer">
-            <div class="listContainer">
-                <div class="listMenu">
-                    <div class="listMenu_button">
-                        <p onclick="location.href='app-user-info-list'">진행예정</p>
-                    </div>
-                    <div class="listMenu_button">
-                        <p onclick="location.href='app-user-info-list-cancel'">완료 및 취소 내역</p>
-                    </div>
+        <div id="boxContainer_faq">
+            <div class="searchBox_faq">
+                <div class="search_icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.3833 12.8767C7.76953 12.8767 9.04785 12.4285 10.0938 11.6814L14.0283 15.616C14.2109 15.7986 14.4517 15.8899 14.709 15.8899C15.2485 15.8899 15.6304 15.4749 15.6304 14.9436C15.6304 14.6946 15.5474 14.4539 15.3647 14.2795L11.4551 10.3616C12.2769 9.28247 12.7666 7.94604 12.7666 6.49341C12.7666 2.98218 9.89453 0.110107 6.3833 0.110107C2.88037 0.110107 0 2.97388 0 6.49341C0 10.0046 2.87207 12.8767 6.3833 12.8767ZM6.3833 11.4988C3.64404 11.4988 1.37793 9.23267 1.37793 6.49341C1.37793 3.75415 3.64404 1.48804 6.3833 1.48804C9.12256 1.48804 11.3887 3.75415 11.3887 6.49341C11.3887 9.23267 9.12256 11.4988 6.3833 11.4988Z" fill="#3C3C43" fill-opacity="0.6"/>
+                    </svg>    
                 </div>
-                <table class="list">
-                    <thead>
-                        <tr>
-                            <td class="th_time">예정시간</td>
-                            <td class="th_name">상세서비스명</td>
-                            <td class="th_status">상태</td>
-                            <td class="th_detail">상세보기</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    for($i=0;$i<$rr;$i++){
-                        ?>
-                        <tr>
-                            <td><span><?=date("n월 j일", strtotime($r[$i][o_order_date]))?></span><br><?=date("h시", strtotime($r[$i][o_order_date]))?></td>
-                            <td>아동돌봄</td>
-                            <td><?=$r[$i][o_status]?></td>
-                            <td class="detail">
-                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail?o_no=<?=$r[$i][o_no]?>'">
-                                    상세
-                                </button>
-                            </td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
+                <input class="search" type="search" placeholder="검색">
+            </div>
+            <div class="textBox_faq">
 
-                    </tbody>
-                </table>    
             </div>
         </div>
     </main>
@@ -100,6 +66,5 @@
             </div>
         </nav>
     </footer>
-    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
