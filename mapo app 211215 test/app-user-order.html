@@ -4,23 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-    <title>마포커뮤니티케어</title>
+    <title>돌봄이음</title>
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
 </head>
 <body>
+    <div class="title_area">
+        <h3>마포형 커뮤니티케어 일자리플랫폼</h3>
+        <h1>돌봄이음</h1>
+        <!-- <div class="header_backgorund">
+            <img class="main_background" src="image/main_back.png">
+        </div> -->
+    </div>
     <main>
         <div class="title">
             <h1>돌봄신청</h1>
         </div>
         <div id="boxContainer">
-            <div class="box" onclick="location.href='app-user-order-child-order-step1'">
-                <p>아동돌봄 신청</p>
+            <div class="box" >
+                <p>아동돌봄</p>
+                <p class="order_btn" onclick="location.href='app-user-order-child-order-step1'">
+                    돌봄 신청하기
+                </p>
             </div>
-            <div class="selectBox">
+            <div class="box" >
+                <p>성인돌봄</p>
+                <p class="order_btn" onclick="location.href=''">
+                    돌봄 신청하기
+                </p>
+            </div>
+            <a href ="tel:023035283">
+                <div class="box ask">
+                    <p>문의하기</p>
+                    <p class="info_text">마포형 커뮤니티케어일자리플랫폼 '돌봄이음'</p>
+                    <p class="info_text">Tel .  02-303-5283 (월~금 09:00~18:00 / 주말 및 공휴일 휴무</p>
+                    <p class="info_text">E-mail .  mapocareu@naver.com</p>
+                </div>
+            </a>
+            <!-- <div class="selectBox">
                 <button class="selectButton" type="button" onclick="location.href='app-user-main'"><p>홈으로 이동</p></button>
-            </div>
+            </div> -->
         </div>
     </main>
     <footer>

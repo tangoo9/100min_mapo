@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>돌봄이음</title>
+    <title>마포커뮤니티케어</title>
     <!-- bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -58,50 +58,73 @@
     <header>
         <div class="header_container">
             <div class="header_title">
-                <p>정기 돌봄 서비스 신청하기</p>    
+                <p>돌봄 서비스 신청하기</p>    
             </div>
         </div>
     </header>
     <main>
-        <div class="boxContainer_order_step3_1">
+        <div class="boxContainer_order_step3 ">
             <div class="title">
-                <h2>어떤 돌봄이 필요하세요?</h2>
+                <h2>돌봄이 필요한 요일과<br>시간을 알려주세요.</h2>
+                <p>*동원은 최소2시간, 하원은 최소 3시간 이상부터 가능해요.</p>
             </div>
-            <form action="app-user-order-child-order-step4" method="#" target="" >
-                <div class="care_select_cont">
-                    <p class="subtitle">매달 정해진 요일에 선생님이 돌봐주세요</p>
-                    <p class="subtitle">정기돌봄은 공간전체 운영시간 동안 돌봄서비스를 이용합니다. </p>
-                    <div class="care_selectBtn" onclick="select('am_care')">
-                        <span class="textBold"><p>오전돌봄</p></span>
-                        <p>09:00 - 13:00</p>
-                        <p>월 70,000원</p>
-                    </div>
-                    <div class="care_selectBtn" onclick="select('pm_care')">
-                        <span class="textBold"><p>오후돌봄</p></span>
-                        <p>12:30 - 19:30</p>
-                        <p>월 100,000원</p>
-                    </div>
-                    <div class="care_selectBtn"onclick="select('allday_care')">
-                        <span class="textBold"> <p>종일돌봄</p></span>
-                        <p>09:00 - 19:30</p>
-                        <p>월 150,000원</p>
+            <div class="care_date_container">
+                <div class="care_date text_line">
+                    돌봄날짜 
+                    <label>
+                        <input class="datepicker" type="text" placeholder="날짜를 선택하세요." id="datepicker" >
+                        <input type="hidden"  >
+                        <i class="far fa-calendar-alt"></i>
+                    </label>
+                </div>
+                <div class="care_time">
+                    <span>하원 + 놀이돌봄</span>
+                    <div class="time_container">
+                        <input id="timepicker" class="timepicker" name="timepicker" onclick="javascript:fn_timePicker(this);" />
+                        ~
+                        <input id="timepicker2" class="timepicker" name="timepicker2" onclick="javascript:fn_timePicker(this);" />
                     </div>
                 </div>
-                <div class="progress_cont">
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="care_time text_line">
+                    <span>놀이돌봄만</span>
+                    <div class="time_container">
+                        <input id="timepicker3" class="timepicker" name="timepicker3" onclick="javascript:fn_timePicker(this);" />
+                        ~
+                        <input id="timepicker4" class="timepicker" name="timepicker4" onclick="javascript:fn_timePicker(this);" />
                     </div>
                 </div>
-                <div class="selectBox">
-                    <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step1'">
-                        <p>이전</p>
-                    </button>
-                    <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step4'">
-                        <p>다음</p>
-                        <input type="hidden" id="care_type">
-                    </button>
+            </div>
+
+            <div class="care_select_cont">
+                <div class="care_selectBtn">
+                    <div class="text_row">
+                        <div class="care_content">
+                            <span class="textBold">2021-12-14</span>
+                            <span>하원 + 놀이돌봄 / 16:30 ~ 19:30</span>
+                        </div>
+                        <div>
+                            <span class="icon" data-feather="x"></span>
+                        </div>    
+                    </div>
                 </div>
-            </form>
+                
+                <div class="add_child">
+                    + 돌봄일 추가하기
+                </div>
+            </div>
+            <div class="progress_cont">
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="selectBox">
+                <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step2'">
+                    <p>이전</p>
+                </button>
+                <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step4'">
+                    <p>다음</p>
+                </button>
+            </div>
         </div>
     </main>
     <footer>
@@ -132,6 +155,6 @@
             </div>
         </nav>
     </footer>
-    <script src="js/app-user-order-child-order-step.js"></script>
+
 </body>
 </html>

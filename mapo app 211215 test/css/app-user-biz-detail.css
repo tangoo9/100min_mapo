@@ -1,0 +1,319 @@
+/* 
+    memo.
+
+    app-user-biz-home
+    app-user-biz-child
+
+    2개의 페이지에도 동일 스타일 그대로 적용
+ */
+
+/* scrollbar option */
+body{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; }
+/* ---------------- */
+
+/* --header Start----- */
+header{
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 8vh;
+    position: fixed;
+    z-index: 99;
+    background-color:#ffffff;
+}
+
+.returnButton_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 35vw;
+    height: 8vh;
+    background-color: #ffffff;
+    /* background-color: red; */
+    border: none;
+}
+.returnButton_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header p{
+    margin-left: 4vw;
+    display: inline-block;
+    font-size: 1rem;
+}
+/* --header End----- */
+/* --main Start--------- */
+html{
+    height: initial;
+    /* background-color: red; */
+}
+
+body{
+    display: flex;
+    margin:0;
+    padding: 0;
+    /* height: 100%; */
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    margin-top: 4.5vh;
+    margin-bottom: 8.5vh;
+}
+
+/* --CSS: app-user-biz-child Start ----*/
+.biz_childcare_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 80vw;
+    /* background-color: #AF8BB7; */
+    margin-bottom: 15vh;
+}
+
+.biz_childcare_container .title{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    width: 10rem;
+    height: 5rem;
+    line-height: 5rem;
+    background-color: #AF8BB7;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+    border-radius: 0.4rem;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+}
+.biz_childcare_container .title p{
+    margin: 0 auto;
+     /* font-family: 'Noto Sans KR', sans-serif; */
+}
+
+.biz_childcare_container .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    /* font-family: 'S-CoreDream-5Medium'; */
+}
+.pretty_line{
+    margin-top: -1rem;
+    width: 100%;
+    height: 1rem;
+    background: url('../image/purple_line.PNG') no-repeat;
+    background-position: center;
+    background-size: contain;
+    border:none;
+}
+
+
+
+.biz_childcare_container .image_info{
+    width: 100%;
+    height: 100%;
+}
+
+.biz_childcare_container .image_info img{
+    width: 100%;
+    height: 100%;
+}
+
+.biz_childcare_container .image_info2{
+    width: 100%;
+    height: 100%;
+
+}
+.biz_childcare_container .image_info2 img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.biz_childcare_container .info p{
+    font-family: 'S-CoreDream-6Bold';
+    font-size: 1.3rem;
+    color: #AF8BB7;
+}
+
+.biz_childcare_container .info span{
+    font-size: 0.9rem;
+}
+
+.biz_childcare_container .footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+.biz_childcare_container .footer>li{
+    width: 100%;
+    display: flex;
+    /* flex-flow: row nowrap; */
+    flex-flow: column nowrap;
+}
+
+.biz_childcare_container .footer>li>p{
+    /* margin: 0; */
+    font-size: 0.8rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    color: black;
+}
+
+.biz_childcare_container .footer li>p::after{
+    content: "ㅣ";
+    margin-left: 0.1rem;
+}
+
+.biz_childcare_container .footer ul,li{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+.biz_childcare_container .footer li>ul{
+    margin-left: 0.1rem;
+    /* width: 65%; */
+    width: 100%;
+}
+
+
+.biz_childcare_container .footer .list{
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    flex-flow: column;
+}
+
+/* --CSS: app-user-biz-senior Start ----*/
+
+.biz_adultcare_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 80vw;
+    margin-bottom: 15vh;
+    /* background-color: #80caf1; */
+}
+
+.biz_adultcare_container .title{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    width: 10rem;
+    height: 5rem;
+    line-height: 5rem;
+    background-color: #80caf1;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+}
+.biz_adultcare_container .title p{
+    margin: 0 auto;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+}
+
+.biz_adultcare_container .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    /* font-family: 'S-CoreDream-5Medium'; */
+}
+
+.biz_adultcare_container .image_info{
+    width: 100%;
+    height: 100%;
+    /* background :url('../image/child_care_info.png') no-repeat 0 0;
+    background-size: 100% 100%; */
+}
+
+.biz_adultcare_container .image_info img{
+    width: 100%;
+    height: 100%;
+}
+
+.biz_adultcare_container .image_info2{
+    width: 100%;
+    height: 100%;
+    /* background :url('../image/child_care_info2.png') no-repeat 0 0;
+    background-size: 100% 100%; */
+}
+.biz_adultcare_container .image_info2 img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.biz_adultcare_container .info p{
+    font-family: 'S-CoreDream-6Bold';
+    font-size: 1.2rem;
+    color: #80caf1;
+}
+
+.biz_adultcare_container .info span{
+    font-size: 0.9rem;
+}
+
+.pretty_line_blue{
+    margin-top: -1rem;
+    width: 100%;
+    height: 1rem;
+    background: url('../image/blue_line.PNG') no-repeat;
+    background-position: center;
+    background-size: contain;
+    border:none;
+}
+
+.biz_adultcare_container .footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+.biz_adultcare_container .footer>li{
+    width: 100%;
+    display: flex;
+    /* flex-flow: row nowrap; */
+    flex-flow: column nowrap;
+}
+.biz_adultcare_container .footer>li>p{
+    font-size: 0.8rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    color: black;
+}
+
+.biz_adultcare_container .footer li>p::after{
+    content: "ㅣ";
+    margin-left: 0.1rem;
+}
+
+.biz_adultcare_container .footer ul,li{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+.biz_adultcare_container .footer li>ul{
+    margin-left: 0.1rem;
+    /* width: 65%; */
+}

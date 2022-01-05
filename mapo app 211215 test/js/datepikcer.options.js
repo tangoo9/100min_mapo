@@ -33,8 +33,8 @@ function fn_timePicker(obj) {
         maxTime:'19:30',
         defaultTime:'13:00',
         dynamic : false,
-        dropdown : true,
-        scrollbar : true
+        dropdown : true
+        // scrollbar : true
     });
     $("#" + id).timepicker("open");
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>돌봄이음</title>
+    <title>마포커뮤니티케어</title>
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
@@ -13,25 +13,36 @@
     <div id="container">
         <main>
             <div class="title">
-                <h1>돌봄 신청 완료!</h1>
+                <h1>아동돌봄신청</h1>
             </div>
-            <div class="boxContainer_order_exec_complete">
-                <p>주문번호</p>
-                <input type="text" value="20211223_001" disabled>
-                <p>서비스명</p>
-                <input type="text" value="시간제 돌봄" disabled>
-                <p>상세서비스</p>
-                <input type="text" value="시간제 돌봄?" disabled>
-                <p>예약일자</p>
-                <input type="text" value="2022.01.04" disabled>
-                <p>예약시간</p>
-                <input type="text" value="11시 - 13시30분" disabled>
-                <p>서비스비고</p>
-                <input type="text" value="간식 선택 안함" disabled>
-                <p>서비스 제공자</p>
-                <input type="text" value="마포자람" disabled>
-                <div class="selectBox">
-                    <button class="selectButton" type="button"><p>홈으로 이동</p></button>
+            <div id="boxContainer_child">
+                <div class="boxContainer_order-child-order">
+                    <div class="subtitle">
+                        <h1>2단계 : 상세 내용 입력</h1>
+                    </div>
+                    <div class="company_list">
+                        <p>서비스명</p>
+                        <input type="text" placeholder="??">
+                        <p>이름</p>
+                        <input type="text" placeholder="이름을 입력하세요.">
+                        <p>전화</p>
+                        <input type="tel" placeholder="전화번호를 입력하세요.">
+                        <p>주소</p>
+                        <input type="text" placeholder="주소를 입력하세요.">
+                        <p>비고</p>
+                        <input type="text" placeholder="">
+                        <p>신청시간 </p>
+                        <input type="time" placeholder="">
+                    </div>
+                    <div class="selectBox">
+                        <button class="selectButton btnDiv2" type="button" onclick="location.href='app-user-order-child-to'">
+                            <p>이전</p>
+                        </button>
+                        <!-- <button class="selectButton btnDiv2" type="button" onclick="location.href='app-user-order-child-order-complete'"> -->
+                        <button class="selectButton btnDiv2" type="button" onclick="location.href='app-user-order-child-order-step1'">
+                            <p>신청</p>
+                        </button>
+                    </div>
                 </div>
             </div>
         </main>

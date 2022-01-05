@@ -4,68 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>돌봄이음</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <title>마포커뮤니티케어</title>
     <link rel="stylesheet" href="css/static-style.css">
-    <link rel="stylesheet" href="css/app-user-order-step.css">
+    <link rel="stylesheet" href="css/app-user-order.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
 </head>
 <body>
-    <header>
-        <div class="header_container">
-            <div class="header_title">
-                <p>아동돌봄 신청하기</p>    
-            </div>
-        </div>
-    </header>
     <main>
-        <div class="boxContainer_order_step5">
-            <div class="title">
-                <h2>간식 신청하기</h2>
-                <p>1회, 3000원</p>
-            </div>
-            <form action="#" method="#">
-                <div class="care_select_cont">
-                    <div class="select_div">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="snack" id="yes" value="yes">
-                            <label class="form-check-label" for="yes">
-                                신청
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="snack" id="no" value="no"checked>
-                            <label class="form-check-label" for="no">
-                                미신청
-                            </label>
-                        </div>
-                    </div>
-                    <p></p>
-                    <textarea placeholder="원하시는 요일과 요청사항이 있으시면 말씀해주세요.(알레르기 정보 등)"></textarea>
+        <div class="title">
+            <h1>아동돌봄신청</h1>
+        </div>
+        <div id="boxContainer_child">
+            <div class="boxContainer_order-child-list-nouse">
+                <div class="subtitle">
+                    <h1>1단계 : 업체선정</h1>
                 </div>
-                <div class="progress_cont">
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="company_list">
+                    <div class="listRow">
+                        <label>업체명</label>
+                        <input type="text" value="테스트 텍스트" disabled>
+                    </div>
+                    <div class="listRow">
+                        <label>업체명</label>
+                        <input type="text" value="테스트 텍스트" disabled>
+                    </div>
+                    <div class="listRow">
+                        <label>업체명</label>
+                        <input type="text" value="테스트 텍스트" disabled>
+                    </div>
+                    <div class="listRow">
+                        <label>업체명</label>
+                        <input type="text" value="테스트 텍스트" disabled>
                     </div>
                 </div>
                 <div class="selectBox">
-                    <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step4'">
-                        <p>이전</p>
-                    </button>
-                    <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-accept'">
+                    <button class="selectButton" type="button" onclick="location.href='app-user-order-child-to'">
                         <p>다음</p>
                     </button>
                 </div>
-            </form>
-            <div class="selectBox">
-                <button class="selectButton" type="button" onclick="location.href='app-user-order-child-order-add-detail'">
-                    <p>돌봄서비스신청서 (1회신청 , 임시, 추후삭제)</p>
-                </button>
             </div>
         </div>
     </main>
+    <!-- footer-->
     <footer>
         <nav id ="navBar">
             <div class="navButton" onclick="location.href='app-user-main'">
@@ -94,6 +74,5 @@
             </div>
         </nav>
     </footer>
-    <script src="js/app-user-order-child-order-step.js"></script>
 </body>
 </html>

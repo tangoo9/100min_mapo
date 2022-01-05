@@ -1,7 +1,8 @@
 /* 
     memo 
     1) app-user-order 연관 css스타일 : 
-    exec-complete, child-... 등 에 대한 스타일을 이 css파일에서 공유함.
+    app-user-order-exec-complete
+    child-... 등 에 대한 스타일을 이 css파일에서 공유함.
 
 
     2) 선택버튼 css 맨 아래에 분리함.
@@ -22,6 +23,52 @@ p, input, textarea{
     /* font-family:'Noto Sans KR'; */
 }
 
+html{
+    height: initial;
+    /* background-color: red; */
+}
+body{
+    display: flex;
+    margin:0;
+    padding: 0;
+    /* height: 100%; */
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    margin-bottom: 8.5vh;
+}
+.title_area{
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 8rem;
+    background :url('../image/mcc_mainbackground_3.png') no-repeat 0 0;
+    background-size: 100% 100%;
+    /* background-color: red; */
+    color:#ffffff;
+    box-sizing: border-box;
+}
+.title_area h1,h3{
+    margin-left: 1rem;
+    font-family: 'GyeonggiTitle-M';
+    font-weight: 500;
+}    
+.title_area h3{
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+.title_area h1{
+    font-size: 2.4rem;
+}  
+
+
 /* --header Start----- */
 header{
     display: block;
@@ -33,7 +80,6 @@ header{
     position: fixed;
     z-index: 99;
     background-color:#ffffff;
-    
 }
 
 .returnButton_cont{
@@ -57,26 +103,16 @@ header p{
     display: inline-block;
     font-size: 1rem;
 }
-
 /* --header End----- */
-
-body{
-    height: initial;
-}
-main{
-    margin-bottom: 8.5vh;
-}
-
 .title{
-    margin-top: 8vh;
-    width: 75vw;
-    height: 10vh;
-    line-height: 10vh;
+    margin: 0.5rem;
+    margin-top: 2rem;
+    /* line-height: 10vh; */
 }
 .title h1{
     margin: 0 auto;
     text-align: center;
-    font-family: 'GyeonggiTitle-M';
+    font-family: 'GyeonggiTitle-L';
 }
 
 #boxContainer{
@@ -91,37 +127,41 @@ main{
 }
 
 .box{
-    position: relative;
-    cursor: pointer;
-    margin: 5vh 10vw;
-    margin-top: 9vh;
-    width:80vw;
-    height: 45vh;
-    border: 1px solid #000000;
+    margin: 0.5rem;
+    width: 16rem;
+    height: 7rem;
+    border: 2px solid #bcbcbc;
+    background-color: #f1f1f1;
     box-sizing: border-box;
-    border-radius: 22px;
+    border-radius: 0.5rem;
     text-align: center;
-    font-weight: 500;
-    font-size: 1.5rem;
-    background:url('../image/child_care.png') no-repeat;
-    background-size:cover;
-    background-position:center;
+    font-size: 2rem;
+    font-weight: 600;
 }
-
+.box .order_btn{
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family:'Noto Sans KR', sans-serif;
+    color: #ffc000;
+}
 .box p{
-    position:absolute;
-    width: 100%;
-    height: 6vh;
-    line-height: 6vh;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    margin: 0 auto;
-    background-color:rgba(0, 0, 0, 0.50);
-    color: #ffffff;
-    margin: 0 auto;
+    margin: 1rem auto;
 }
-
+.box .info_text{
+    text-align: left;
+    margin: 0;
+    margin-left: 1rem;
+    margin-bottom: -0.2rem;
+    font-size: 0.2rem;
+    font-weight: 600;
+    font-family:'Noto Sans KR', sans-serif;
+    letter-spacing: -0.5px;
+    /* color: #ffc000; */
+}
+.ask{
+    cursor: pointer;
+}
 
 /* CSS : app-user-order-child Start */
 #boxContainer_child{
@@ -350,81 +390,6 @@ main{
     border-radius: 14px;
     border:none;
 }
-
-
-
-/* CSS : app-user-order-exec-complete  End */
-.boxContainer_order_gaze1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column nowrap;
-    width: 100%;
-    height: 100%;
-    
-}
-
-.boxContainer_order_gaze1 .care_select_cont{
-    width: 75vw;
-    display: flex;
-    justify-content: center;
-    align-items :center; 
-    flex-flow: column nowrap;
-    /* background-color: red; */
-}
-
-.boxContainer_order_gaze1 .care_select_cont span{
-    font-size: 0.8rem;
-    font-family: 'GyeonggiTitle-L';
-}
-.boxContainer_order_gaze1 .care_select_cont .textBold{
-    font-weight: bolder;
-    font-family: 'GyeonggiTitle-M';
-}
-
-.boxContainer_order_gaze1 .care_select_cont .care_selectBtn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column nowrap;
-    margin : 1em auto;
-    padding : 10px;
-    width: 75vw;
-    cursor: pointer;
-    box-sizing: border-box;
-    border-radius: 18px;
-    font-size: 0.9rem;
-    color:#F69E30;
-    background-color: #ffeed4;
-}
-.boxContainer_order_gaze1 .care_select_cont .care_selectBtn2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column nowrap;
-    margin : 1em auto;
-    padding : 10px;
-    width: 75vw;
-    cursor: pointer;
-    box-sizing: border-box;
-    border-radius: 18px;
-    border: 1px solid #c6c6c6;
-    color: #c6c6c6;
-    font-size: 0.9rem;
-    /* background-color: #ffeed4; */
-}
-/*  CSS : progress Bar Stlye Start  */
-.progress_cont{
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    width: 75vw;
-    height: 20px;
-    /* background-color: red; */
-}
-.progress .progress-bar{
-
-}
-
 /*  CSS : progress Bar Stlye End  */
 
 /* CSS : selectBox Style Start */
@@ -445,7 +410,7 @@ main{
     height: 8vh;
     border:none;
     /* background-color: #0d6efd; */
-    background-color: #F69E30;
+    background-color: #f4900a;
     color: #ffffff;
     /* background-color: red; */
     border-radius: 99px;

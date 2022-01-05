@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마포커뮤니티케어</title>
+    <title>돌봄이음</title>
     <!-- bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -28,7 +28,7 @@
     <header>
         <div class="header_container">
             <div class="header_title">
-                <p>돌봄 서비스 신청</p>    
+                <p>아동돌봄 신청하기</p>    
             </div>
         </div>
     </header>
@@ -71,7 +71,7 @@
                             <input type="checkbox" id="chk1" name="agree">
                             <i class="circle"></i>
                             <span class="check_text left">월</span>
-                            <input id="timepicker1" class="timepicker" name="timepicker" onclick="javascript:fn_timePicker(this);" inputmode="none"/>
+                            <input id="timepicker1" class="timepicker" name="timepicker1" onclick="javascript:fn_timePicker(this);" inputmode="none"/>
                             ~
                             <input id="timepicker2" class="timepicker" name="timepicker2" onclick="javascript:fn_timePicker(this);" inputmode="none"/>
                         </label>
@@ -182,7 +182,20 @@
                     alert(" 종료일이 시작일보다 이전입니다.")
                     $("#datepicker2").val('')
                 }
+            })
+    
+            $("#timepicker2").change(function(){
+                console.log($("#timepicker2").val())
+                if($("#timepicker1").val() ==""){
+                    alert("시작 시간을 먼저 입력해주세요.")
+                    $("#timepicker2").val('')
+                    // $("#datepicker1").focus()
+                }
 
+                if($("#timepicker1").val() > $("#timepicker2").val()){
+                    alert("종료시간이 시작시간 보다 이전입니다.")
+                    $("#timepicker2").val('')
+                }
             })
 
         })

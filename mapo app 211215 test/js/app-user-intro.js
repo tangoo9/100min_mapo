@@ -1,8 +1,8 @@
-//app-user-intro.js
+// app-user-intro.js
 
 setTimeout(function(){
     location.href="app-user-login"
-},6000);
+},4000);
 
 
 

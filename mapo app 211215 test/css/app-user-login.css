@@ -64,8 +64,8 @@ main{
     z-index: 1;
     position: relative;
     width: 100%;
-    height: 12rem;
-    background :url('../image/mcc_mainbackground.png') no-repeat 0 0;
+    height: 8rem;
+    background :url('../image/mcc_mainbackground_3.png') no-repeat 0 0;
     background-size: 100% 100%;
     /* background-color: red; */
     color:#ffffff;
@@ -77,12 +77,12 @@ main{
     font-weight: 500;
 }    
 .title_area h3{
-    margin-top: 3rem;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
 }
 .title_area h1{
-    font-size: 2.2rem;
+    font-size: 2.4rem;
 }  
-
 
 .titleText{
     margin: 5vw;
@@ -163,7 +163,7 @@ main{
 
 .loginButton{
     margin-top: 5vw;
-    background-color: #F2994A;
+    background-color: #f4900a;
     position: relative;
 }
 
@@ -181,7 +181,7 @@ main{
 }
 
 .loginButton_kakao{
-    background-color: #F2C94C;
+    background-color: #ffc000;
 }
 .signUpButton{
     margin-bottom: 10vw;
