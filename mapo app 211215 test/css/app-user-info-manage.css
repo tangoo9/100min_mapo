@@ -284,7 +284,7 @@ form{
 }
 .app-user-info-manage-addr .layer_popup_cont{
     width: 80vw;
-    height: 55vh;
+    height: auto;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -310,16 +310,23 @@ form{
     height: 20vh ;
     /* background-color: black; */
 }
-.app-user-info-manage-addr .popup_selectListContianer .inputBox{
-    display: flex;
+
+.app-user-info-manage-addr .popup_selectListContianer .addr_iframe_wrap{
+    display: none;
+    z-index: 2000;
+    top: 0;
     width: 100%;
-    height: 8vh;
-    padding:1.5vw;
-    /* background:  #3fe0e0; */
-    border: none;
-    box-sizing: border-box;
-    border-radius: 14px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
 }
+
+.app-user-info-manage-addr .popup_selectListContianer #wrap{
+    width: 100%;
+    height: 100%;
+    /* position: absolute; */
+}
+
 .app-user-info-manage-addr .popup_selectListContianer .inputStyle{
     width: 100%;
     height: 7vh;
@@ -468,6 +475,7 @@ form{
 .btn-primary:hover{
     background-color: #f4900a;
 }
+
 .btn-danger{
     color: #fff;
     background-color: #ffc000;
@@ -482,6 +490,11 @@ form{
 .btn-outline-primary{
     border-color: #f4900a;
     color: #f4900a;
+    /* background-color: #f4900a; */
+}
+.btn-outline-primary:hover{
+    border-color: #f4900a;
+    background-color: #ffc000;
     /* background-color: #f4900a; */
 }
 .btn-check:checked+.btn-outline-primary{

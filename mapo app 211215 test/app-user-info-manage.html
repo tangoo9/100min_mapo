@@ -108,16 +108,11 @@
                 <h1>주소 변경</h1>
             </div>
             <div class="popup_selectListContianer">
-                <div class="inputBox">
-                    <form method="post" action="/api/app_process">
-                    <!-- <input type="hidden" name="method" value="fix_addr">
-                    <input class="inputStyle" type="text" name='fix_addr' placeholder="주소 입력"> -->
-                </div>
+                <form method="post" action="/api/app_process">
+                <!-- <input type="hidden" name="method" value="fix_addr">
+                <input class="inputStyle" type="text" name='fix_addr' placeholder="주소 입력"> -->
                 <div class="input-group mb-3">
-                    <input class="form-control addrBtn" type="button" onclick="sample3_execDaumPostcode()" value="주소 검색하기">
-                    <div id="wrap" style="display:none;border:1px solid;width:80%;height:10rem;margin:5px 0;position:relative">
-                    <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
-                    </div>
+                    <input class="form-control addrBtn" type="button" onclick="sample3_execDaumPostcode(); block()" value="주소 검색하기">
                 </div>
                 <div class="addr_box">
                     <input class="form-control" type="hidden" id="sample3_postcode" placeholder="우편번호">
@@ -125,6 +120,11 @@
                     <div class="input-group mb-3">
                         <input class="form-control" type="text" id="sample3_detailAddress" placeholder="상세주소">
                         <input class="form-control" type="text" id="sample3_extraAddress" placeholder="">
+                    </div>
+                </div>
+                <div class="addr_iframe_wrap">
+                    <div id="wrap" style="display:none;border:1px solid;width:100%;height:10rem;margin:5px 0;position:relative">
+                        <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
                     </div>
                 </div>
             </div>
@@ -215,5 +215,6 @@
     <script src="js/app-user-info-manage.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="js/daum_api.js"></script>
+    <script src="js/custom_daum_api_control.js"></script>
 </body>
 </html>
