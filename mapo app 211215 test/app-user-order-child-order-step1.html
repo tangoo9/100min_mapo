@@ -30,16 +30,43 @@
             <form>
                 <div class="care_select_cont">
                     <ul class="care_selectBtn">
-                        <li class="text_row">
-                            <span class="textBold">이소윤</span>
-                            <div>
-                                <span class="icon delete" data-feather="trash-2"></span>
-                            </div>    
-                        </li>
-                        <li class="text_row">
-                            <span>2020-10-01 / 여자</span>
-                            <span  class="icon edit" data-feather="edit"></span>
-                        </li>
+                        <div class="row">
+                            <li class="text_row">
+                                <span class="textBold">이소윤</span>  
+                            </li>
+                            <li class="text_row">
+                                <span>2020-10-01 / 여자</span>
+                            </li>
+                        </div>
+                        <div class="icon_area">
+                            <i class='far fa-trash-alt'></i>
+                        </div>
+                    </ul>
+                    <ul class="care_selectBtn">
+                        <div class="row">
+                            <li class="text_row">
+                                <span class="textBold">이소민</span>  
+                            </li>
+                            <li class="text_row">
+                                <span>2020-10-01 / 여자</span>
+                            </li>
+                        </div>
+                        <div class="icon_area">
+                            <i class='far fa-trash-alt'></i>
+                        </div>
+                    </ul>
+                    <ul class="care_selectBtn">
+                        <div class="row">
+                            <li class="text_row">
+                                <span class="textBold">이소연</span>  
+                            </li>
+                            <li class="text_row">
+                                <span>2020-10-01 / 여자</span>
+                            </li>
+                        </div>
+                        <div class="icon_area">
+                            <i class='far fa-trash-alt'></i>
+                        </div>
                     </ul>
                 </div>
                     <div class="add_child" >
@@ -49,6 +76,7 @@
                     <div id="add_child" class="add_child" onclick="location.href='app-user-order-child-order-step1-add'">
                         + 아이 추가하기
                     </div>
+                <input type="hidden" id="selected_child" name ="selected_child">
                 <div class="progress_cont">
                     <div class="progress">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">                    </div>
@@ -96,7 +124,7 @@
 
 
     </footer>
-    <script src="js/app-user-order-child-order-step.js"></script>
+    <!-- <script src="js/app-user-order-child-order-step.js"></script> -->
     <script>
         var dataList = [
             {
@@ -166,30 +194,26 @@
             // list +="</div>";
 
 
+
+
+
             let list = "<div class='care_select_cont'>";
             for(let i = 0; i < dataList.length ; i ++){
                 list += 
                 "<ul class='care_selectBtn'>"+
-
-                "<li class='text_row'>" +
-                    "<div class='form-check'>" +
-                "<input class='form-check-input' type='checkbox' value='' id='flexCheckChecked' >" +
-                "<label class='form-check-label' for='flexCheckChecked'>"+
-                "</label>" +
-                "<i class='far fa-trash-alt'></i>"+
-                "</div>" +
-                    "<span class='textBold'>"+
-                        dataList[i].name + 
-                    "</span>" +
-                    "<div><span class='icon delete' data-feather='trash-2'></span></div>" +
-                    "</li>" +
-                    "<li class='text_row'>" +
-                    "<span>"+
-                        dataList[i].birth + " / " +  dataList[i].sex+
-                    "</span>" +
-                    "<div><span class='icon edit' data-feather='edit' ></span></div>" +
-                    "</li>" + 
-                    "</ul>";
+                    "<div class='row'>" +
+                        "<li class='text_row'>" +
+                            "<span class='textBold'>"+
+                                dataList[i].name + 
+                            "</span>" +
+                        "</li>" +
+                        "<li class='text_row'>" +
+                            "<span>"+ dataList[i].birth + " / " +  dataList[i].sex+ "</span>" +
+                    "</div>" +
+                    "<div class='icon_area'>" + 
+                        "<i class='far fa-trash-alt'></i>"+
+                    "</div>"+
+                "</ul>";
             }
             list +="</div>";
 
@@ -213,6 +237,61 @@
         //     list += "<li>" + itemList[i] + "<span class='close' id=" + i + ">X</span></li>";  // 요소와 삭제 버튼을 <li>~</li>로 묶음
         // }
         // list += "</ul>";   // 목록을 끝내는 </ul> 태그 저장
+
+            // 색상 변경
+        // let currentColor;
+        // let careSelect = document.querySelectorAll('.care_selectBtn');
+
+        // function colorHandler(){
+        // if (currentColor){
+        //     currentColor.classList.remove('on');
+        // }   
+        //     this.classList.add('on');
+        //     currentColor = this;
+
+        // }
+        // for (let i = 0; i < careSelect.length; i++){   
+        //     careSelect[i].addEventListener('click', colorHandler);        
+        // }
+        
+        
+        let child_Select_list = [];
+        let care_selectBtn = document.querySelectorAll('.care_selectBtn');
+        // querySelectAll은 배열(nodeList)을 리턴함, 개인적으로 선택하려면 forEach를 사용해야함.
+        care_selectBtn.forEach(list => {
+            list.addEventListener("click", add_list);
+        })
+        
+    
+        function add_list(){
+
+            if(this.checked == true){
+                this.setAttribute('checked', false)
+                this.setAttribute('value', "헤으응")
+            }else{
+                this.setAttribute('checked', true)
+                this.setAttribute("value" , '선택됨')
+                console.log(this.value)
+                this.style.backgroundColor = '#ffeed4';
+            }
+        }
+
+        let deleteBtn = document.querySelectorAll('.fa-trash-alt');
+        deleteBtn.forEach(list => {
+            list.addEventListener("click", remove);
+        })
+        function remove(){
+            console.log(this.parentNode.parentNode)
+            let btn = this.parentNode.parentNode
+            btn.style.display = 'none'
+            // care_selectBtn.style.display = 'none;'
+        }
+
+        function select(temp){
+            document.getElementById('selected_child').value = temp;
+            console.log(temp)
+        }
+            
 
     </script>
 </body>

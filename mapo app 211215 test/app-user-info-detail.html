@@ -19,6 +19,7 @@ $r = sqlresult($sql)[0];
     <title>돌봄이음</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-info-detail.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
@@ -84,19 +85,24 @@ $r = sqlresult($sql)[0];
                     <div class="popup_title">
                         <h1>신청내역 취소</h1>
                     </div>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>취소 사유 선택</option>
-                        <option value="1">필요가 없어요</option>
-                        <option value="2">실수로 예약했어요</option>
-                        <option value="3">갑자기 아파요</option>
-                        <option value="4">날씨가 안 좋아서요</option>
-                        <option value="5">운영정책이 마음에 들지 않아요</option>
-                        <option value="6">서비스 품질이 마음에 들지 않아요</option>
-                        <option value="7">가격이 맞지 않아요</option>
-                        <option value="8">기타</option>
-                    </select>
-                      <div class="selectBox">
-                        <button type="button" class="btn btn-primary btn-sm change" >변경하기</button>
+                    <form action="#" method="#">
+                        <select id="order_cancel" class="form-select" aria-label="Default select example">
+                            <option selected disabled>취소 사유 선택</option>
+                            <option value="1">필요가 없어요</option>
+                            <option value="2">실수로 예약했어요</option>
+                            <option value="3">갑자기 아파요</option>
+                            <option value="4">날씨가 안 좋아서요</option>
+                            <option value="5">운영정책이 마음에 들지 않아요</option>
+                            <option value="6">서비스 품질이 마음에 들지 않아요</option>
+                            <option value="7">가격이 맞지 않아요</option>
+                            <option value="8">기타</option> 
+                        </select>  b
+                        <div class="input_box_etc">
+                            <input name="order_cancel_etc_comment" placeholder="취소사유를 입력해 주세요.">    
+                        </div>
+                        <div class="selectBox">
+                            <button type="button" class="btn btn-primary btn-sm change" >변경하기</button>
+                    </form>
                         <button type="button" class="goBackc btn btn-light btn-sm">돌아가기</button>
                     </div>
                 </div>

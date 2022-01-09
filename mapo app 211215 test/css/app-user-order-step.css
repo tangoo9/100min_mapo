@@ -102,19 +102,7 @@ form{
     flex-flow: column nowrap;
     /* background-color: red; */
 }
-.boxContainer_order_step1 .care_select_cont .care_selectBtn #flexCheckChecked:checked{
-    /* background-color: #F69E30; */
-}
 
-
-
-.boxContainer_order_step1 .care_select_cont .care_selectBtn ul{
-
-}
-
-.boxContainer_order_step1 .care_select_cont .care_selectBtn li:nth-child(2n){
-    margin-bottom: 1rem;
-}
 
 .boxContainer_order_step1 .care_select_cont .textBold{
     font-weight:bolder;
@@ -130,9 +118,9 @@ form{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: column nowrap;
+    /* flex-flow: column nowrap; */
     margin : 1em auto;
-    padding : 10px 20px;
+    /* padding : 10px 20px; */
     width: 75vw;
     cursor: pointer;
     box-sizing: border-box;
@@ -141,6 +129,33 @@ form{
     /* background-color: #ffeed4; */
     background-color: #f8f8f8;
     box-shadow: 5px 5px 5px #e2e2e2;
+}
+.boxContainer_order_step1 .care_select_cont .care_selectBtn.on{
+    background-color: #ffeed4;
+}
+
+.boxContainer_order_step1 .care_select_cont .care_selectBtn ul{
+    
+}
+.boxContainer_order_step1 .care_select_cont .care_selectBtn li:nth-child(n){
+    margin-top: 0.5rem;
+}
+.boxContainer_order_step1 .care_select_cont .care_selectBtn li:nth-child(2n){
+    margin-bottom: 0.5rem;
+}
+.boxContainer_order_step1 .care_select_cont .care_selectBtn .row{
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
+.boxContainer_order_step1 .care_select_cont .care_selectBtn .icon_area{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    color: #ababab;
 }
 .boxContainer_order_step1 .care_select_cont .care_selectBtn .text_row{
     display: flex;
@@ -156,6 +171,10 @@ form{
     color: #c6c6c6;
     width: 18px;
     height: 18px;
+}
+
+.boxContainer_order_step1 .care_select_cont .fa-trash-alt{
+    font-size: 1rem;
 }
 
 .boxContainer_order_step1 .add_child{

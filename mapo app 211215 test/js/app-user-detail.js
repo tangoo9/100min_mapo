@@ -26,3 +26,16 @@ cancel.onclick = () => {
     cancelPop.style.display ='flex';
     console.log('clicked');
 }
+
+$(document).ready(function(){
+    $("#order_cancel").change(function(){
+        let status = this.value;
+        console.log("선택된 취소사유 num" + status)
+        if(status=='8'){
+            $('.input_box_etc').show()
+        }else{
+            $('.input_box_etc').hide()
+        }
+
+    })
+})

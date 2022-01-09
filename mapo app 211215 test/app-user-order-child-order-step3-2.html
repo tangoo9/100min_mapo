@@ -67,45 +67,45 @@
                         <span>당일 이용은 전화문의 바랍니다.</span>
                     </div>
                     <section class="time_container">
-                        <label for="chk1">
-                            <input type="checkbox" id="chk1" name="agree">
+                        <label for="mon_day">
+                            <input type="checkbox" id="mon_day" name="mon_day">
                             <i class="circle"></i>
                             <span class="check_text left">월</span>
-                            <input id="timepicker1" class="timepicker" name="timepicker1" onclick="javascript:fn_timePicker(this);" inputmode="none"/>
+                            <input id="timepicker1" class="timepicker" name="timepicker1"  inputmode="none" autocomplete="off" readonly disabled/>
                             ~
-                            <input id="timepicker2" class="timepicker" name="timepicker2" onclick="javascript:fn_timePicker(this);" inputmode="none"/>
+                            <input id="timepicker2" class="timepicker" name="timepicker2"  inputmode="none" autocomplete="off" readonly disabled/>
                         </label>
-                        <label for="chk2">
-                            <input type="checkbox" id="chk2" name="agree">
+                        <label for="tue_day">
+                            <input type="checkbox" id="tue_day" name="tue_day">
                             <i class="circle"></i>
                             <span class="check_text left">화</span>
-                            <input id="timepicker3" class="timepicker" name="timepicker3" onclick="javascript:fn_timePicker(this);"  inputmode="none"/>
+                            <input id="timepicker3" class="timepicker" name="timepicker3"  inputmode="none" autocomplete="off" readonly disabled/>
                             ~
-                            <input id="timepicker4" class="timepicker" name="timepicker4" onclick="javascript:fn_timePicker(this);"  inputmode="none"/>
+                            <input id="timepicker4" class="timepicker" name="timepicker4"  inputmode="none" autocomplete="off" readonly disabled/>
                         </label>
-                        <label for="chk3">
-                            <input type="checkbox" id="chk3" name="agree">
+                        <label for="wed_day">
+                            <input type="checkbox" id="wed_day" name="wed_day">
                             <i class="circle"></i>
                             <span class="check_text left">수</span>
-                            <input id="timepicker5" class="timepicker" name="timepicker5" onclick="javascript:fn_timePicker(this);"  inputmode="none"/>
+                            <input id="timepicker5" class="timepicker" name="timepicker5"  inputmode="none" autocomplete="off" readonly disabled/>
                             ~
-                            <input id="timepicker6" class="timepicker" name="timepicker6" onclick="javascript:fn_timePicker(this);"  inputmode="none"/>
+                            <input id="timepicker6" class="timepicker" name="timepicker6"  inputmode="none" autocomplete="off" readonly disabled/>
                         </label>
-                        <label for="chk4">
-                            <input type="checkbox" id="chk4" name="agree">
+                        <label for="thu_day">
+                            <input type="checkbox" id="thu_day" name="thu_day">
                             <i class="circle"></i>
                             <span class="check_text left">목</span>
-                            <input id="timepicker7" class="timepicker" name="timepicker7" onclick="javascript:fn_timePicker(this);"  inputmode="none"/>
+                            <input id="timepicker7" class="timepicker" name="timepicker7"  inputmode="none" autocomplete="off" readonly disabled/>
                             ~
-                            <input id="timepicker8" class="timepicker" name="timepicker8" onclick="javascript:fn_timePicker(this);"  inputmode="none"/>
+                            <input id="timepicker8" class="timepicker" name="timepicker8"  inputmode="none" autocomplete="off" readonly disabled/>
                         </label>
-                        <label for="chk5">
-                            <input type="checkbox" id="chk5" name="agree">
+                        <label for="fri_day">
+                            <input type="checkbox" id="fri_day" name="fri_day">
                             <i class="circle"></i>
                             <span class="check_text left">금</span>
-                            <input id="timepicker9" class="timepicker" name="timepicker9" onclick="javascript:fn_timePicker(this);"  inputmode="none"/>
+                            <input id="timepicker9" class="timepicker" name="timepicker9"  inputmode="none" autocomplete="off" readonly disabled/>
                             ~
-                            <input id="timepicker10" class="timepicker" name="timepicker10" onclick="javascript:fn_timePicker(this);" inputmode="none"/>
+                            <input id="timepicker10" class="timepicker" name="timepicker10" inputmode="none" autocomplete="off" readonly disabled/>
                         </label>
                     </section>
                     <div class="time_container">
@@ -178,36 +178,283 @@
                     // $("#datepicker1").focus()
                 }
                 if($("#datepicker1").val() > $("#datepicker2").val()){
-                    alert("날짜 선택이 올바르지 않습니다. \n 다시 확인해주세요.")
+                    alert("날짜 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
                     $("#datepicker2").val('')
                 }
             })
-    
-            // $("#timepicker2").change(function(){
-            //     console.log($("#timepicker2").val())
-            //     if($("#timepicker1").val() ==""){
-            //         alert("시작 시간을 먼저 입력해주세요.")
-            //         $("#timepicker2").val('')
-            //         // $("#datepicker1").focus()
-            //     }
 
-            //     if($("#timepicker1").val() > $("#timepicker2").val()){
-            //         alert("종료시간이 시작시간 보다 이전입니다.")
-            //         $("#timepicker2").val('')
-            //     }
-            // })
+        // function fn_timePicker(obj) {
+        //     var id = $(obj).attr("id");
+        //     $("#" + id ).timepicker({
+        //         timeFormat : "HH:mm ",
+        //         interval : 30,
+        //         minTime:'9',
+        //         maxTime:'19:30',
+        //         defaultTime:'13:00',
+        //         dynamic : false,
+        //         dropdown : true
+        //         // scrollbar : true
+        //     });
+        //     $("#" + id).timepicker("open");
+        // }    
+        //  == Timepicker Option Start ==============================
+        $("input[name='mon_day']").change(function(){
+                let chk = $("input[name='mon_day']").is(':checked')
+                if(chk==1){
+                    $('#timepicker1, #timepicker2').attr("disabled", false)
+                    console.log("monday checked " + chk)
+                }else if(chk==0){
+                    $('#timepicker1, #timepicker2').attr("disabled", true)
+                    $('#timepicker1, #timepicker2').val("")
+                    console.log("monday checked " + chk)
+                }
+            })
 
-            // $('#timepicker1')
-            // .timepicker()  //stime 시작 기본 설정
-            // .on('changeTime', function() {                            //stime 을 선택한 후 동작
-            //     var from_time = $("input[name='timepicker1']").val();  //stime 값을 변수에 저장
-            //     $('#timepicker2').timepicker('option', 'minTime', from_time); //timepicker2의 mintime 지정
-            //     if ($('#timepicker2').val() && $('#timepicker2').val() < from_time) { 
-            //         $('#timepicker2').timepicker('setTime', from_time);
-            // //timepicker2을 먼저 선택한 경우 그리고 timepicker2시간이 stime시간보다 작은경우 timepicker2시간 변경
-            //     }	
-            // });
-            // $('#timepicker2').timepicker(); //timepicker2 시간 기본 설정
+        $('#timepicker1').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                // the input field
+                console.log(this.val())
+                if($("#timepicker2").val() != false){
+                    if($("#timepicker1").val() >= $("#timepicker2").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker1").val('')
+                    }
+                }
+            }
+        });
+
+        $('#timepicker2').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                // the input field
+                // var element = $(this), text;
+                // get access to this Timepicker instance
+                // var timepicker = element.timepicker();
+                // text = 'Selected time is: ' + timepicker.format(time);
+                // element.siblings('span.help-line').text(text);
+                if($('#timepicker1').val()==""){
+                    alert("시작시간을 먼저 입력해주세요.")
+                    $("#timepicker2").val('')
+                }
+                if($("#timepicker1").val() >= $("#timepicker2").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker2").val('')
+                }
+            }
+        });
+
+
+        $("input[name='tue_day']").change(function(){
+                let chk = $("input[name='tue_day']").is(':checked')
+                if(chk==1){
+                    $('#timepicker3, #timepicker4').attr("disabled", false)
+                    console.log("tuesday checked " + chk)
+                }else if(chk==0){
+                    $('#timepicker3, #timepicker4').attr("disabled", true)
+                    $('#timepicker3, #timepicker4').val("")
+                    console.log("tuesday checked " + chk)
+                }
+            })
+        $('#timepicker3').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                if($("#timepicker4").val() != false){
+                    if($("#timepicker3").val() >= $("#timepicker4").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker3").val('')
+                    }
+                }
+            }
+        });
+        $('#timepicker4').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                if($('#timepicker3').val()==""){
+                    alert("시작시간을 먼저 입력해주세요.")
+                    $("#timepicker4").val('')
+                }
+                if($("#timepicker3").val() >= $("#timepicker4").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker4").val('')
+                }
+            }
+        });
+
+        $("input[name='wed_day']").change(function(){
+                let chk = $("input[name='wed_day']").is(':checked')
+                if(chk==1){
+                    $('#timepicker5, #timepicker6').attr("disabled", false)
+                    console.log("wed_day checked " + chk)
+                }else if(chk==0){
+                    $('#timepicker5, #timepicker6').attr("disabled", true)
+                    $('#timepicker5, #timepicker6').val("")
+                    console.log("wed_day checked " + chk)
+                }
+            })
+        $('#timepicker5').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                if($("#timepicker6").val() != false){
+                    if($("#timepicker5").val() >= $("#timepicker6").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker5").val('')
+                    }
+                }
+            }
+        });
+
+        $('#timepicker6').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                if($('#timepicker5').val()==""){
+                    alert("시작시간을 먼저 입력해주세요.")
+                    $("#timepicker6").val('')
+                }
+                if($("#timepicker5").val() >= $("#timepicker6").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker6").val('')
+                }
+            }
+        });
+
+        $("input[name='thu_day']").change(function(){
+                let chk = $("input[name='thu_day']").is(':checked')
+                if(chk==1){
+                    $('#timepicker7, #timepicker8').attr("disabled", false)
+                    console.log("thu_day checked " + chk)
+                }else if(chk==0){
+                    $('#timepicker7, #timepicker8').attr("disabled", true)
+                    $('#timepicker7, #timepicker8').val("")
+                    console.log("thu_day checked " + chk)
+                }
+            })
+        $('#timepicker7').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                if($("#timepicker8").val() != false){
+                    if($("#timepicker7").val() >= $("#timepicker8").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker7").val('')
+                    }
+                }
+            }
+        });
+
+        $('#timepicker8').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                if($('#timepicker7').val()==""){
+                    alert("시작시간을 먼저 입력해주세요.")
+                    $("#timepicker8").val('')
+                }
+                if($("#timepicker7").val() >= $("#timepicker8").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker8").val('')
+                }
+            }
+        });
+
+        $("input[name='fri_day']").change(function(){
+                let chk = $("input[name='fri_day']").is(':checked')
+                if(chk==1){
+                    $('#timepicker9, #timepicker10').attr("disabled", false)
+                    console.log("fri_day checked " + chk)
+                }else if(chk==0){
+                    $('#timepicker9, #timepicker10').attr("disabled", true)
+                    $('#timepicker9, #timepicker10').val("")
+                    console.log("fri_day checked " + chk)
+                }
+            })
+        $('#timepicker9').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                if($("#timepicker10").val() != false){
+                    if($("#timepicker9").val() >= $("#timepicker10").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker9").val('')
+                    }
+                }
+            }
+        });
+        $('#timepicker10').timepicker({
+            timeFormat : "HH:mm ",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30',
+                // defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+            change: function(time) {
+                if($('#timepicker9').val()==""){
+                    alert("시작시간을 먼저 입력해주세요.")
+                    $("#timepicker10").val('')
+                }
+                if($("#timepicker9").val() >= $("#timepicker10").val()){
+                    alert("시간 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                    $("#timepicker10").val('')
+                }
+            }
+        });
+
+        //  == Timepicker Option END ==============================
+
+
+
 
 
         })

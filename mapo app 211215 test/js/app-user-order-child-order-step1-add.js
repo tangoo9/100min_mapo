@@ -3,9 +3,7 @@
         select 년도 받아오는 기능
 */ 
 
-var start_year="2021";// 시작할 년도 
-var today = new Date(); 
-var today_year= today.getFullYear(); 
+var start_year= new Date().getFullYear();// 시작할 년도 
 var index=0;    
 
 
@@ -35,4 +33,42 @@ var dayindex_len=document.getElementById('select_day').length;
             document.getElementById('select_day').options[i]=null; 
             } 
     } 
+}
+
+
+
+// == 키입력 제한
+function fnChkByte(obj, maxByte)
+{
+        var str = obj.value;
+        var str_len = str.length;
+        
+        var rbyte = 0;
+        var rlen = 0;
+        var one_char = "";
+        var str2 = "";
+        for(var i=0; i<str_len; i++)
+        {
+            one_char = str.charAt(i);
+            if(escape(one_char).length > 4) {
+                rbyte += 2;                                         //한글2Byte
+            }else{
+                rbyte++;                                            //영문 등 나머지 1Byte
+            }
+            if(rbyte <= maxByte){
+                rlen = i+1;                                          //return할 문자열 갯수
+            }
+        }
+        if(rbyte > maxByte)
+        {
+            // alert("한글 "+(maxByte/2)+"자 / 영문 "+maxByte+"자를 초과 입력할 수 없습니다.");
+            alert("요청사항은 " + maxByte + "자 이내로 작성해주세요.")
+            str2 = str.substr(0,rlen);                                  //문자열 자르기
+            obj.value = str2;
+            fnChkByte(obj, maxByte);
+        }
+        else
+        {
+            document.getElementById('byteInfo').innerText = rbyte;
+        }
 }

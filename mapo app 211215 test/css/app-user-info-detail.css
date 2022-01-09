@@ -231,6 +231,7 @@ main{
     z-index: 1001;
     justify-content: center;
     align-items: center;
+    flex-flow: column nowrap;
     position: absolute;
     top:0;
     left: 0;
@@ -262,7 +263,8 @@ main{
 }
 
 .form-select{
-    margin:0 auto;
+    margin:2rem auto;
+    margin-bottom: 0.2rem;
     width: 55vw;
     font-size: 0.8rem;
 }
@@ -277,6 +279,25 @@ main{
     justify-content: space-between;
     
     /* background-color: yellow; */
+}
+
+
+.app-user-info-detail-cancel .input_box_etc{
+    display: none;
+    margin: 2rem auto;
+    margin-top: 0;
+    /* background-color: red; */
+    width: 55vw;
+}
+
+.app-user-info-detail-cancel .input_box_etc input{
+    width: 100%;
+    margin-top: 0.25rem;
+    width: 55vw;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding-left: 0.5rem;
+    font-size: 1rem;
 }
 
 .selectBox .btn{
