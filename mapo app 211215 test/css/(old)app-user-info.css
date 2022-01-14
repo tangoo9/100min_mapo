@@ -67,50 +67,78 @@ main{
     box-sizing: border-box;
     margin-bottom: 8.5vh;
 }
-.box{
-    cursor: pointer;
+.boxRow{
+    height: 100%;
     display: flex;
-    flex-flow: row nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 0.5rem;
+    padding: 0 auto;
+}
+.boxRow:nth-child(2){
+    height: 100%;
+    display: flex;
+    flex-direction: row;
     justify-content: start;
-    align-items: center;
-    width: 100%;
-    height: 5rem;
-    /* background-color: red; */
-}
-.box:first-child{
-    margin-top: 2rem;
-}
-
-.box .m_menu_icon{
+    align-items: flex-start;
+    margin-top: 0.5rem;
+    padding: 0 auto;
+}       
+.box{
     display: flex;
-    width: 5rem;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column nowrap;
+    cursor: pointer;
+    margin:0.5rem;
+    width: 44vmin;
+    height:44vmin;
+    /* border: 1px solid #f4900a; */
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+    /* font-family: SDSamliphopangche_Basic; */
+    font-weight: 500;
+    /* font-size: 1rem; */
+}
+.box .sub_title{
+    display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #ffc000; */
-    /* background-color: #ffc000; */
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    width: 100%;
+    height: 60%;
+    background-color: #f4900a;
+    color: #ffffff;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+}
+.box .sub_title p{
+    margin: 0 auto;
+    font-size: 1.6rem;
+    font-family: 'GyeonggiTitle-B';
+}
+.box .sub_title .letter_space{
+    letter-spacing: -3px;
+}
+.box .m_menu_icon{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffc000;
     border-bottom-left-radius: 0.4rem;
     border-bottom-right-radius: 0.4rem;
 }
-.box .sub_title{
-    width: 100%;
-    padding-left: 1rem;
-}
-.box .sub_title p{
-    font-family:'Noto Sans KR', sans-serif;
-    font-weight: 600;
-}
-.box .btn_area{
-    width: 2rem;
-    margin-right: 1rem;
-    color: #ababab;
-}
 
 .box svg{
-    color: #000000;
-    /* color: #ffc000; */
-    width: 25px;
-    height: 25px;
+    /* color: #ffffff; */
+    width: 15vmin;
+    height: 15vmin;
 }
 .box svg path{
-    /* fill: #000000; */
+    /* fill: #ffffff; */
 }

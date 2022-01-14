@@ -5,9 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>돌봄이음</title>
+    <!-- bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- icon -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- datepicker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <!-- timepicker -->
+    <link href="css/jquery.timepicker.css" rel="stylesheet">
+    <script src="js/jquery.timepicker.js"></script> 
+    <script>
+        $.datepicker.setDefaults({
+            dateFormat: 'yy-mm-dd',
+            prevText: '이전 달',
+            nextText: '다음 달',
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+            dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            showMonthAfterYear: true,
+            yearSuffix: '년'
+        });
+        $( function() { $( "#datepicker" ,  ).datepicker(); } ); 
+        // alert("테스트")
+
+        function fn_timePicker(obj) {
+            var id = $(obj).attr("id");
+            $("#" + id ).timepicker({
+                timeFormat : "p hh:mm",
+                interval : 30,
+                minTime:'9',
+                maxTime:'19:30pm',
+                defaultTime:'13:00',
+                dynamic : false,
+                dropdown : true,
+                scrollbar : true
+            });
+            $("#" + id).timepicker("open");
+        }
+    </script>
+    <!-- origin -->
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order-step.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
@@ -16,51 +58,34 @@
     <header>
         <div class="header_container">
             <div class="header_title">
-                <p>아동돌봄 신청하기</p>    
+                <p>정기 돌봄 서비스 신청하기</p>    
             </div>
         </div>
     </header>
     <main>
-        <div class="boxContainer_order_step2">
+        <div class="boxContainer_order_step3_1">
             <div class="title">
-                <h2>돌봄 유형을 선택해 주세요.</h2>
+                <h2>어떤 돌봄이 필요하세요?</h2>
             </div>
-            <form action="app-user-order-child-order-step3-2" method="#" target="" >
+            <form action="app-user-order-child-order-step4" method="#" target="" >
                 <div class="care_select_cont">
-                    <div class="care_selectBtn" onclick="select('cycle_care')">
-                        <div class="sub_title">
-                            <p>정기 돌봄</p>
-                        </div>
-                        <p>2개월 이상 매달 정해진 요일에 꾸준한 돌봄이 필요한 경우 선택해 주세요.</p>
-                        <!-- <span>
-                            정기돌봄은 공간전체 운영시간 동안<br> 돌봄서비스를 이용합니다. 
-                        </span> -->
+                    <p class="subtitle">매달 정해진 요일에 선생님이 돌봐주세요</p>
+                    <p class="subtitle">정기돌봄은 공간전체 운영시간 동안 돌봄서비스를 이용합니다. </p>
+                    <div class="care_selectBtn" onclick="select('am_care')">
+                        <span class="textBold"><p>오전돌봄</p></span>
+                        <p>09:00 - 13:00</p>
+                        <p>월 70,000원</p>
                     </div>
-                        <div class="care_selectBtn" onclick="select('time_care')">
-                            <div class="sub_title">
-                                <p>시간제 돌봄</p>
-                            </div>
-                            <p>단기로 정해진 날에 돌봄이 필요한 경우 선택해 주세요.</p>
-                            <!-- <span>
-                                시간제 돌봄은 공간 운영시간 중 원하는 시간대에 <br>돌봄 서비스를 이용합니다. 
-                            </span> -->
-    
-                            <!-- <p>운영시간 : </p>
-                            <p>   - 학기중 : 12:30 - 19:30</p>
-                            <p>   - 방학중 : 12:30 - 19:30</p>
-                            <p> 이용료 : 시간당 1,500원</p> --> 
-                        </div>
-                        <!-- <div class="care_footer_text">
-                            <span>매달 정해진 요일에 선생님이 돌봐주세요.</span><br>
-                            <span>정기돌봄은 공간전체 운영시간 동안 돌봄서비스를 이용합니다. </span>
-                        </div> -->
-
-                        <!-- <div class="care_footer_text">
-                            <span> 이용료 : 시간당 1,500원</span><br>
-                            <span>단기로 정해진 날에 선생님이 돌봐주세요.</span><br>
-                            <span>시간제 돌봄은 공간 운영시간 중 원하는 시간대에 돌봄 서비스를 이용합니다. </span>
-                        </div> -->
-                        <input type="hidden" id="care_type" name ="care_type">
+                    <div class="care_selectBtn" onclick="select('pm_care')">
+                        <span class="textBold"><p>오후돌봄</p></span>
+                        <p>12:30 - 19:30</p>
+                        <p>월 100,000원</p>
+                    </div>
+                    <div class="care_selectBtn"onclick="select('allday_care')">
+                        <span class="textBold"> <p>종일돌봄</p></span>
+                        <p>09:00 - 19:30</p>
+                        <p>월 150,000원</p>
+                    </div>
                 </div>
                 <div class="progress_cont">
                     <div class="progress">
@@ -71,16 +96,10 @@
                     <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step1'">
                         <p>이전</p>
                     </button>
-                    <button id= submitBtn class="selectButton btn_div2" type="submit" onclick="location.href='app-user-order-child-order-step3-2'">
+                    <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step4'">
                         <p>다음</p>
-                        <input type="hidden" value="">
+                        <input type="hidden" id="care_type">
                     </button>
-                </div>
-                <div class="selectBox">
-                    <!-- <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step3-1'">
-                        <p>정기돌봄 버튼(추후삭제)</p>
-                        <input type="hidden" value="">
-                    </button> -->
                 </div>
             </form>
         </div>
@@ -114,28 +133,5 @@
         </nav>
     </footer>
     <script src="js/app-user-order-child-order-step.js"></script>
-    <script>
-        function select(temp){
-            care_type_val = temp;
-            console.log(temp)
-        }
-
-        
-        let care_type_val = document.getElementById('care_type').value;
-        let submitBtn = document.querySelector('#submitBtn');
-        submitBtn.onclick = () => {
-            if(care_type_val == "" || false){
-                alert('돌봄유형을 선택해주세요.')
-                return false
-            }else{
-                return true
-            }
-        }
-    // function select(temp){
-    //     document.getElementById('care_type').value = temp;
-    //     console.log(temp)
-    // }
-
-    </script>
 </body>
 </html>

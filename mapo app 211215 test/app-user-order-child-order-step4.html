@@ -48,7 +48,7 @@
                     <button class="selectButton btn_div1" type="button" onclick="history.back()">
                         <p>이전</p>
                     </button>
-                    <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step5'">
+                    <button id="submitBtn" class="selectButton btn_div2" type="submit" onclick="location.href='app-user-order-child-order-step5'">
                         <p>다음</p>
                     </button>
                 </div>
@@ -84,5 +84,23 @@
         </nav>
     </footer>
     <script src="js/app-user-order-child-order-step.js"></script>
+    <script>
+        // 선택한 값 
+        function select(temp){
+            care_type_val = temp;
+            console.log(temp)
+        }
+
+        let care_type_val = document.getElementById('care_type').value;
+        let submitBtn = document.querySelector('#submitBtn');
+        submitBtn.onclick = () => {
+            if(care_type_val == "" || false){
+                alert('돌봄장소를 선택해주세요.')
+                return false
+            }else{
+                return true
+            }
+        }
+    </script>
 </body>
 </html>

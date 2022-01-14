@@ -17,22 +17,9 @@
         careSelect[i].addEventListener('click', colorHandler);        
     }
 
-
-    function select(temp){
-        document.getElementById('care_type').value = temp;
-        console.log(temp)
-    }
-    // function select(temp){
-    //     document.getElementById('care_type').value = temp;
-    //     console.log(temp)
-    // }
-
-
-
-
-
-
     
+
+
 
     //전체동의
     function selectAll(selectAll)  {

@@ -83,6 +83,7 @@ header{
 }
 
 .returnButton_cont{
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,8 +131,9 @@ header p{
     margin: 0.5rem;
     width: 16rem;
     height: 7rem;
-    border: 2px solid #bcbcbc;
-    background-color: #f1f1f1;
+    /* border: 2px solid #bcbcbc; */
+    border: 1px solid #000000;
+    /* background-color: #f1f1f1; */
     box-sizing: border-box;
     border-radius: 0.5rem;
     text-align: center;
@@ -148,19 +150,33 @@ header p{
 .box p{
     margin: 1rem auto;
 }
+#boxContainer .box .sub_title{
+    /* font-family: 'GyeonggiTitle-M'; */
+    font-family: 'GyeonggiTitle-L';
+}
+    
 .box .info_text{
     text-align: left;
     margin: 0;
+    margin-top: -0.3rem;
     margin-left: 1rem;
     margin-bottom: -0.2rem;
     font-size: 0.2rem;
     font-weight: 600;
     font-family:'Noto Sans KR', sans-serif;
     letter-spacing: -0.5px;
-    /* color: #ffc000; */
 }
+.box .info_text:nth-child(1){
+    color: red;
+}
+
 .ask{
     cursor: pointer;
+}
+
+.indent{
+    padding-left: 1rem;
+    /* background-color: red; */
 }
 
 /* CSS : app-user-order-child Start */

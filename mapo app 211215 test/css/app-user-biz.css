@@ -68,16 +68,20 @@ main h1{
     text-align: center;
     font-size: 1.2rem;
     font-weight: 500;
+    cursor: pointer;
 }
 .box .sub_title{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    padding : 0.8rem 1.2rem
+    padding : 0.8rem 1.2rem;
+
 }
 
 .box .sub_title p{
     margin: 0;
+    font-family: 'GyeonggiTitle-M';
+    /* font-family: 'GyeonggiTitle-L'; */
 }
 
 .box .sub_title .detail{
@@ -89,12 +93,18 @@ main h1{
 }
 
 .box .content_text{
-    padding : 0rem 1.2rem
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3.9rem;
+    margin: 0 auto;
+    /* padding : 0rem 1.2rem; */
     /* background-color: gainsboro; */
 }
 
 .box .content_text p{
-    margin: 0;
+    margin: 0 auto;
     font-size: 0.6rem;
     font-family:'Noto Sans KR', sans-serif;
     font-weight: 600;

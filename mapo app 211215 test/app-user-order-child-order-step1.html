@@ -127,7 +127,6 @@
 
 
     </footer>
-    <!-- <script src="js/app-user-order-child-order-step.js"></script> -->
     <script>
         var dataList = [
             {
@@ -223,7 +222,7 @@
             // console.log(check.outerText)
             if(check == ""){
                 alert('최소 한명의 아동을 선택해 주세요.')
-                return;
+                return false;
             }else{
                 location.href='app-user-order-child-order-step2'
                 // submitBtn.submit;
@@ -237,21 +236,11 @@
         let care_selectBtn = document.querySelectorAll('.care_selectBtn');
         // querySelectAll은 배열(nodeList)을 리턴함, 개인적으로 선택하려면 forEach를 사용해야함.
         
-        
-        // console.log(child)
         for(let i = 0; i <care_selectBtn.length; i++){
             select_child_list.push(care_selectBtn[i])
             // console.log(child_select_list)
-            
             care_selectBtn[i].addEventListener('click', add_list)
-            // selected_child_list =  select_this.value.push()
-            // console.log (selected_child_list)
         }
-        
-
-        // care_selectBtn.forEach(list => {
-        //     list.addEventListener("click", add_list);
-        // })
 
         // ------------------------------------------------------------------------------
 
@@ -269,7 +258,6 @@
                 // console.log(this.firstChild.id)
                 let temp = selected_child_list.push(this.firstChild.id)
                 // console.log(temp)
-
                 // console.log(selected_child.value)
             }else{
                 this.children[0].setAttribute("value", "")
@@ -280,7 +268,8 @@
             }
             // console.log(selected_child_list)
             selected_child.setAttribute("value", selected_child_list)
-            console.log(selected_child.value)
+
+            console.log("선택된 아동 리스트" + selected_child.value)
         }
         let deleteBtn = document.querySelectorAll('.fa-trash-alt');
         deleteBtn.forEach(list => {
@@ -290,7 +279,6 @@
             console.log(this.parentNode.parentNode)
             let btn = this.parentNode.parentNode
             btn.style.display = 'none'
-            // care_selectBtn.style.display = 'none;'
             console.log(this.parentNode.parentNode.firstChild.id)
             if(dataList.length >= 1){
                 addBtn.style.display = 'block';
@@ -298,14 +286,10 @@
         }
 
 
-
-
         // function select(temp){
         //     document.getElementById('selected_child').value = temp;
         //     console.log(temp)
         // }
-            
-
     </script>
 </body>
 </html>

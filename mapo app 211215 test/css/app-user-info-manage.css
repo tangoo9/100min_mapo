@@ -69,6 +69,7 @@ header{
 }
 
 .returnButton_cont{
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,8 +77,6 @@ header{
     width: 35vw;
     height: 8vh;
     background-color: #ffffff;
-    /* color: #ffffff; */
-    /* background-color: red; */
     border: none;
 }
 .returnButton_icon{
