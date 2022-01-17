@@ -154,20 +154,28 @@ header p{
     /* font-family: 'GyeonggiTitle-M'; */
     font-family: 'GyeonggiTitle-L';
 }
+.box .info_box{
+    margin: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+    /* background-color: red; */
+}
     
 .box .info_text{
     text-align: left;
     margin: 0;
     margin-top: -0.3rem;
-    margin-left: 1rem;
-    margin-bottom: -0.2rem;
+    /* margin-left: 1rem; */
+    /* margin-bottom: -0.2rem; */
     font-size: 0.2rem;
     font-weight: 600;
     font-family:'Noto Sans KR', sans-serif;
     letter-spacing: -0.5px;
 }
 .box .info_text:nth-child(1){
-    color: red;
+    /* color: red; */
 }
 
 .ask{

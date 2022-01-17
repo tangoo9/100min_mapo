@@ -267,9 +267,17 @@ main h1{
     /* background-color: khaki;  */
 }
 
-.boxContainer_version p{
-
+.boxContainer_version span{
+    display: inline-block;
+    color: #f4900a;
 }
+
+.boxContainer_version img{
+    margin: 2rem;
+    width: 12rem;
+    height: 6rem;
+}
+
 
 /* CSS : app-user-ask-version  End*/
 
