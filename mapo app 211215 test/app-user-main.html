@@ -1,4 +1,10 @@
-
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+?> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>

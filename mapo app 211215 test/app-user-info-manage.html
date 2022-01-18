@@ -1,4 +1,15 @@
-
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$sql = "select * from order_info o 
+left join partner p on p.p_no = o.p_no
+where o_status!= '취소' and m_no = '{$_SESSION[m_no]}' order by o_order_date asc";
+$r = sqlresult($sql);
+$rr = sqlrow($sql);
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -116,9 +127,9 @@
                 </div>
                 <div class="addr_box">
                     <input class="form-control" type="hidden" id="sample3_postcode" placeholder="우편번호">
-                    <input class="form-control" type="text" id="sample3_address" placeholder="주소">
+                    <input name="fix_addr" class="form-control" type="text" id="sample3_address" placeholder="주소">
                     <div class="input-group mb-3">
-                        <input class="form-control" type="text" id="sample3_detailAddress" placeholder="상세주소">
+                        <input  name="fix_addr_detail" class="form-control" type="text" id="sample3_detailAddress" placeholder="상세주소">
                         <input class="form-control" type="text" id="sample3_extraAddress" placeholder="">
                     </div>
                 </div>

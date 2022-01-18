@@ -27,7 +27,7 @@
                 <h2>아동을 선택해주세요.</h2>
                 <p>아동정보는 최대 3명까지 추가할 수 있습니다.</p>
             </div>
-            <form>
+            <form action="app-user-order-child-order-step2" method="#" onsubmit="return check()">
                 <div class="care_select_cont">
                     <!-- <ul class="care_selectBtn">
                         <input type="hidden" id="select_this" name="select_this" value="">
@@ -90,7 +90,7 @@
                         <p>이전</p>
                     </button>
                     <!-- <button class="selectButton btn_div2" type="button" onclick="location.href='app-user-order-child-order-step2' , check()"> -->
-                    <button id="submitBtn"class="selectButton btn_div2" type="button" onclick="check()">
+                    <button id="submitBtn"class="selectButton btn_div2" type="submit">
                         <p>다음</p>
                     </button>
                 </div>
@@ -220,12 +220,12 @@
             let check = selected_child.value
             console.log(check)
             // console.log(check.outerText)
-            if(check == ""){
+            if(check == "" || false){
                 alert('최소 한명의 아동을 선택해 주세요.')
                 return false;
             }else{
-                location.href='app-user-order-child-order-step2'
-                // submitBtn.submit;
+                // location.href='app-user-order-child-order-step2'
+                submitBtn.submit;
             }
         }  
         

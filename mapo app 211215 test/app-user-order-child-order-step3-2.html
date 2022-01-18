@@ -47,8 +47,7 @@
                         <div class="care_calendar">
                             <!-- <i class="far fa-calendar-alt"></i> -->
                             <label>
-                                <input class="datepicker" type="text" placeholder="" id="datepicker1" inputmode="none" autocomplete="off">
-                                <input type="hidden"  >
+                                <input class="datepicker" type="text" placeholder="" id="datepicker1"  name="start_day" inputmode="none" autocomplete="off">
                             </label>
                         </div>
                         <div class="guide_text">
@@ -57,8 +56,7 @@
                         <div class="care_calendar">
                             <!-- <i class="far fa-calendar-alt"></i> -->
                             <label>
-                                <input class="datepicker" type="text" placeholder="" id="datepicker2" inputmode="none" autocomplete="off">
-                                <input type="hidden"  >
+                                <input class="datepicker" type="text" placeholder="" id="datepicker2" name="end_day" inputmode="none" autocomplete="off">
                             </label>
                         </div>
                     </section>
@@ -134,12 +132,12 @@
                     <button class="selectButton btn_div1" type="button" onclick="history.back()">
                         <p>이전</p>
                     </button>
-                    <!-- <button id="submitBtn" class="selectButton btn_div2" type="submit">
-                        <p>다음</p>
-                    </button> -->
-                    <button id="submitBtn" type="button" class="selectButton btn_div2" onclick="location.href='app-user-order-child-order-step4'">
+                    <button id="submitBtn" class="selectButton btn_div2" type="submit">
                         <p>다음</p>
                     </button>
+                    <!-- <button id="submitBtn" type="button" class="selectButton btn_div2" onclick="location.href='app-user-order-child-order-step4'">
+                        <p>다음</p>
+                    </button> -->
                 </div>
             </form>
         </div>
@@ -460,7 +458,7 @@
                     alert('날짜를 선택해주세요.')
                     return false
                 }else{
-                    location.href='app-user-order-child-order-step4'
+                    // location.href='app-user-order-child-order-step4'
                     return true
                 }
             })

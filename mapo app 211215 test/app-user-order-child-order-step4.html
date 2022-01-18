@@ -25,7 +25,7 @@
             <div class="title">
                 <h2>돌봄장소를 선택해 주세요.</h2>
             </div>
-            <form action="#" method="#">
+            <form action="app-user-order-child-order-step5" method="#">
                 <div class="care_select_cont">
                     <div class="row">
                         <div class="care_selectBtn" onclick="select(1)">
@@ -43,12 +43,12 @@
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-                <input type="hidden" id="care_type" name ="care_type">
+                <input type="hidden" id="care_type" name ="care_type" value="">
                 <div class="selectBox">
                     <button class="selectButton btn_div1" type="button" onclick="history.back()">
                         <p>이전</p>
                     </button>
-                    <button id="submitBtn" class="selectButton btn_div2" type="submit" onclick="location.href='app-user-order-child-order-step5'">
+                    <button id="submitBtn" class="selectButton btn_div2" type="submit">
                         <p>다음</p>
                     </button>
                 </div>
@@ -86,12 +86,12 @@
     <script src="js/app-user-order-child-order-step.js"></script>
     <script>
         // 선택한 값 
+        let care_type_val = document.getElementById('care_type').value;
         function select(temp){
             care_type_val = temp;
             console.log(temp)
         }
 
-        let care_type_val = document.getElementById('care_type').value;
         let submitBtn = document.querySelector('#submitBtn');
         submitBtn.onclick = () => {
             if(care_type_val == "" || false){
