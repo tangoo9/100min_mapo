@@ -1,0 +1,199 @@
+@font-face {
+    font-family: 'SDSamliphopangche_Basic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Basic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{
+    height: initial;
+}
+body{
+    height: initial;
+}
+main{
+    height: initial;
+}
+
+ul,li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black ;
+}
+main{
+    /* position:fixed; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* background-color:#e5e5e5; */
+}
+.title{
+    width: 100%;
+    margin: 0.5rem;
+    margin-top: 3rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    /* background-color: red; */
+}
+
+/* .title_1{
+    font-family: 'SDSamliphopangche_Basic';
+    color: #3170BB;
+}
+.title_2{
+    font-family: 'SDSamliphopangche_Outline';
+    color: #68BB76;
+}
+.title_3{
+    font-family: 'SDSamliphopangche_Outline';
+    color: #de8344;
+} */
+
+.title_area{
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 8rem;
+    background :url('../image/mcc_mainbackground_3.png') no-repeat 0 0;
+    background-size: 100% 100%;
+    /* background-color: red; */
+    color:#ffffff;
+    box-sizing: border-box;
+}
+.title_area h1,h3{
+    margin-left: 1rem;
+    font-family: 'GyeonggiTitle-M';
+    font-weight: 500;
+}    
+.title_area h3{
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+.title_area h1{
+    font-size: 2.4rem;
+}  
+
+.titleText{
+    margin: 5vw;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #1D1617;
+}
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    /* background-color: red; */
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+.input_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:1.5rem;
+    background-color: #F7F8F8;
+    width: 18rem;
+    height: 3rem;
+    box-sizing: border-box;
+    border-radius: 14px;
+    text-align: start;
+    /* position: relative; */
+    /* background-color: red; */
+}
+.input_box:nth-child(2){
+    margin-top: 0.5rem;
+}
+.icon{
+    margin: 1rem;
+    width: 2rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+.icon svg{
+
+}
+
+.input{
+    padding-left: 0.5rem;
+    margin-right: 1rem;
+    width: 15rem;
+    height: 2.8rem;
+    border: none;
+    background-color: #F7F8F8;
+    outline: none;
+}
+.input:focus{
+
+}
+
+.button{
+    margin: 1rem 2rem;
+    border: none;
+    width: 18rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    border-radius: 99px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.button:hover{
+    cursor: pointer;
+}
+
+.loginButton{
+    margin-top: 1.5rem;
+    background-color: #f4900a;
+    position: relative;
+}
+
+.loginButton label{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-270%,-45%);
+}
+.loginButton span{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%,-50%);
+}
+
+.loginButton_kakao{
+    background-color: #ffc000;
+}
+.signUpButton{
+    margin-bottom: 3rem;
+    color: #000000;
+}
+
+@media screen and (min-width:720px) {
+    .title{
+        margin: 10px 20px;
+        font-weight: 500;
+        font-size: 3.5em;
+        letter-spacing: 1px;
+    }
+}

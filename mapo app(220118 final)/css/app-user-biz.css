@@ -1,0 +1,129 @@
+html{
+    height: initial;
+    /* background-color: red; */
+}
+body{
+    display: flex;
+    margin:0;
+    padding: 0;
+    /* height: 100%; */
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    margin-bottom: 8.5vh;
+}
+.title_area{
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 8rem;
+    background :url('../image/mcc_mainbackground_3.png') no-repeat 0 0;
+    background-size: 100% 100%;
+    /* background-color: red; */
+    color:#ffffff;
+    box-sizing: border-box;
+}
+.title_area h1,h3{
+    margin-left: 1rem;
+    font-family: 'GyeonggiTitle-M';
+    font-weight: 500;
+}    
+.title_area h3{
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+.title_area h1{
+    font-size: 2.4rem;
+}  
+
+main h1{
+    margin: 0.5rem;
+    margin-top: 2rem;
+    font-family: 'GyeonggiTitle-L';
+}
+#boxContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* background-color: blue; */
+    overflow:hidden;
+}
+
+/* .box{
+    margin: 0.5rem;
+    width: 16rem;
+    height: 7rem;
+    border: 2px solid #bcbcbc;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+} */
+#boxContainer .box{
+    margin: 0.5rem;
+    width: 18rem;
+    height: 7rem;
+    /* border: 2px solid #bcbcbc; */
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+
+.box .sub_title{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding : 0.8rem 1.2rem;
+}
+
+.box .sub_title p{
+    margin: 0;
+    font-family: 'GyeonggiTitle-M';
+    /* font-family: 'GyeonggiTitle-L'; */
+}
+
+.box .sub_title .detail{
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family:'Noto Sans KR', sans-serif;
+    color: #ffc000;
+}
+
+.box .content_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 3.9rem;
+    margin: 0 auto;
+    /* padding : 0rem 1.2rem; */
+    /* background-color: gainsboro; */
+}
+
+.box .content_text p{
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 0.6rem;
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight: 600;
+}

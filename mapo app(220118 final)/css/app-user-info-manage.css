@@ -1,0 +1,510 @@
+
+/* scrollbar option */
+.boxContainer{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; }
+/* ---------------- */
+
+html{
+    height: initial;
+    /* background-color: red; */
+    position: relative;
+}
+
+body{
+    display: flex;
+    margin:0;
+    padding: 0;
+    /* height: 100%; */
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    margin-bottom: 8.5vh;
+}
+
+.title_area{
+    z-index: 1;
+    /* position: relative; */
+    width: 100%;
+    height: 8rem;
+    background :url('../image/mcc_mainbackground_3.png') no-repeat 0 0;
+    background-size: 100% 100%;
+    /* background-color: red; */
+    color:#ffffff;
+    box-sizing: border-box;
+}
+.title_area h1,h3{
+    margin-left: 1rem;
+    font-family: 'GyeonggiTitle-M';
+    font-weight: 500;
+}    
+.title_area h3{
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+.title_area h1{
+    font-size: 2.4rem;
+}  
+
+/* --(sticky-option)header Start----- */
+header{
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 8vh;
+    z-index: 99;
+    background-color:#ffffff;
+    position: sticky;
+}
+
+.returnButton_cont{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 35vw;
+    height: 8vh;
+    background-color: #ffffff;
+    border: none;
+}
+.returnButton_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.returnButton_icon svg{
+    fill: #ffffff;
+    color: #ffffff;
+}
+header p{
+    margin-left: 4vw;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+/* --header End----- */
+
+form{
+    display:contents
+}
+
+.mainContainer{
+    margin-bottom: 8.5vh;
+    width: 90vw;
+    /* background-color: chartreuse; */
+    /* position: relative; */
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin : 0.5rem 1.5rem;
+    /* background-color: #c4c4c4; */
+}
+.title h1{
+    font-family: 'GyeonggiTitle-M';
+    margin:0 auto;
+}
+.boxContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: start;
+    width: 90%;
+    height: 100%;
+    /* background-color: rgb(212, 212, 236); */
+    overflow-y:scroll;
+}
+.boxContainer p{
+    margin: 1vw;
+    font-size: 1rem;
+}
+.boxContainer input{
+    width: 100%;
+    height: 2rem;
+    padding-left: 1.5vw;
+    /* background-color: coral; */
+    background-color: #f4f5f5;
+    border-radius: 14px;
+    border:none;
+    outline: none;
+}
+
+.boxContainer .buttonStyle{
+    margin : 1.5vw;
+    height: 6vh;
+    background-color: #f4900a;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
+.boxContainer .btn-group{
+    width: 98%;
+    margin: 0 auto;
+}
+
+.selectBox{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 5vh;
+}
+
+.selectBox .selectButton{
+    cursor: pointer;
+    margin : 2vw;
+    width: 40vw;
+    height: 6.5vh;
+    /* background-color: #c4c4c4; */
+    border: none;
+}
+
+
+/* --Layer Popup CSS--------*/
+/* --app-user-info-manage-tel Start*/
+.app-user-info-manage-tel{
+    display: none;
+    /* display: flex; */
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 8.5vh; */
+    background-color: rgba(0,0,0, 0.5); 
+}
+.app-user-info-manage-tel .layer_popup_cont{
+    width: 80vw;
+    height: 55vh;
+    background-color:#ffffff;
+    border: 1px solid #000000;
+    padding :20px;
+}
+.app-user-info-manage-tel .popup_title{
+    display: flex;
+    text-align: center;
+    /* background-color: royalblue; */
+}
+.app-user-info-manage-tel .popup_title h1{
+    margin: auto;
+    font-size: 1.5rem;
+}
+.app-user-info-manage-tel .popup_selectListContianer{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 25vh;
+    /* background-color: black; */
+}
+.app-user-info-manage-tel .popup_selectListContianer .inputBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 4.5rem;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 14px;
+    /* background-color: red; */
+}
+.app-user-info-manage-tel .popup_selectListContianer .inputStyle{
+    width: 50vw;
+    height: 3.5rem;
+    border: none;
+    border-radius: 14px;
+    padding-left: 0.5rem;
+    font-size: 0.7rem;
+    background:  #F7F8F8;
+}
+.app-user-info-manage-tel .popup_selectListContianer .inputStyle::placeholder{
+    color: #ADA4A5;
+}
+.app-user-info-manage-tel .popup_selectListContianer .telBox_button{
+    margin-left: 3.5vw;
+    width: 20vw;
+    height: 3.5rem;
+    font-size: 0.8rem;
+    letter-spacing: -0.1rem;
+    font-weight: 600;
+    /* background:  #F7F8F8;  */
+    border: none;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.app-user-info-manage-tel .selectBox{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: saddlebrown; */
+}
+
+.selectBox .btn {
+    width: 100%;
+    font-weight: 600;
+    font-weight: bolder;
+    font-family:'Noto Sans KR', sans-serif;
+}
+/* --app-user-info-manage-tel End*/
+
+/* --Layer popup app-user-info-manage-addr Start*/
+.app-user-info-manage-addr{
+    display: none;
+    /* display: flex; */
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 8.5vh; */
+    background-color: rgba(0,0,0, 0.5); 
+}
+.app-user-info-manage-addr .layer_popup_cont{
+    width: 80vw;
+    height: auto;
+    background-color:#ffffff;
+    border: 1px solid #000000;
+    padding :20px;
+}
+.popup_title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 10vh;
+    /* background-color: royalblue; */
+}
+.popup_title h1{
+    margin: auto;
+    font-size: 1.5em;
+}
+.app-user-info-manage-addr .popup_selectListContianer{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh ;
+    /* background-color: black; */
+}
+
+.app-user-info-manage-addr .popup_selectListContianer .addr_iframe_wrap{
+    display: none;
+    z-index: 2000;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+}
+
+.app-user-info-manage-addr .popup_selectListContianer #wrap{
+    width: 100%;
+    height: 100%;
+    /* position: absolute; */
+}
+
+.app-user-info-manage-addr .popup_selectListContianer .inputStyle{
+    width: 100%;
+    height: 7vh;
+    border: none;
+    border-radius: 14px;
+    padding-left: 1vw;
+    font-size: 0.8rem;
+    background:  #F7F8F8;
+    outline: none;
+}
+.app-user-info-manage-addr .popup_selectListContianer .inputStyle::placeholder{
+    color: #ADA4A5;
+}
+.app-user-info-manage-addr .popup_selectListContianer .addrBox_button{
+    margin-left: 2vw;
+    width: 20vw;
+    height: 7vh;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background:  #F7F8F8;
+    border: none;
+    border-radius: 14px;
+    box-sizing: border-box;
+    color:white;
+    background-color: #f4900a;
+}
+
+.app-user-info-manage-addr .selectBox{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 9vh;
+    /* background-color: saddlebrown; */
+}
+.app-user-info-manage-addr .addrBtn{
+    background-color: #ffc000;
+    color: #fff;
+}
+
+
+
+/* --Layer popup app-user-info-manage-addr End*/
+
+/* Layer popup app-user-info-manage-logout Start */
+.app-user-info-manage-logout{
+    display: none;
+    /* display: flex; */
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 8.5vh; */
+    background-color: rgba(0,0,0, 0.5); 
+}
+.app-user-info-manage-logout .layer_popup_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 80vw;
+    height: 55vh;
+    background-color:#ffffff;
+    border: 1px solid #000000;
+    padding :20px;
+}
+
+.app-user-info-manage-logout h2{
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+.app-user-info-manage-logout button{
+    margin : 2rem auto;
+    height: 7vh;
+}
+/* Layer popup app-user-info-manage-logout End */
+
+/* Layer popup app-user-info-manage-out Start */
+.app-user-info-manage-out{
+    display: none;
+    /* display: flex; */
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 8.5vh; */
+    background-color: rgba(0,0,0, 0.5); 
+}
+.app-user-info-manage-out .layer_popup_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 80vw;
+    height: 55vh;
+    background-color:#ffffff;
+    border: 1px solid #000000;
+    padding :20px;
+}
+
+.app-user-info-manage-out h2{
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+.app-user-info-manage-out button{
+    margin : 2rem auto;
+    height: 7vh;
+}
+.app-user-info-manage-out .popup_selectListContianer{
+    margin : 2rem auto;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: red; */
+}
+.app-user-info-manage-out .popup_selectListContianer .btn{
+    width: 45%;
+    height: 7vh;
+}
+/* Layer popup app-user-info-manage-out End */
+
+.selectBox .btn {
+    width: 45%;
+    height: 3rem;
+}
+/* btn color option */
+.btn-primary{
+    color: #fff;
+    background-color: #f4900a;
+    border-color: #f4900a;
+}
+.btn-primary:focus{
+    background-color: #f4900a;
+}
+.btn-primary:hover{
+    background-color: #f4900a;
+}
+
+.btn-danger{
+    color: #fff;
+    background-color: #ffc000;
+    border: #ffc000;
+}
+.btn-danger:focus{
+    background-color: #ffc000;
+}
+.btn-danger:hover{
+    background-color: #ffc000;
+}
+.btn-outline-primary{
+    border-color: #f4900a;
+    color: #f4900a;
+    /* background-color: #f4900a; */
+}
+.btn-outline-primary:hover{
+    border-color: #f4900a;
+    background-color: #ffc000;
+    /* background-color: #f4900a; */
+}
+.btn-check:checked+.btn-outline-primary{
+    border-color: #f4900a;
+    color: #fff;
+    background-color: #f4900a;
+}
+.btn:focus{
+    border-color: #f4900a;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+.btn-bordrer{
+    border: 1px solid #ababab;
+}

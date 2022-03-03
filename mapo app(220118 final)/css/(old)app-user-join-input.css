@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+html{
+    height: initial;
+}
+main{
+    height: initial;
+}
+
+body{
+    height: initial;
+    display: flex;
+    margin:0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+ul,li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black ;
+}
+h1{
+    font-family: 'GyeonggiTitle-M';
+    width: 100vw;
+    text-align: center;
+    color: #1D1617;
+    font-weight: bold;
+    font-size: 2rem;
+}
+p{
+    margin:0 auto;
+}
+main{
+    margin-top: 20vw;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#signUpForm{
+    width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+}    
+.inputBox{
+    margin: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 12.5vw;
+    background:  #F7F8F8;
+    border: 1px solid #F7F8F8;
+    box-sizing: border-box;
+    border-radius: 14px;
+    /* background-color:blue; */
+}
+.inputBox:nth-child(1){
+    margin-top: 5vw;
+}
+.inputStyle{
+    width: 90vw;
+    height: 12.5vw;
+    padding-left: 2vw;
+    border: none;
+    border-radius: 14px;
+    background:  #F7F8F8;
+    outline: none;
+    font-size: 1rem;
+}
+.inputStyle::placeholder{
+    color: #ADA4A5;
+}
+
+.ver2{
+    width: 58vw;
+    height: 12.5vw;
+    margin-right: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  #F7F8F8;
+    font-size: 0.7rem;
+}
+.ver2::placeholder{
+    color: #ADA4A5;
+}
+.buttonStyle_inner{
+    width: 25vw;
+    height: 12.5vw;
+    margin: 1vw auto;
+    font-size: 0.8rem;
+    font-family: 'SDSamliphopangche_Basic';
+/*
+    font-weight: 600;
+    background:  #F7F8F8;
+    background-color: red;
+    border: none;
+    border-radius: 14px;
+    box-sizing: border-box;
+    color: #000000; */
+}
+.signUpButton{
+    margin: 3vw;
+    width: 80vw;
+    height: 15vw;
+
+}
+.returnButton{
+    margin: 3vw;
+    width: 80vw;
+    height: 15vw;
+    /* cursor: pointer;
+    margin:10px 10px;
+    margin-bottom: 5vw;
+    width: 80vw;
+    height: 9vh;
+    border: none;
+    background: #F2F2F2;
+    border-radius: 99px; 
+    font-weight: bold;
+    font-size: 2.5vmax */
+}
+
+@media screen and (min-width:720px) {
+    /* .inputBox{
+        margin: 8px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40vmax;
+        height: 48px;
+        line-height: 48px;
+    }
+    .inputStyle2{
+        margin: 5vw 7vw 5vw 4vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 14px;
+        width: 100%;
+        height: 48px;
+        padding-left: 1vw;
+        background:  #F7F8F8;
+        
+        outline: none;
+    } */
+}

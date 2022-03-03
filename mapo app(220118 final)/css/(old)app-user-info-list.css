@@ -1,0 +1,239 @@
+/* 
+memo 
+    큰틀만 잡음.
+    
+    디테일한 레이아웃 조정 필요. 21.11.17
+    (버튼 border 크기 등)
+*/
+
+/* scrollbar option */
+body{
+    -ms-overflow-style: none; 
+}
+::-webkit-scrollbar { display: none; }
+/* ---------------- */
+
+html{
+    height: initial;
+    /* background-color: red; */
+}
+
+body{
+    display: flex;
+    margin:0;
+    padding: 0;
+    /* height: 100%; */
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    margin-bottom: 8.5vh;
+}
+
+/* --header Start----- */
+header{
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 8vh;
+    position: fixed;
+    z-index: 99;
+    background-color:#f4900a;
+    border-bottom: 1px solid #ffffff;
+}
+
+.returnButton_cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 35vw;
+    height: 8vh;
+    background-color: #f4900a;
+    /* color: #ffffff; */
+    /* background-color: red; */
+    border: none;
+    border-bottom: 1px solid #ffffff;
+}
+.returnButton_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.returnButton_icon svg{
+    fill: #ffffff;
+    color: #ffffff;
+}
+header p{
+    margin-left: 4vw;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+/* --header End----- */
+main{
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vh;
+    margin-bottom: 8.5vh;
+}
+.title{
+    width: 100%;
+    text-align: center;
+    /* background-color: red; */
+}
+
+.title h1{
+    margin: 0 auto;
+    margin: 0.5rem;
+    margin-top: 2rem;
+    font-family: 'GyeonggiTitle-M';
+}
+
+/*------------------------------  */
+.title_area{
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 8rem;
+    background :url('../image/mcc_mainbackground_3.png') no-repeat 0 0;
+    background-size: 100% 100%;
+    /* background-color: red; */
+    color:#ffffff;
+    box-sizing: border-box;
+}
+.title_area h1,h3{
+    margin-left: 1rem;
+    font-family: 'GyeonggiTitle-M';
+    font-weight: 500;
+}    
+.title_area h3{
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+.title_area h1{
+    font-size: 2.4rem;
+}  
+
+
+#boxContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(212, 212, 236); */
+    /* overflow:hidden; */
+}
+
+.listContainer{
+    margin: 2vmax auto;
+    width: 95vw;
+    height: 70vh;
+    /* background-color: red; */
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+.listMenu{
+    display: flex;
+    width: 100%;
+    height: 8vh;
+    box-sizing: border-box;
+   /* background-color: red; */
+}
+.listMenu .listMenu_button{
+    cursor: pointer;
+    display: block;
+    width: 50%;
+    height: 8vh;
+    line-height: 8vh;
+    box-sizing: border-box;
+    border-bottom: 1px solid #000000;
+    border-right:1px solid #000000;
+    /* border-radius: 2px; */
+    /* background-color: blue; */
+}
+.listMenu .listMenu_button:nth-child(2){
+    border-right:none;
+}
+.listContainer .listMenu p{
+    display: inline;
+}
+
+.list{
+    display: block;
+    margin-top: 1vh ;
+    margin-bottom: 8vh;
+    width: 100%;
+    height: 60vh;
+    border-spacing: 1vh;
+    border-collapse: separate;
+    /* background-color: red; */
+    overflow-y: scroll;
+}
+.list thead{
+    text-transform: uppercase;
+}
+.list thead td{
+    font-weight: bold;
+}
+.list thead .th_time{
+    width: 22vw;
+    font-size: 0.825rem;
+    /* background-color:blue; */
+}
+.list thead .th_name{
+    width: 29vw;
+    font-size: 0.825rem;
+}
+.list thead .th_status{
+    width: 11vw;
+    font-size: 0.825rem;
+}
+.list thead .th_detail{
+    width: 20vw;
+    font-size: 0.825rem;
+}
+.list tbody td{
+    height: 8vh;
+    font-size: 0.825rem;
+    /* background-color: red; */
+}
+.list tbody span{
+    font-weight: 700;
+}
+.list tbody tr{
+
+}
+.list tbody .detail{
+    /* border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px; */
+}
+.detail .btn{
+    font-size: 0.8rem;
+    background-color: #f4900a;
+    border-color: #f4900a;
+}
+/* .list button{
+    width: 100%;
+    height: 100%;
+    font-size: 11px;
+    border: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 10px;
+} */
