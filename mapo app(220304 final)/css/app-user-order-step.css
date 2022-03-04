@@ -262,9 +262,7 @@ form{
     font-weight: bolder;
     color:#F69E30;
 }
-.boxContainer_order_step1_add .care_select_cont span{
 
-}
 
 
 .boxContainer_order_step1_add .care_select_cont .care_selectBtn{
@@ -484,11 +482,12 @@ form{
     font-size: 1.08rem;
     color:#F69E30;
 }
-.boxContainer_order_step3_1 .care_select_cont span{
-
+.boxContainer_order_step3_1 span{
+    font-family: 'GyeonggiTitle-L';
 }
 
 .boxContainer_order_step3_1 .care_date_container{
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -497,6 +496,12 @@ form{
     color: #c6c6c6;
     /* background-color: red; */
 }
+.boxContainer_order_step3_1 .care_date_container .form-select{
+    font-size: 0.7rem;
+    background-size: 0.6rem 0.4rem;
+    padding: 0.375rem 1.25rem 0.375rem 0.75rem;
+}
+
 .boxContainer_order_step3_1 .care_date_container  .fa-calendar-alt{
     color: #FFC107;
 }
@@ -530,20 +535,13 @@ form{
 }
 
 .boxContainer_order_step3_1 input{
-    color : #898989;
+    color : #121212;
     border: 1px solid #c6c6c6;
     padding : 5px;
     border-radius: 8px;
     text-align: center;
 }
-.boxContainer_order_step3_1 .datepicker{
-    width: 20vw;
-    margin-right: 0.5em;
-}
-.boxContainer_order_step3_1 .timepicker{
-    width: 20vw;
-    font-size: 0.5em;
-}
+
 .boxContainer_order_step3_1 .care_select_cont .care_selectBtn{
     display: flex;
     justify-content: center;
@@ -560,6 +558,9 @@ form{
     background-color: #f8f8f8;
     box-shadow: 5px 5px 5px #e2e2e2;
 }
+
+
+
 
 .boxContainer_order_step3_1 .care_select_cont .care_selectBtn.on{
     color:#F69E30;
@@ -597,6 +598,22 @@ form{
     font-family: 'Noto Sans KR';
     border-bottom: 1px solid black;
 }
+
+.boxContainer_order_step3_1 .input-group-text{
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.boxContainer_order_step3_1 .addrBtn{
+    background-color:#F69E30;
+    color: #ffffff;
+}
+.boxContainer_order_step3_1 .addr_box{
+    width: 100%;
+}
+
 
 /* --boxContainer_order_step3_2 Start-------------------- */
 .boxContainer_order_step3_2{
@@ -1111,6 +1128,8 @@ form{
     background-color: #ffeed4;
     border: none;
 }
+
+
 
 
 /* CSS */

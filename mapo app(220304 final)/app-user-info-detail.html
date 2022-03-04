@@ -23,6 +23,14 @@ $r = sqlresult($sql)[0];
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-info-detail.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
+    <!-- datepicker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <!-- timepicker -->
+    <link href="css/jquery.timepicker.css" rel="stylesheet">
+    <script src="js/jquery.timepicker.js"></script> 
+    <script src="js/datepikcer.options.js"></script>
 </head>
 <body>
     <div id="container">
@@ -68,14 +76,80 @@ $r = sqlresult($sql)[0];
                     </div>
                     <form action="#" method="#">
                         <ul class="list-group">
-                            <li class="list-group-item">변경 항목</li>
-                            <li class="list-group-item">변경 항목</li>
-                            <li class="list-group-item">변경 항목</li>
-                            <li class="list-group-item">변경 항목</li>
-                            <li class="list-group-item">변경 항목</li>
+                            <div class="care_date_container">
+                                <!-- <p>돌봄날짜 선택</p> -->
+                                <section class="calendar_container">
+                                    <div class="date_wrapper">
+                                        <div class="guide_text">
+                                            <p>시작일</p>
+                                        </div>
+                                        <div class="care_calendar">
+                                            <!-- <i class="far fa-calendar-alt"></i> -->
+                                            <label>
+                                                <input class="datepicker" type="text" placeholder="" id="datepicker1"  name="start_day" inputmode="none" autocomplete="off">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="date_wrapper">
+                                        <div class="guide_text">
+                                            <p>종료일</p>
+                                        </div>
+                                        <div class="care_calendar">
+                                            <!-- <i class="far fa-calendar-alt"></i> -->
+                                            <label>
+                                                <input class="datepicker" type="text" placeholder="" id="datepicker2" name="end_day" inputmode="none" autocomplete="off">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="time_container">
+                                    <label for="mon_day">
+                                        <input type="checkbox" id="mon_day" name="mon_day">
+                                        <i class="circle"></i>
+                                        <span class="check_text left">월</span>
+                                        <input id="timepicker1" class="timepicker" name="timepicker1"  inputmode="none" placeholder="" autocomplete="off" readonly disabled/>
+                                        ~
+                                        <input id="timepicker2" class="timepicker" name="timepicker2"  inputmode="none" autocomplete="off" readonly disabled/>
+                                    </label>
+                                    <label for="tue_day">
+                                        <input type="checkbox" id="tue_day" name="tue_day">
+                                        <i class="circle"></i>
+                                        <span class="check_text left">화</span>
+                                        <input id="timepicker3" class="timepicker" name="timepicker3"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        ~
+                                        <input id="timepicker4" class="timepicker" name="timepicker4"  inputmode="none" autocomplete="off" readonly disabled/>
+                                    </label>
+                                    <label for="wed_day">
+                                        <input type="checkbox" id="wed_day" name="wed_day">
+                                        <i class="circle"></i>
+                                        <span class="check_text left">수</span>
+                                        <input id="timepicker5" class="timepicker" name="timepicker5"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        ~
+                                        <input id="timepicker6" class="timepicker" name="timepicker6"  inputmode="none" autocomplete="off" readonly disabled/>
+                                    </label>
+                                    <label for="thu_day">
+                                        <input type="checkbox" id="thu_day" name="thu_day">
+                                        <i class="circle"></i>
+                                        <span class="check_text left">목</span>
+                                        <input id="timepicker7" class="timepicker" name="timepicker7"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        ~
+                                        <input id="timepicker8" class="timepicker" name="timepicker8"  inputmode="none" autocomplete="off" readonly disabled/>
+                                    </label>
+                                    <label for="fri_day">
+                                        <input type="checkbox" id="fri_day" name="fri_day">
+                                        <i class="circle"></i>
+                                        <span class="check_text left">금</span>
+                                        <input id="timepicker9" class="timepicker" name="timepicker9"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        ~
+                                        <input id="timepicker10" class="timepicker" name="timepicker10" inputmode="none" autocomplete="off" readonly disabled/>
+                                    </label>
+                                </section>
+                                <div class="time_container">
+                                </div>
+                            </div>
                         </ul>
                         <div class="selectBox">
-                            <button type="button" class="btn btn-primary btn-sm change" >변경하기</button>
+                            <button type="submit" id="submitBtn" class="btn btn-primary btn-sm change" >변경하기</button>
                             <button type="button" class="goBack btn btn-light btn-sm">돌아가기</button>
                         </div>
                     </form>
@@ -103,7 +177,7 @@ $r = sqlresult($sql)[0];
                             <input name="order_cancel_etc_comment" placeholder="취소사유를 입력해 주세요.">    
                         </div>
                         <div class="selectBox">
-                            <button type="button" class="btn btn-primary btn-sm change" >변경하기</button>
+                            <button type="submit" class="btn btn-primary btn-sm change" >변경하기</button>
                     </form>
                         <button type="button" class="goBackc btn btn-light btn-sm">돌아가기</button>
                     </div>
@@ -142,5 +216,6 @@ $r = sqlresult($sql)[0];
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/app-user-detail.js"></script>
+    <script src="js/datevalidation.js"></script>
 </body>
 </html>

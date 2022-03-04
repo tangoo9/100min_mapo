@@ -18,6 +18,7 @@ function selectAll(selectAll)  {
   
   const chk1 = document.querySelector('#chk1');
   const chk2 = document.querySelector('#chk2');
+  // app-user-join-accept 동의버튼
   const submitBtn = document.querySelector('.btn_div2');
 
   submitBtn.addEventListener('click' , function(event){
@@ -29,4 +30,3 @@ function selectAll(selectAll)  {
     }
   })
 
-  
