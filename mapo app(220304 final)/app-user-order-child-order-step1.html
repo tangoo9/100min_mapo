@@ -36,6 +36,7 @@ session_check_app();
                 <p>아동정보는 최대 3명까지 추가할 수 있습니다.</p>
             </div>
             <form name="child_select" action="app-user-order-child-order-step2" method="GET" onsubmit="return check()">
+                <!-- <input type='hidden' value=""> -->
                 <div class="care_select_cont">
                 </div>
                     <div id="add_child" class="add_child" onclick="location.href='app-user-order-child-order-step1-add'">
@@ -100,8 +101,31 @@ session_check_app();
         //     showList()
         // }
 
-        (function(){
-            showList()
+
+        // var dataList = [
+        //     {
+        //         "no" : 1,
+        //         "name" : "이소윤",
+        //         "birth" : "2016.1.1",
+        //         "sex" : "여자"
+        //     },
+        //     {
+        //         "no" : 2,
+        //         "name" : "아동",
+        //         "birth" : "2015.1.1",
+        //         "sex" : "남자"
+        //     },
+        //     {
+        //         "no" : 3,
+        //         "name" : "어르신",
+        //         "birth" : "2014.1.1",
+        //         "sex" : "남자"
+        //     }
+        // ]
+        
+        // -- DATA init 
+        ;(function(){
+            showList();
         })()
         function showList() {
                 var dataList;
@@ -113,13 +137,13 @@ session_check_app();
                 data: { method : 'get', m_no : '<?=$_SESSION[m_no]?>' },
                 success : function(data) {
                 dataList = JSON.parse(data);
-            }
+                }
             });
             let list = "<div class='care_select_cont'>";
             for(let i = 0; i < dataList.length ; i ++){
                 list += 
                 "<ul class='care_selectBtn'>"+
-                    "<input type='hidden' id='select_"+dataList[i].no+"' name='select_"+dataList[i].no+"' value=''>" +
+                    "<input type='hidden' id='select_"+dataList[i].no+"' name='select_"+dataList[i].no+"' value='' disabled>" +
                     "<div class='row'>" +
                         "<li class='text_row'>" +
                             "<span class='textBold'>"+
@@ -140,9 +164,10 @@ session_check_app();
 
             if(dataList.length > 2){
                 addBtn.style.display = 'none';
-            }
-        }
+            };
+        };
 
+        // -- 현재 선택한 아동에 대한것
         let selected_child = document.querySelector('#selected_child');
         let selected_child_list = []
         let submitBtn = document.querySelector('#submitBtn')
@@ -152,16 +177,21 @@ session_check_app();
             let check = selected_child.value
             console.log(check)
             // console.log(check.outerText)
-            if(check == "" || false){
-                alert('최소 한명의 아동을 선택해 주세요.')
+            if(dataList == 0){
+                alert('아동을 추가해 주세요.')
                 return false;
-            }else{
-                // location.href='app-user-order-child-order-step2'
-                const html = '<input type="hidden" value="'+selected_child.value+'" name="child" />';
-                $('#child_select').append(html);
-                submitBtn.submit;
+            }else if(dataList != false){
+                if(check == "" || false){
+                    alert('최소 한명의 아동을 선택해 주세요.')
+                    return false;
+                }else{
+                    // location.href='app-user-order-child-order-step2'
+                    const html = '<input type="hidden" value="'+selected_child.value+'" name="child" />';
+                    $('#child_select').append(html);
+                    submitBtn.submit;
+                }
             }
-        }  
+        }
         
         let select_child_list = [];
         let care_selectBtn = document.querySelectorAll('.care_selectBtn');
@@ -173,8 +203,7 @@ session_check_app();
             care_selectBtn[i].addEventListener('click', add_list)
         }
 
-        // ------------------------------------------------------------------------------
-
+        // -- 아동 선택하기
         function add_list(){    
             let select_this = document.getElementById('#select_this');
             // console.log(this.children[0])
@@ -202,6 +231,8 @@ session_check_app();
 
             console.log("선택된 아동 리스트" + selected_child.value)
         }
+
+        // -- 아동 삭제하기
         let deleteBtn = document.querySelectorAll('.fa-trash-alt');
         deleteBtn.forEach(list => {
             list.addEventListener("click", remove);
@@ -211,19 +242,29 @@ session_check_app();
             let btn = this.parentNode.parentNode
             btn.style.display = 'none'
             console.log(this.parentNode.parentNode.firstChild.id)
-            var remove = $.ajax({
+                var request = $.ajax({
                 type: "POST",
                 url: "/api/app_child",
                 async:false,
                 datatype : "json",
-                data: { method : 'remove', mc_no : this.parentNode.parentNode.firstChild.id },
+                data: { method : 'get', m_no : '<?=$_SESSION[m_no]?>' },
                 success : function(data) {
-                    alert(data);
+                    dataList = JSON.parse(data);
+                    var remove = $.ajax({
+                    type: "POST",
+                    url: "/api/app_child",
+                    async:false,
+                    datatype : "json",
+                    data: { method : 'remove', mc_no : this.parentNode.parentNode.firstChild.id },
+                    success : function(data) {
+                        alert(data);
+                    }
+                    });
+                    if(dataList.length >= 1){
+                            addBtn.style.display = 'block';
+                    }
                 }
             });
-            if(dataList.length >= 1){
-                addBtn.style.display = 'block';
-            }
         }
 
 

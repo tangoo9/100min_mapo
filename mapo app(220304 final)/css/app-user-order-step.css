@@ -262,8 +262,9 @@ form{
     font-weight: bolder;
     color:#F69E30;
 }
-.boxContainer_order_step1_add .care_select_cont span{
-
+.boxContainer_order_step1_add .care_select_cont span small{
+    font-size: 1rem;
+    color: #f00;
 }
 
 
@@ -1004,7 +1005,7 @@ form{
 }
 .boxContainer_order_add_detail .title{
     margin-top: 5em;
-    width: 75vw;
+    width: 90vw;
     height: 10vh;
 }
 .boxContainer_order_add_detail .title p{
@@ -1084,6 +1085,11 @@ form{
     font-size: 0.8rem;
     font-family: 'GyeonggiTitle-L';
 }
+.boxContainer_order_add_detail .care_select_cont span small{
+    font-size: 1rem;
+    color: #f00;
+}
+
 .boxContainer_order_add_detail .care_select_cont .textBold{
     
     font-weight: bolder;

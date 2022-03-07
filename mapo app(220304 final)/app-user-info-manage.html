@@ -90,10 +90,10 @@ $rr = sqlrow($sql);
             <p>이름</p>
             <input type="text" disabled value="<?=$_SESSION[m_name]?>">
             <p>주소</p>
-            <input type="text" value="<?=$_SESSION[m_addr]?>">
+            <input type="text" value="<?=$_SESSION[m_addr]?>" disabled>
             <button id="change_addr" class="buttonStyle" type="button">주소 변경</button>
             <p>전화번호</p>
-            <input type="text" value="<?=$_SESSION[m_tel]?>">
+            <input type="text" value="<?=$_SESSION[m_tel]?>" disabled>
             <button id="change_tel" class="buttonStyle" type="button">전화번호 변경</button>
             <p>알림</p>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">

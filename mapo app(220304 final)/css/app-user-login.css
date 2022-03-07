@@ -99,6 +99,7 @@ main{
     /* background-color: red; */
 }
 .form{
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -148,7 +149,7 @@ main{
 }
 
 .button{
-    margin: 1rem 2rem;
+    margin: 0.5rem 2rem;
     border: none;
     width: 18rem;
     height: 4.5rem;
@@ -185,11 +186,20 @@ main{
     background-color: #ffc000;
 }
 .signUpButton{
-    margin-bottom: 3rem;
+    color: #000000;
+}
+.aroundButton{
     color: #000000;
 }
 
 @media screen and (min-width:720px) {
+    html{
+        margin: 0 auto;
+        width: 1300px;
+    }
+    .title_area{
+        width: 100vw;
+    }
     .title{
         margin: 10px 20px;
         font-weight: 500;

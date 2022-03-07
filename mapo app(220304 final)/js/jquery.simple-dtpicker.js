@@ -572,7 +572,7 @@
 		var $calendar = $picker.children('.datepicker_inner_container').children('.datepicker_calendar');
 		var $table = $calendar.children('.datepicker_table');
 		var $timelist = $picker.children('.datepicker_inner_container').children('.datepicker_timelist');
-
+		var $button = $picker.children('.datepicker_button');
 		/* Grasp a point that will be changed */
 		var changePoint = "";
 		var oldDate = getPickedDate($picker);
@@ -1033,6 +1033,10 @@
 		var $timelist = $('<div>');
 		$timelist.addClass('datepicker_timelist');
 		$inner.append($timelist);
+		// button
+		var $button = $('<div>');
+		$button.addClass('datepicker_button');
+		$picker.append($button);
 
 		/* Set event handler to picker */
 		$picker.hover(

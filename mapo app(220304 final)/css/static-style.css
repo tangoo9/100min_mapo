@@ -1,18 +1,6 @@
 /* 
 memo : 
 ---------------
-1)
-figma 시안중 user-biz 작업 부터 (9.사업소개)
-static-style.css 적용함. 나중에 전체적인 수정필요.
-
-
-2)
-
-    footer.height : 60px;
-
-    if(header == true){
-        header.height : 50px;
-    }
 
 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');

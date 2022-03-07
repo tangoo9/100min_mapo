@@ -18,6 +18,8 @@ session_check_app();
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order-step.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/phone_validation.js"></script>
 </head>
 <body>
     <header>
@@ -37,23 +39,23 @@ session_check_app();
                 <input type="hidden" name="method" value="register">
                 <div class="care_select_cont">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">이름</span>
+                        <span class="input-group-text" id="inputGroup-sizing-default">이름<small>*</small></span>
                         <input type="text" id="name" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" autocomplete="off" required>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">생년월일</span>
-                        <select id="select_year" name="select_year" class="form-select" onchange="javascript:lastday();">
+                        <span class="input-group-text" id="inputGroup-sizing-default">생년월일<small>*</small></span>
+                        <select id="year" name="select_year" class="form-select" required onchange="javascript:lastday();">
                         </select>
-                        <select id="select_month" name="select_month" class="form-select" onchange="javascript:lastday();">
+                        <select id="month" name="select_month" class="form-select" required onchange="javascript:lastday();">
                         </select>
-                        <select id="select_day" name="select_day" class="form-select" required>
+                        <select id="day" name="select_day" class="form-select" required>
                         </select>
                     </div>
                     <div class="input-group mb-3 ">
-                        <span class="input-group-text" id="inputGroup-sizing-default">성별</span>
+                        <span class="input-group-text" id="inputGroup-sizing-default">성별<small>*</small></span>
                         <div class="select_text">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="sex" value="여">
+                                <input class="form-check-input" type="radio" name="sex" value="여" required>
                                 <label class="form-check-label" for="woman">
                                     여자
                                 </label>
@@ -68,7 +70,7 @@ session_check_app();
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">아동 연락처</span>
-                        <input type="tel" id="tel" name="tel" aria-label="tel" autocomplete="off" class="form-control">
+                        <input type="tel" id="phone" name="tel" aria-label="tel" autocomplete="off" class="form-control" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">학교</span>

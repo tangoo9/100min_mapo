@@ -8,7 +8,9 @@ $.datepicker.setDefaults({
     dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
     dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
     showMonthAfterYear: true,
-    yearSuffix: '년'
+    yearSuffix: '년',
+    minDate : 0,
+    maxDate : 35
 });
 $( function() { $( "#datepicker1").datepicker(); } ); 
 
