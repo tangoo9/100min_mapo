@@ -14,19 +14,19 @@ function selectAll(selectAll)  {
         behavior: 'smooth', block: 'start'
     });
   }
+  function checkbox(){
+      const chk1 = document.querySelector('#chk1');
 
-  
-  const chk1 = document.querySelector('#chk1');
-  const chk2 = document.querySelector('#chk2');
-  // app-user-join-accept 동의버튼
-  const submitBtn = document.querySelector('.btn_div2');
-
-  submitBtn.addEventListener('click' , function(event){
-    if((chk1.checked && chk2.checked) == false){
-      alert('필수 약관에 동의해주세요.')
-      return false;
-    }else{
-      location.href='app-user-join-input';
+      if(chk1.checked == false){
+          alert('필수 약관에 동의해주세요.')
+          return false;
+      }
+  }
+function checkagree(){
+    const chk1 = document.querySelector('#chk1');
+    const chk2 = document.querySelector('#chk2');
+    if(chk1.checked == false || chk2.checked == false){
+        alert('필수 약관에 동의해주세요.')
+        return false;
     }
-  })
-
+}

@@ -12,17 +12,16 @@ session_start();
     <script src="js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-join-input.css">
-    <script src="/src/jquery.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script>
         function sms(){
             var request = $.ajax({
                 type: "POST",
                 url: "/api/order_join",
                 data: { method : 'get', phone : $('#m_tel').val() },
-                timeout: 10000,
-            });
-            request.done(function( msg ) {
-                alert(msg);
+                success : function(data) {
+                    alert(data);
+                }
             });
         }
         function check(){
@@ -30,10 +29,9 @@ session_start();
                 type: "POST",
                 url: "/api/order_join",
                 data: { method : 'check', code : $('#code').val() },
-                timeout: 10000,
-            });
-            request.done(function( msg ) {
-                alert(msg);
+                success : function(data) {
+                    alert(data);
+                }
             });
         }
     </script>
@@ -44,11 +42,12 @@ session_start();
         <form id="signUpForm" action="/api/app_process" method="post">
             <div class="form_container">
                 <input type="hidden" name="method" value="join">
+                <input type="hidden" name="agree" value="<?=($_GET[agree] == 'on')?"Y":"N"?>>">
                 <!-- 임시로 method get / 수정필요 -->
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">이메일</span>
                     <input name="m_id" type="email" placeholder="이메일을 입력해 주세요." 
-                                aria-label="id" class="form-control" required >
+                                aria-label="id" class="form-control" autocomplete="off" required >
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">패스워드</span>
@@ -58,7 +57,7 @@ session_start();
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">이름</span>
                     <input name="m_name"  type="text" placeholder="이름을 입력해 주세요." 
-                                aria-label="name" class="form-control" required>
+                                aria-label="name" class="form-control" autocomplete="off" required>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
@@ -69,17 +68,17 @@ session_start();
                 </div>
                 <div class="addr_box">
                     <input class="form-control" type="hidden" id="sample3_postcode" placeholder="우편번호">
-                    <input name="m_addr" class="form-control" type="text" id="sample3_address" placeholder="주소">
+                    <input name="m_addr" class="form-control" type="text" id="sample3_address" placeholder="주소" required>
                     <div class="input-group mb-3">
                         <input name="m_addr_detail" class="form-control" type="text" id="sample3_detailAddress" placeholder="상세주소">
-                        <input class="form-control" type="text" id="sample3_extraAddress" placeholder="">
+                        <input class="form-control" type="text" id="sample3_extraAddress" placeholder="" required>
                     </div>
                 <!-- <input name="m_addr" type="text" placeholder="주소를 입력해 주세요." 
                     aria-label="name" class="form-control" required> -->
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">성별</span>
-                    <select name="m_sex" class="form-select">
+                    <select name="m_sex" class="form-select" required>
                         <option selected disabled value="">성별을 선택하세요.</option>
                         <option value="여">여</option>
                         <option value="남">남</option>
@@ -88,13 +87,13 @@ session_start();
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
                     <input name="m_tel" id="m_tel" type="tel" placeholder="전화번호를 입력해 주세요."
-                                aria-label="tel" class="form-control" required>
+                                aria-label="tel" class="form-control" autocomplete="off" required>
                     <button class="btn btn-primary buttonStyle_inner" onclick="sms();" type="button">인증</button>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">인증</span>
                     <input type="text" id ='code' name="m_pw_confirm" placeholder="인증번호를 입력해 주세요." 
-                                aria-label="code" class="form-control" required>
+                                aria-label="code" class="form-control" autocomplete="off" required>
                     <button class="btn btn-primary buttonStyle_inner" onclick="check();" type="button">확인</button>
                 </div>
                 <div class="selectBox">

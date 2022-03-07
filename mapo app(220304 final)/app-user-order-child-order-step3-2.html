@@ -1,3 +1,11 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$_SESSION[select_care] = $_GET[care_type];
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,7 +25,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
     <!-- timepicker -->
     <link href="css/jquery.timepicker.css" rel="stylesheet">
-    <script src="js/jquery.timepicker.js"></script> 
+    <script src="js/jquery.timepicker.js"></script>
     <!-- origin -->
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order-step.css">
@@ -37,7 +45,7 @@
             <div class="title">
                 <h2>돌봄이 필요한 요일과<br>시간을 알려주세요.</h2>
             </div>
-            <form action="app-user-order-child-order-step4" method="#">
+            <form action="app-user-order-child-order-step4" method="GET" name="select_time">
                 <div class="care_date_container">
                     <!-- <p>돌봄날짜 선택</p> -->
                     <section class="calendar_container">
@@ -454,57 +462,54 @@
         });
 
             $('#submitBtn').click(function(){
-                function timeCheck(){
-
-                }
-                if($("#datepicker1").val() =="" || $("#datepicker2").val() ==""){
-                    alert('날짜를 선택해주세요.')
-                    return false
-                }else if(
-                    (
-                        ($("input[name='mon_day']").is(':checked')) ||
-                        ($("input[name='tue_day']").is(':checked')) ||
-                        ($("input[name='wed_day']").is(':checked')) ||
-                        ($("input[name='thu_day']").is(':checked')) ||
-                        ($("input[name='fri_day']").is(':checked'))
-                    ) == false
+                    if($("#datepicker1").val() =="" || $("#datepicker2").val() ==""){
+                        alert('날짜를 선택해주세요.')
+                        return false
+                    }else if(
+                        (
+                            ($("input[name='mon_day']").is(':checked')) ||
+                            ($("input[name='tue_day']").is(':checked')) ||
+                            ($("input[name='wed_day']").is(':checked')) ||
+                            ($("input[name='thu_day']").is(':checked')) ||
+                            ($("input[name='fri_day']").is(':checked'))
+                        ) == false
                     ){
-                    alert("요일을 하나 이상 지정해 주세요.")
-                    return false;
-                }else if(
+                        alert("요일을 하나 이상 지정해 주세요.")
+                        return false;
+                    }else if(
                         ($("input[name='mon_day']").is(':checked')) ||
                         ($("input[name='tue_day']").is(':checked')) ||
                         ($("input[name='wed_day']").is(':checked')) ||
                         ($("input[name='thu_day']").is(':checked')) ||
                         ($("input[name='fri_day']").is(':checked')) != false
-                        ){
-                            if((($("input[name='mon_day']").is(':checked')) == true) && (($("#timepicker1").val() || $("#timepicker2").val()) == "")){
+                    ){
+                        if((($("input[name='mon_day']").is(':checked')) == true) && ($("#timepicker1").val() == ""|| $("#timepicker2").val() == "")){
                             alert("[월요일] 시간을 지정해주세요.")
                             return false;
-                            }
-                            if((($("input[name='tue_day']").is(':checked')) == true) && (($("#timepicker3").val() || $("#timepicker4").val()) == "")){
+                        }
+                        if((($("input[name='tue_day']").is(':checked')) == true) && ($("#timepicker3").val() == ""|| $("#timepicker4").val() == "")){
                             alert("[화요일] 시간을 지정해주세요.")
                             return false;
-                            }
-                            if((($("input[name='wed_day']").is(':checked')) == true) && (($("#timepicker5").val() || $("#timepicker6").val()) == "")){
+                        }
+                        if((($("input[name='wed_day']").is(':checked')) == true) && ($("#timepicker5").val() == ""|| $("#timepicker6").val() == "")){
                             alert("[수요일] 시간을 지정해주세요.")
                             return false;
-                            }
-                            if((($("input[name='thu_day']").is(':checked')) == true) && (($("#timepicker7").val() || $("#timepicker8").val()) == "")){
+                        }
+                        if((($("input[name='thu_day']").is(':checked')) == true) && ($("#timepicker7").val() == ""|| $("#timepicker8").val() == "")){
                             alert("[목요일] 시간을 지정해주세요.")
                             return false;
-                            }
-                            if((($("input[name='fri_day']").is(':checked')) == true) && (($("#timepicker9").val() || $("#timepicker10").val()) == "")){
-                                alert("[금요일] 시간을 지정해주세요.")
-                                return false;
-                            }
-                }else{
-                    return true;
+                        }
+                        if((($("input[name='fri_day']").is(':checked')) == true) && ($("#timepicker9").val() == ""|| $("#timepicker10").val() == "")){
+                            alert("[금요일] 시간을 지정해주세요.")
+                            return false;
+                        }
+                    }else{
+                    // location.href='app-user-order-child-order-step4'
+                    return true
                 }
             })
         //  == Timepicker Option END ==============================
-    })
-
+        })
     </script>
 </body>
 </html>

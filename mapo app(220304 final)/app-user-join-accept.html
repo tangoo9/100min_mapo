@@ -15,6 +15,7 @@
         <div class="title">
             <h1>약관동의</h1>
         </div>
+        <form method="get" action="app-user-join-input" onsubmit="return checkagree();">
         <label for="chk">
             <input type="checkbox" id="chk" name="agree" onclick="selectAll(this), scrollMove()">
             <i class="circle"></i>
@@ -289,7 +290,7 @@ e-mail : hope@mapoworkfare.or.kr
             <button class="selectButton btn_div1" type="button" onclick="window.history.back()">
                 <p>이전</p>
             </button>
-            <button class="selectButton btn_div2" type="button" >
+            <button class="selectButton btn_div2" type="submit">
                 <p>다음</p>
             </button>
         </div>

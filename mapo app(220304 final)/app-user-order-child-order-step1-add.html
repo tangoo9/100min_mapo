@@ -1,3 +1,10 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,11 +33,12 @@
                 <h2>아이정보를<br>입력해주세요</h2>
                 <p>(*)필수입력 사항입니다.</h2>
             </div>
-            <form action="app-user-order-child-order-step1" method="#" target="#" >
+            <form action="/api/app_child" method="post">
+                <input type="hidden" name="method" value="register">
                 <div class="care_select_cont">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">이름</span>
-                        <input type="text" id="name" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                        <input type="text" id="name" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" autocomplete="off" required>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">생년월일</span>
@@ -45,13 +53,13 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">성별</span>
                         <div class="select_text">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="sex" id="woman">
+                                <input class="form-check-input" type="radio" name="sex" value="여">
                                 <label class="form-check-label" for="woman">
                                     여자
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="sex" id="man">
+                                <input class="form-check-input" type="radio" name="sex" value="남">
                                 <label class="form-check-label" for="man">
                                     남자
                                 </label>
@@ -60,20 +68,20 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">아동 연락처</span>
-                        <input type="tel" id="tel" name="tel" aria-label="tel" class="form-control">
+                        <input type="tel" id="tel" name="tel" aria-label="tel" autocomplete="off" class="form-control">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">학교</span>
-                        <input type="text" id="school" name="school" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" id="school" name="school" autocomplete="off" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">학년</span>
                         <select name="grade" class="form-select" aria-label="Default select example" required>
                             <option selected disabled>학년을 선택하세요.</option>
-                            <option value="1">예비초등학생</option>
-                            <option value="2">1학년</option>
-                            <option value="3">2학년</option>
-                            <option value="4">3학년</option>
+                            <option value="예비초등학생">예비초등학생</option>
+                            <option value="1학년">1학년</option>
+                            <option value="2학년">2학년</option>
+                            <option value="3학년">3학년</option>
                         </select>
                     </div>
                 </div>

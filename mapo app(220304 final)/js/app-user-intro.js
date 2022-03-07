@@ -2,7 +2,7 @@
 
 setTimeout(function(){
     location.href="app-user-login"
-},2500);
+},3000);
 
 
 

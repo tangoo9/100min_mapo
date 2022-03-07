@@ -14,7 +14,6 @@ $( function() { $( "#datepicker1").datepicker(); } );
 
 
 $( function() { $( "#datepicker2").datepicker(); } ); 
-
 // alert("테스트")
 
 

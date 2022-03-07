@@ -29,7 +29,6 @@ $rr = sqlrow($sql);
                 type: "POST",
                 url: "/api/order_join",
                 data: { method : 'get', phone : $('#fix_tel').val() },
-                timeout: 10000,
             });
             request.done(function( msg ) {
                 alert(msg);
@@ -40,7 +39,6 @@ $rr = sqlrow($sql);
                 type: "POST",
                 url: "/api/order_join",
                 data: { method : 'check', code : $('#code').val() },
-                timeout: 10000,
             });
             request.done(function( msg ) {
                 alert(msg);
@@ -51,7 +49,6 @@ $rr = sqlrow($sql);
                 type: "POST",
                 url: "/api/order_join",
                 data: { method : 'notice', code : $('#btnradio1').is(":checked") },
-                timeout: 3000,
             });
             request.done(function( msg ) {
                 alert(msg);
@@ -62,7 +59,6 @@ $rr = sqlrow($sql);
                 type: "POST",
                 url: "/api/order_join",
                 data: { method : 'unregister'},
-                timeout: 3000,
             });
             request.done(function( msg ) {
                 alert(msg);
@@ -101,9 +97,9 @@ $rr = sqlrow($sql);
             <button id="change_tel" class="buttonStyle" type="button">전화번호 변경</button>
             <p>알림</p>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked onclick="notice();" value="Y">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" <?=($_SESSION[m_notice] == 'Y')?"checked":""?> onclick="notice();" value="Y">
                 <label class="btn btn-outline-primary" for="btnradio1">켜기</label>
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="notice();" value="N">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" <?=($_SESSION[m_notice] == 'N')?"checked":""?> onclick="notice();" value="N">
                 <label class="btn btn-outline-primary" for="btnradio2" >끄기</label>
                 </div>
             <div class="selectBox">
@@ -120,8 +116,7 @@ $rr = sqlrow($sql);
             </div>
             <div class="popup_selectListContianer">
                 <form method="post" action="/api/app_process">
-                <!-- <input type="hidden" name="method" value="fix_addr">
-                <input class="inputStyle" type="text" name='fix_addr' placeholder="주소 입력"> -->
+                <input type="hidden" name="method" value="fix_addr">
                 <div class="input-group mb-3">
                     <input class="form-control addrBtn" type="button" onclick="sample3_execDaumPostcode(); block()" value="주소 검색하기">
                 </div>
@@ -157,6 +152,7 @@ $rr = sqlrow($sql);
             <div class="popup_selectListContianer">
                 <div class="inputBox">
                     <form action="/api/app_process" method="post">
+                        <input type="hidden" name="method" value="fix_tel">
                     <input class="inputStyle" type="tel" name="fix_tel" id="fix_tel" placeholder="전화번호를 입력해 주세요.">
                     <button class="btn btn-primary btn-sm telBox_button" type="button" onclick="sms();">
                         인증
@@ -180,7 +176,7 @@ $rr = sqlrow($sql);
     <div class="app-user-info-manage-logout">
         <div class="layer_popup_cont">
             <h2>로그아웃 되었습니다.</h2>
-            <button type="button" class="btn btn-primary" onclick="location.href='/app/app-logout'">메인화면</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='/api/app_logout'">메인화면</button>
         </div>
     </div>
     <!-- Layer popup app-user-info-manage-out -->

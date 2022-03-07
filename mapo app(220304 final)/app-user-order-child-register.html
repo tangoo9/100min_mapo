@@ -1,0 +1,32 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$_SESSION[agree] = ($_GET[agree] == 'on')?"Y":"N";
+for($i=0;$i<count($_SESSION[select_child]);$i++){
+    $in = "INSERT INTO `mcc`.`order_child`(`mc_no`, `m_no`, `p_no`,
+`oc_name`, `oc_order_time`, `oc_start_time`, `oc_end_time`, 
+`oc_d`, `oc_d_start`, `oc_d_end`, 
+`oc_d2`, `oc_d2_start`, `oc_d2_end`, 
+`oc_d3`, `oc_d3_start`, `oc_d3_end`, 
+`oc_d4`, `oc_d4_start`, `oc_d4_end`, 
+`oc_d5`, `oc_d5_start`, `oc_d5_end`, 
+`oc_snack`, `oc_snack_info`, 
+`oc_relation`, `oc_health`, `oc_health_etc_comment`, `oc_condition`, `oc_condition_etc_comment`, `oc_back_home`, `oc_back_home_etc_comment`, `oc_emergency`, `oc_textarea`, 
+`oc_agree`, `oc_regat`) 
+VALUES ('{$_SESSION[select_child][$i]}', '{$_SESSION[m_no]}', '{$_SESSION[p_no]}', 
+ '{$_SESSION[select_care]}', '{$now}', '{$_SESSION[start]}', '{$_SESSION[end]}', 
+ '{$_SESSION[d1]}', '{$_SESSION[d1_start]}', '{$_SESSION[d1_end]}', 
+ '{$_SESSION[d2]}', '{$_SESSION[d2_start]}', '{$_SESSION[d2_end]}', 
+ '{$_SESSION[d3]}', '{$_SESSION[d3_start]}', '{$_SESSION[d3_end]}', 
+ '{$_SESSION[d4]}', '{$_SESSION[d4_start]}', '{$_SESSION[d4_end]}', 
+ '{$_SESSION[d5]}', '{$_SESSION[d5_start]}', '{$_SESSION[d5_end]}', 
+ '{$_SESSION[snack]}', '{$_SESSION[snack_info]}', 
+ '{$_SESSION[relation]}', '{$_SESSION[health]}', '{$_SESSION[health_etc_comment]}', '{$_SESSION[condition]}', '{$_SESSION[condition_etc_comment]}', '{$_SESSION[back_home]}', '{$_SESSION[back_home_etc_comment]}', '{$_SESSION[emergency]}', '{$_SESSION[textarea]}', 
+ '{$_SESSION[agree]}', '{$now}')";
+sqlresult($in);
+}
+echo "<meta http-equiv='refresh' content='0; url=/app/app-user-order-child-order-complete'>";
+?>

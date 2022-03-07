@@ -176,9 +176,6 @@ main{
 
 
 /* --Layer Popup CSS--------*/
-form{
-    display: contents;
-}
 /* --app-user-info-detail-change Start*/
 .app-user-info-detail-change{
     display: none;
@@ -224,50 +221,6 @@ form{
     
 }
 
-.app-user-info-detail-change .list-group{
-    width: 100%;
-    z-index: -1;
-    /* background-color: red; */
-}
-
-.app-user-info-detail-change .list-group .calendar_container{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-flow: column;
-    width: 100%;
-    /* background-color: red; */
-}
-
-.app-user-info-detail-change .list-group .calendar_container .date_wrapper{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row nowrap;
-    margin-bottom: 0.5rem;
-}
-.app-user-info-detail-change .list-group .calendar_container .date_wrapper p{
-    margin : 0 auto;
-    margin-right: 0.5rem;
-}
-
-.app-user-info-detail-change .list-group .timepicker{
-    text-align: center;
-    width: 21vw;
-}
-.app-user-info-detail-change .list-group .time_container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column nowrap;
-    position: relative;
-    
-}
-.ui-timepicker-container{
-    z-index: 999999 !important; 
-    background-color: red;
-}
 
 
 /* --app-user-info-detail-change End*/

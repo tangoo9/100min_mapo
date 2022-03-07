@@ -72,7 +72,7 @@
 	vertical-align: middle;
 }
 
-.datepicker > .datepicker_m > .icon-home > svg > g > path {
+.datepicker > .datepicker_header > .icon-home > svg > g > path {
 	fill: #3b7796;
 }
 
@@ -312,9 +312,4 @@
 .datepicker > .datepicker_inner_container > .datepicker_timelist > div.timelist_item.hover {
 	color: #000000;
 	background-color:	#c8c8c8;
-}
-.datepicker .datepicker_button{
-	width: 100px;
-	height: 20px;
-
 }

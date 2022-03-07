@@ -1,3 +1,19 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$_SESSION[relation] = $_GET[relation];
+$_SESSION[health] =  $_GET[health];
+$_SESSION[health_etc_comment] = $_GET[health_etc_comment];
+$_SESSION[condition] = $_GET[condition];
+$_SESSION[condition_etc_comment] = $_GET[condition_etc_comment];
+$_SESSION[back_home] = $_GET[back_home];
+$_SESSION[back_home_etc_comment] = $_GET[back_home_etc_comment];
+$_SESSION[emergency] = $_GET[emergency];
+$_SESSION[textarea] = $_GET[textarea];
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,6 +26,8 @@
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order-child-accept.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
+    <script src="/src/jquery.js"></script>
+
 </head>
 <body>
     <div id="container">
@@ -24,6 +42,7 @@
                             <thead>
                             <tr>
                                 <th scope="col">
+                                    <form method="get" action="app-user-order-child-order-register" onsubmit="return checkbox();">
                                     <div class="checkbox_group"> 
                                         <div class="subtitle">
                                             <label for="chk1">
@@ -118,10 +137,11 @@
                         </label>
                     </div>
                     <div class="selectBox">
-                        <button class="selectButton oca_submit"type="button" >
+                        <button class="selectButton" type="submit">
                             <p>신청하기</p>
                         </button>
                     </div>
+                    </form>
             </div>
         </main>
         <footer>
@@ -154,6 +174,6 @@
         </footer>
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/accept-oca.js"></script>
+    <script src="js/accept.js"></script>
 </body>
 </html>

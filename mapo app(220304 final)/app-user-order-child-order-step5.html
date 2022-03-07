@@ -1,3 +1,11 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$_SESSION[p_no] = $_GET[care_place];
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,24 +34,24 @@
                 <h2>간식 신청하기</h2>
                 <p>1회, 3000원</p>
             </div>
-            <form action="#" method="#">
+            <form action="app-user-order-child-order-add-detail" method="GET">
                 <div class="care_select_cont">
                     <div class="select_div">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="snack" id="yes" value="yes">
+                            <input class="form-check-input" type="radio" name="snack" id="yes" value="Y">
                             <label class="form-check-label" for="yes">
                                 신청
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="snack" id="no" value="no"checked>
+                            <input class="form-check-input" type="radio" name="snack" id="no" value="N" checked>
                             <label class="form-check-label" for="no">
                                 미신청
                             </label>
                         </div>
                     </div>
                     <p></p>
-                    <textarea placeholder="원하시는 요일과 요청사항이 있으시면 말씀해주세요.(알레르기 정보 등)"></textarea>
+                    <textarea name="snack_info" placeholder="원하시는 요일과 요청사항이 있으시면 말씀해주세요.(알레르기 정보 등)"></textarea>
                 </div>
                 <div class="progress_cont">
                     <div class="progress">
@@ -54,16 +62,16 @@
                     <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step4'">
                         <p>이전</p>
                     </button>
-                    <button  id="submitBtn" class="selectButton btn_div2" type="submit" onclick="location.href='app-user-order-child-accept'">
+                    <button  id="submitBtn" class="selectButton btn_div2" type="submit">
                         <p>다음</p>
                     </button>
                 </div>
             </form>
-            <!-- <div class="selectBox">
+<!--            <div class="selectBox">
                 <button class="selectButton" type="button" onclick="location.href='app-user-order-child-order-add-detail'">
-                    <p>돌봄서비스신청서 (1회신청 , 임시, 추후삭제)</p>
+                    <p>돌봄서비스신청서<br>(1회신청 , 임시, 추후삭제)</p>
                 </button>
-            </div> -->
+            </div>-->
         </div>
     </main>
     <footer>

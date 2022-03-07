@@ -1,3 +1,12 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$_SESSION[snack] = $_GET[snack];
+$_SESSION[snack_info] = $_GET[snack_info];
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,15 +34,15 @@
         <div class="boxContainer_order_add_detail">
             <div class="title">
                 <h2>돌봄신청서 작성하기</h2>
-                <p>* 돌봄신청서는 서비스 이용신청시 최초 1회만 작성합니다.</p>
+                <p>* 돌봄신청서는 서비스 이용신청시 작성합니다.</p>
             </div>
-            <form action="app-user-order-child-accept" method="#" target="#">
+            <form action="app-user-order-child-accept" method="GET">
                 <div class="care_select_cont">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">
                             아동과의 관계
                         </span>
-                        <input type="text" name="relation" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="relation"  required>
                     </div>
                     <div class="input-group mb-3 align">
                         <span class="input-group-text" id="inputGroup-sizing-default">
@@ -41,32 +50,32 @@
                         </span>
                         <div class="form_row">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="health" id="health_good" value="health_good" required>
+                                <input class="form-check-input" type="radio" name="health" id="health_good" value="양호" required>
                                 <label class="form-check-label" for="health_good">
                                     양호
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="health" id="health_normal" value="health_normal">
+                                <input class="form-check-input" type="radio" name="health" id="health_normal" value="보통">
                                 <label class="form-check-label" for="health_normal">
                                     보통
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="health" id="health_bad" value="health_bad">
+                                <input class="form-check-input" type="radio" name="health" id="health_bad" value="허약">
                                 <label class="form-check-label" for="health_bad">
                                     허약
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="health" id ="health_etc" value="health_etc">
+                                <input class="form-check-input" type="radio" name="health" id ="health_etc" value="기타">
                                 <label class="form-check-label" for="health_etc">
                                     기타
                                 </label>
                             </div>
                         </div>
                         <div class="input_box_etc health_text">
-                            <input name="health_etc_comment" placeholder="구체적으로 기재하실 사항을 입력해 주세요.">    
+                            <input type=text name="health_etc_comment" placeholder="구체적으로 기재하실 사항을 입력해 주세요.">
                         </div>
                     </div>
                     <div class="input-group mb-3 align">
@@ -75,25 +84,25 @@
                         </span>
                         <div class="form_row">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="condition" id="condition_good" value="condition_good" required>
+                                <input class="form-check-input" type="radio" name="condition" id="condition_good" value="맞벌이 가정" required>
                                 <label class="form-check-label" for="condition_good">
                                     맞벌이 가정
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="condition" id="condition_normal" value="condition_normal">
+                                <input class="form-check-input" type="radio" name="condition" id="condition_normal" value="다자녀 가정">
                                 <label class="form-check-label" for="condition_normal">
                                     다자녀 가정
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="condition" id="condition_bad" value="condition_bad">
+                                <input class="form-check-input" type="radio" name="condition" id="condition_bad" value="한부모 가정">
                                 <label class="form-check-label" for="condition_bad">
                                     한부모 가정
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="condition" id="condition_etc" value="condition_etc">
+                                <input class="form-check-input" type="radio" name="condition" id="condition_etc" value="기타">
                                 <label class="form-check-label" for="condition_etc">
                                     기타
                                 </label>
@@ -109,25 +118,25 @@
                         </span>
                         <div class="form_row">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="back_home" id="back_home_good" value="back_home_good" required>
+                                <input class="form-check-input" type="radio" name="back_home" id="back_home_good" value="부모동행" required>
                                 <label class="form-check-label" for="back_home_good">
                                     부모동행
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="back_home" id="back_home_normal"  value="back_home_normal">
+                                <input class="form-check-input" type="radio" name="back_home" id="back_home_normal"  value="대리인동행">
                                 <label class="form-check-label" for="back_home_normal">
                                     대리인동행
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="back_home" id="back_home_bad" value="back_home_bad">
+                                <input class="form-check-input" type="radio" name="back_home" id="back_home_bad" value="자율귀가">
                                 <label class="form-check-label" for="back_home_bad">
                                     자율귀가
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="back_home" id="back_home_etc" value="back_home_etc">
+                                <input class="form-check-input" type="radio" name="back_home" id="back_home_etc" value="기타">
                                 <label class="form-check-label" for="back_home_etc">
                                     기타
                                 </label>
@@ -137,7 +146,7 @@
                             <input name="back_home_etc_comment" placeholder="구체적으로 기재하실 사항을 입력해 주세요.">    
                         </div>
                     </div>
-                    <div class="input-group mb-3">
+<!--                    <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">생년월일</span>
                         <select id="select_year"class="form-select" onchange="javascript:lastday();">
                         </select>
@@ -145,22 +154,22 @@
                         </select>
                         <select id="select_day"class="form-select" >
                         </select>
-                        <!-- <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> -->
-                    </div>
+                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>-->
                     <div class="input-group mb-3 align">
                         <span class="input-group-text" id="inputGroup-sizing-default">
                             응급처치 <br>절차 동의
                         </span>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="emergency" id="emergency_agree"  value="emergency_agree" required>
+                            <input class="form-check-input" type="radio" name="emergency" id="emergency_agree"  value="동의" required>
                             <label class="form-check-label" for="emergency_agree">
                                 동의
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="emergency" id="emergency_disagree"  value="emergency_disagree">
+                            <input class="form-check-input" type="radio" name="emergency" id="emergency_disagree"  value="미동의">
                             <label class="form-check-label" for="emergency_disagree">
                                 미동의
                             </label>
@@ -179,14 +188,14 @@
                 </div>
                 <div class="progress_cont">
                     <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
                 <div class="selectBox">
                     <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step1'">
                         <p>이전</p>
                     </button>
-                    <button class="selectButton btn_div2" type="submit" >
+                    <button class="selectButton btn_div2" type="submit">
                         <p>확인</p>
                     </button>
                 </div> 
@@ -229,7 +238,7 @@
             $("input[name='health']:radio").change(function(){
                 let status = this.value;
                 console.log(status)
-                if(status=='health_etc'){
+                if(status=='기타'){
                     $('.health_text').show()
                 }else{
                     $('.health_text').hide()
@@ -238,7 +247,7 @@
             $("input[name='condition']:radio").change(function(){
                 let status = this.value;
                 console.log(status)
-                if(status=='condition_etc'){
+                if(status=='기타'){
                     $('.condition_text').show()
                 }else{
                     $('.condition_text').hide()
@@ -247,14 +256,15 @@
             $("input[name='back_home']:radio").change(function(){
                 let status = this.value;
                 console.log(status)
-                if(status=='back_home_etc'){
+                if(status=='기타'){
                     $('.back_home_text').show()
                 }else{
                     $('.back_home_text').hide()
                 }
             })
-        })
 
+
+        })
 
 
         // $('#health_etc').change(function(){

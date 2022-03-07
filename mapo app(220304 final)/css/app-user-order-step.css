@@ -262,7 +262,9 @@ form{
     font-weight: bolder;
     color:#F69E30;
 }
+.boxContainer_order_step1_add .care_select_cont span{
 
+}
 
 
 .boxContainer_order_step1_add .care_select_cont .care_selectBtn{
@@ -487,7 +489,6 @@ form{
 }
 
 .boxContainer_order_step3_1 .care_date_container{
-    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -496,12 +497,6 @@ form{
     color: #c6c6c6;
     /* background-color: red; */
 }
-.boxContainer_order_step3_1 .care_date_container .form-select{
-    font-size: 0.7rem;
-    background-size: 0.6rem 0.4rem;
-    padding: 0.375rem 1.25rem 0.375rem 0.75rem;
-}
-
 .boxContainer_order_step3_1 .care_date_container  .fa-calendar-alt{
     color: #FFC107;
 }
@@ -535,13 +530,20 @@ form{
 }
 
 .boxContainer_order_step3_1 input{
-    color : #121212;
+    color : #898989;
     border: 1px solid #c6c6c6;
     padding : 5px;
     border-radius: 8px;
     text-align: center;
 }
-
+.boxContainer_order_step3_1 .datepicker{
+    width: 20vw;
+    margin-right: 0.5em;
+}
+.boxContainer_order_step3_1 .timepicker{
+    width: 20vw;
+    font-size: 0.5em;
+}
 .boxContainer_order_step3_1 .care_select_cont .care_selectBtn{
     display: flex;
     justify-content: center;

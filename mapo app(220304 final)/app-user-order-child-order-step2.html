@@ -1,3 +1,12 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_check_app();
+$child = explode(',', str_replace("select_","",$_GET[selected_child]));
+$_SESSION[select_child] = $child;
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -11,6 +20,7 @@
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order-step.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -25,9 +35,9 @@
             <div class="title">
                 <h2>돌봄 유형을 선택해 주세요.</h2>
             </div>
-            <form action="app-user-order-child-order-step3-2" method="#" target="" >
+            <form action="app-user-order-child-order-step3-2" method="GET" name="select_time" onsubmit="return check()">
                 <div class="care_select_cont">
-                    <div class="care_selectBtn" onclick="select('cycle_care')">
+                    <div class="care_selectBtn" onclick="select('정기')">
                         <div class="sub_title">
                             <p>정기 돌봄</p>
                         </div>
@@ -36,7 +46,7 @@
                             정기돌봄은 공간전체 운영시간 동안<br> 돌봄서비스를 이용합니다. 
                         </span> -->
                     </div>
-                        <div class="care_selectBtn" onclick="select('time_care')">
+                        <div class="care_selectBtn" onclick="select('시간제')">
                             <div class="sub_title">
                                 <p>시간제 돌봄</p>
                             </div>
@@ -60,7 +70,7 @@
                             <span>단기로 정해진 날에 선생님이 돌봐주세요.</span><br>
                             <span>시간제 돌봄은 공간 운영시간 중 원하는 시간대에 돌봄 서비스를 이용합니다. </span>
                         </div> -->
-                        <input type="hidden" id="care_type" name ="care_type">
+                        <input type="hidden" id="care_type" name ="care_type" value="">
                 </div>
                 <div class="progress_cont">
                     <div class="progress">
@@ -117,19 +127,25 @@
         function select(temp){
             care_type_val = temp;
             console.log(temp)
+            $('#care_type').val(temp);
         }
 
         
         let care_type_val = document.getElementById('care_type').value;
         let submitBtn = document.querySelector('#submitBtn');
-        submitBtn.onclick = () => {
+
+        function check(){
+            // console.log(check.outerText)
             if(care_type_val == "" || false){
                 alert('돌봄유형을 선택해주세요.')
                 return false
             }else{
+                // location.href='app-user-order-child-order-step2'
                 return true
+                //submitBtn.submit;
             }
         }
+
     // function select(temp){
     //     document.getElementById('care_type').value = temp;
     //     console.log(temp)

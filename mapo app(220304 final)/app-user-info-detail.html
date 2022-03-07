@@ -4,10 +4,12 @@ header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
 include '../src/method_config.php';
 session_check_app();
-$sql = "select * from order_info o 
+$o = "select * from order_info o  
+left join member_child mc on mc.mc_no = o.mc_no 
 left join partner p on p.p_no = o.p_no
-where o_no = '{$_GET[o_no]}' and m_no = '{$_SESSION[m_no]}' order by o_order_date asc";
-$r = sqlresult($sql)[0];
+where o.o_no = '{$_GET[o_no]}' and o.m_no = '{$_SESSION[m_no]}'";
+$o = sqlresult($o)[0];
+$od = date("md", strtotime($_SESSION[order_time]));
 
 ?>
 <!DOCTYPE html>
@@ -23,19 +25,12 @@ $r = sqlresult($sql)[0];
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-info-detail.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
-    <!-- datepicker -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
-    <!-- timepicker -->
-    <link href="css/jquery.timepicker.css" rel="stylesheet">
-    <script src="js/jquery.timepicker.js"></script> 
-    <script src="js/datepikcer.options.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div id="container">
         <header>
-            <button class="returnButton_cont" type ="button" onclick="location.href='app-user-info-list'">
+            <button class="returnButton_cont" type ="button" onclick="history.go(-1);">
                 <div class="returnButton_icon" >
                     <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.778809 10.8916C0.778809 11.2847 0.924805 11.6216 1.23926 11.9136L9.97656 20.4712C10.2236 20.7183 10.5381 20.853 10.9087 20.853C11.6499 20.853 12.2451 20.269 12.2451 19.5166C12.2451 19.146 12.0879 18.8203 11.8408 18.562L3.96826 10.8916L11.8408 3.22119C12.0879 2.96289 12.2451 2.62598 12.2451 2.2666C12.2451 1.51416 11.6499 0.930176 10.9087 0.930176C10.5381 0.930176 10.2236 1.06494 9.97656 1.31201L1.23926 9.8584C0.924805 10.1616 0.778809 10.4985 0.778809 10.8916Z" fill="black"/>
@@ -50,22 +45,73 @@ $r = sqlresult($sql)[0];
                     <h1 >주문 상세 리스트</h1>
                 </div>
                 <div class="boxContainer">
-                    <p>주문번호</p>
-                    <input type="text" value="<?=$r[o_no]?>" disabled>
+                    <?php
+                    if($o[o_service] == '아동'){
+                        ?>
+                        <p>아동명(주문번호)</p>
+                        <input type="text" value="<?=$o[mc_name]?> (<?=$od?>-<?=$o[o_no]?>)" disabled>
+                    <?php
+                    }else{
+                        ?>
+                        <p>주문번호</p>
+                        <input type="text" value="<?=$od?>-<?=$o[o_no]?>" disabled>
+                    <?php
+                    }
+                    ?>
+
                     <p>서비스명</p>
-                    <input type="text" value="<?=$r[o_service]?>" disabled>
+                    <input type="text" value="<?=$o[o_service]?> 돌봄" disabled>
                     <p>상세서비스</p>
-                    <input type="text" value="<?=$r[o_service_detail]?>" disabled>
-                    <p>예약시간</p>
-                    <input type="text" value="<?=$r[o_order_date]?>" disabled>
-                    <p>서비스비고</p>
-                    <input type="text" value="<?=$r[o_cmt]?>" disabled>
+                    <input type="text" value="<?=$o[o_service_detail]?>" disabled>
+                    <?php
+                    if($o[o_service] == '아동'){
+                        ?>
+                        <p>예약기간</p>
+                        <input type="text" value="<?=date("Y-m-d",strtotime($o[o_start_time]))?> ~ <?=date("Y-m-d",strtotime($o[o_end_time]))?>">
+                        <p>예약시간</p>
+                        <?php
+                        if($o[o_d1] == 'Y')
+                            echo "<input type=\"text\" value=\"월요일 : $o[o_d1_start] ~ $o[o_d1_end]\")>";
+                        if($o[o_d2] == 'Y')
+                            echo "<input type=\"text\" value=\"화요일 : $o[o_d2_start] ~ $o[o_d2_end]\")>";
+                        if($o[o_d3] == 'Y')
+                            echo "<input type=\"text\" value=\"수요일 : $o[o_d3_start] ~ $o[o_d3_end]\")>";
+                        if($o[o_d4] == 'Y')
+                            echo "<input type=\"text\" value=\"목요일 : $o[o_d4_start] ~ $o[o_d4_end]\")>";
+                        if($o[o_d5] == 'Y')
+                            echo "<input type=\"text\" value=\"금요일 : $o[o_d5_start] ~ $o[o_d5_end]\")>";
+                        ?>
+                        <?php
+                    }else{
+                        ?>
+                        <p>예약시간</p>
+                        <input type="text" value="<?=$o[o_start_time]?>" disabled>
+                        <?php
+                    }
+                    ?>
+
+                    <p>서비스 비고</p>
+                    <input type="text" value="<?=($o[o_snack] == 'Y')?"간식요청 {$o[o_snack_info]}":"선택안함"?>" disabled>
+
                     <p>서비스 제공자</p>
-                    <input type="text" value="<?=$r[p_name]?>" disabled>
-                    <div class="selectBox">
-                        <button class="btn btn-primary change" type="button">변경하기</button>
-                        <button class="btn btn-light cancel" type="button">취소하기</button>
-                    </div>
+                    <input type="text" value="<?=$o[p_name]?>(<?=$o[p_tel]?>)" disabled>
+
+                    <p>서비스 상태</p>
+                    <input type="text" value="<?=$o[o_status]?>" disabled>
+
+                    <p>기타</p>
+                    <input type="text" value="<?=$o[o_comment]?>" disabled>
+                    <?php
+                    if($o[o_status] != '취소' && $o[o_status] != '완료'){
+                        ?>
+                        <div class="selectBox">
+<!--                            <button class="btn btn-primary change" type="button">시간변경하기</button>-->
+                            <button class="btn btn-light cancel" type="button">취소하기</button>
+                        </div>
+                    <?php
+                    }
+                    ?>
+
                 </div>
             </div>
             <!-- Layer popup app-user-info-detail-change -->
@@ -74,85 +120,103 @@ $r = sqlresult($sql)[0];
                     <div class="popup_title">
                         <h1>변경내역</h1>
                     </div>
-                    <form action="#" method="#">
-                        <ul class="list-group">
-                            <div class="care_date_container">
-                                <!-- <p>돌봄날짜 선택</p> -->
-                                <section class="calendar_container">
-                                    <div class="date_wrapper">
-                                        <div class="guide_text">
-                                            <p>시작일</p>
-                                        </div>
-                                        <div class="care_calendar">
-                                            <!-- <i class="far fa-calendar-alt"></i> -->
-                                            <label>
-                                                <input class="datepicker" type="text" placeholder="" id="datepicker1"  name="start_day" inputmode="none" autocomplete="off">
-                                            </label>
-                                        </div>
+                    <form action="app-user-order-child-order-step4" method="GET" name="select_time">
+                        <div class="care_date_container">
+                            <!-- <p>돌봄날짜 선택</p> -->
+                            <section class="calendar_container">
+                                <div class="guide_text">
+                                    <p>시작일을 선택하세요</p>
+                                </div>
+                                <div class="care_calendar">
+                                    <!-- <i class="far fa-calendar-alt"></i> -->
+                                    <label>
+                                        <input class="datepicker" type="text" placeholder="" id="datepicker1"  name="start_day" inputmode="none" autocomplete="off">
+                                    </label>
+                                </div>
+                                <div class="guide_text">
+                                    <p>종료일을 선택하세요</p>
+                                </div>
+                                <div class="care_calendar">
+                                    <!-- <i class="far fa-calendar-alt"></i> -->
+                                    <label>
+                                        <input class="datepicker" type="text" placeholder="" id="datepicker2" name="end_day" inputmode="none" autocomplete="off">
+                                    </label>
+                                </div>
+                            </section>
+                            <div class="care_info">
+                                <span>5주 이내의 일정까지 예약가능합니다</span>
+                                <span>당일 이용은 전화문의 바랍니다.</span>
+                                <span>마포자람  070-7730-0771</span>
+                            </div>
+                            <section class="time_container">
+                                <label for="mon_day">
+                                    <input type="checkbox" id="mon_day" name="mon_day">
+                                    <i class="circle"></i>
+                                    <span class="check_text left">월</span>
+                                    <input id="timepicker1" class="timepicker" name="timepicker1"  inputmode="none" autocomplete="off" readonly disabled/>
+                                    ~
+                                    <input id="timepicker2" class="timepicker" name="timepicker2"  inputmode="none" autocomplete="off" readonly disabled/>
+                                </label>
+                                <label for="tue_day">
+                                    <input type="checkbox" id="tue_day" name="tue_day">
+                                    <i class="circle"></i>
+                                    <span class="check_text left">화</span>
+                                    <input id="timepicker3" class="timepicker" name="timepicker3"  inputmode="none" autocomplete="off" readonly disabled/>
+                                    ~
+                                    <input id="timepicker4" class="timepicker" name="timepicker4"  inputmode="none" autocomplete="off" readonly disabled/>
+                                </label>
+                                <label for="wed_day">
+                                    <input type="checkbox" id="wed_day" name="wed_day">
+                                    <i class="circle"></i>
+                                    <span class="check_text left">수</span>
+                                    <input id="timepicker5" class="timepicker" name="timepicker5"  inputmode="none" autocomplete="off" readonly disabled/>
+                                    ~
+                                    <input id="timepicker6" class="timepicker" name="timepicker6"  inputmode="none" autocomplete="off" readonly disabled/>
+                                </label>
+                                <label for="thu_day">
+                                    <input type="checkbox" id="thu_day" name="thu_day">
+                                    <i class="circle"></i>
+                                    <span class="check_text left">목</span>
+                                    <input id="timepicker7" class="timepicker" name="timepicker7"  inputmode="none" autocomplete="off" readonly disabled/>
+                                    ~
+                                    <input id="timepicker8" class="timepicker" name="timepicker8"  inputmode="none" autocomplete="off" readonly disabled/>
+                                </label>
+                                <label for="fri_day">
+                                    <input type="checkbox" id="fri_day" name="fri_day">
+                                    <i class="circle"></i>
+                                    <span class="check_text left">금</span>
+                                    <input id="timepicker9" class="timepicker" name="timepicker9"  inputmode="none" autocomplete="off" readonly disabled/>
+                                    ~
+                                    <input id="timepicker10" class="timepicker" name="timepicker10" inputmode="none" autocomplete="off" readonly disabled/>
+                                </label>
+                            </section>
+                            <div class="time_container">
+                            </div>
+                        </div>
+                        <!-- <div class="care_select_cont">
+                            <div class="care_selectBtn">
+                                <div class="text_row">
+                                    <div class="care_content">
+                                        <span class="textBold">2021-12-14</span>
+                                        <span>하원 + 놀이돌봄 / 16:30 ~ 19:30</span>
                                     </div>
-                                    <div class="date_wrapper">
-                                        <div class="guide_text">
-                                            <p>종료일</p>
-                                        </div>
-                                        <div class="care_calendar">
-                                            <!-- <i class="far fa-calendar-alt"></i> -->
-                                            <label>
-                                                <input class="datepicker" type="text" placeholder="" id="datepicker2" name="end_day" inputmode="none" autocomplete="off">
-                                            </label>
-                                        </div>
+                                    <div>
+                                        <span class="icon" data-feather="x"></span>
                                     </div>
-                                </section>
-                                <section class="time_container">
-                                    <label for="mon_day">
-                                        <input type="checkbox" id="mon_day" name="mon_day">
-                                        <i class="circle"></i>
-                                        <span class="check_text left">월</span>
-                                        <input id="timepicker1" class="timepicker" name="timepicker1"  inputmode="none" placeholder="" autocomplete="off" readonly disabled/>
-                                        ~
-                                        <input id="timepicker2" class="timepicker" name="timepicker2"  inputmode="none" autocomplete="off" readonly disabled/>
-                                    </label>
-                                    <label for="tue_day">
-                                        <input type="checkbox" id="tue_day" name="tue_day">
-                                        <i class="circle"></i>
-                                        <span class="check_text left">화</span>
-                                        <input id="timepicker3" class="timepicker" name="timepicker3"  inputmode="none" autocomplete="off" readonly disabled/>
-                                        ~
-                                        <input id="timepicker4" class="timepicker" name="timepicker4"  inputmode="none" autocomplete="off" readonly disabled/>
-                                    </label>
-                                    <label for="wed_day">
-                                        <input type="checkbox" id="wed_day" name="wed_day">
-                                        <i class="circle"></i>
-                                        <span class="check_text left">수</span>
-                                        <input id="timepicker5" class="timepicker" name="timepicker5"  inputmode="none" autocomplete="off" readonly disabled/>
-                                        ~
-                                        <input id="timepicker6" class="timepicker" name="timepicker6"  inputmode="none" autocomplete="off" readonly disabled/>
-                                    </label>
-                                    <label for="thu_day">
-                                        <input type="checkbox" id="thu_day" name="thu_day">
-                                        <i class="circle"></i>
-                                        <span class="check_text left">목</span>
-                                        <input id="timepicker7" class="timepicker" name="timepicker7"  inputmode="none" autocomplete="off" readonly disabled/>
-                                        ~
-                                        <input id="timepicker8" class="timepicker" name="timepicker8"  inputmode="none" autocomplete="off" readonly disabled/>
-                                    </label>
-                                    <label for="fri_day">
-                                        <input type="checkbox" id="fri_day" name="fri_day">
-                                        <i class="circle"></i>
-                                        <span class="check_text left">금</span>
-                                        <input id="timepicker9" class="timepicker" name="timepicker9"  inputmode="none" autocomplete="off" readonly disabled/>
-                                        ~
-                                        <input id="timepicker10" class="timepicker" name="timepicker10" inputmode="none" autocomplete="off" readonly disabled/>
-                                    </label>
-                                </section>
-                                <div class="time_container">
                                 </div>
                             </div>
-                        </ul>
+                        </div> -->
+                        <div class="progress_cont">
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
                         <div class="selectBox">
-                            <button type="submit" id="submitBtn" class="btn btn-primary btn-sm change" >변경하기</button>
+                            <button type="button" class="btn btn-primary btn-sm change" >변경하기</button>
                             <button type="button" class="goBack btn btn-light btn-sm">돌아가기</button>
                         </div>
                     </form>
+
                 </div>
             </div>
             <!-- Layer popup app-user-info-detail-cancel -->
@@ -161,24 +225,40 @@ $r = sqlresult($sql)[0];
                     <div class="popup_title">
                         <h1>신청내역 취소</h1>
                     </div>
-                    <form action="#" method="#">
-                        <select id="order_cancel" class="form-select" aria-label="Default select example">
+                    <script>
+                        function cancel_order() {
+                            var request = $.ajax({
+                                type: "POST",
+                                url: "/api/app_child",
+                                data: {
+                                    method: 'cancel',
+                                    reason: $('#reason').val(),
+                                    cmt: $('#cancel_comment').val(),
+                                    o_no: <?=$o[o_no]?>
+                                },
+                                success: function (data) {
+                                    alert(data);
+                                    location.href='app-user-info-detail?o_no=<?=$o[o_no]?>';
+                                }
+                            });
+                        }
+                    </script>
+                        <select name="reason" id="reason" class="form-select" aria-label="Default select example">
                             <option selected disabled>취소 사유 선택</option>
-                            <option value="1">필요가 없어요</option>
-                            <option value="2">실수로 예약했어요</option>
-                            <option value="3">갑자기 아파요</option>
-                            <option value="4">날씨가 안 좋아서요</option>
-                            <option value="5">운영정책이 마음에 들지 않아요</option>
-                            <option value="6">서비스 품질이 마음에 들지 않아요</option>
-                            <option value="7">가격이 맞지 않아요</option>
-                            <option value="8">기타</option> 
+                            <option value="필요가 없어요">필요가 없어요</option>
+                            <option value="실수로 예약했어요">실수로 예약했어요</option>
+                            <option value="갑자기 아파요">갑자기 아파요</option>
+                            <option value="날씨가 안 좋아서요">날씨가 안 좋아서요</option>
+                            <option value="운영정책이 마음에 들지 않아요">운영정책이 마음에 들지 않아요</option>
+                            <option value="서비스 품질이 마음에 들지 않아요">서비스 품질이 마음에 들지 않아요</option>
+                            <option value="가격이 맞지 않아요">가격이 맞지 않아요</option>
+                            <option value="기타">기타</option>
                         </select> 
                         <div class="input_box_etc">
-                            <input name="order_cancel_etc_comment" placeholder="취소사유를 입력해 주세요.">    
+                            <input name="cancel_comment" id="cancel_comment" placeholder="취소사유를 입력해 주세요.">
                         </div>
                         <div class="selectBox">
-                            <button type="submit" class="btn btn-primary btn-sm change" >변경하기</button>
-                    </form>
+                            <button type="button" class="btn btn-primary btn-sm change" onclick="cancel_order();">변경하기</button>
                         <button type="button" class="goBackc btn btn-light btn-sm">돌아가기</button>
                     </div>
                 </div>
@@ -216,6 +296,5 @@ $r = sqlresult($sql)[0];
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/app-user-detail.js"></script>
-    <script src="js/datevalidation.js"></script>
 </body>
 </html>

@@ -4,11 +4,12 @@ header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
 include '../src/method_config.php';
 session_check_app();
-$sql = "select * from order_info o 
+$o = "select * from order_info o  
+left join member_child mc on mc.mc_no = o.mc_no 
 left join partner p on p.p_no = o.p_no
-where o_status = '취소' and m_no = '{$_SESSION[m_no]}' order by o_order_date asc";
-$r = sqlresult($sql);
-$rr = sqlrow($sql);
+where o.m_no = '{$_SESSION[m_no]}' and (o_status = '취소' or o_status = '제공완료')";
+$r = sqlresult($o);
+$rr = sqlrow($o);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -49,7 +50,7 @@ $rr = sqlrow($sql);
                         <p onclick="location.href='app-user-info-list'">진행예정</p>
                     </div>
                     <div class="listMenu_button">
-                        <p onclick="location.href='app-user-info-list-cancel'">완료 및 취소 내역</p>
+                        <p onclick="location.href='app-user-info-list-cancel'" style="font-size: 1.3em;text-decoration: underline;">완료 및 취소 내역</p>
                     </div>
                 </div>
                 <table class="list">
@@ -66,16 +67,16 @@ $rr = sqlrow($sql);
                     for($i=0;$i<$rr;$i++){
                         ?>
                         <tr>
-                            <td><span><?=date("n월 j일", strtotime($r[$i][o_order_date]))?></span><br><?=date("h시", strtotime($r[$i][o_order_date]))?></td>
-                            <td>아동돌봄</td>
+                            <td><span><?=date("n월 j일", strtotime($r[$i][o_start_time]))?> ~<br><?=date("n월 j일", strtotime($r[$i][o_end_time]))?></td>
+                            <td><?=$r[$i][o_service_detail]?><?=($r[$i][mc_name]!="")?"<br>({$r[$i][mc_name]})":""?></td>
                             <td><?=$r[$i][o_status]?></td>
                             <td class="detail">
-                                <button type="button" class="btn btn-warning" onclick="location.href='app-user-info-detail?o_no=<?=$r[$i][o_no]?>'">
+                                <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail?o_no=<?=$r[$i][o_no]?>'">
                                     상세
                                 </button>
                             </td>
                         </tr>
-                    <?php
+                        <?php
                     }
                     ?>
                     </tbody>
