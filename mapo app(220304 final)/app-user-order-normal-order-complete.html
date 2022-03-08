@@ -38,10 +38,10 @@ $o = $or[0];
         </div>
         <div class="boxContainer_order_child_order_complete">
             <div class="textBox_child_order_complete">
-                <p>아동명(주문번호)</p>
+                <p>성명(주문번호)</p>
                 <input type="text" value="<?=$order?>" disabled>
                 <p>서비스명</p>
-                <input type="text" value="아동 돌봄" disabled>
+                <input type="text" value="성인 돌봄" disabled>
                 <p>상세서비스</p>
                 <input type="text" value="<?=$o[o_service_detail]?>" disabled>
                 <p>예약기간</p>
@@ -67,6 +67,11 @@ $o = $or[0];
                 <div class="selectBox">
                     <button class="selectButton" type="button" onclick="location.href='app-user-main'">
                         <p>홈으로 이동</p>
+                    </button>
+                </div>
+                <div class="selectBox">
+                    <button class="selectButton btn2" type="button" onclick="location.href='app-user-info-list'">
+                        <p>신청내역 확인</p>
                     </button>
                 </div>
             </div>

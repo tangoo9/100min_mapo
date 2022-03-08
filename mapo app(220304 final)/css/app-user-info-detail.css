@@ -172,8 +172,14 @@ main{
     height: 5.5vh;
     /* background-color: #c4c4c4; */
     border: none;
+    color: #000;
+    border: 1px solid #c3c3c3
 }
 
+.selectBox .btn-light{
+    color: #000;
+    border: 1px solid rgb(206, 212, 218)
+}
 
 /* --Layer Popup CSS--------*/
 form{
@@ -204,6 +210,7 @@ form{
 }
 
 .popup_title{
+    margin: 0.5rem;
     display: flex;
     text-align: center;
     height: 60px;
@@ -240,17 +247,18 @@ form{
 }
 
 .app-user-info-detail-change .list-group .calendar_container .date_wrapper{
+    margin: 0.5rem 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: row nowrap;
-    margin-bottom: 0.5rem;
 }
 .app-user-info-detail-change .list-group .calendar_container .date_wrapper p{
-    margin : 0 auto;
+    margin: 0 auto;
     margin-right: 0.5rem;
 }
+
 
 .app-user-info-detail-change .list-group .timepicker{
     text-align: center;
@@ -262,7 +270,7 @@ form{
     align-items: center;
     flex-flow: column nowrap;
     position: relative;
-    
+    margin-top: 1rem;
 }
 .ui-timepicker-container{
     z-index: 999999 !important; 
@@ -298,14 +306,15 @@ form{
 }
 
 
-.popup_title{
+.app-user-info-detail-cancel .layer_popup_cont .popup_title{
+    margin: 0.5rem;
     display: flex;
     text-align: center;
     height: 60px;
     line-height: 60px;
     /* background-color: royalblue; */
 }
-.popup_title h1{
+.app-user-info-detail-cancel .layer_popup_cont .popup_title h1{
     margin: auto;
     font-size: 24px;
 }
@@ -313,7 +322,8 @@ form{
 .form-select{
     margin:2rem auto;
     margin-bottom: 0.2rem;
-    width: 55vw;
+    width: 65vw;
+    height: 2.5rem;
     font-size: 0.8rem;
 }
 .form-select option{
@@ -323,9 +333,8 @@ form{
 .app-user-info-detail-cancel .selectBox{
     margin: 2rem auto;
     display: flex;
-    width: 55vw;
+    width: 65vw;
     justify-content: space-between;
-    
     /* background-color: yellow; */
 }
 
@@ -335,21 +344,25 @@ form{
     margin: 2rem auto;
     margin-top: 0;
     /* background-color: red; */
-    width: 55vw;
+    width: 65vw;
+    /* height: 2.5rem; */
 }
 
 .app-user-info-detail-cancel .input_box_etc input{
     width: 100%;
     margin-top: 0.25rem;
-    width: 55vw;
+    width: 65vw;
+    height: 2.5rem;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     padding-left: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .selectBox .btn{
+    margin: 0.2rem;
     width: 45%;
+    height: 2.5rem;
     font-family: 'GyeonggiTitle-M';
 }
 

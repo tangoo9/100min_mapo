@@ -126,9 +126,9 @@ $od = date("md", strtotime($_SESSION[order_time]));
             <div class="app-user-info-detail-change">
                 <div class="layer_popup_cont">
                     <div class="popup_title">
-                        <h1>변경내역</h1>
+                        <h1>시간 변경하기</h1>
                     </div>
-                    <form action="app-user-order-child-order-step4" method="GET" name="select_time">
+                    <form action="#" method="GET" name="select_time">
                         <ul class="list-group">
                             <div class="care_date_container">
                                 <!-- <p>돌봄날짜 선택</p> -->
@@ -207,7 +207,6 @@ $od = date("md", strtotime($_SESSION[order_time]));
                             <button type="button" class="goBack btn btn-light btn-sm">돌아가기</button>
                         </div>
                     </form>
-
                 </div>
             </div>
             <!-- Layer popup app-user-info-detail-cancel -->
@@ -229,7 +228,8 @@ $od = date("md", strtotime($_SESSION[order_time]));
                                 },
                                 success: function (data) {
                                     alert(data);
-                                    location.href='app-user-info-detail?o_no=<?=$o[o_no]?>';
+                                    // location.href='app-user-info-detail?o_no=<?=$o[o_no]?>';
+                                    location.href='app-user-info-list';
                                 }
                             });
                         }
@@ -249,7 +249,7 @@ $od = date("md", strtotime($_SESSION[order_time]));
                             <input name="cancel_comment" id="cancel_comment" placeholder="취소사유를 입력해 주세요.">
                         </div>
                         <div class="selectBox">
-                        <button type="button" class="btn btn-primary btn-sm change" onclick="cancel_order();">변경하기</button>
+                        <button type="button" class="btn btn-primary btn-sm change" onclick="cancel_order();">신청취소</button>
                         <button type="button" class="goBackc btn btn-light btn-sm">돌아가기</button>
                     </div>
                 </div>

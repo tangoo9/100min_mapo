@@ -389,6 +389,12 @@ header p{
     font-family:'Noto Sans KR';
 }
 
+.boxContainer_order_child_order_complete .selectBox .btn2{
+    background-color: #f8f9fa;
+    color: #000;
+    border: 1px solid rgb(206, 212, 218)
+}
+
 /* CSS : app-user-order-child-order-complete End */
 
 
@@ -414,6 +420,7 @@ header p{
     border-radius: 14px;
     border:none;
 }
+
 /*  CSS : progress Bar Stlye End  */
 
 /* CSS : selectBox Style Start */

@@ -132,6 +132,7 @@ form{
 }
 .boxContainer_order_step1 .care_select_cont .care_selectBtn.on{
     background-color: #ffeed4;
+    border: 1px solid #F69E30;
 }
 
 .boxContainer_order_step1 .care_select_cont .care_selectBtn ul{
@@ -367,7 +368,7 @@ form{
 .boxContainer_order_step2 .care_select_cont .care_selectBtn.on{
     color:#F69E30;
     background-color: #ffeed4;
-    border: none;
+    border: 1px solid #F69E30;
 }
 
 .boxContainer_order_step2 .care_select_cont .care_selectBtn .sub_title{
@@ -536,6 +537,7 @@ form{
     padding : 5px;
     border-radius: 8px;
     text-align: center;
+    font-size: 0.9rem !important;
 }
 .boxContainer_order_step3_1 .datepicker{
     width: 20vw;
@@ -545,6 +547,10 @@ form{
     width: 20vw;
     font-size: 0.5em;
 }
+.boxContainer_order_step3_1 .form-select{
+    font-size: 0.7em;
+}
+
 .boxContainer_order_step3_1 .care_select_cont .care_selectBtn{
     display: flex;
     justify-content: center;
@@ -568,7 +574,7 @@ form{
 .boxContainer_order_step3_1 .care_select_cont .care_selectBtn.on{
     color:#F69E30;
     background-color: #ffeed4;
-    border: none;
+    border: 1px solid #F69E30;
 }
 
 .boxContainer_order_step3_1 .care_select_cont .care_selectBtn p{
@@ -895,7 +901,7 @@ form{
 .boxContainer_order_step4 .care_select_cont .care_selectBtn.on{
     background-color: #ffeed4;
     color: #F69E30;
-    border: none;
+    border: 1px solid #F69E30;
     /* background-color: #ffeed4; */
 }
 
@@ -990,7 +996,7 @@ form{
 .boxContainer_order_step5 .care_select_cont .care_selectBtn.on{
     background-color: #ffeed4;
     color: #F69E30;
-    border: none;
+    border: 1px solid #F69E30;
     /* background-color: #ffeed4; */
 }
 
@@ -1134,7 +1140,7 @@ form{
 .boxContainer_order_add_detail .care_select_cont .care_selectBtn.on{
     color:#f4900a;
     background-color: #ffeed4;
-    border: none;
+    border: 1px solid #F69E30;
 }
 
 

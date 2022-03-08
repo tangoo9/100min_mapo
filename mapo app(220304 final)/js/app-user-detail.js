@@ -28,10 +28,10 @@ cancel.onclick = () => {
 }
 
 $(document).ready(function(){
-    $("#order_cancel").change(function(){
+    $("#reason").change(function(){
         let status = this.value;
         console.log("선택된 취소사유 num" + status)
-        if(status=='8'){
+        if(status=='기타'){
             $('.input_box_etc').show()
         }else{
             $('.input_box_etc').hide()

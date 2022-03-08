@@ -36,7 +36,8 @@ $_SESSION[select_care] = $_GET[care_type];
     <header>
         <div class="header_container">
             <div class="header_title">
-                <p>아동돌봄 신청하기</p>    
+                <p>아동돌봄 신청하기</p>
+                <!--정기돌봄 페이지임  -->
             </div>
         </div>
     </header>
@@ -56,15 +57,6 @@ $_SESSION[select_care] = $_GET[care_type];
                             <!-- <i class="far fa-calendar-alt"></i> -->
                             <label>
                                 <input class="datepicker" type="text" placeholder="" id="datepicker1"  name="start_day" inputmode="none" autocomplete="off">
-                            </label>
-                        </div>
-                        <div class="guide_text">
-                            <p>종료일을 선택하세요</p>
-                        </div>
-                        <div class="care_calendar">
-                            <!-- <i class="far fa-calendar-alt"></i> -->
-                            <label>
-                                <input class="datepicker" type="text" placeholder="" id="datepicker2" name="end_day" inputmode="none" autocomplete="off">
                             </label>
                         </div>
                     </section>

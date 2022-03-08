@@ -41,6 +41,7 @@ session_check_app();
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">이름<small>*</small></span>
                         <input type="text" id="name" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" autocomplete="off" required>
+                        <div class="check_font" id="name_check"></div>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">생년월일<small>*</small></span>
@@ -96,7 +97,7 @@ session_check_app();
                     <button class="selectButton btn_div1" type="button" onclick="location.href='app-user-order-child-order-step1'">
                         <p>취소</p>
                     </button>
-                    <button class="selectButton btn_div2" type="submit">
+                    <button id="submitBtn" class="selectButton btn_div2" type="submit" onclick="return check()">
                         <p>확인</p>
                     </button>
                 </div>
@@ -132,5 +133,66 @@ session_check_app();
         </nav>
     </footer>
     <script src="js/app-user-order-child-order-step1-add.js"></script>
+    <script>
+        // 정규식 : 이름
+        function chkName(str){
+            var reg_name = /^[가-힣]{2,6}$/;
+            if(!reg_name.test(str)){
+                return false;
+            }
+            return true;
+        }
+
+        function check(){
+        // 확인 : 이름
+        $('#name').val($('#name').val().trim()); 
+            if(!chkName($('#name').val())){
+            alert('이름을 확인하세요.(한글 2~6자 이내)');
+            $('#name').focus();
+            return false;
+        }else{
+            this.submit
+        }
+        //document.f.submit();
+        }
+
+
+        
+        // 이름 정규식 blur 버전
+        // var reg_name = /^[가-힣]{2,6}$/;
+        // $("#name").blur(function() {
+        //     if (reg_name.test($(this).val())) {
+        //             console.log(reg_name.test($(this).val()));
+        //             $("#name_check").text('');
+        //     } else {
+        //         $('#name_check').text('이름을 확인해주세요');
+        //         $('#name_check').css('color', 'red');
+                
+        //     }
+        // });
+
+
+
+        
+        // 폼 전송
+        // $('#name').blur(function(){
+        //     // 확인 : 이름
+        //     $('#name').val($('#name').val().trim());
+        //         if(!chkName($('#name').val())){
+        //             alert('이름을 확인하세요.(한글 2~4자 이내)');
+        //             $('#name').focus();
+        //     }
+        // })
+
+
+
+
+
+        //document.f.submit();
+
+
+
+
+    </script>
 </body>
 </html>

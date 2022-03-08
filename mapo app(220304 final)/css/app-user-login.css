@@ -190,9 +190,10 @@ main{
 }
 .aroundButton{
     color: #000000;
+    margin-bottom: 2rem;
 }
 
-@media screen and (min-width:720px) {
+/* @media screen and (min-width:720px) {
     html{
         margin: 0 auto;
         width: 1300px;
@@ -206,4 +207,4 @@ main{
         font-size: 3.5em;
         letter-spacing: 1px;
     }
-}
+} */

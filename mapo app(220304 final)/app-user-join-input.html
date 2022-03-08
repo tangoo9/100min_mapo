@@ -56,9 +56,11 @@ session_start();
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">이름</span>
-                    <input name="m_name"  type="text" placeholder="이름을 입력해 주세요." 
+                    <input id="name" name="m_name"  type="text" placeholder="이름을 입력해 주세요." 
                                 aria-label="name" class="form-control" autocomplete="off" required>
+                                
                 </div>
+                <div class="check_font" id="name_check"></div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
                     <input class="form-control addrBtn" type="button" onclick="sample3_execDaumPostcode()" value="주소 검색하기">
@@ -111,5 +113,19 @@ session_start();
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="js/daum_api.js"></script>
+    <script>
+        // 이름 정규식 blur 버전
+        var reg_name = /^[가-힣]{2,6}$/;
+        $("#name").blur(function() {
+            if (reg_name.test($(this).val())) {
+                    console.log(reg_name.test($(this).val()));
+                    $("#name_check").text('');
+            } else {
+                $('#name_check').text('이름을 확인해주세요');
+                $('#name_check').css('color', 'red');
+                $('#name').focus();
+            }
+        });
+    </script>
 </body>
 </html>
