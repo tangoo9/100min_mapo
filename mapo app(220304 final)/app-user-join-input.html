@@ -44,17 +44,25 @@ session_start();
                 <input type="hidden" name="method" value="join">
                 <input type="hidden" name="agree" value="<?=($_GET[agree] == 'on')?"Y":"N"?>>">
                 <!-- 임시로 method get / 수정필요 -->
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <span class="input-group-text" id="inputGroup-sizing-default">이메일</span>
-                    <input name="m_id" type="email" placeholder="이메일을 입력해 주세요." 
+                    <input id="email" name="m_id" type="email" placeholder="이메일을 입력해 주세요." 
                                 aria-label="id" class="form-control" autocomplete="off" required >
                 </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">패스워드</span>
-                    <input name="m_pw" type="password" placeholder="패스워드를 입력해 주세요." 
+                <div class="check_font" id="email_check"></div>
+                <div class="input-group">
+                    <span class="input-group-text" id="inputGroup-sizing-default">비밀번호</span>
+                    <input id="pwd"name="m_pw" type="password" placeholder="비밀번호를 입력해 주세요." 
                                 aria-label="password" class="form-control" required >
                 </div>
-                <div class="input-group mb-3">
+                <div class="check_font" id="pwd_check"></div>
+                <div class="input-group">
+                    <span class="input-group-text" id="inputGroup-sizing-default">비밀번호 재확인</span>
+                    <input id="re_pwd" type="password" placeholder="비밀번호를 재확인 해 주세요." 
+                                aria-label="password" class="form-control" required >
+                </div>
+                <div class="check_font" id="re_pwd_check"></div>
+                <div class="input-group">
                     <span class="input-group-text" id="inputGroup-sizing-default">이름</span>
                     <input id="name" name="m_name"  type="text" placeholder="이름을 입력해 주세요." 
                                 aria-label="name" class="form-control" autocomplete="off" required>
@@ -121,11 +129,46 @@ session_start();
                     console.log(reg_name.test($(this).val()));
                     $("#name_check").text('');
             } else {
-                $('#name_check').text('이름을 확인해주세요');
+                $('#name_check').text('이름을 한글 2-6자 이내로 작성해주세요.');
                 $('#name_check').css('color', 'red');
                 $('#name').focus();
             }
         });
+
+        // 이메일 정규식 blur 
+        let reg_email =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+        $("#email").blur(function() {
+            if (reg_email.test($(this).val())) {
+                    console.log(reg_email.test($(this).val()));
+                    $("#email_check").text('');
+            } else {
+                $('#email_check').text('이메일 형식에 맞게 작성해주세요.');
+                $('#email_check').css('color', 'red');
+                $('#email').focus();
+            }
+        });
+
+        let reg_pwd = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+        $("#pwd").blur(function() {
+            if (reg_pwd.test($(this).val())) {
+                    console.log(reg_pwd.test($(this).val()));
+                    $("#pwd_check").text('');
+            } else {
+                $('#pwd_check').text('비밀번호는 영문,숫자,특수문자 포함 8자리 이상이어야합니다.');
+                $('#pwd_check').css('color', 'red');
+                $('#pwd').focus();
+            }
+        });
+        $("#re_pwd").blur(function() {
+            if (($("#pwd").val()) == ($("#re_pwd").val())) {
+                    console.log(reg_pwd.test($(this).val()));
+                    $("#re_pwd_check").text('');
+            } else {
+                $('#re_pwd_check').text('비밀번호가 일치하지 않습니다.');
+                $('#re_pwd_check').css('color', 'red');
+            }
+        });
+
     </script>
 </body>
 </html>

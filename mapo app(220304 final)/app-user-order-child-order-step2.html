@@ -35,7 +35,7 @@ $_SESSION[select_child] = $child;
             <div class="title">
                 <h2>돌봄 유형을 선택해 주세요.</h2>
             </div>
-            <form action="app-user-order-child-order-step3-2" method="GET" name="select_time" onsubmit="return check()">
+            <form action="" method="GET" name="select_time" onsubmit="return check()">
                 <div class="care_select_cont">
                     <div class="care_selectBtn" onclick="select('정기')">
                         <div class="sub_title">
@@ -140,9 +140,16 @@ $_SESSION[select_child] = $child;
                 alert('돌봄유형을 선택해주세요.')
                 return false
             }else{
+                if(care_type_val == "정기"){
+                    $("form").attr("action", "app-user-order-child-order-step3-3")  
+                    // ocation.href = 'app-user-order-child-order-step3-3'
+                }else if(care_type_val == "시간제"){
+                    $("form").attr("action", "app-user-order-child-order-step3-2")  
+                    // location.href = 'app-user-order-child-order-step3-2'
+                }
                 // location.href='app-user-order-child-order-step2'
                 return true
-                //submitBtn.submit;
+                // submitBtn.submit;
             }
         }
 

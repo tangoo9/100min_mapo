@@ -188,6 +188,25 @@ main{
     /* margin : 0 auto; */
 }
 
+@media screen and (min-width : 768px) {
+    .menu_container{
+        margin: 5rem auto;
+        flex-flow: row wrap;
+    }
+    .menu_container strong {
+        font-size: 1.6rem;
+    }
+    .menu_container .sub_title p {
+        font-size: 1.5rem;
+    }
+    .box{
+        margin:0.3rem;
+        width: 30vh;
+        height:30vh;
+    }
+
+}
+
 
 
 /* ----------footer-------- */

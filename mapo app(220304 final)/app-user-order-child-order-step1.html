@@ -175,8 +175,19 @@ session_check_app();
         // selected_child_list.forEach(el => console.log(el))
         function check(){
             let check = selected_child.value
-            console.log(check)
             // console.log(check.outerText)
+            // console.log(check)
+            var dataList;
+                var request = $.ajax({
+                type: "POST",
+                url: "/api/app_child",
+                async:false,
+                datatype : "json",
+                data: { method : 'get', m_no : '<?=$_SESSION[m_no]?>' },
+                success : function(data) {
+                    dataList = JSON.parse(data);
+                }
+            });
             if(dataList == 0){
                 alert('아동을 추가해 주세요.')
                 return false;
@@ -214,14 +225,16 @@ session_check_app();
             // console.log(selected_child.value)
             if(check == ""){
                 this.children[0].setAttribute("value", "check")
-                this.style.backgroundColor = '#ffeed4';
+                // this.style.backgroundColor = '#ffeed4';
+                this.classList.add('on')
                 // console.log(this.firstChild.id)
                 let temp = selected_child_list.push(this.firstChild.id)
                 // console.log(temp)
                 // console.log(selected_child.value)
             }else{
                 this.children[0].setAttribute("value", "")
-                this.style.backgroundColor = '#f8f8f8';
+                // this.style.backgroundColor = '#f8f8f8';
+                this.classList.remove('on')
                 // console.log(this.firstChild.id)
                 let temp = selected_child_list.splice(selected_child_list.indexOf(this.firstChild.id),1)
                 // console.log(temp)
@@ -242,27 +255,31 @@ session_check_app();
             let btn = this.parentNode.parentNode
             btn.style.display = 'none'
             console.log(this.parentNode.parentNode.firstChild.id)
-                var request = $.ajax({
+            var remove = $.ajax({
                 type: "POST",
                 url: "/api/app_child",
                 async:false,
                 datatype : "json",
-                data: { method : 'get', m_no : '<?=$_SESSION[m_no]?>' },
+                data: { method : 'remove', mc_no : this.parentNode.parentNode.firstChild.id },
                 success : function(data) {
-                    dataList = JSON.parse(data);
-                    var remove = $.ajax({
-                    type: "POST",
-                    url: "/api/app_child",
-                    async:false,
-                    datatype : "json",
-                    data: { method : 'remove', mc_no : this.parentNode.parentNode.firstChild.id },
-                    success : function(data) {
-                        alert(data);
-                    }
-                    });
-                    if(dataList.length >= 1){
-                            addBtn.style.display = 'block';
-                    }
+                    alert(data);
+                    var request =  $.ajax({
+                        type: "POST",
+                        url: "/api/app_child",
+                        async:false,
+                        datatype : "json",
+                        data: { method : 'get', m_no : '<?=$_SESSION[m_no]?>'},
+                        success : function(data) {
+                            dataList = JSON.parse(data);
+                            if(dataList.length > 0 || dataList.length < 3){
+                                addBtn.style.display = 'block';
+                            }
+                            // console.log('현재 남은 데이터' : dataList);
+                        }
+                    })
+                },  
+                error : function(){
+                    console.log("ajax Error!")
                 }
             });
         }

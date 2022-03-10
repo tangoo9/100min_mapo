@@ -42,7 +42,8 @@ $_SESSION[snack_info] = $_GET[snack_info];
                         <span class="input-group-text" id="inputGroup-sizing-default">
                             아동과의 관계<small>*</small>
                         </span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="relation"  required>
+                        <input type="text" class="form-control" id="name" name="relation"  required>
+                        <div class="check_font" id="name_check"></div>
                     </div>
                     <div class="input-group mb-3 align">
                         <span class="input-group-text" id="inputGroup-sizing-default">
@@ -250,10 +251,18 @@ $_SESSION[snack_info] = $_GET[snack_info];
                     $('.back_home_text').hide()
                 }
             })
-
-
         })
-
+        var reg_name = /^[가-힣]{2,6}$/;
+        $("#name").blur(function() {
+            if (reg_name.test($(this).val())) {
+                    console.log(reg_name.test($(this).val()));
+                    $("#name_check").text('');
+            } else {
+                $('#name_check').text('한글 2-6자 이내로 작성해주세요.');
+                $('#name_check').css('color', 'red');
+                $('#name').focus();
+            }
+        });
 
         // $('#health_etc').change(function(){
         //         if($('#health_etc').val()=='health_etc'){

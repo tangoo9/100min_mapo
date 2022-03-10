@@ -119,16 +119,17 @@ form{
     justify-content: center;
     align-items: center;
     /* flex-flow: column nowrap; */
-    margin : 1em auto;
+    margin : 1rem auto;
     /* padding : 10px 20px; */
-    width: 75vw;
+    width: 65vw;
     cursor: pointer;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     border-radius: 18px;
     font-size: 0.9rem;
     /* background-color: #ffeed4; */
     background-color: #f8f8f8;
     box-shadow: 5px 5px 5px #e2e2e2;
+    border: 1px solid rgba(255,255,255, 0);
 }
 .boxContainer_order_step1 .care_select_cont .care_selectBtn.on{
     background-color: #ffeed4;
@@ -359,11 +360,11 @@ form{
     cursor: pointer;
     box-sizing: border-box;
     border-radius: 1.2rem;
-    /* border: 1px solid #c6c6c6; */
     color: #c6c6c6;
     font-size: 0.7rem;
-    /* background-color: #ffeed4; */
     background-color: #f5f5f5;
+    border: 1px solid rgba(255,255,255, 0);
+    
 }
 .boxContainer_order_step2 .care_select_cont .care_selectBtn.on{
     color:#F69E30;
@@ -530,6 +531,13 @@ form{
 .boxContainer_order_step3_1 .care_date_container .care_date, .care_time:last-child{
     border-bottom: 1px solid #c6c6c6;
 }
+.boxContainer_order_step3_1 .care_date_container small{
+    font-size: 1rem;
+    color: red;
+}
+.boxContainer_order_step3_1 .care_date_container .form-control[readonly]{
+    background-color: inherit;
+}
 
 .boxContainer_order_step3_1 input{
     color : #898989;
@@ -566,6 +574,7 @@ form{
     /* background-color: #ffeed4; */
     background-color: #f8f8f8;
     box-shadow: 5px 5px 5px #e2e2e2;
+    border: 1px solid rgba(255,255,255, 0);
 }
 
 
@@ -1033,6 +1042,7 @@ form{
 
 .boxContainer_order_add_detail .care_select_cont .input-group{
     width: 100%;
+    min-height: 3rem;
     /* align-items: center; */
     /* background-color: red; */
 }
@@ -1052,6 +1062,7 @@ form{
     justify-content: center;
     align-items: center;
     font-size: 0.9rem;
+    height: 3rem;
 }
 .boxContainer_order_add_detail .care_select_cont .input-group .form_row{
     width: 70%;
@@ -1085,6 +1096,13 @@ form{
     font-size: 0.6rem;
     background-size: 0.6rem 0.4rem;
     padding: 0.375rem 1.25rem 0.375rem 0.75rem;
+}
+.boxContainer_order_add_detail .check_font{
+    width: 100%;
+    margin-left: calc(100vw - 80%) !important;
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 .boxContainer_order_add_detail .care_select_cont span{
@@ -1187,6 +1205,7 @@ form{
 .selectBox .selectButton{
     cursor: pointer;
     margin: 0 auto;
+    margin-right: 1rem;
     width: 80vw;
     height: 7vh;
     border:none;
