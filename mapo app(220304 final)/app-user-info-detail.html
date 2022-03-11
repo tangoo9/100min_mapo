@@ -68,7 +68,7 @@ $od = date("md", strtotime($_SESSION[order_time]));
                     ?>
 
                     <p>서비스명</p>
-                    <input type="text" value="<?=$o[o_service]?> 돌봄" disabled>
+                    <input type="text" value="<?=$o[o_service]?>" disabled>
                     <p>상세서비스</p>
                     <input type="text" value="<?=$o[o_service_detail]?>" disabled>
                     <?php
@@ -133,6 +133,9 @@ $od = date("md", strtotime($_SESSION[order_time]));
                             <div class="care_date_container">
                                 <!-- <p>돌봄날짜 선택</p> -->
                                 <section class="calendar_container">
+                                    <?php
+                                        if($o[o_service_detail] == '시간제'){
+                                    ?>
                                     <div class="date_wrapper">
                                         <div class="guide_text">
                                             <p>시작일</p>
@@ -155,6 +158,23 @@ $od = date("md", strtotime($_SESSION[order_time]));
                                             </label>
                                         </div>
                                     </div>
+                                    <?php
+                                        }else{
+                                    ?>
+                                        <div class="date_wrapper">
+                                            <div class="guide_text">
+                                                <p>시작일</p>
+                                            </div>
+                                            <div class="care_calendar">
+                                                <!-- <i class="far fa-calendar-alt"></i> -->
+                                                <label>
+                                                    <input class="datepicker" type="text" placeholder="" id="datepicker1"  name="start_day" inputmode="none" autocomplete="off">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    <?php
+                                        }
+                                    ?>
                                 </section>
                                 <section class="time_container">
                                     <label for="mon_day">

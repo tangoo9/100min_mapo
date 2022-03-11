@@ -136,35 +136,44 @@ session_check_app();
                 datatype : "json",
                 data: { method : 'get', m_no : '<?=$_SESSION[m_no]?>' },
                 success : function(data) {
-                dataList = JSON.parse(data);
+                        console.log(data)
+                        // null이거나 0이 아닌값이 안들어옴; ]는 무엇
+                        if((data != ']') || (data != null) || (data != 0)){
+                            dataList = JSON.parse(data);
+                            dataWrite()
+                        }else{
+                            console.log('error : noData')
+                        }
                 }
             });
-            let list = "<div class='care_select_cont'>";
-            for(let i = 0; i < dataList.length ; i ++){
-                list += 
-                "<ul class='care_selectBtn'>"+
-                    "<input type='hidden' id='select_"+dataList[i].no+"' name='select_"+dataList[i].no+"' value='' disabled>" +
-                    "<div class='row'>" +
-                        "<li class='text_row'>" +
-                            "<span class='textBold'>"+
-                                dataList[i].name + 
-                            "</span>" +
-                        "</li>" +
-                        "<li class='text_row'>" +
-                            "<span>"+ dataList[i].birth + " / " +  dataList[i].sex+ "</span>" +
-                    "</div>" +
-                    "<div class='icon_area'>" + 
-                        "<i class='far fa-trash-alt'></i>"+
-                    "</div>"+
-                "</ul>";
+            function dataWrite(){
+                let list = "<div class='care_select_cont'>";
+                for(let i = 0; i < dataList.length ; i ++){
+                    list += 
+                    "<ul class='care_selectBtn'>"+
+                        "<input type='hidden' id='select_"+dataList[i].no+"' name='select_"+dataList[i].no+"' value='' disabled>" +
+                        "<div class='row'>" +
+                            "<li class='text_row'>" +
+                                "<span class='textBold'>"+
+                                    dataList[i].name + 
+                                "</span>" +
+                            "</li>" +
+                            "<li class='text_row'>" +
+                                "<span>"+ dataList[i].birth + " / " +  dataList[i].sex+ "</span>" +
+                        "</div>" +
+                        "<div class='icon_area'>" + 
+                            "<i class='far fa-trash-alt'></i>"+
+                        "</div>"+
+                    "</ul>";
+                }
+                list +="</div>";
+
+                document.querySelector('.care_select_cont').innerHTML += list;  // list 내용 표시
+
+                if(dataList.length > 2){
+                    addBtn.style.display = 'none';
+                };
             }
-            list +="</div>";
-
-            document.querySelector('.care_select_cont').innerHTML += list;  // list 내용 표시
-
-            if(dataList.length > 2){
-                addBtn.style.display = 'none';
-            };
         };
 
         // -- 현재 선택한 아동에 대한것
@@ -188,7 +197,7 @@ session_check_app();
                     dataList = JSON.parse(data);
                 }
             });
-            if(dataList == 0){
+            if((dataList == 0) || (dataList == ']')){
                 alert('아동을 추가해 주세요.')
                 return false;
             }else if(dataList != false){
@@ -225,7 +234,6 @@ session_check_app();
             // console.log(selected_child.value)
             if(check == ""){
                 this.children[0].setAttribute("value", "check")
-                // this.style.backgroundColor = '#ffeed4';
                 this.classList.add('on')
                 // console.log(this.firstChild.id)
                 let temp = selected_child_list.push(this.firstChild.id)
@@ -233,7 +241,6 @@ session_check_app();
                 // console.log(selected_child.value)
             }else{
                 this.children[0].setAttribute("value", "")
-                // this.style.backgroundColor = '#f8f8f8';
                 this.classList.remove('on')
                 // console.log(this.firstChild.id)
                 let temp = selected_child_list.splice(selected_child_list.indexOf(this.firstChild.id),1)
@@ -263,6 +270,7 @@ session_check_app();
                 data: { method : 'remove', mc_no : this.parentNode.parentNode.firstChild.id },
                 success : function(data) {
                     alert(data);
+
                     var request =  $.ajax({
                         type: "POST",
                         url: "/api/app_child",
@@ -275,6 +283,12 @@ session_check_app();
                                 addBtn.style.display = 'block';
                             }
                             // console.log('현재 남은 데이터' : dataList);
+                            // if((dataList.length < 1) || (dataList ==']')){
+                            //     selected_child.value =""
+                            // }
+                            // console.log( selected_child.value + "히든인풋값")
+                            // selected_child.value.setAttribute("value", "")
+                            // location.reload(true)
                         }
                     })
                 },  

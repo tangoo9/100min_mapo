@@ -51,9 +51,10 @@ main h1{
 #boxContainer{
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
+    height: 60vh;
     /* background-color: blue; */
     overflow:hidden;
 }
