@@ -28,7 +28,9 @@ if(sqlrow($sql) == '0'){
 	<link rel="stylesheet" type="text/css" href="style.css?5390">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,300&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <title>order-register-1</title>
-
+    <script src="./js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/src/datetimepicker.css">
+    <script src=/src/datetimepicker.js></script>
 
     
 <!-- Analytics -->
@@ -88,7 +90,7 @@ if(sqlrow($sql) == '0'){
                             <label class="form-label">
                                 예약일<br>
                             </label>
-                            <input class="form-control" name="o_order_date" value="<?=$r[o_order_date]?>"/>
+                            <input class="form-control" id="datetimepicker" name="o_order_date" value="<?=$r[o_order_date]?>"/>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">
@@ -195,7 +197,7 @@ if(sqlrow($sql) == '0'){
 <script src="./js/bootstrap.bundle.min.js?1715"></script>
 <script src="./js/blocs.min.js?5082"></script>
 <script src="./js/lazysizes.min.js" defer></script><!-- Additional JS END -->
-
+<script src="./js/datetimepicker.options.js"></script>
 
 </body>
 </html>

@@ -258,8 +258,10 @@ session_check_app();
             list.addEventListener("click", remove);
         })
         function remove(){
-            console.log(this.parentNode.parentNode)
+            console.log("삭제" + this.parentNode.parentNode)
             let btn = this.parentNode.parentNode
+            btn.children[0].setAttribute("value", "")
+            selected_child_list.splice(selected_child_list.indexOf(btn.firstChild.id),1)
             btn.style.display = 'none'
             console.log(this.parentNode.parentNode.firstChild.id)
             var remove = $.ajax({

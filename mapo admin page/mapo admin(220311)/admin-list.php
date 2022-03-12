@@ -96,6 +96,7 @@ $rr = sqlrow($sql);
                     <script>
                         $.datetimepicker.setLocale('ko');
                         $('#o_start_date').datetimepicker({
+                            // timepicker:false,
                             timepicker:false,
                             format:'Y-m-d'
                         });

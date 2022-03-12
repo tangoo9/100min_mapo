@@ -17,6 +17,7 @@ session_chk();
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?1648">
 	<link rel="stylesheet" type="text/css" href="style.css?2365">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,300&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 	<title>admin-manager-register-1</title>
 
 

@@ -23,6 +23,9 @@ $r = sqlresult($sql)[0];
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?2747">
 	<link rel="stylesheet" type="text/css" href="style.css?4549">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,300&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="./js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/src/datetimepicker.css">
+    <script src=/src/datetimepicker.js></script>
     <title>admin-list-1</title>
 
 
@@ -86,7 +89,7 @@ $r = sqlresult($sql)[0];
                             <label class="form-label">
                                 예약일<br>
                             </label>
-                            <input class="form-control" name="o_order_date" value="<?=date("Y-m-d",strtotime($r[o_order_date]))?>"/>
+                            <input class="form-control" id="datepicker" name="o_order_date" value="<?=date("Y-m-d",strtotime($r[o_order_date]))?>"/>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">
@@ -130,7 +133,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         아동돌봄 시작일<br>
                                     </label>
-                                    <input class="form-control" name="o_start_time" value="<?=date("Y-m-d",strtotime($r[o_start_time]))?>"/>
+                                    <input class="form-control" id="child_start_datepicker" name="o_start_time" value="<?=date("Y-m-d",strtotime($r[o_start_time]))?>"/>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">
@@ -140,8 +143,8 @@ $r = sqlresult($sql)[0];
                                         <option value="Y" <?=($r[o_d1]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d1]=="N")?"selected":""?>>안함</option>
                                     </select>
-                                    <input class="form-control-mcc timepicker" name="o_d1_start" value="<?=($r[o_d1_start] != "")?$r[o_d1_start]:""?>"/>
-                                    <input class="form-control-mcc timepicker" name="o_d1_end" value="<?=($r[o_d1_end] != "")?$r[o_d1_end]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d1_start" name="o_d1_start" value="<?=($r[o_d1_start] != "")?$r[o_d1_start]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d1_end"   name="o_d1_end" value="<?=($r[o_d1_end] != "")?$r[o_d1_end]:""?>"/>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">
@@ -151,8 +154,8 @@ $r = sqlresult($sql)[0];
                                         <option value="Y" <?=($r[o_d3]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d3]=="N")?"selected":""?>>안함</option>
                                     </select>
-                                    <input class="form-control-mcc timepicker" name="o_d3_start" value="<?=($r[o_d3_start] != "")?$r[o_d3_start]:""?>"/>
-                                    <input class="form-control-mcc timepicker" name="o_d3_end" value="<?=($r[o_d3_end] != "")?$r[o_d3_end]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d3_start" name="o_d3_start" value="<?=($r[o_d3_start] != "")?$r[o_d3_start]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d3_end"   name="o_d3_end" value="<?=($r[o_d3_end] != "")?$r[o_d3_end]:""?>"/>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">
@@ -162,8 +165,8 @@ $r = sqlresult($sql)[0];
                                         <option value="Y" <?=($r[o_d5]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d5]=="N")?"selected":""?>>안함</option>
                                     </select>
-                                    <input class="form-control-mcc timepicker" name="o_d5_start" value="<?=($r[o_d5_start] != "")?$r[o_d5_start]:""?>"/>
-                                    <input class="form-control-mcc timepicker" name="o_d5_end" value="<?=($r[o_d5_end] != "")?$r[o_d5_end]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d5_start" name="o_d5_start" value="<?=($r[o_d5_start] != "")?$r[o_d5_start]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d5_end"   name="o_d5_end" value="<?=($r[o_d5_end] != "")?$r[o_d5_end]:""?>"/>
                                 </div>
                                 <div class="form-group mb-3">
                                     <input class="form-control" value="관계:<?=$r[o_relation]?> 건강:<?=$r[o_health]?> <?=$r[o_health_etc_comment]?> <?=$r[o_condition]?> <?=$r[o_condition_etc_comment]?> <?=$r[o_back_home]?> <?=$r[o_back_home_etc_comment]?> 긴급연락:<?=$r[o_emergency]?>" readonly/>
@@ -224,7 +227,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         아동돌봄 종료일<br>
                                     </label>
-                                    <input class="form-control" name="o_end_time" value="<?=date("Y-m-d",strtotime($r[o_end_time]))?>"/>
+                                    <input class="form-control" id="child_end_datepicker" name="o_end_time" value="<?=date("Y-m-d",strtotime($r[o_end_time]))?>"/>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">
@@ -234,8 +237,8 @@ $r = sqlresult($sql)[0];
                                         <option value="Y" <?=($r[o_d2]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d2]=="N")?"selected":""?>>안함</option>
                                     </select>
-                                    <input class="form-control-mcc timepicker" name="o_d2_start" value="<?=($r[o_d2_start] != "")?$r[o_d2_start]:""?>"/>
-                                    <input class="form-control-mcc timepicker" name="o_d2_end" value="<?=($r[o_d2_end] != "")?$r[o_d2_end]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d2_start" name="o_d2_start" value="<?=($r[o_d2_start] != "")?$r[o_d2_start]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d2_end"   name="o_d2_end" value="<?=($r[o_d2_end] != "")?$r[o_d2_end]:""?>"/>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">
@@ -245,8 +248,8 @@ $r = sqlresult($sql)[0];
                                         <option value="Y" <?=($r[o_d4]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d4]=="N")?"selected":""?>>안함</option>
                                     </select>
-                                    <input class="form-control-mcc timepicker" name="o_d4_start" value="<?=($r[o_d4_start] != "")?$r[o_d4_start]:""?>"/>
-                                    <input class="form-control-mcc timepicker" name="o_d4_end" value="<?=($r[o_d4_end] != "")?$r[o_d4_end]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d4_start"name="o_d4_start" value="<?=($r[o_d4_start] != "")?$r[o_d4_start]:""?>"/>
+                                    <input class="form-control-mcc timepicker" id="d4_end"  name="o_d4_end" value="<?=($r[o_d4_end] != "")?$r[o_d4_end]:""?>"/>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">
@@ -301,7 +304,6 @@ $r = sqlresult($sql)[0];
 <script src="./js/bootstrap.bundle.min.js?8370"></script>
 <script src="./js/blocs.min.js?7275"></script>
 <script src="./js/lazysizes.min.js" defer></script><!-- Additional JS END -->
-
-
+<script src="./js/datetimepicker.options.js"></script>
 </body>
 </html>
