@@ -45,7 +45,7 @@ $o = $or[0];
                 <p>상세서비스</p>
                 <input type="text" value="<?=$o[o_service_detail]?>" disabled>
                 <p>예약기간</p>
-                <input type="text" value="<?=date("Y-m-d",strtotime($o[o_start_time]))?> ~ <?=date("Y-m-d",strtotime($o[o_end_time]))?>">
+                <input type="text" value="<?=date("Y-m-d",strtotime($o[o_start_time]))?><?=($o[o_service_detail] !="정기")?" ~ ".date("Y-m-d",strtotime($o[o_end_time])):" 시작"?>">
                 <p>예약시간</p>
                 <?php
                 if($o[o_d1] == 'Y')

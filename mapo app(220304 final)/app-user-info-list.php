@@ -67,7 +67,7 @@ $rr = sqlrow($o);
                     for($i=0;$i<$rr;$i++){
                         ?>
                         <tr>
-                            <td><span><?=date("n월 j일", strtotime($r[$i][o_start_time]))?> ~<br><?=date("n월 j일", strtotime($r[$i][o_end_time]))?></td>
+                            <td><span><?=date("n월 j일", strtotime($r[$i][o_start_time]))?> <?=($r[$i][o_service_detail] !="정기")?" ~<br> ".date("n월 j일",strtotime($r[$i][o_end_time])):"<br>시작"?></td>
                             <td><?=$r[$i][o_service_detail]?><?=($r[$i][mc_name]!="")?"<br>({$r[$i][mc_name]})":""?></td>
                             <td><?=$r[$i][o_status]?></td>
                             <td class="detail">

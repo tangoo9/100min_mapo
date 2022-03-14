@@ -38,7 +38,7 @@ $od = date("md", strtotime($_SESSION[order_time]));
 <body>
     <div id="container">
         <header>
-            <button class="returnButton_cont" type ="button" onclick="history.go(-1);">
+            <button class="returnButton_cont" type ="button" onclick="location.href='/app/app-user-info-list'">
                 <div class="returnButton_icon" >
                     <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.778809 10.8916C0.778809 11.2847 0.924805 11.6216 1.23926 11.9136L9.97656 20.4712C10.2236 20.7183 10.5381 20.853 10.9087 20.853C11.6499 20.853 12.2451 20.269 12.2451 19.5166C12.2451 19.146 12.0879 18.8203 11.8408 18.562L3.96826 10.8916L11.8408 3.22119C12.0879 2.96289 12.2451 2.62598 12.2451 2.2666C12.2451 1.51416 11.6499 0.930176 10.9087 0.930176C10.5381 0.930176 10.2236 1.06494 9.97656 1.31201L1.23926 9.8584C0.924805 10.1616 0.778809 10.4985 0.778809 10.8916Z" fill="black"/>
@@ -72,10 +72,10 @@ $od = date("md", strtotime($_SESSION[order_time]));
                     <p>상세서비스</p>
                     <input type="text" value="<?=$o[o_service_detail]?>" disabled>
                     <?php
-                    if($o[o_service] == '아동'){
+                    if($o[o_service] == '아동 돌봄'){
                         ?>
                         <p>예약기간</p>
-                        <input type="text" value="<?=date("Y-m-d",strtotime($o[o_start_time]))?> ~ <?=date("Y-m-d",strtotime($o[o_end_time]))?>">
+                        <input type="text" value="<?=date("Y-m-d",strtotime($o[o_start_time]))?><?=($o[o_service_detail] !="정기")?" ~ ".date("Y-m-d",strtotime($o[o_end_time])):" 시작"?>">
                         <p>예약시간</p>
                         <?php
                         if($o[o_d1] == 'Y')
@@ -128,14 +128,17 @@ $od = date("md", strtotime($_SESSION[order_time]));
                     <div class="popup_title">
                         <h1>시간 변경하기</h1>
                     </div>
-                    <form action="#" method="GET" name="select_time">
+                    <form action="app-user-order-child-register" method="POST" name="select_time">
+                        <input type="hidden" name="no" value="<?=$o[o_no]?>">
+                        <input type="hidden" name="o_service_detail" value="<?=$o[o_service_detail]?>">
+                        <input type="hidden" name="method" value="change_time">
                         <ul class="list-group">
                             <div class="care_date_container">
                                 <!-- <p>돌봄날짜 선택</p> -->
                                 <section class="calendar_container">
                                     <?php
-                                        if($o[o_service_detail] == '시간제'){
-                                    ?>
+                                    if($o[o_service_detail] == '시간제'){
+                                        ?>
                                     <div class="date_wrapper">
                                         <div class="guide_text">
                                             <p>시작일</p>
@@ -143,7 +146,7 @@ $od = date("md", strtotime($_SESSION[order_time]));
                                         <div class="care_calendar">
                                             <!-- <i class="far fa-calendar-alt"></i> -->
                                             <label>
-                                                <input class="datepicker" type="text" placeholder="" id="datepicker1"  name="start_day" inputmode="none" autocomplete="off">
+                                                <input class="datepicker" type="text" placeholder="" id="datepicker1" value="<?=date("Y-m-d",strtotime($o[o_start_time]))?>" name="start_day" inputmode="none" autocomplete="off">
                                             </label>
                                         </div>
                                     </div>
@@ -154,13 +157,13 @@ $od = date("md", strtotime($_SESSION[order_time]));
                                         <div class="care_calendar">
                                             <!-- <i class="far fa-calendar-alt"></i> -->
                                             <label>
-                                                <input class="datepicker" type="text" placeholder="" id="datepicker2" name="end_day" inputmode="none" autocomplete="off">
+                                                <input class="datepicker" type="text" placeholder="" id="datepicker2" value="<?=date("Y-m-d",strtotime($o[o_end_time]))?>" name="end_day" inputmode="none" autocomplete="off">
                                             </label>
                                         </div>
                                     </div>
                                     <?php
-                                        }else{
-                                    ?>
+                                    }else{
+                                        ?>
                                         <div class="date_wrapper">
                                             <div class="guide_text">
                                                 <p>시작일</p>
@@ -168,62 +171,68 @@ $od = date("md", strtotime($_SESSION[order_time]));
                                             <div class="care_calendar">
                                                 <!-- <i class="far fa-calendar-alt"></i> -->
                                                 <label>
-                                                    <input class="datepicker" type="text" placeholder="" id="datepicker1"  name="start_day" inputmode="none" autocomplete="off">
+                                                    <input class="datepicker" type="text" placeholder="" id="datepicker1"  value="<?=date("Y-m-d",strtotime($o[o_start_time]))?>" name="start_day" inputmode="none" autocomplete="off">
                                                 </label>
                                             </div>
                                         </div>
                                     <?php
-                                        }
+                                    }
                                     ?>
                                 </section>
                                 <section class="time_container">
                                     <label for="mon_day">
-                                        <input type="checkbox" id="mon_day" name="mon_day">
+                                        <input type="checkbox" id="mon_day" name="o_d1" <?=($o[o_d1]=='Y')?"checked":""?>>
                                         <i class="circle"></i>
                                         <span class="check_text left">월</span>
-                                        <input id="timepicker1" class="timepicker" name="timepicker1"  inputmode="none" placeholder="" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker1" class="timepicker" name="o_d1_start"  inputmode="none" placeholder="" autocomplete="off" readonly value="<?=$o[o_d1_start]?>"/>
                                         ~
-                                        <input id="timepicker2" class="timepicker" name="timepicker2"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker2" class="timepicker" name="o_d1_end"  inputmode="none" autocomplete="off" value="<?=$o[o_d1_end]?>" readonly/>
                                     </label>
                                     <label for="tue_day">
-                                        <input type="checkbox" id="tue_day" name="tue_day">
+                                        <input type="checkbox" id="tue_day" name="o_d2" <?=($o[o_d2]=='Y')?"checked":""?>>
                                         <i class="circle"></i>
                                         <span class="check_text left">화</span>
-                                        <input id="timepicker3" class="timepicker" name="timepicker3"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker3" class="timepicker" name="o_d2_start"  inputmode="none" autocomplete="off"  value="<?=$o[o_d2_start]?>" readonly />
                                         ~
-                                        <input id="timepicker4" class="timepicker" name="timepicker4"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker4" class="timepicker" name="o_d2_end"  inputmode="none" autocomplete="off"  value="<?=$o[o_d2_end]?>" readonly />
                                     </label>
                                     <label for="wed_day">
-                                        <input type="checkbox" id="wed_day" name="wed_day">
+                                        <input type="checkbox" id="wed_day" name="o_d3" <?=($o[o_d3]=='Y')?"checked":""?>>
                                         <i class="circle"></i>
                                         <span class="check_text left">수</span>
-                                        <input id="timepicker5" class="timepicker" name="timepicker5"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker5" class="timepicker" name="o_d3_start"  inputmode="none" autocomplete="off" value="<?=$o[o_d3_start]?>" readonly />
                                         ~
-                                        <input id="timepicker6" class="timepicker" name="timepicker6"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker6" class="timepicker" name="o_d3_end"  inputmode="none" autocomplete="off"  value="<?=$o[o_d3_end]?>" readonly />
                                     </label>
                                     <label for="thu_day">
-                                        <input type="checkbox" id="thu_day" name="thu_day">
+                                        <input type="checkbox" id="thu_day" name="o_d4" <?=($o[o_d4]=='Y')?"checked":""?>>
                                         <i class="circle"></i>
                                         <span class="check_text left">목</span>
-                                        <input id="timepicker7" class="timepicker" name="timepicker7"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker7" class="timepicker" name="o_d4_start"  inputmode="none" autocomplete="off" value="<?=$o[o_d4_start]?>" readonly />
                                         ~
-                                        <input id="timepicker8" class="timepicker" name="timepicker8"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker8" class="timepicker" name="o_d4_end"  inputmode="none" autocomplete="off" value="<?=$o[o_d4_end]?>" readonly />
                                     </label>
                                     <label for="fri_day">
-                                        <input type="checkbox" id="fri_day" name="fri_day">
+                                        <input type="checkbox" id="fri_day" name="o_d5" <?=($o[o_d5]=='Y')?"checked":""?>>
                                         <i class="circle"></i>
                                         <span class="check_text left">금</span>
-                                        <input id="timepicker9" class="timepicker" name="timepicker9"  inputmode="none" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker9" class="timepicker" name="o_d5_start"  inputmode="none" autocomplete="off" value="<?=$o[o_d5_start]?>" readonly />
                                         ~
-                                        <input id="timepicker10" class="timepicker" name="timepicker10" inputmode="none" autocomplete="off" readonly disabled/>
+                                        <input id="timepicker10" class="timepicker" name="o_d5_end" inputmode="none" autocomplete="off"  value="<?=$o[o_d5_end]?>" readonly />
                                     </label>
                                 </section>
-                                <div class="time_container">
-                                </div>
+                                <section class="calendar_container last_box">
+                                    <div class="date_wrapper">
+                                        <div class="guide_text">
+                                            <p class="txt">비고</p>
+                                            <input type="text" class="care_calendar" value="<?=$o[o_comment]?>" id=""  name="o_comment" inputmode="none" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </section>
                             </div>
                         </ul>
                         <div class="selectBox">
-                            <button type="submit" class="btn btn-primary btn-sm change" >변경하기</button>
+                            <button type="submit" id="submitBtn" class="btn btn-primary btn-sm change" >변경하기</button>
                             <button type="button" class="goBack btn btn-light btn-sm">돌아가기</button>
                         </div>
                     </form>
@@ -244,7 +253,7 @@ $od = date("md", strtotime($_SESSION[order_time]));
                                     method: 'cancel',
                                     reason: $('#reason').val(),
                                     cmt: $('#cancel_comment').val(),
-                                    o_no: <?=$o[o_no]?>
+                                    o_no: '<?=$o[o_no]?>'
                                 },
                                 success: function (data) {
                                     alert(data);
@@ -307,6 +316,6 @@ $od = date("md", strtotime($_SESSION[order_time]));
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/app-user-detail.js"></script>
-    <script src="js/datevalidation.js"></script>
+    <script src="js/date.change.validation.js"></script>
 </body>
 </html>

@@ -52,7 +52,7 @@ session_start();
                 <div class="check_font" id="email_check"></div>
                 <div class="input-group">
                     <span class="input-group-text" id="inputGroup-sizing-default">비밀번호</span>
-                    <input id="pwd"name="m_pw" type="password" placeholder="비밀번호를 입력해 주세요." 
+                    <input id="pwd"name="m_pw" type="password" placeholder="영문,숫자, 특수문자 포함, 8자리 이상" 
                                 aria-label="password" class="form-control" required >
                 </div>
                 <div class="check_font" id="pwd_check"></div>
@@ -154,7 +154,7 @@ session_start();
                     console.log(reg_pwd.test($(this).val()));
                     $("#pwd_check").text('');
             } else {
-                $('#pwd_check').text('비밀번호는 영문,숫자,특수문자 포함 8자리 이상이어야합니다.');
+                $('#pwd_check').text('영문,숫자, 특수문자 포함, 8자리 이상');
                 $('#pwd_check').css('color', 'red');
                 $('#pwd').focus();
             }

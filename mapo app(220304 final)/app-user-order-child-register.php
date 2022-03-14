@@ -4,6 +4,18 @@ header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
 include '../src/method_config.php';
 session_check_app();
+if($_POST[method] == "change_time"){
+    $o_d1 = ($_POST[o_d1] == 'on')?" , o_d1 = 'Y', o_d1_start = '{$_POST[o_d1_start]}', o_d1_end = '{$_POST[o_d1_end]}'":" , o_d1 = 'N', o_d1_start = '', o_d1_end = ''";
+    $o_d2 = ($_POST[o_d2] == 'on')?" , o_d2 = 'Y', o_d2_start = '{$_POST[o_d2_start]}', o_d2_end = '{$_POST[o_d2_end]}'":" , o_d2 = 'N', o_d2_start = '', o_d2_end = ''";
+    $o_d3 = ($_POST[o_d3] == 'on')?" , o_d3 = 'Y', o_d3_start = '{$_POST[o_d3_start]}', o_d3_end = '{$_POST[o_d3_end]}'":" , o_d3 = 'N', o_d3_start = '', o_d3_end = ''";
+    $o_d4 = ($_POST[o_d4] == 'on')?" , o_d4 = 'Y', o_d4_start = '{$_POST[o_d4_start]}', o_d4_end = '{$_POST[o_d4_end]}'":" , o_d4 = 'N', o_d4_start = '', o_d4_end = ''";
+    $o_d5 = ($_POST[o_d5] == 'on')?" , o_d5 = 'Y', o_d5_start = '{$_POST[o_d5_start]}', o_d5_end = '{$_POST[o_d5_end]}'":" , o_d5 = 'N', o_d5_start = '', o_d5_end = ''";
+    $u = "update order_info set o_start_time = '{$_POST[start_day]}', o_end_time = '{$_POST[end_day]}' , o_comment = '{$_POST[o_comment]}' {$o_d1}{$o_d2}{$o_d3}{$o_d4}{$o_d5} where o_no = '{$_POST[no]}' and m_no = '{$_SESSION[m_no]}'";
+    sqlresult($u);
+    echo "<script>alert('정보가 변경되었습니다.')</script>";
+    echo "<meta http-equiv='refresh' content='0; url=/app/app-user-info-detail?o_no={$_POST[no]}'>";
+}
+else{
 $_SESSION[agree] = ($_GET[agree] == 'on')?"Y":"N";
 for($i=0;$i<count($_SESSION[select_child]);$i++){
     $in = "INSERT INTO `mcc`.`order_child`(`mc_no`, `m_no`, `p_no`,
@@ -29,4 +41,5 @@ VALUES ('{$_SESSION[select_child][$i]}', '{$_SESSION[m_no]}', '{$_SESSION[p_no]}
 sqlresult($in);
 }
 echo "<meta http-equiv='refresh' content='0; url=/app/app-user-order-child-order-complete'>";
+}
 ?>

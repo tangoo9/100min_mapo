@@ -136,13 +136,12 @@ session_check_app();
                 datatype : "json",
                 data: { method : 'get', m_no : '<?=$_SESSION[m_no]?>' },
                 success : function(data) {
-                        console.log(data)
-                        // null이거나 0이 아닌값이 안들어옴; ]는 무엇
-                        if((data != ']') || (data != null) || (data != 0)){
+                        // console.log(data)
+                        if(data == null || data == 0 || data == ""){
+                            console.log('error : noData')
+                        }else{
                             dataList = JSON.parse(data);
                             dataWrite()
-                        }else{
-                            console.log('error : noData')
                         }
                 }
             });
@@ -194,10 +193,14 @@ session_check_app();
                 datatype : "json",
                 data: { method : 'get', m_no : '<?=$_SESSION[m_no]?>' },
                 success : function(data) {
-                    dataList = JSON.parse(data);
+                    if(data == null || data == 0 || data == ""){
+                            console.log('error : noData')
+                    }else{
+                        dataList = JSON.parse(data);
+                    }
                 }
             });
-            if((dataList == 0) || (dataList == ']')){
+            if(dataList == "" || dataList == null ){
                 alert('아동을 추가해 주세요.')
                 return false;
             }else if(dataList != false){
@@ -224,7 +227,8 @@ session_check_app();
         }
 
         // -- 아동 선택하기
-        function add_list(){    
+        function add_list(){ 
+
             let select_this = document.getElementById('#select_this');
             // console.log(this.children[0])
             // console.log(this.children[0].value)
@@ -235,6 +239,7 @@ session_check_app();
             if(check == ""){
                 this.children[0].setAttribute("value", "check")
                 this.classList.add('on')
+                
                 // console.log(this.firstChild.id)
                 let temp = selected_child_list.push(this.firstChild.id)
                 // console.log(temp)
@@ -246,11 +251,13 @@ session_check_app();
                 let temp = selected_child_list.splice(selected_child_list.indexOf(this.firstChild.id),1)
                 // console.log(temp)
             }
-            // console.log(selected_child_list)
             selected_child.setAttribute("value", selected_child_list)
 
-            console.log("선택된 아동 리스트" + selected_child.value)
+            // let temp2 = this.classList.contains('on')
+            // console.log(temp2)
+            // if(check="check" && temp2 == true)
         }
+        // -----------------
 
         // -- 아동 삭제하기
         let deleteBtn = document.querySelectorAll('.fa-trash-alt');
@@ -258,11 +265,12 @@ session_check_app();
             list.addEventListener("click", remove);
         })
         function remove(){
-            console.log("삭제" + this.parentNode.parentNode)
             let btn = this.parentNode.parentNode
-            btn.children[0].setAttribute("value", "")
-            selected_child_list.splice(selected_child_list.indexOf(btn.firstChild.id),1)
+            // selected_child.value
+            btn.children[0].setAttribute("value", "removed")
             btn.style.display = 'none'
+            selected_child_list.splice(selected_child_list.indexOf(btn.firstChild.id),1)
+            selected_child.setAttribute("value", selected_child_list)
             console.log(this.parentNode.parentNode.firstChild.id)
             var remove = $.ajax({
                 type: "POST",
@@ -280,17 +288,15 @@ session_check_app();
                         datatype : "json",
                         data: { method : 'get', m_no : '<?=$_SESSION[m_no]?>'},
                         success : function(data) {
-                            dataList = JSON.parse(data);
+                            if(data == null || data == 0 || data == ""){
+                                console.log('Removed : noData!')
+                            }else{
+                                dataList = JSON.parse(data);
+                                console.log(dataList + "삭제값 확인")
+                            }
                             if(dataList.length > 0 || dataList.length < 3){
                                 addBtn.style.display = 'block';
                             }
-                            // console.log('현재 남은 데이터' : dataList);
-                            // if((dataList.length < 1) || (dataList ==']')){
-                            //     selected_child.value =""
-                            // }
-                            // console.log( selected_child.value + "히든인풋값")
-                            // selected_child.value.setAttribute("value", "")
-                            // location.reload(true)
                         }
                     })
                 },  

@@ -6,6 +6,8 @@ include '../src/method_config.php';
 session_check_app();
 $_SESSION[snack] = $_GET[snack];
 $_SESSION[snack_info] = $_GET[snack_info];
+$s = "select * from order_info where m_no = '{$_SESSION[m_no]}' order by o_no desc limit 1";
+$sr = sqlresult($s)[0];
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -42,7 +44,7 @@ $_SESSION[snack_info] = $_GET[snack_info];
                         <span class="input-group-text" id="inputGroup-sizing-default">
                             아동과의 관계<small>*</small>
                         </span>
-                        <input type="text" class="form-control" id="name" name="relation"  required>
+                        <input type="text" class="form-control" id="name" name="relation" autocomplete="off" value="<?=$sr[o_relation]?>" required>
                         <div class="check_font" id="name_check"></div>
                     </div>
                     <div class="input-group mb-3 align">
@@ -51,32 +53,32 @@ $_SESSION[snack_info] = $_GET[snack_info];
                         </span>
                         <div class="form_row">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="health" id="health_good" value="양호" required>
+                                <input class="form-check-input" type="radio" name="health" id="health_good" value="양호" <?=($sr[o_health]=="양호")?"checked":""?> required>
                                 <label class="form-check-label" for="health_good">
                                     양호
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="health" id="health_normal" value="보통">
+                                <input class="form-check-input" type="radio" name="health" id="health_normal" value="보통" <?=($sr[o_health]=="보통")?"checked":""?> >
                                 <label class="form-check-label" for="health_normal">
                                     보통
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="health" id="health_bad" value="허약">
+                                <input class="form-check-input" type="radio" name="health" id="health_bad" value="허약" <?=($sr[health]=="허약")?"checked":""?> >
                                 <label class="form-check-label" for="health_bad">
                                     허약
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="health" id ="health_etc" value="기타">
+                                <input class="form-check-input" type="radio" name="health" id ="health_etc" value="기타" <?=($sr[o_health]=="기타")?"checked":""?> >
                                 <label class="form-check-label" for="health_etc">
                                     기타
                                 </label>
                             </div>
                         </div>
                         <div class="input_box_etc health_text">
-                            <input type=text name="health_etc_comment" placeholder="구체적으로 기재하실 사항을 입력해 주세요.">
+                            <input type=text name="health_etc_comment" autocomplete="off" placeholder="구체적으로 기재하실 사항을 입력해 주세요." value="<?=$sr[o_health_etc_comment]?>">
                         </div>
                     </div>
                     <div class="input-group mb-3 align">
@@ -85,32 +87,32 @@ $_SESSION[snack_info] = $_GET[snack_info];
                         </span>
                         <div class="form_row">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="condition" id="condition_good" value="맞벌이 가정" required>
+                                <input class="form-check-input" type="radio" name="condition" id="condition_good" value="맞벌이 가정" <?=($sr[o_condition]=="맞벌이 가정")?"checked":""?> required>
                                 <label class="form-check-label" for="condition_good">
                                     맞벌이 가정
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="condition" id="condition_normal" value="다자녀 가정">
+                                <input class="form-check-input" type="radio" name="condition" id="condition_normal" value="다자녀 가정" <?=($sr[o_condition]=="다자녀 가정")?"checked":""?> >
                                 <label class="form-check-label" for="condition_normal">
                                     다자녀 가정
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="condition" id="condition_bad" value="한부모 가정">
+                                <input class="form-check-input" type="radio" name="condition" id="condition_bad" value="한부모 가정" <?=($sr[o_condition]=="한부모 가정")?"checked":""?>>
                                 <label class="form-check-label" for="condition_bad">
                                     한부모 가정
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="condition" id="condition_etc" value="기타">
+                                <input class="form-check-input" type="radio" name="condition" id="condition_etc" value="기타" <?=($sr[o_condition]=="기타")?"checked":""?>>
                                 <label class="form-check-label" for="condition_etc">
                                     기타
                                 </label>
                             </div> 
                         </div>
                         <div class="input_box_etc condition_text">
-                            <input name="condition_etc_comment" placeholder="구체적으로 기재하실 사항을 입력해 주세요.">    
+                            <input name="condition_etc_comment" autocomplete="off" placeholder="구체적으로 기재하실 사항을 입력해 주세요." value="<?=$sr[o_condition_etc_comment]?>">
                         </div>
                     </div>
                     <div class="input-group mb-3 align">
@@ -119,32 +121,32 @@ $_SESSION[snack_info] = $_GET[snack_info];
                         </span>
                         <div class="form_row">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="back_home" id="back_home_good" value="부모동행" required>
+                                <input class="form-check-input" type="radio" name="back_home" id="back_home_good" value="부모동행" required <?=($sr[o_back_home]=="부모동행")?"checked":""?>>
                                 <label class="form-check-label" for="back_home_good">
                                     부모동행
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="back_home" id="back_home_normal"  value="대리인동행">
+                                <input class="form-check-input" type="radio" name="back_home" id="back_home_normal"  value="대리인동행" <?=($sr[o_back_home]=="대리인동행")?"checked":""?>>
                                 <label class="form-check-label" for="back_home_normal">
                                     대리인동행
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="back_home" id="back_home_bad" value="자율귀가">
+                                <input class="form-check-input" type="radio" name="back_home" id="back_home_bad" value="자율귀가" <?=($sr[o_back_home]=="자율귀가")?"checked":""?>>
                                 <label class="form-check-label" for="back_home_bad">
                                     자율귀가
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="back_home" id="back_home_etc" value="기타">
+                                <input class="form-check-input" type="radio" name="back_home" id="back_home_etc" value="기타" <?=($sr[o_back_home]=="기타")?"checked":""?>>
                                 <label class="form-check-label" for="back_home_etc">
                                     기타
                                 </label>
                             </div> 
                         </div>
                         <div class="input_box_etc back_home_text">
-                            <input name="back_home_etc_comment" placeholder="구체적으로 기재하실 사항을 입력해 주세요.">    
+                            <input name="back_home_etc_comment" autocomplete="off" placeholder="구체적으로 기재하실 사항을 입력해 주세요." value="<?=$sr[o_back_home_etc_comment]?>">>
                         </div>
                     </div>
                     <div class="input-group mb-3 align">
@@ -152,13 +154,13 @@ $_SESSION[snack_info] = $_GET[snack_info];
                             응급처치 <br>절차 동의<small>*</small>
                         </span>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="emergency" id="emergency_agree"  value="동의" required>
+                            <input class="form-check-input" type="radio" name="emergency" id="emergency_agree"  value="동의" required  <?=($sr[o_emergency]=="동의")?"checked":""?>>
                             <label class="form-check-label" for="emergency_agree">
                                 동의
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="emergency" id="emergency_disagree"  value="미동의">
+                            <input class="form-check-input" type="radio" name="emergency" id="emergency_disagree"  value="미동의" <?=($sr[o_emergency]=="미동의")?"checked":""?>>
                             <label class="form-check-label" for="emergency_disagree">
                                 미동의
                             </label>
@@ -172,7 +174,7 @@ $_SESSION[snack_info] = $_GET[snack_info];
                         <span class="input-group-text" id="inputGroup-sizing-default">
                             (선택)참고사항
                         </span>
-                        <textarea name="textarea" placeholder="특이사항 또는 요청사항이 있을 경우 입력해주세요.(최대 100자)" onKeyUp="javascript:fnChkByte(this,'100')"></textarea>
+                        <textarea name="textarea" autocomplete="off" placeholder="특이사항 또는 요청사항이 있을 경우 입력해주세요.(최대 100자)" onKeyUp="javascript:fnChkByte(this,'100')"><?=$sr[o_textarea]?></textarea>
                     </div>
                 </div>
                 <div class="progress_cont">

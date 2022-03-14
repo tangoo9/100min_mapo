@@ -95,7 +95,7 @@ $rr = sqlrow($sql);
             <p>전화번호</p>
             <input type="text" value="<?=$_SESSION[m_tel]?>" disabled>
             <button id="change_tel" class="buttonStyle" type="button">전화번호 변경</button>
-            <p>알림</p>
+            <p>정보수신알림</p>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" <?=($_SESSION[m_notice] == 'Y')?"checked":""?> onclick="notice();" value="Y">
                 <label class="btn btn-outline-primary" for="btnradio1">켜기</label>
