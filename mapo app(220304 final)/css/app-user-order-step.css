@@ -553,7 +553,7 @@ form{
 }
 .boxContainer_order_step3_1 .timepicker{
     width: 20vw;
-    font-size: 0.5em;
+    font-size: 0.9rem;
 }
 .boxContainer_order_step3_1 .form-select{
     font-size: 0.7em;
@@ -766,7 +766,7 @@ form{
     text-align: center;
     margin: 0.3rem;
     width: 25vw;
-    font-size: 0.5em;
+    font-size: 0.9rem;
 }
 
 .boxContainer_order_step3_2 .care_select_cont .care_selectBtn{
