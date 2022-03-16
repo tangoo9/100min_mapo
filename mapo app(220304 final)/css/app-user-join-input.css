@@ -67,6 +67,9 @@ form{
 .form_container .form-control{
     font-size: 0.7rem;
 }
+.form_container .form-control[readonly]{
+    background-color: #fff;
+}
 .form_container .form-select{
     font-size: 0.7rem;
 }

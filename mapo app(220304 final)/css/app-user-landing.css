@@ -63,8 +63,9 @@ main{
 } */
 
 .logo{
-    width: 80vw;
-    height: 40vw;
+    margin: 0 auto;
+    width: 15rem;
+    height: 10rem;
     /* border-radius: 5px; */
 }
 

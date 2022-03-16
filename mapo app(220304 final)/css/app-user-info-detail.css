@@ -205,7 +205,7 @@ form{
 }
 .app-user-info-detail-change .layer_popup_cont{
     width: 80vw;
-    height: 70%;
+    height: 33rem;
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -256,14 +256,25 @@ form{
     align-items: center;
     flex-flow: row nowrap;
 }
-.care_date_container .date_wrapper{
-    margin: 0.5rem 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row nowrap;
+.app-user-info-detail-change .list-group .calendar_container .date_wrapper .guide_text{
+    width: 3.5rem;
+    text-align: center;
 }
+.app-user-info-detail-change .list-group .calendar_container .date_wrapper .etc{
+    margin-left: -0.5rem;
+}
+.app-user-info-detail-change .list-group .calendar_container .date_wrapper .input{
+    /* background-color: red; */
+    width: 11rem;
+}
+.app-user-info-detail-change .list-group .calendar_container .date_wrapper .care_calendar{
+    /* width: 70%; */
+}
+.app-user-info-detail-change .list-group .calendar_container .date_wrapper .datepicker{
+    width: 95%;
+    text-align: center;
+}
+
 .app-user-info-detail-change .list-group .calendar_container .date_wrapper p{
     margin: 0 auto;
     margin-right: 0.5rem;

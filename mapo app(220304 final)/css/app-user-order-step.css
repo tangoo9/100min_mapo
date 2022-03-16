@@ -217,7 +217,7 @@ form{
 .boxContainer_order_step1_add .title{
     margin-top: 5em;
     width: 75vw;
-    height: 20vh;
+    height: 15vh;
 }
 .boxContainer_order_step1_add .title p{
     color: #c6c6c6;
@@ -235,6 +235,7 @@ form{
 }
 .boxContainer_order_step1_add .input-group-text{
     width: 20%;
+    height: 2.5rem;
     justify-content: center;
     font-size: 0.6rem;
 }

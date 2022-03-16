@@ -38,7 +38,14 @@ $(document).ready(function(){
             $("#datepicker2").val('')
         }
     })
-
+    $("#datepicker1").change(function(){
+        if($("#datepicker2").val() != ""){
+            if($("#datepicker1").val() > $("#datepicker2").val()){
+                alert("날짜 선택이 올바르지 않습니다. \r\n다시 선택해 주세요.")
+                $("#datepicker2").val('')
+            }
+        }
+    })
 
 //  == Timepicker Option Start ==============================
 $("#mon_day").change(function(){

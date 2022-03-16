@@ -36,8 +36,42 @@ $_SESSION[d5_end] = $d5_end = trim($_GET[timepicker10]);
     <link rel="stylesheet" href="css/app-user-order-step.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        // console.log(document.referrer)
+        // let referrer = document.referrer;
+        // let page5 = "app-user-order-child-order-step5";
+        // console.log(referrer.includes(page5))
+        
+        // function goPage(){
+        //     if(referrer.includes(page5) == true){
+        //         location.href = "app-user-order-child-order-step1"
+        //     }else{
+        //         history.back();
+        //     }
+        // }
+
+
+        // console.log(location.search);
+        // window.onload = function(){
+        //     let btn_div1 =  document.querySelector('.btn_div1')
+        //     let from = location.search
+        //     console.log(from.value)
+
+        //     if(from == "?from5"){
+        //         btn_div1.addEventListener('click', function(){
+        //             location.href="app-user-order-child-order-step1"
+        //         })
+        //     }else{
+        //         btn_div1.addEventListener('click', function(){
+        //             history.back();
+        //         })
+        //     }
+        // }
+
+    </script>
 </head>
 <body>
+    <!-- <input id="from" type="hidden" value="" disabled> -->
     <header>
         <div class="header_container">
             <div class="header_title">
@@ -75,7 +109,7 @@ $_SESSION[d5_end] = $d5_end = trim($_GET[timepicker10]);
                 </div>
                 <input type="hidden" id="care_place" name ="care_place" value="">
                 <div class="selectBox">
-                    <button class="selectButton btn_div1" type="button" onclick="history.back()">
+                    <button class="selectButton btn_div1" type="button" onclick="return goPage()">
                         <p>이전</p>
                     </button>
                     <button id="submitBtn" class="selectButton btn_div2" type="submit">

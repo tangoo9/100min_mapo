@@ -157,8 +157,8 @@ $r = sqlresult($sql)[0];
                             <option value="Y" <?=($r[o_d1]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d1]=="N")?"selected":""?>>안함</option>
                         </select>
-                        <input class="form-control-mcc timepicker" id ="d1_start" name="o_d1_start" value="<?=($r[o_d1_start] != "")?$r[o_d1_start]:""?>"/>
-                        <input class="form-control-mcc timepicker" id ="d1_end"  name="o_d1_end" value="<?=($r[o_d1_end] != "")?$r[o_d1_end]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d1_start" name="o_d1_start" value="<?=($r[o_d1_start] != "")?$r[o_d1_start]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d1_end"  name="o_d1_end" value="<?=($r[o_d1_end] != "")?$r[o_d1_end]:""?>"/>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">
@@ -168,8 +168,8 @@ $r = sqlresult($sql)[0];
                             <option value="Y" <?=($r[o_d3]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d3]=="N")?"selected":""?>>안함</option>
                         </select>
-                        <input class="form-control-mcc timepicker" id ="d3_start" name="o_d3_start" value="<?=($r[o_d3_start] != "")?$r[o_d3_start]:""?>"/>
-                        <input class="form-control-mcc timepicker" id ="d3_end"   name="o_d3_end" value="<?=($r[o_d3_end] != "")?$r[o_d3_end]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d3_start" name="o_d3_start" value="<?=($r[o_d3_start] != "")?$r[o_d3_start]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d3_end"   name="o_d3_end" value="<?=($r[o_d3_end] != "")?$r[o_d3_end]:""?>"/>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">
@@ -179,8 +179,8 @@ $r = sqlresult($sql)[0];
                             <option value="Y" <?=($r[o_d5]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d5]=="N")?"selected":""?>>안함</option>
                         </select>
-                        <input class="form-control-mcc timepicker" id ="d5_start" name="o_d5_start" value="<?=($r[o_d5_start] != "")?$r[o_d5_start]:""?>"/>
-                        <input class="form-control-mcc timepicker" id ="d5_end"   name="o_d5_end" value="<?=($r[o_d5_end] != "")?$r[o_d5_end]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d5_start" name="o_d5_start" value="<?=($r[o_d5_start] != "")?$r[o_d5_start]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d5_end"   name="o_d5_end" value="<?=($r[o_d5_end] != "")?$r[o_d5_end]:""?>"/>
                     </div>
                     <div class="form-group mb-3">
                     <input class="form-control" value="관계:<?=$r[o_relation]?> 건강:<?=$r[o_health]?> <?=$r[o_health_etc_comment]?> <?=$r[o_condition]?> <?=$r[o_condition_etc_comment]?> <?=$r[o_back_home]?> <?=$r[o_back_home_etc_comment]?> 긴급연락:<?=$r[o_emergency]?>" readonly/>
@@ -252,8 +252,8 @@ $r = sqlresult($sql)[0];
                             <option value="Y" <?=($r[o_d2]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d2]=="N")?"selected":""?>>안함</option>
                         </select>
-                        <input class="form-control-mcc timepicker" id ="d2_start"name="o_d2_start" value="<?=($r[o_d2_start] != "")?$r[o_d2_start]:""?>"/>
-                        <input class="form-control-mcc timepicker" id ="d2_end"  name="o_d2_end" value="<?=($r[o_d2_end] != "")?$r[o_d2_end]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d2_start"name="o_d2_start" value="<?=($r[o_d2_start] != "")?$r[o_d2_start]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d2_end"  name="o_d2_end" value="<?=($r[o_d2_end] != "")?$r[o_d2_end]:""?>"/>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">
@@ -263,8 +263,8 @@ $r = sqlresult($sql)[0];
                             <option value="Y" <?=($r[o_d4]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d4]=="N")?"selected":""?>>안함</option>
                         </select>
-                        <input class="form-control-mcc timepicker" id ="d4_start" name="o_d4_start" value="<?=($r[o_d4_start] != "")?$r[o_d4_start]:""?>"/>
-                        <input class="form-control-mcc timepicker" id ="d4_end"   name="o_d4_end" value="<?=($r[o_d4_end] != "")?$r[o_d4_end]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d4_start" name="o_d4_start" value="<?=($r[o_d4_start] != "")?$r[o_d4_start]:""?>"/>
+                        <input class="form-control-mcc timepicker" autocomplete="off" id ="d4_end"   name="o_d4_end" value="<?=($r[o_d4_end] != "")?$r[o_d4_end]:""?>"/>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">
