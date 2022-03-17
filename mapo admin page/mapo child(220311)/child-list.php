@@ -53,7 +53,8 @@ $rr = sqlrow($sql);
 				</h4>
 			</div>
 			<div class="col-sm-8 k-align-right align-self-center order-lg-1 offset-lg-0 col-lg-9">
-				<a href="child-list" class="btn btn-lg btn-style float-lg-none btn-cadmium-orange">현황<br></a><!--<a href="child-to" class="btn btn-lg btn-style float-lg-none btn-ash-grey">운영관리</a-->><a href="child-passwd" onclick="window.open(this.href, '_blank', 'location=no, width=1000, height=800'); return false;" class="btn btn-d btn-lg btn-style float-lg-none">암호변경<br></a><a href="logout" class="btn btn-d btn-lg btn-style float-lg-none">로그아웃<br></a>
+				<a href="child-list" class="btn btn-lg btn-style float-lg-none btn-cadmium-orange">현황<br></a><!--<a href="child-to" class="btn btn-lg btn-style float-lg-none btn-ash-grey">운영관리</a-->
+                <a href="child-passwd" onclick="window.open(this.href, '_blank', 'location=no, width=1000, height=800'); return false;" class="btn btn-d btn-lg btn-style float-lg-none">암호변경<br></a><a href="logout" class="btn btn-d btn-lg btn-style float-lg-none">로그아웃<br></a>
 			</div>
 		</div>
 	</div>
@@ -116,7 +117,15 @@ $rr = sqlrow($sql);
                         <div class="col-12 col-lg-2">
                                 <label class="form-label label-style text-lg-start">
                                     <?=date("Y-m-d",strtotime($r[$i][o_start_time]))?>
-                                    <?=($r[$i][o_end_time] != "")?" ~ <br>".date("Y-m-d",strtotime($r[$i][o_end_time])):""?>
+
+                                    <!-- <?=($r[$i][o_end_time] != "")?" ~ <br>".date("Y-m-d",strtotime($r[$i][o_end_time])):""?> -->
+                                    <?=
+                                    ($r[$i][o_end_time] != "")?
+                                    (($r[$i][o_service_detail]=="시간제")?
+                                    " ~ <br>".date("Y-m-d",strtotime($r[$i][o_end_time])):
+                                    ""):
+                                    ""
+                                    ?>
                                 </label>
                         </div>
                         <div class="col-12 col-lg-1">

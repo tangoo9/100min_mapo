@@ -133,7 +133,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         아동돌봄 시작일<br>
                                     </label>
-                                    <input class="form-control" id="child_start_datepicker" name="o_start_time" value="<?=date("Y-m-d",strtotime($r[o_start_time]))?>"/>
+                                    <input class="form-control"  autocomplete="off" id="child_start_datepicker" name="o_start_time" value="<?=date("Y-m-d",strtotime($r[o_start_time]))?>"/>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">
@@ -195,7 +195,7 @@ $r = sqlresult($sql)[0];
                                 서비스<br>
                             </label>
                             <select class="form-control" name="o_service">
-                                <option value="아동" <?=($r[o_service]=="아동")?"selected":""?>>아동 돌봄</option>
+                                <option value="아동 돌봄" <?=($r[o_service]=="아동 돌봄")?"selected":""?>>아동 돌봄</option>
                             </select>
                         </div>
                         <div class="form-group mb-3">
@@ -227,7 +227,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         아동돌봄 종료일<br>
                                     </label>
-                                    <input class="form-control" id="child_end_datepicker" name="o_end_time" value="<?=date("Y-m-d",strtotime($r[o_end_time]))?>"/>
+                                    <input class="form-control"  autocomplete="off" id="child_end_datepicker" name="o_end_time"  value="<?=($r[o_service_detail]=="시간제")?date("Y-m-d",strtotime($r[o_end_time])):"" ?>"/>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">

@@ -81,7 +81,7 @@ session_check_order();
                             <label class="form-label">
                                 예약일<br>
                             </label>
-                            <input class="form-control" id="datetimepicker" name="o_order_date" value="<?=$r[o_order_date]?>"/>
+                            <input class="form-control" autocomplete="off"  id="datetimepicker" name="o_order_date" value="<?=$r[o_order_date]?>"/>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">

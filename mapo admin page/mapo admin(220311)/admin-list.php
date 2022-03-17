@@ -218,7 +218,14 @@ $rr = sqlrow($sql);
                             }
                             else{?>
                             <?=date("Y-m-d",strtotime($r[$i][o_start_time]))?>
-                            <?=($r[$i][o_end_time] != "")?" ~ <br>".date("Y-m-d",strtotime($r[$i][o_end_time])):""?>
+                            <!-- <?=($r[$i][o_end_time] != "")?" ~ <br>".date("Y-m-d",strtotime($r[$i][o_end_time])):""?> -->
+                            <?=
+                                    ($r[$i][o_end_time] != "")?
+                                    (($r[$i][o_service_detail]=="시간제")?
+                                    " ~ <br>".date("Y-m-d",strtotime($r[$i][o_end_time])):
+                                    ""):
+                                    ""
+                            ?>
                             <?php
                             }
                             ?>

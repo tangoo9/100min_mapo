@@ -26,6 +26,7 @@ $('#datepicker').datetimepicker({
 $('#child_start_datepicker').datetimepicker({
     // datepicker:false,
     timepicker:false,
+    scrollInput : false, //인풋 스크롤방지
     // inline : true,
     beforeShowDay: disabledWeekdays,
     format:'Y-m-d',
@@ -36,6 +37,7 @@ $('#child_start_datepicker').datetimepicker({
 $('#child_end_datepicker').datetimepicker({
     // datepicker:false,
     timepicker:false,
+    scrollInput : false, //인풋 스크롤방지
     // inline : true,
     beforeShowDay: disabledWeekdays,
     format:'Y-m-d',
