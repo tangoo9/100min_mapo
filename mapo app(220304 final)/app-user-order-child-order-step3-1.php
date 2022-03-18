@@ -47,7 +47,7 @@ session_check_app();
             dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
             showMonthAfterYear: true,
             yearSuffix: '년',
-            minDate : 0,
+            minDate : 1,
             maxDate : 35
         });
         $( function() { $("#datepicker").datepicker(); } ); 
@@ -98,13 +98,13 @@ session_check_app();
                         <span class="input-group-text">
                             이름<small>*</small>
                         </span>
-                        <input type="text" name="order_name" class="form-control" required>
+                        <input type="text" name="order_name" class="form-control" value="<?=$_SESSION[m_name]?>" required>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             전화번호<small>*</small>
                         </span>
-                        <input type="tel" id="phone" name="order_phone" class="form-control" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" required>
+                        <input type="tel" id="phone" name="order_phone" class="form-control" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" value="<?=$_SESSION[m_tel]?>" required>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">주소<small>*</small></span>
@@ -115,17 +115,17 @@ session_check_app();
                     </div>
                     <div class="addr_box">
                         <input class="form-control" type="hidden" id="sample3_postcode" placeholder="우편번호">
-                        <input name="order_addr1" class="form-control" type="text" id="sample3_address" placeholder="주소" readonly required>
+                        <input name="order_addr1" class="form-control" type="text" id="sample3_address" placeholder="주소" value="<?=$_SESSION[m_addr1]?>" readonly required>
                         <div class="input-group mb-3">
-                            <input name="order_addr2" id="sample3_detailAddress" class="form-control" type="text" placeholder="상세주소">
+                            <input name="order_addr2" id="sample3_detailAddress" class="form-control" type="text" placeholder="상세주소" value="<?=$_SESSION[m_addr2]?>">
                             <input class="form-control"  id="sample3_extraAddress" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">서비스</span>
-                        <select name="order_service" class="form-select" required>
+                        <select name="order_service_detail" class="form-select" required>
                             <option selected disabled value="">서비스를 선택하세요.</option>
-                            <option value="집수리">집 수리</option>
+                            <option value="집수리">집수리</option>
                             <option value="청소">청소</option>
                             <option value="소독">소독</option>
                             <option value="이동">이동</option>

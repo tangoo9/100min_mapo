@@ -41,12 +41,15 @@ $_SESSION[d5_end] = $d5_end = trim($_GET[timepicker10]);
         // let referrer = document.referrer;
         // let page5 = "app-user-order-child-order-step5";
         // console.log(referrer.includes(page5))
+        // alert("태스트 문자:"+referrer.includes(page5))
         
         // function goPage(){
         //     if(referrer.includes(page5) == true){
         //         location.href = "app-user-order-child-order-step1"
+        //         ("리퍼러에 의한 페이지 1로 이동")
         //     }else{
         //         history.back();
+        //         alert("일반적인 페이지 이동")
         //     }
         // }
 
@@ -68,6 +71,30 @@ $_SESSION[d5_end] = $d5_end = trim($_GET[timepicker10]);
         //     }
         // }
 
+        // history.pushState(4, "","");  //data, title, url 의 값이 들어가게 됩니다. 비워두면 이벤트 발생의 플래그 정도로 사용 할 수 있습니다.
+        // console.log(history.state)
+        // alert("히스토리 : "+ history.state)
+        // window.onpopstate = function(event) {  //뒤로가기 이벤트를 캐치합니다.
+
+        // history.back();   // pushState로 인하여 페이지가 하나 더 생성되기 떄문에 한번에 뒤로가기 위해서 뒤로가기를 한번 더 해줍니다.
+
+        // console.log('뒤로가기 체크'); 
+
+        // };
+
+        let getCurrentPageIdx = sessionStorage.getItem("pageIdx")
+        let setPrevPageIdx = sessionStorage.setItem("prevPageIdx",getCurrentPageIdx);
+        let setCurrentPageIdx = sessionStorage.setItem("pageIdx",4);
+        let getPrevPageIdx = sessionStorage.getItem("prevPageIdx")
+        function check(){
+            if(getPrevPageIdx > getCurrentPageIdx){
+                history.back(-2)
+            }else{
+                history.back();
+            }   
+        }
+
+        // alert("현재 세션 : " + getSsi)
     </script>
 </head>
 <body>
@@ -109,7 +136,7 @@ $_SESSION[d5_end] = $d5_end = trim($_GET[timepicker10]);
                 </div>
                 <input type="hidden" id="care_place" name ="care_place" value="">
                 <div class="selectBox">
-                    <button class="selectButton btn_div1" type="button" onclick="return goPage()">
+                    <button class="selectButton btn_div1" type="button" onclick="return check()">
                         <p>이전</p>
                     </button>
                     <button id="submitBtn" class="selectButton btn_div2" type="submit">

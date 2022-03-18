@@ -217,7 +217,7 @@ form{
 .boxContainer_order_step1_add .title{
     margin-top: 5em;
     width: 75vw;
-    height: 15vh;
+    height: 6rem;
 }
 .boxContainer_order_step1_add .title p{
     color: #c6c6c6;
@@ -1020,9 +1020,9 @@ form{
     height: 100%;
 }
 .boxContainer_order_add_detail .title{
-    margin-top: 5em;
+    margin-top: 5rem;
     width: 90vw;
-    height: 10vh;
+    height: 4rem;
 }
 .boxContainer_order_add_detail .title p{
     color: #c6c6c6;

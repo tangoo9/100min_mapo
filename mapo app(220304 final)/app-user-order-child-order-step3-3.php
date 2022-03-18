@@ -31,6 +31,9 @@ $_SESSION[select_care] = $_GET[care_type];
     <link rel="stylesheet" href="css/app-user-order-step.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
     <script src="js/datepicker.options.js"></script>
+    <script>
+        let setCurrentPageIdx = sessionStorage.setItem("pageIdx",3);
+    </script>
 </head>
 <body>
     <header>

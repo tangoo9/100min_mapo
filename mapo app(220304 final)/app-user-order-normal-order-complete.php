@@ -4,17 +4,26 @@ header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
 include '../src/method_config.php';
 session_check_app();
-$o = "select * from order_info o  
-left join member_child mc on mc.mc_no = o.mc_no 
-left join partner p on p.p_no = o.p_no
-where o.m_no = '{$_SESSION[m_no]}' and o_order_time = '{$_SESSION[order_time]}'";
-$or = sqlresult($o);
-$orr = sqlrow($o);
-$od = date("md", strtotime($_SESSION[order_time]));
-for($i=0;$i<$orr;$i++){
-    $order .= "{$or[$i][mc_name]}({$od}-{$or[$i][o_no]}) ";
+if($_POST[order_date] == "" || $_POST[order_time] == ""|| $_POST[order_name] == ""|| $_POST[order_phone] == ""|| $_POST[order_addr1] == ""|| $_POST[order_addr2] == ""|| $_POST[order_service_detail] == "") {
+ echo "<script>alert('필수 정보가 입력되지 않았습니다.')</script>";
+ exit;
 }
-$o = $or[0];
+    $i = "insert into order_info(m_no, o_order_date, o_order_time, o_service, o_service_detail,o_regat,o_start_time,o_comment)
+values 
+('{$_SESSION[m_no]}','{$_POST[order_date]}', '{$now}','성인 돌봄','{$_POST[order_service_detail]}','{$now}', '{$_POST[order_date]} {$_POST[order_time]}', '{$_POST[order_cmt]}')";
+    sqlresult($i);
+    $o = "select * from order_info o
+left join member m on o.m_no = m.m_no
+where o.m_no = '{$_SESSION[m_no]}' and o_regat = '{$now}' and o_service_detail = '{$_POST[order_service_detail]}' and o_start_time = '{$_POST[order_date]} {$_POST[order_time]}'";
+    $o_no = sqlresult($o)[0][o_no];
+    if(($_SESSION[m_name] != $_POST[order_name]) || (($_SESSION[m_tel] != $_POST[order_phone]))){
+        $u = "update order_info set o_normal_yn = 'Y', o_normal_name = '{$_POST[order_name]}', o_normal_tel = '{$_POST[order_phone]}', o_normal_addr1 = '{$_POST[order_addr1]}', o_normal_addr2 = '{$_POST[order_addr2]}' where o_no = '{$o_no}'";
+        sqlresult($u);
+     }
+$o = "select * from order_info o
+left join member m on o.m_no = m.m_no
+where o.m_no = '{$_SESSION[m_no]}' and o_regat = '{$now}' and o_service_detail = '{$_POST[order_service_detail]}' and o_start_time = '{$_POST[order_date]} {$_POST[order_time]}'";
+$or = sqlresult($o)[0];
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -26,44 +35,41 @@ $o = $or[0];
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
-    <script>
-        history.pushState(null, null, "app-user-order-child-order-complete");
-        window.onpopstate = function(event) { history.go(1); };
-    </script>
 </head>
 <body>
     <main>
         <div class="title">
-            <h1>아동돌봄 신청 완료!</h1>
+            <h1>성인 돌봄 신청 완료!</h1>
         </div>
         <div class="boxContainer_order_child_order_complete">
             <div class="textBox_child_order_complete">
-                <p>아동명(주문번호)</p>
-                <input type="text" value="<?=$order?>" disabled>
-                <p>서비스명</p>
-                <input type="text" value="아동 돌봄" disabled>
-                <p>상세서비스</p>
-                <input type="text" value="<?=$o[o_service_detail]?>" disabled>
-                <p>예약기간</p>
-                <input type="text" value="<?=date("Y-m-d",strtotime($o[o_start_time]))?><?=($o[o_service_detail] !="정기")?" ~ ".date("Y-m-d",strtotime($o[o_end_time])):" 시작"?>">
-                <p>예약시간</p>
                 <?php
-                if($o[o_d1] == 'Y')
-                 echo "<input type=\"text\" value=\"월요일 : $o[o_d1_start] ~ $o[o_d1_end]\")>";
-                if($o[o_d2] == 'Y')
-                    echo "<input type=\"text\" value=\"화요일 : $o[o_d2_start] ~ $o[o_d2_end]\")>";
-                if($o[o_d3] == 'Y')
-                    echo "<input type=\"text\" value=\"수요일 : $o[o_d3_start] ~ $o[o_d3_end]\")>";
-                if($o[o_d4] == 'Y')
-                    echo "<input type=\"text\" value=\"목요일 : $o[o_d4_start] ~ $o[o_d4_end]\")>";
-                if($o[o_d5] == 'Y')
-                    echo "<input type=\"text\" value=\"금요일 : $o[o_d5_start] ~ $o[o_d5_end]\")>";
+                if($or[o_normal_yn] == 'N'){
+                    ?>
+                    <p>성명(본인)</p>
+                    <input type="text" value="<?=$or[m_name]?>" disabled>
+                    <p>전화번호</p>
+                    <input type="text" value="<?=$or[m_tel]?>" disabled>
+                    <p>주소</p>
+                    <input type="text" value="<?=$or[m_addr]?>" disabled>
+                <?php
+                }
+                else{?>
+                    <p>성명(의뢰인)</p>
+                    <input type="text" value="<?=$or[m_normal_name]?>" disabled>
+                    <p>전화번호(의뢰인전화번호)</p>
+                    <input type="text" value="<?=$or[m_normal_tel]?>(<?=$or[m_tel]?>)" disabled>
+                    <p>주소</p>
+                    <input type="text" value="<?=$or[m_normal_addr1]." ".$or[m_normal_addr2]?>" disabled>
+                <?php
+                }
                 ?>
+                <p>서비스</p>
+                <input type="text" value="<?=$or[o_service_detail]?>" disabled>
+                <p>예약시간</p>
+                <input type="text" value="<?=date("Y-m-d H:i",strtotime($or[o_start_time]))?>">
                 <p>서비스 비고</p>
-                <input type="text" value="<?=($o[o_snack] == 'Y')?"간식요청 {$o[o_snack_info]}":"선택안함"?>" disabled>
-
-                <p>서비스 제공자</p>
-                <input type="text" value="<?=$o[p_name]?>(<?=$o[p_tel]?>)" disabled>
+                <input type="text" value="<?=$or[o_comment]?>" disabled>
                 <div class="selectBox">
                     <button class="selectButton" type="button" onclick="location.href='app-user-main'">
                         <p>홈으로 이동</p>

@@ -23,7 +23,14 @@ $sr = sqlresult($s)[0];
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-order-step.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
+    <script>
+        let getCurrentPageIdx = sessionStorage.getItem("pageIdx")
+        let setPrevPageIdx = sessionStorage.setItem("prevPageIdx",getCurrentPageIdx);
+        let setCurrentPageIdx = sessionStorage.setItem("pageIdx",6);
+        console.log(getCurrentPageIdx)
+</script>
 </head>
+
 <body>
     <header>
         <div class="header_container">

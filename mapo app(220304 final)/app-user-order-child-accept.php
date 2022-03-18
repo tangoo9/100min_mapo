@@ -27,7 +27,9 @@ $_SESSION[textarea] = $_GET[textarea];
     <link rel="stylesheet" href="css/app-user-order-child-accept.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
     <script src="/src/jquery.js"></script>
-
+    <script>
+        sessionStorage.clear();
+    </script>
 </head>
 <body>
     <div id="container">

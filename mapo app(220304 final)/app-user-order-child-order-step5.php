@@ -4,17 +4,7 @@ header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
 include '../src/method_config.php';
 session_check_app();
-$o = "select * from order_info o  
-left join member_child mc on mc.mc_no = o.mc_no 
-left join partner p on p.p_no = o.p_no
-where o.m_no = '{$_SESSION[m_no]}' and o_order_time = '{$_SESSION[order_time]}'";
-$or = sqlresult($o);
-$orr = sqlrow($o);
-$od = date("md", strtotime($_SESSION[order_time]));
-for($i=0;$i<$orr;$i++){
-    $order .= "{$or[$i][mc_name]}({$od}-{$or[$i][o_no]}) ";
-}
-$o = $or[0];
+$_SESSION[p_no] = $_GET[care_place];
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -23,58 +13,81 @@ $o = $or[0];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>돌봄이음</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="stylesheet" href="css/static-style.css">
-    <link rel="stylesheet" href="css/app-user-order.css">
+    <link rel="stylesheet" href="css/app-user-order-step.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
-    <script>
-        history.pushState(null, null, "app-user-order-child-order-complete");
-        window.onpopstate = function(event) { history.go(1); };
-    </script>
 </head>
+<script>
+        // window.onload = function(){
+        //     let btn_div1 =  document.querySelector('.btn_div1')
+        //     let from = "from5"
+        //     btn_div1.addEventListener('click', function(){
+        //         location.href='app-user-order-child-order-step4?' + from
+        //     })
+        // }
+        
+        
+        let getCurrentPageIdx = sessionStorage.getItem("pageIdx")
+        let setPrevPageIdx = sessionStorage.setItem("prevPageIdx",getCurrentPageIdx);
+        let setCurrentPageIdx = sessionStorage.setItem("pageIdx",5);
+        // alert("현재 세션 테스트용 : " + getCurrentPageIdx)
+        console.log(getCurrentPageIdx)
+</script>
 <body>
-    <main>
-        <div class="title">
-            <h1>성인 돌봄 신청 완료!</h1>
-        </div>
-        <div class="boxContainer_order_child_order_complete">
-            <div class="textBox_child_order_complete">
-                <p>성명(주문번호)</p>
-                <input type="text" value="<?=$order?>" disabled>
-                <p>서비스명</p>
-                <input type="text" value="성인 돌봄" disabled>
-                <p>상세서비스</p>
-                <input type="text" value="<?=$o[o_service_detail]?>" disabled>
-                <p>예약기간</p>
-                <input type="text" value="<?=date("Y-m-d",strtotime($o[o_start_time]))?> ~ <?=date("Y-m-d",strtotime($o[o_end_time]))?>">
-                <p>예약시간</p>
-                <?php
-                if($o[o_d1] == 'Y')
-                 echo "<input type=\"text\" value=\"월요일 : $o[o_d1_start] ~ $o[o_d1_end]\")>";
-                if($o[o_d2] == 'Y')
-                    echo "<input type=\"text\" value=\"화요일 : $o[o_d2_start] ~ $o[o_d2_end]\")>";
-                if($o[o_d3] == 'Y')
-                    echo "<input type=\"text\" value=\"수요일 : $o[o_d3_start] ~ $o[o_d3_end]\")>";
-                if($o[o_d4] == 'Y')
-                    echo "<input type=\"text\" value=\"목요일 : $o[o_d4_start] ~ $o[o_d4_end]\")>";
-                if($o[o_d5] == 'Y')
-                    echo "<input type=\"text\" value=\"금요일 : $o[o_d5_start] ~ $o[o_d5_end]\")>";
-                ?>
-                <p>서비스 비고</p>
-                <input type="text" value="<?=($o[o_snack] == 'Y')?"간식요청 {$o[o_snack_info]}":"선택안함"?>" disabled>
-
-                <p>서비스 제공자</p>
-                <input type="text" value="<?=$o[p_name]?>(<?=$o[p_tel]?>)" disabled>
-                <div class="selectBox">
-                    <button class="selectButton" type="button" onclick="location.href='app-user-main'">
-                        <p>홈으로 이동</p>
-                    </button>
-                </div>
-                <div class="selectBox">
-                    <button class="selectButton btn2" type="button" onclick="location.href='app-user-info-list'">
-                        <p>신청내역 확인</p>
-                    </button>
-                </div>
+    <header>
+        <div class="header_container">
+            <div class="header_title">
+                <p>아동돌봄 신청하기</p>    
             </div>
+        </div>
+    </header>
+    <main>
+        <div class="boxContainer_order_step5">
+            <div class="title">
+                <h2>간식 신청하기</h2>
+                <p>1회, 3000원</p>
+            </div>
+            <form action="app-user-order-child-order-add-detail" method="GET">
+                <div class="care_select_cont">
+                    <div class="select_div">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="snack" id="yes" value="Y">
+                            <label class="form-check-label" for="yes">
+                                신청
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="snack" id="no" value="N" checked>
+                            <label class="form-check-label" for="no">
+                                미신청
+                            </label>
+                        </div>
+                    </div>
+                    <p></p>
+                    <textarea name="snack_info" placeholder="원하시는 요일과 요청사항이 있으시면 말씀해주세요.(알레르기 정보 등)"></textarea>
+                </div>
+                <div class="progress_cont">
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="selectBox">
+                    <button class="selectButton btn_div1" type="button" onclick="history.back()">
+                        <p>이전</p>
+                    </button>
+                    <button  id="submitBtn" class="selectButton btn_div2" type="submit">
+                        <p>다음</p>
+                    </button>
+                </div>
+            </form>
+<!--            <div class="selectBox">
+                <button class="selectButton" type="button" onclick="location.href='app-user-order-child-order-add-detail'">
+                    <p>돌봄서비스신청서<br>(1회신청 , 임시, 추후삭제)</p>
+                </button>
+            </div>-->
         </div>
     </main>
     <footer>
@@ -105,5 +118,6 @@ $o = $or[0];
             </div>
         </nav>
     </footer>
+    <script src="js/app-user-order-child-order-step.js"></script>
 </body>
 </html>
