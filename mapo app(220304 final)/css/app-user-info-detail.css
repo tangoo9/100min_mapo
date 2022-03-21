@@ -147,7 +147,7 @@ main{
 }
 .selectBox{
     margin-top: 5vh;
-    margin-bottom: 10vh;
+    margin-bottom: 8vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -205,7 +205,7 @@ form{
 }
 .app-user-info-detail-change .layer_popup_cont{
     width: 80vw;
-    height: 33rem;
+    /* height: 33rem; */
     background-color:#ffffff;
     border: 1px solid #000000;
     padding :20px;
@@ -261,7 +261,7 @@ form{
     text-align: center;
 }
 .app-user-info-detail-change .list-group .calendar_container .date_wrapper .etc{
-    margin-left: -0.5rem;
+
 }
 .app-user-info-detail-change .list-group .calendar_container .date_wrapper .input{
     /* background-color: red; */
@@ -271,7 +271,7 @@ form{
     /* width: 70%; */
 }
 .app-user-info-detail-change .list-group .calendar_container .date_wrapper .datepicker{
-    width: 95%;
+    width: 11rem;
     text-align: center;
 }
 

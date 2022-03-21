@@ -57,8 +57,7 @@ $o = $or[0];
                     echo "<input type=\"text\" value=\"금요일 : $o[o_d5_start] ~ $o[o_d5_end]\")>";
                 ?>
                 <p>서비스 비고</p>
-                <input type="text" value="<?=($o[o_snack] == 'Y')?"간식요청 {$o[o_snack_info]}":"선택안함"?>" disabled>
-
+                <input type="text" value="<?=($o[o_snack] == 'Y')?"간식요청 {$o[o_snack_info]}":"선택안함"?> <?=$o[o_textarea]?>" disabled>
                 <p>서비스 제공자</p>
                 <input type="text" value="<?=$o[p_name]?>(<?=$o[p_tel]?>)" disabled>
                 <div class="selectBox">

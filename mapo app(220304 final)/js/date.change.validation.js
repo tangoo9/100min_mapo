@@ -285,21 +285,23 @@ $('#timepicker10').timepicker({
     }
 });
 
-    $('#submitBtn').click(function(){
-        function timeCheck(){
 
-        }
+
+    $('#submitBtn').click(function(){
         if($("#datepicker1").val() =="" || $("#datepicker2").val() ==""){
             alert('날짜를 선택해주세요.')
             return false
         }else if(
-            (
-                ($("#mon_day").is(':checked')) ||
-                ($("#tue_day").is(':checked')) ||
-                ($("#wed_day").is(':checked')) ||
-                ($("#thu_day").is(':checked')) ||
-                ($("#fri_day").is(':checked'))
-            ) == false
+                ($('#dateCheck').val() =="") &&
+                (
+                    (
+                        ($("#mon_day").is(':checked')) ||
+                        ($("#tue_day").is(':checked')) ||
+                        ($("#wed_day").is(':checked')) ||
+                        ($("#thu_day").is(':checked')) ||
+                        ($("#fri_day").is(':checked'))
+                    )  == false
+                ) 
             ){
             alert("요일을 하나 이상 지정해 주세요.")
             return false;
@@ -333,6 +335,7 @@ $('#timepicker10').timepicker({
         }else{
             return true;
         }
+
     })
 //  == Timepicker Option END ==============================
 })

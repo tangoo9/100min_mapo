@@ -57,7 +57,7 @@ $rr = sqlrow($o);
                     <thead>
                         <tr>
                             <td class="th_time">예정시간</td>
-                            <td class="th_name">상세서비스명</td>
+                            <td class="th_name">서비스명</td>
                             <td class="th_status">상태</td>
                             <td class="th_detail">상세보기</td>
                         </tr>
@@ -67,8 +67,19 @@ $rr = sqlrow($o);
                     for($i=0;$i<$rr;$i++){
                         ?>
                         <tr>
-                            <td><span><?=date("n월 j일", strtotime($r[$i][o_start_time]))?> <?=($r[$i][o_service_detail] !="정기")?" ~<br> ".date("n월 j일",strtotime($r[$i][o_end_time])):"<br>시작"?></td>
-                            <td><?=$r[$i][o_service_detail]?><?=($r[$i][mc_name]!="")?"<br>({$r[$i][mc_name]})":""?></td>
+                            <td><span><?=date("n월 j일", strtotime($r[$i][o_start_time]))?> <?php
+                                if($r[$i][o_service] == "아동 돌봄"){
+                                    echo ($r[$i][o_service_detail] !="정기")?" ~<br> ".date("n월 j일",strtotime($r[$i][o_end_time])):"<br>시작";
+                                }
+                                else{
+                                    echo "<br>".date("G시 i분", strtotime($r[$i][o_start_time]));
+                                }
+                                    ?></td>
+                            <td>
+                                <?php
+                                if($r[$i][o_service] != "아동 돌봄"){
+                                   echo "성인 돌봄<br>";
+                                }?><?=$r[$i][o_service_detail]?><?=($r[$i][mc_name]!="")?"<br>({$r[$i][mc_name]})":""?></td>
                             <td><?=$r[$i][o_status]?></td>
                             <td class="detail">
                                 <button type="button" class="btn btn-primary" onclick="location.href='app-user-info-detail?o_no=<?=$r[$i][o_no]?>'">

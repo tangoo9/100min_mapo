@@ -54,7 +54,7 @@ $od = date("md", strtotime($_SESSION[order_time]));
                 </div>
                 <div class="boxContainer">
                     <?php
-                    if($o[o_service] == '아동'){
+                    if($o[o_service] == '아동 돌봄'){
                         ?>
                         <p>아동명(주문번호)</p>
                         <input type="text" value="<?=$o[mc_name]?> (<?=$od?>-<?=$o[o_no]?>)" disabled>
@@ -102,13 +102,13 @@ $od = date("md", strtotime($_SESSION[order_time]));
                     <input type="text" value="<?=($o[o_snack] == 'Y')?"간식요청 {$o[o_snack_info]}":"선택안함"?>" disabled>
 
                     <p>서비스 제공자</p>
-                    <input type="text" value="<?=$o[p_name]?>(<?=$o[p_tel]?>)" disabled>
+                    <input type="text" value="<?=$o[p_name]?><?=($o[p_tel] != "")?"({$o[p_tel]})":"업체 할당 전"?>" disabled>
 
                     <p>서비스 상태</p>
                     <input type="text" value="<?=$o[o_status]?>" disabled>
 
                     <p>기타</p>
-                    <input type="text" value="<?=$o[o_comment]?>" disabled>
+                    <input type="text" value="<?=$o[o_comment]?> <?=$o[o_textarea]?>" disabled>
                     <?php
                     if($o[o_status] != '취소' && $o[o_status] != '완료'){
                         ?>
@@ -179,6 +179,10 @@ $od = date("md", strtotime($_SESSION[order_time]));
                                     }
                                     ?>
                                 </section>
+                                <?php 
+                                if($o[o_service] == '아동 돌봄'){
+                                ?>
+                                <input type="hidden" id="dateCheck" value="">
                                 <section class="time_container">
                                     <label for="mon_day">
                                         <input type="checkbox" id="mon_day" name="o_d1" <?=($o[o_d1]=='Y')?"checked":""?>>
@@ -221,12 +225,16 @@ $od = date("md", strtotime($_SESSION[order_time]));
                                         <input id="timepicker10" class="timepicker" name="o_d5_end" inputmode="none" autocomplete="off"  value="<?=$o[o_d5_end]?>" readonly />
                                     </label>
                                 </section>
+                                <?php
+                                }
+                                ?>
                                 <section class="calendar_container last_box">
                                     <div class="date_wrapper">
                                         <div class="guide_text etc">
                                             <p class="txt">비고</p>
                                         </div>
-                                            <input type="text" class="input" value="<?=$o[o_comment]?>" id=""  name="o_comment" autocomplete="off">
+                                            <!-- <input type="text" class="input" value="<?=$o[o_comment]?>" id=""  name="o_comment" autocomplete="off"> -->
+                                            <input type="text" class="input" value="<?=$o[o_textarea]?>" id="" name="o_textarea" autocomplete="off">
                                     </div>
                                 </section>
                             </div>

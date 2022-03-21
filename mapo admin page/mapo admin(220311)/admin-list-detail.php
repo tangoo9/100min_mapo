@@ -28,6 +28,12 @@ $r = sqlresult($sql)[0];
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/src/datetimepicker.css">
     <script src=/src/datetimepicker.js></script>
+    <script src="js/phone_validation.js"></script>
+    <style>
+        .temp{
+            width:85%;
+        }
+    </style>
 <!-- Analytics -->
  
 <!-- Analytics END -->
@@ -153,7 +159,7 @@ $r = sqlresult($sql)[0];
                         <label class="form-label">
                             월요일
                         </label>
-                        <select class="form-control-mcc" name="od1">
+                        <select class="form-control-mcc" name="o_d1">
                             <option value="Y" <?=($r[o_d1]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d1]=="N")?"selected":""?>>안함</option>
                         </select>
@@ -164,7 +170,7 @@ $r = sqlresult($sql)[0];
                         <label class="form-label">
                             수요일
                         </label>
-                        <select class="form-control-mcc" name="od3">
+                        <select class="form-control-mcc" name="o_d3">
                             <option value="Y" <?=($r[o_d3]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d3]=="N")?"selected":""?>>안함</option>
                         </select>
@@ -175,7 +181,7 @@ $r = sqlresult($sql)[0];
                         <label class="form-label">
                             금요일
                         </label>
-                        <select class="form-control-mcc" name="od5">
+                        <select class="form-control-mcc" name="o_d5">
                             <option value="Y" <?=($r[o_d5]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d5]=="N")?"selected":""?>>안함</option>
                         </select>
@@ -202,7 +208,7 @@ $r = sqlresult($sql)[0];
 					<label class="form-label label-bloc-24-style">
 						전화번호<br>
 					</label>
-					<input class="form-control" name="m_tel" value="<?=$r[m_tel]?>"/>
+					<input type="tel" class="form-control phone" name="m_tel" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" value="<?=$r[m_tel]?>"/>
 				</div>
 				<div class="form-group mb-3">
 					<label class="form-label">
@@ -236,7 +242,7 @@ $r = sqlresult($sql)[0];
                         <label class="form-label">
                             아동 전화번호<br>
                         </label>
-                        <input class="form-control" value="<?=$r[mc_tel]?>" readonly/>
+                        <input type="tel" class="form-control phone" name="mc_tel" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" value="<?=$r[mc_tel]?>"/>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label">
@@ -248,7 +254,7 @@ $r = sqlresult($sql)[0];
                         <label class="form-label">
                             화요일
                         </label>
-                        <select class="form-control-mcc" name="od2">
+                        <select class="form-control-mcc" name="o_d2">
                             <option value="Y" <?=($r[o_d2]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d2]=="N")?"selected":""?>>안함</option>
                         </select>
@@ -259,7 +265,7 @@ $r = sqlresult($sql)[0];
                         <label class="form-label">
                             목요일
                         </label>
-                        <select class="form-control-mcc" name="od4">
+                        <select class="form-control-mcc" name="o_d4">
                             <option value="Y" <?=($r[o_d4]=="Y")?"selected":""?>>신청</option>
                             <option value="N" <?=($r[o_d4]=="N")?"selected":""?>>안함</option>
                         </select>
@@ -277,7 +283,10 @@ $r = sqlresult($sql)[0];
                         <input class="form-control-mcc60" name="o_snack_info" value="<?=$r[o_snack_info]?>"/>
                     </div>
                     <div class="form-group mb-3">
-                        <input class="form-control" name="o_textarea" value="<?=$r[o_text_area]?>" placeholder="아동에 대한 메세지를 적어주세요."/>
+                        <label class="form-label">
+                            참고사항
+                        </label>
+                        <input class="form-control-mcc60 temp" name="o_textarea" value="<?=$r[o_textarea]?>" placeholder="아동에 대한 메세지를 적어주세요."/>
                     </div>
                     <?php
                     }

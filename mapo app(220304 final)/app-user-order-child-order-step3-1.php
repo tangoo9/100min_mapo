@@ -54,7 +54,7 @@ session_check_app();
 
         $(document).ready(function(){
                 $('#timepicker').timepicker({
-                timeFormat : "HH:mm ",
+                timeFormat : "HH:mm",
                     interval : 30,
                     minTime:'9',
                     maxTime:'19:30',

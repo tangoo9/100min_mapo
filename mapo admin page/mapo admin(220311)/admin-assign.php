@@ -1,3 +1,23 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+session_chk();
+$search = ($_GET[o_start_date] !="")?" date(o_order_date) <= date('{$_GET[o_start_date]}') and":"";
+$search .= ($_GET[o_end_date] !="")?" date(o_order_date) >= date('{$_GET[o_end_date]}') and":"";
+$search .= ($_GET[o_status] !="")?" o_status = '{$_GET[o_status]}' and":"";
+$search .= ($_GET[o_service] !="")?" o_service = '{$_GET[o_service]}' and":"";
+$search .= ($_GET[o_find] !="")?" concat(IFNULL(m_tel, ''), IFNULL(m_name, ''), IFNULL(m_addr,''), IFNULL(o_no, ''), IFNULL(o_id,''), IFNULL(o_service,''), IFNULL(o_service_detail,''), IFNULL(o_cmt,'')) like '%{$_GET[o_find]}%' and":"";
+$search = substr($search , 0, -4);
+$search = ($search != "")?"where".$search." and o_status = '일정요청'":"where o_status = '일정요청'";
+$sql = "select * from order_info o 
+left join member m on m.m_no = o.m_no 
+left join member_child mc on mc.mc_no = o.mc_no
+{$search} order by o_order_date asc";
+$r = sqlresult($sql);
+$rr = sqlrow($sql);
+?>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -11,6 +31,10 @@
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?6343">
 	<link rel="stylesheet" type="text/css" href="style.css?2513">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,300&display=swap&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <script src=/src/jquery.js></script>
+    <link rel="stylesheet" type="text/css" href="/src/datetimepicker.css">
+    <script src=/src/datetimepicker.js></script>
     <title>admin-register-1</title>
 
 
@@ -31,16 +55,16 @@
 <div class="page-container">
     
 <!-- bloc-2 -->
-<div class="bloc l-bloc k-m-t-60" id="bloc-2">
+<div class="bloc l-bloc " id="bloc-2">
 	<div class="container bloc-lg">
 		<div class="row">
 			<div class="col-sm-4 col-lg-3">
 				<h4 class="mg-md">
-					마포커뮤니티케어<br>관리자 시스템
+					돌봄이음<br>관리자 시스템
 				</h4>
 			</div>
 			<div class="col-sm-8 col-lg-9 k-align-right">
-				<a href="index.html" class="btn btn-d btn-lg btn-style width100">통합조회<br></a><a href="index.html" class="btn btn-lg btn-style float-lg-none width100 btn-d">일정등록</a><a href="index.html" class="btn btn-lg btn-style float-lg-none width100 btn-cadmium-orange">돌봄배정<br></a><a href="index.html" class="btn btn-d btn-lg btn-style float-lg-none width100">활동가<br></a><a href="index.html" class="btn btn-d btn-lg btn-style float-lg-none width100">서비스<br></a><a href="index.html" class="btn btn-d btn-lg btn-style float-lg-none width100">의뢰기관<br></a><a href="index.html" class="btn btn-d btn-lg btn-style float-lg-none width100">로그아웃<br></a>
+                <a href="admin-list" class="btn btn-d btn-lg btn-style float-lg-none width100">통합조회<br></a><a href="admin-register" class="btn btn-d btn-lg btn-style width100 ">일정등록</a><a href="admin-assign" class="btn btn-d btn-lg btn-style float-lg-none width100 btn-cadmium-orange">돌봄배정<br></a><a href="admin-manager" class="btn btn-d btn-lg btn-style float-lg-none width100">활동가<br></a><a href="admin-service" class="btn btn-d btn-lg btn-style float-lg-none width100">서비스<br></a><a href="admin-order" class="btn btn-d btn-lg btn-style float-lg-none width100">의뢰기관<br></a><a href="admin-passwd" onclick="window.open(this.href, '_blank', 'location=no, width=1000, height=800'); return false;" class="btn btn-d btn-lg btn-style float-lg-none width100">암호변경<br></a><a href="logout" class="btn btn-d btn-lg btn-style float-lg-none width100">로그아웃<br></a>			</div>
 			</div>
 		</div>
 	</div>
@@ -48,83 +72,93 @@
 <!-- bloc-2 END -->
 
 <!-- bloc-3 -->
-<div class="bloc l-bloc" id="bloc-3">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row">
-			<div class="col-12">
-				<div class="row row-style">
-					<div class="col-lg-2">
-						<div class="form-group mb-3">
-							<label class="form-label">
-								시작일<br>
-							</label>
-							<input class="form-control" />
-						</div>
-					</div>
-					<div class="col-lg-2">
-						<div class="form-group mb-3">
-							<label class="form-label">
-								종료일<br>
-							</label>
-							<input class="form-control" />
-						</div>
-					</div>
-					<div class="col-lg-2">
-						<div class="form-group mb-3">
-							<label class="form-label">
-								상태별<br>
-							</label>
-							<div class="form-group mb-3">
-								<select class="form-control">
-									<option value="0">
-										일정요청
-									</option>
-									<option value="1">
-										진행예정
-									</option>
-									<option value="0">
-										제공완료
-									</option>
-									<option value="0">
-										취소
-									</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-2">
-						<div class="form-group mb-3">
-							<label class="form-label">
-								서비스별<br>
-							</label>
-							<input class="form-control" />
-						</div>
-					</div>
-					<div class="col-lg-2">
-						<div class="form-group mb-3">
-							<label class="form-label">
-								문자열 검색<br>
-							</label>
-							<input class="form-control" />
-						</div>
-					</div>
-					<div class="col-lg-2">
-						<a href="index.html" class="btn btn-d btn-lg btn-padding k-margin-main">검색</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+    <form method="get">
+        <div class="bloc l-bloc" id="bloc-3">
+            <div class="container bloc-lg">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row row-style">
+                            <div class="col-lg-2">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">
+                                        시작일<br>
+                                    </label>
+                                    <input class="form-control" id="o_start_date" name="o_start_date" value="<?=$_GET[o_start_date]?>" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">
+                                        종료일<br>
+                                    </label>
+                                    <input class="form-control" id="o_end_date" name="o_end_date"  value="<?=$_GET[o_end_date]?>" autocomplete="off">
+                                </div>
+                            </div>
+                            <script>
+                                $.datetimepicker.setLocale('ko');
+                                $('#o_start_date').datetimepicker({
+                                    timepicker:false,
+                                    format:'Y-m-d'
+                                });
+                                $('#o_end_date').datetimepicker({
+                                    timepicker:false,
+                                    format:'Y-m-d'
+                                });
+                            </script>
+                            <div class="col-lg-2">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">
+                                        상태별<br>
+                                    </label>
+                                    <div class="form-group mb-3">
+                                        <select class="form-control" name="o_status">
+                                            <option>선택해 주세요.</option>
+                                            <option value="일정요청" <?=($_GET[o_status]=="일정요청")?"selected":""?>>일정요청</option>
+                                            <option value="진행예정" <?=($_GET[o_status]=="진행예정")?"selected":""?>>진행예정</option>
+                                            <option value="제공완료" <?=($_GET[o_status]=="제공완료")?"selected":""?>>제공완료</option>
+                                            <option value="취소" <?=($_GET[o_status]=="취소")?"selected":""?>>취소</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">
+                                        서비스별<br>
+                                    </label>
+                                    <select class="form-control" name="o_service">
+                                        <option>선택해 주세요.</option>
+                                        <option value="아동 돌봄" <?=($_GET[o_service]=="아동 돌봄")?"selected":""?>>아동 돌봄</option>
+                                        <option value="성인 돌봄" <?=($_GET[o_service]=="성인 돌봄")?"selected":""?>>성인 돌봄</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">
+                                        문자열 검색<br>
+                                    </label>
+                                    <input class="form-control" name="o_find"  value="<?=$_GET[o_find]?>"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <button type="submit" class="btn btn-d btn-lg btn-padding-search k-margin-main k-b-t-10 text-white k-m-l-10">검색</button><a href="admin-register-confirm" class="btn btn-d btn-lg btn-padding-search k-margin-main k-b-t-10 text-white k-m-l-10">등록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 <!-- bloc-3 END -->
 
 <!-- bloc-4 -->
 <div class="bloc l-bloc none" id="bloc-4">
-	<div class="container bloc-lg k-margin-top">
+	<div class="container bloc-lg-table">
 		<div class="row">
-			<div class="col-12 col-lg-1">
+			<div class="col-12 col-lg-2">
 				<label class="form-label label-style text-lg-start">
-					등록일<br>
+					예약일<br>
 				</label>
 			</div>
 			<div class="col-12 col-lg-1">
@@ -147,7 +181,7 @@
 					서비스
 				</label>
 			</div>
-			<div class="col-12 col-lg-2">
+			<div class="col-12 col-lg-1">
 				<label class="form-label text-lg-center">
 					비고
 				</label>
@@ -173,921 +207,87 @@
 	</div>
 </div>
 <!-- bloc-4 END -->
+<?php
+for($i =0; $i < $rr; $i++){
+    ?>
+    <form method="POST" action="process/admin">
+        <input type="hidden" name="o_no" value="<?=$r[$i][o_no]?>">
+        <input type="hidden" name="m_no" value="<?=$r[m_no]?>">
+        <input type="hidden" name="method" value="assign">
+        <div class="bloc l-bloc none">
+            <div class="container bloc-lg-table">
+                <div class="row">
+                    <div class="col-12 col-lg-2">
+                        <label class="form-label label-style text-lg-start">
+                            <label class="form-label label-style text-lg-start">
+                                <?=date("Y-m-d",strtotime($r[$i][o_start_time]))?>
+                                <?=($r[$i][o_end_time] != "")?" ~ <br>".date("Y-m-d",strtotime($r[$i][o_end_time])):""?>
+                            </label>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-1">
+                        <label class="form-label text-lg-left">
+                            <?=$r[$i][m_name]?>
+                            <?=($r[$i][mc_name] != "")?"<br>({$r[$i][mc_name]})":""?>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        <label class="form-label text-lg-left">
+                            <?=$r[$i][m_tel]?>
+                            <?=($r[$i][mc_tel] != "")?"<br>({$r[$i][mc_tel]})":""?>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <label class="form-label text-lg-left">
+                            &nbsp;<?=$r[$i][m_addr]?>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-1">
+                        <label class="form-label text-lg-left">
+                            &nbsp;<?=$r[$i][o_service]?><br>
+                            &nbsp;<?=$r[$i][o_service_detail]?>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-1">
+                        <label class="form-label text-lg-center">
+                            <?=$r[$i][o_cmt]?>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <select class="form-control" name="p_no">
+                                <option value="">없음</option>
+                                <?php
+                                $p = "select * from partner where p_biz_service = '{$r[$i][o_service]}'";
+                                $pr = sqlresult($p);
+                                $prr = sqlrow($p);
+                                for($j=0; $j<$prr; $j++){
+                                    ?>
+                                    <option value="<?=$pr[$j][p_no]?>" <?=($r[$i][p_no]==$pr[$j][p_no])?"selected":""?>><?=$pr[$j][p_name]?></option>
+                                        <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-1">
+                        <input type="submit" class="btn btn-d btn-button-padding btn-lg k-t-s-s" name="req" value="배정">
+                    </div>
+                </div>
+                <div class="row k-m-l-l">
+                    <div class="col">
+                        <div class="divider-h k-list-line divider-padding">
+                            <span class="divider"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <?php
+}
+?>
 
-<!-- bloc-5 -->
-<div class="bloc l-bloc none" id="bloc-5">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-5 END -->
-
-<!-- bloc-52 -->
-<div class="bloc l-bloc none" id="bloc-52">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-52 END -->
-
-<!-- bloc-53 -->
-<div class="bloc l-bloc none" id="bloc-53">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-53 END -->
-
-<!-- bloc-54 -->
-<div class="bloc l-bloc none" id="bloc-54">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-54 END -->
-
-<!-- bloc-55 -->
-<div class="bloc l-bloc none" id="bloc-55">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-55 END -->
-
-<!-- bloc-56 -->
-<div class="bloc l-bloc none" id="bloc-56">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-56 END -->
-
-<!-- bloc-57 -->
-<div class="bloc l-bloc none" id="bloc-57">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-57 END -->
-
-<!-- bloc-58 -->
-<div class="bloc l-bloc none" id="bloc-58">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-58 END -->
-
-<!-- bloc-59 -->
-<div class="bloc l-bloc none" id="bloc-59">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-59 END -->
-
-<!-- bloc-60 -->
-<div class="bloc l-bloc none" id="bloc-60">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-60 END -->
-
-<!-- bloc-61 -->
-<div class="bloc l-bloc none" id="bloc-61">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-61 END -->
-
-<!-- bloc-62 -->
-<div class="bloc l-bloc none" id="bloc-62">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-62 END -->
-
-<!-- bloc-63 -->
-<div class="bloc l-bloc none" id="bloc-63">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-63 END -->
-
-<!-- bloc-64 -->
-<div class="bloc l-bloc none" id="bloc-64">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-64 END -->
-
-<!-- bloc-65 -->
-<div class="bloc l-bloc none" id="bloc-65">
-	<div class="container bloc-lg k-margin-top">
-		<div class="row k-m-l-100">
-			<div class="col-12 col-lg-1">
-				<label class="form-label label-style text-lg-start">
-					21-10-01
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-end">
-					아무개<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					010-1234-1234<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-3">
-				<label class="form-label text-lg-center">
-					&nbsp;마포구 큰우물로 76 403호<br>
-				</label>
-			</div>
-			<div class="col-12 col-lg-1">
-				<label class="form-label text-lg-center">
-					돌봄
-				</label>
-			</div>
-			<div class="col-12 col-lg-2">
-				<label class="form-label text-lg-center">
-					비고란<br>
-				</label>
-			</div>
-			<div class="col">
-				<div class="form-group mb-3">
-					<select class="form-control">
-						<option value="0">
-							아무개
-						</option>
-						<option value="1">
-							Option 2
-						</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-12 col-lg-1">
-				<a href="index.html" class="btn btn-d btn-button-padding btn-lg k-t-s-s">배정하기<br></a>
-			</div>
-		</div>
-		<div class="row k-m-l-l k-m-u--25">
-			<div class="col">
-				<div class="divider-h k-list-line divider-padding">
-					<span class="divider"></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- bloc-65 END -->
 
 <!-- ScrollToTop Button -->
 <a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><path class="scroll-to-top-btn-icon" d="M30,22.656l-14-13-14,13"/></svg></a>
@@ -1098,7 +298,7 @@
 <div class="bloc l-bloc" id="bloc-84">
 	<div class="container bloc-lg">
 		<div class="row">
-			<div class="col-12 col-sm-4 col-lg-12 k-m-t--150">
+			<div class="col-12 col-sm-4 col-lg-12">
 				<h4 class="mg-md text-center text-sm-start text-lg-center h4-style">
 					Copyright @마포구고용복지지원센터 2021.
 				</h4>

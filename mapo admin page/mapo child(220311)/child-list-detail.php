@@ -26,6 +26,7 @@ $r = sqlresult($sql)[0];
     <script src="./js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/src/datetimepicker.css">
     <script src=/src/datetimepicker.js></script>
+    <script src="js/phone_validation.js"></script>
     <title>admin-list-1</title>
 
 
@@ -188,7 +189,7 @@ $r = sqlresult($sql)[0];
                             <label class="form-label label-bloc-24-style">
                                 전화번호<br>
                             </label>
-                            <input class="form-control" name="m_tel" value="<?=$r[m_tel]?>"/>
+                            <input type="tel" class="form-control phone" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" name="m_tel" value="<?=$r[m_tel]?>"/>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">
@@ -221,7 +222,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         아동 전화번호<br>
                                     </label>
-                                    <input class="form-control" value="<?=$r[mc_tel]?>" readonly/>
+                                    <input type="tel" class="form-control phone" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" name="mc_tel" value="<?=$r[mc_tel]?>" />
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-label">

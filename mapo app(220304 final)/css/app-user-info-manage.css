@@ -160,14 +160,14 @@ form{
 
 .selectBox{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-content: center;
     margin-top: 5vh;
 }
 
 .selectBox .selectButton{
     cursor: pointer;
-    margin : 2vw;
+    margin : 2vw 0;
     width: 40vw;
     height: 6.5vh;
     /* background-color: #c4c4c4; */

@@ -107,8 +107,11 @@ $r = sqlresult($sql)[0];
                                 상세 서비스<br>
                             </label>
                             <select class="form-control" name="p_biz_service_detail">
-                                <option value="아동 돌봄" <?=$r[p_biz_service_detail] =="아동 돌봄"?"selected":""?>>아동 돌봄</option>
-                                <option value="성인 돌봄" <?=$r[p_biz_service_detail] =="성인 돌봄"?"selected":""?>>성인 돌봄</option>
+                                <option value="">성인돌봄의 경우 선택해 주세요.</option>
+                                <option value="집수리" <?=$r[p_biz_service_detail] =="집수리"?"selected":""?>>집수리</option>
+                                <option value="청소" <?=$r[p_biz_service_detail] =="청소"?"selected":""?>>청소</option>
+                                <option value="소독" <?=$r[p_biz_service_detail] =="소독"?"selected":""?>>소독</option>
+                                <option value="이동" <?=$r[p_biz_service_detail] =="이동"?"selected":""?>>이동</option>
                             </select>
                         </div>
                     </div>
@@ -135,7 +138,11 @@ $r = sqlresult($sql)[0];
                             <label class="form-label">
                                 서비스<br>
                             </label>
-                            <input class="form-control" name="p_biz_service" value="돌봄""/>
+                            <select class="form-control" name="p_biz_service">
+                                <option value="">선택해 주세요.</option>
+                                <option value="성인 돌봄" <?=$r[p_biz_service] =="성인 돌봄"?"selected":""?>>성인 돌봄</option>
+                                <option value="아동 돌봄" <?=$r[p_biz_service] =="아동 돌봄"?"selected":""?>>아동 돌봄</option>
+                            </select>
                         </div>
 
                     </div>

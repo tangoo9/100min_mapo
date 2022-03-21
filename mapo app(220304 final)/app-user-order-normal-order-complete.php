@@ -6,11 +6,22 @@ include '../src/method_config.php';
 session_check_app();
 if($_POST[order_date] == "" || $_POST[order_time] == ""|| $_POST[order_name] == ""|| $_POST[order_phone] == ""|| $_POST[order_addr1] == ""|| $_POST[order_addr2] == ""|| $_POST[order_service_detail] == "") {
  echo "<script>alert('필수 정보가 입력되지 않았습니다.')</script>";
+    echo "<script>history.go(-1)</script>";
  exit;
 }
+$oc = "select * from order_info o
+left join member m on o.m_no = m.m_no
+where o.m_no = '{$_SESSION[m_no]}' and o_service_detail = '{$_POST[order_service_detail]}' and o_start_time = '{$_POST[order_date]} {$_POST[order_time]}'";
+$check = sqlrow($oc);
+if($check > 0){
+    echo "<script>alert('중복 접수 되었습니다. 이용 내역을 확인해 주세요.')</script>";
+    echo "<script>history.go(-1)</script>";
+    exit;
+}
+$o_start_time = trim($_POST[order_date]." ".$_POST[order_time]);
     $i = "insert into order_info(m_no, o_order_date, o_order_time, o_service, o_service_detail,o_regat,o_start_time,o_comment)
 values 
-('{$_SESSION[m_no]}','{$_POST[order_date]}', '{$now}','성인 돌봄','{$_POST[order_service_detail]}','{$now}', '{$_POST[order_date]} {$_POST[order_time]}', '{$_POST[order_cmt]}')";
+('{$_SESSION[m_no]}','{$_POST[order_date]}', '{$now}','성인 돌봄','{$_POST[order_service_detail]}','{$now}', '{$o_start_time}', '{$_POST[order_cmt]}')";
     sqlresult($i);
     $o = "select * from order_info o
 left join member m on o.m_no = m.m_no
@@ -56,11 +67,11 @@ $or = sqlresult($o)[0];
                 }
                 else{?>
                     <p>성명(의뢰인)</p>
-                    <input type="text" value="<?=$or[m_normal_name]?>" disabled>
+                    <input type="text" value="<?=$or[o_normal_name]?>(<?=$or[m_name]?>)" disabled>
                     <p>전화번호(의뢰인전화번호)</p>
-                    <input type="text" value="<?=$or[m_normal_tel]?>(<?=$or[m_tel]?>)" disabled>
+                    <input type="text" value="<?=$or[o_normal_tel]?>(<?=$or[m_tel]?>)" disabled>
                     <p>주소</p>
-                    <input type="text" value="<?=$or[m_normal_addr1]." ".$or[m_normal_addr2]?>" disabled>
+                    <input type="text" value="<?=$or[o_normal_addr1]." ".$or[o_normal_addr2]?>" disabled>
                 <?php
                 }
                 ?>

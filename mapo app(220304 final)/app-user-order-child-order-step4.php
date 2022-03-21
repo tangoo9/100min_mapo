@@ -114,7 +114,7 @@ $_SESSION[d5_end] = $d5_end = trim($_GET[timepicker10]);
             <form action="app-user-order-child-order-step5" method="get">
                 <div class="care_select_cont">
                     <?php
-                    $p = "select * from partner where p_biz_service_detail = '아동 돌봄'";
+                    $p = "select * from partner where p_biz_service = '아동 돌봄'";
                     $pr = sqlresult($p);
                     $prr = sqlrow($p);
                     for($i=0;$i<$prr;$i++){

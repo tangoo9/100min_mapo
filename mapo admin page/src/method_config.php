@@ -45,7 +45,7 @@ function session_check_app() {
     if(!isset($_SESSION['m_no']) || !isset($_SESSION['m_id']) || !isset($_SESSION['m_name']) || !isset($_SESSION['m_tel']) || !isset($_SESSION['m_addr']))
     {
         session_destroy();
-        echo '<script type = "text/javascript">alert("다시 로그인 해 주세요.")</script> ';
+        echo '<script type = "text/javascript">alert("로그인이 필요합니다.")</script> ';
         echo "<meta http-equiv='refresh' content='0; url=/app/app-user-login'>";
         exit;
     }
@@ -343,7 +343,7 @@ function alert($msg){
 function to_update_sql($msg, $submit, $in){
     $msg = array_diff_key($_POST, array("{$submit}" => ""));
     foreach ($msg as $key => $value) {
-        if(substr($key , 0, 1) == $in && strpos($key, "no") === false && strpos($key, "_") !== false)
+        if(substr($key , 0, 2) == $in && strpos($key, "no") === false && strpos($key, "_") !== false)
         $query .= "{$key} = '{$value}', ";
     }
     $query = substr($query , 0, -2);

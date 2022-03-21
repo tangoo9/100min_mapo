@@ -33,7 +33,6 @@ $_SESSION[p_no] = $_GET[care_place];
         let getCurrentPageIdx = sessionStorage.getItem("pageIdx")
         let setPrevPageIdx = sessionStorage.setItem("prevPageIdx",getCurrentPageIdx);
         let setCurrentPageIdx = sessionStorage.setItem("pageIdx",5);
-        // alert("현재 세션 테스트용 : " + getCurrentPageIdx)
         console.log(getCurrentPageIdx)
 </script>
 <body>

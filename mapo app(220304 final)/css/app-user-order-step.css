@@ -649,7 +649,7 @@ form{
     width: 75vw;
     /* height: 20vh; */
     padding-bottom: 1rem;
-    border-bottom: 1px solid #c6c6c6;
+    /* border-bottom: 1px solid #c6c6c6; */
 }
 .boxContainer_order_step3_2 .title p{
     color: #c6c6c6;
