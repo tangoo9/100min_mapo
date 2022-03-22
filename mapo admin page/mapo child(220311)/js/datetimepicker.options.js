@@ -15,6 +15,7 @@ $.datetimepicker.setLocale('ko');
 $('#datepicker').datetimepicker({
     // datepicker:false,
     timepicker:false,
+    scrollInput : false, //인풋 스크롤방지
     // inline : true,
     beforeShowDay: disabledWeekdays,
     format:'Y-m-d',

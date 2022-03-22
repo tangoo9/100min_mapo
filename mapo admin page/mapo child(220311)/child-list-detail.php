@@ -28,7 +28,18 @@ $r = sqlresult($sql)[0];
     <script src=/src/datetimepicker.js></script>
     <script src="js/phone_validation.js"></script>
     <title>admin-list-1</title>
-
+    <style>
+        .temp{
+            width:100%;
+            height:10rem;
+            overflow-wrap: break-word;
+        }
+        .info{
+            height:10rem;
+            text-align:start;
+            resize:none;
+        }
+    </style>
 
     
 <!-- Analytics -->
@@ -140,7 +151,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         월요일
                                     </label>
-                                    <select class="form-control-mcc" name="od1">
+                                    <select class="form-control-mcc" name="o_d1">
                                         <option value="Y" <?=($r[o_d1]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d1]=="N")?"selected":""?>>안함</option>
                                     </select>
@@ -151,7 +162,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         수요일
                                     </label>
-                                    <select class="form-control-mcc" name="od3">
+                                    <select class="form-control-mcc" name="o_d3">
                                         <option value="Y" <?=($r[o_d3]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d3]=="N")?"selected":""?>>안함</option>
                                     </select>
@@ -162,7 +173,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         금요일
                                     </label>
-                                    <select class="form-control-mcc" name="od5">
+                                    <select class="form-control-mcc" name="o_d5">
                                         <option value="Y" <?=($r[o_d5]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d5]=="N")?"selected":""?>>안함</option>
                                     </select>
@@ -170,7 +181,17 @@ $r = sqlresult($sql)[0];
                                     <input class="form-control-mcc timepicker" autocomplete="off" id="d5_end"   name="o_d5_end" value="<?=($r[o_d5_end] != "")?$r[o_d5_end]:""?>"/>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input class="form-control" value="관계:<?=$r[o_relation]?> 건강:<?=$r[o_health]?> <?=$r[o_health_etc_comment]?> <?=$r[o_condition]?> <?=$r[o_condition_etc_comment]?> <?=$r[o_back_home]?> <?=$r[o_back_home_etc_comment]?> 긴급연락:<?=$r[o_emergency]?>" readonly/>
+                                <label class="form-label">
+                                    돌봄 신청 상세<br>
+                                </label>
+                                <textarea class="form-control info"  readonly>
+관계 : <?=$r[o_relation]?> 
+건강 : <?=$r[o_health]?> <?=$r[o_health_etc_comment]?> 
+가정환경 : <?=$r[o_condition]?> <?=$r[o_condition_etc_comment]?> 
+귀가방법 : <?=$r[o_back_home]?> <?=$r[o_back_home_etc_comment]?> 
+긴급연락 : <?=$r[o_emergency]?>
+                                </textarea>    
+                                    <!-- <input class="form-control" value="관계:<?=$r[o_relation]?> 건강:<?=$r[o_health]?> <?=$r[o_health_etc_comment]?> <?=$r[o_condition]?> <?=$r[o_condition_etc_comment]?> <?=$r[o_back_home]?> <?=$r[o_back_home_etc_comment]?> 긴급연락:<?=$r[o_emergency]?>" readonly/> -->
                                 </div>
                                 <?php
                             }
@@ -234,7 +255,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         화요일
                                     </label>
-                                    <select class="form-control-mcc" name="od2">
+                                    <select class="form-control-mcc" name="o_d2">
                                         <option value="Y" <?=($r[o_d2]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d2]=="N")?"selected":""?>>안함</option>
                                     </select>
@@ -245,7 +266,7 @@ $r = sqlresult($sql)[0];
                                     <label class="form-label">
                                         목요일
                                     </label>
-                                    <select class="form-control-mcc" name="od4">
+                                    <select class="form-control-mcc" name="o_d4">
                                         <option value="Y" <?=($r[o_d4]=="Y")?"selected":""?>>신청</option>
                                         <option value="N" <?=($r[o_d4]=="N")?"selected":""?>>안함</option>
                                     </select>
@@ -263,7 +284,11 @@ $r = sqlresult($sql)[0];
                                     <input class="form-control-mcc60" name="o_snack_info" value="<?=$r[o_snack_info]?>"/>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input class="form-control" name="o_textarea" value="<?=$r[o_text_area]?>" placeholder="아동에 대한 메세지를 적어주세요."/>
+                                    <label class="form-label">
+                                        참고사항
+                                    </label>
+                                    <input class="form-control-mcc60 temp" name="o_textarea" value="<?=$r[o_textarea]?>" placeholder="아동에 대한 메세지를 적어주세요."/>
+                                    <!-- <input class="form-control" name="o_textarea" value="<?=$r[o_text_area]?>" placeholder="아동에 대한 메세지를 적어주세요."/> -->
                                 </div>
                                 <?php
                             }

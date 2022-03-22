@@ -83,7 +83,7 @@ $rr = sqlrow($sql);
 					의뢰기관
 				</label>
 			</div>
-			<div class="col-12 col-lg-2">
+			<div class="col-12 col-lg-3">
 				<label class="form-label label-상세서비스-style text-lg-start">
 					아이디<br>
 				</label>
@@ -98,7 +98,7 @@ $rr = sqlrow($sql);
 					주소
 				</label>
 			</div>
-			<div class="col-12 col-lg-2">
+			<div class="col-12 col-lg-1">
 				<label class="form-label text-lg-center">
 					상태
 				</label>
@@ -134,7 +134,7 @@ $rr = sqlrow($sql);
                                 <?=$r[$i][a_name]?><br>
                             </label>
                         </div>
-                        <div class="col-12 col-lg-2">
+                        <div class="col-12 col-lg-3">
                             <label class="form-label text-lg-end">
                                 <?=$r[$i][a_id]?><br>
                             </label>
@@ -149,7 +149,7 @@ $rr = sqlrow($sql);
                                 <?=$r[$i][a_addr]?><br>
                             </label>
                         </div>
-                        <div class="col-12 col-lg-2">
+                        <div class="col-12 col-lg-1">
                             <label class="form-label text-lg-center">
                                 <?=$r[$i][a_status]?><br>
                             </label>

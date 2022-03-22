@@ -110,7 +110,7 @@ $od = date("md", strtotime($_SESSION[order_time]));
                     <p>기타</p>
                     <input type="text" value="<?=$o[o_comment]?> <?=$o[o_textarea]?>" disabled>
                     <?php
-                    if($o[o_status] != '취소' && $o[o_status] != '완료'){
+                    if($o[o_status] != '취소' && $o[o_status] != '완료' &&  $o[o_status] != '제공완료'){
                         ?>
                         <div class="selectBox">
                            <button class="btn btn-primary change" type="button">시간변경하기</button>

@@ -17,6 +17,7 @@ $('#datetimepicker').datetimepicker({
     // inline : true,
     beforeShowDay: disabledWeekdays,
     format:'Y-m-d H:i',
+    scrollInput : false, //인풋 스크롤방지
     // yearOffset : 1,
     step : 30, //시간 간격, 분
     minTime: '09:00',

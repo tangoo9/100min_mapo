@@ -31,7 +31,14 @@ $r = sqlresult($sql)[0];
     <script src="js/phone_validation.js"></script>
     <style>
         .temp{
-            width:85%;
+            width:100%;
+            height:10rem;
+            overflow-wrap: break-word;
+        }
+        .info{
+            height:10rem;
+            text-align:start;
+            resize:none;
         }
     </style>
 <!-- Analytics -->
@@ -189,8 +196,17 @@ $r = sqlresult($sql)[0];
                         <input class="form-control-mcc timepicker" autocomplete="off" id ="d5_end"   name="o_d5_end" value="<?=($r[o_d5_end] != "")?$r[o_d5_end]:""?>"/>
                     </div>
                     <div class="form-group mb-3">
-                    <input class="form-control" value="관계:<?=$r[o_relation]?> 건강:<?=$r[o_health]?> <?=$r[o_health_etc_comment]?> <?=$r[o_condition]?> <?=$r[o_condition_etc_comment]?> <?=$r[o_back_home]?> <?=$r[o_back_home_etc_comment]?> 긴급연락:<?=$r[o_emergency]?>" readonly/>
-                </div>
+                        <label class="form-label">
+                            돌봄 신청 상세<br>
+                        </label>
+                        <textarea class="form-control info"  readonly>
+관계 : <?=$r[o_relation]?> 
+건강 : <?=$r[o_health]?> <?=$r[o_health_etc_comment]?> 
+가정환경 : <?=$r[o_condition]?> <?=$r[o_condition_etc_comment]?> 
+귀가방법 : <?=$r[o_back_home]?> <?=$r[o_back_home_etc_comment]?> 
+긴급연락 : <?=$r[o_emergency]?>
+                        </textarea>    
+                    </div>
                         <?php
                     }
                     ?>
@@ -322,18 +338,6 @@ $r = sqlresult($sql)[0];
 </div>
 <!-- Main container END -->
 
-<script>
-    // $('.timepicker').timepicker({
-    //     timeFormat: 'HH:mm',
-    //     interval: 30,
-    //     minTime: '9',
-    //     maxTime: '18:00',
-    //     startTime: '09:00',
-    //     dynamic: false,
-    //     dropdown: true,
-    //     scrollbar: true
-    // });
-</script>
 
 <!-- Additional JS -->
 <script src="./js/bootstrap.bundle.min.js?8370"></script>
