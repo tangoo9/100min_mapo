@@ -4,10 +4,12 @@ header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
 include '../src/method_config.php';
 session_check_app();
-$o = "select * from order_info o  
+$o = "select * from order_info o 
+left join member m on m.m_no = o.m_no
 left join member_child mc on mc.mc_no = o.mc_no 
 left join partner p on p.p_no = o.p_no
 where o.o_no = '{$_GET[o_no]}' and o.m_no = '{$_SESSION[m_no]}'";
+
 $o = sqlresult($o)[0];
 $od = date("md", strtotime($_SESSION[order_time]));
 
@@ -60,10 +62,25 @@ $od = date("md", strtotime($_SESSION[order_time]));
                         <input type="text" value="<?=$o[mc_name]?> (<?=$od?>-<?=$o[o_no]?>)" disabled>
                     <?php
                     }else{
-                        ?>
-                        <p>주문번호</p>
-                        <input type="text" value="<?=$od?>-<?=$o[o_no]?>" disabled>
-                    <?php
+                        if($o[o_normal_yn] == 'N'){
+                            ?>
+                            <p>성명(본인)</p>
+                            <input type="text" value="<?=$o[m_name]?>" disabled>
+                            <p>전화번호</p>
+                            <input type="text" value="<?=$o[m_tel]?>" disabled>
+                            <p>주소</p>
+                            <input type="text" value="<?=$o[m_addr]?>" disabled>
+                            <?php
+                        }
+                        else{?>
+                            <p>성명(의뢰인)</p>
+                            <input type="text" value="<?=$o[o_normal_name]?>(<?=$o[m_name]?>)" disabled>
+                            <p>전화번호(의뢰인전화번호)</p>
+                            <input type="text" value="<?=$o[o_normal_tel]?>(<?=$o[m_tel]?>)" disabled>
+                            <p>주소</p>
+                            <input type="text" value="<?=$o[o_normal_addr1]." ".$o[o_normal_addr2]?>" disabled>
+                            <?php
+                        }
                     }
                     ?>
 
@@ -89,7 +106,9 @@ $od = date("md", strtotime($_SESSION[order_time]));
                         if($o[o_d5] == 'Y')
                             echo "<input type=\"text\" value=\"금요일 : $o[o_d5_start] ~ $o[o_d5_end]\")>";
                         ?>
-                        <?php
+                        <p>간식 요청</p>
+                            <input type="text" value="<?=($o[o_snack] == 'Y')?"간식요청 {$o[o_snack_info]}":"선택안함"?>" disabled>
+                        <?php               
                     }else{
                         ?>
                         <p>예약시간</p>
@@ -97,10 +116,7 @@ $od = date("md", strtotime($_SESSION[order_time]));
                         <?php
                     }
                     ?>
-
-                    <p>서비스 비고</p>
-                    <input type="text" value="<?=($o[o_snack] == 'Y')?"간식요청 {$o[o_snack_info]}":"선택안함"?>" disabled>
-
+                    
                     <p>서비스 제공자</p>
                     <input type="text" value="<?=$o[p_name]?><?=($o[p_tel] != "")?"({$o[p_tel]})":"업체 할당 전"?>" disabled>
 

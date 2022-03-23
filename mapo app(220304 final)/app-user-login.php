@@ -1,3 +1,10 @@
+<?php
+session_start();
+IF(isset($_SESSION['m_no']) && isset($_SESSION['m_id']) && isset($_SESSION['m_name']) && isset($_SESSION['m_tel']) && isset($_SESSION['m_addr'])){
+    echo "<meta http-equiv='refresh' content = '0; url=/app/app-user-main'>";
+}
+else{
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -67,3 +74,6 @@
 </main>
 </body>
 </html>
+<?php
+}
+?>
