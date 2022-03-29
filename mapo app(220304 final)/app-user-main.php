@@ -57,7 +57,7 @@ session_check_app();
                 </div>
             </div>
             <div class="boxRow">
-                <div class="box" onclick="alert('Q&A 경로를 지정해주세요.')">
+                <div class="box" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685268205'">
                     <div class="sub_title">
                         <p>Q&A</p>
                     </div>

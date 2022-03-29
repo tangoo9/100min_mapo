@@ -46,7 +46,9 @@ session_check_app();
                     <p>서비스 등의 돌봄서비스를 지원합니다. </p>
                 </div>
             </div>
-            <div class="box" onclick="alert('추후 서비스 예정입니다.')">
+            <div class="box" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685754975'"
+            
+            >
                 <div class="sub_title">
                     <p>마포구 돌봄정보</p>
                     <p class="detail">자세히보기</p>

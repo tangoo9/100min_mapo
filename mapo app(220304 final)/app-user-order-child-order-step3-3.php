@@ -66,7 +66,7 @@ $_SESSION[select_care] = $_GET[care_type];
                     <div class="care_info">
                         <span>5주 이내의 일정까지 예약가능합니다</span>
                         <span>당일 이용은 전화문의 바랍니다.</span>
-                        <span>마포자람  070-7730-0771</span>
+                        <span>마포자람 070-7730-0771</span>
                     </div>
                     <section class="time_container">
                         <label for="mon_day">
