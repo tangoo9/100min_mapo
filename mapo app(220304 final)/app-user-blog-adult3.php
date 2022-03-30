@@ -1,19 +1,26 @@
+<?php
+//세션 체크 기능 모든 페이지에 추가 필요
+header("Pragma:no-cache");
+header("Cache-Control:no-cache,must-revalidate");
+include '../src/method_config.php';
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마포커뮤니티케어</title>
+    <title>돌봄이음</title>
     <link rel="stylesheet" href="css/static-style.css">
     <link rel="stylesheet" href="css/app-user-ask.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
-
+    <script>
+    </script>
 </head>
 <body>
     <div id="container">
         <header>
-            <button class="returnButton_cont" type ="button" onclick="location.href='app-user-ask'">
+            <button class="returnButton_cont" type ="button" onclick="history.back()">
                 <div class="returnButton_icon" >
                     <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.778809 10.8916C0.778809 11.2847 0.924805 11.6216 1.23926 11.9136L9.97656 20.4712C10.2236 20.7183 10.5381 20.853 10.9087 20.853C11.6499 20.853 12.2451 20.269 12.2451 19.5166C12.2451 19.146 12.0879 18.8203 11.8408 18.562L3.96826 10.8916L11.8408 3.22119C12.0879 2.96289 12.2451 2.62598 12.2451 2.2666C12.2451 1.51416 11.6499 0.930176 10.9087 0.930176C10.5381 0.930176 10.2236 1.06494 9.97656 1.31201L1.23926 9.8584C0.924805 10.1616 0.778809 10.4985 0.778809 10.8916Z" fill="black"/>
@@ -23,8 +30,8 @@
             </button>
         </header>
         <main>
-            <iframe id="kakao" src="https://pf.kakao.com/_xdNjEb" scrolling="no">
-            </iframe>
+            <iframe id="kakao" src="https://m.blog.naver.com/mapojaram/222685265305" scrolling="no">
+            </iframe> -->
         </main>
         <footer>
             <nav id ="navBar">

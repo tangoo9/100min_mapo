@@ -3,7 +3,6 @@
 header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
 include '../src/method_config.php';
-session_check_app();
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -57,9 +56,9 @@ session_check_app();
                 <p>돌봄서비스 구성</p>
                 <hr class="pretty_line" contenteditable="false">
                     <div class="image_info2">
-                        <img src="image/child_care_info2_1.png" alt="돌봄서비스" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685262049'">
-                        <img src="image/child_care_info2_2.png" alt="학습지도" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685262697'">
-                        <img src="image/child_care_info2_3.png" alt="특화프로그램" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685263256'">
+                        <img src="image/child_care_info2_1.png" alt="돌봄서비스" onclick="window.open('about:blank').location.href='app-user-blog-child1'">
+                        <img src="image/child_care_info2_2.png" alt="학습지도" onclick="window.open('about:blank').location.href='app-user-blog-child2'">
+                        <img src="image/child_care_info2_3.png" alt="특화프로그램" onclick="window.open('about:blank').location.href='app-user-blog-child3'">
                     </div>
                 <p>이용요금</p>
                 <hr class="pretty_line" contenteditable="false">

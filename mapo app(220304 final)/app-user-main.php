@@ -3,8 +3,7 @@
 header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
 include '../src/method_config.php';
-session_check_app();
-?> 
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -57,7 +56,8 @@ session_check_app();
                 </div>
             </div>
             <div class="boxRow">
-                <div class="box" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685268205'">
+                <!-- <div class="box" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685268205'"> -->
+                <div class="box" onclick="window.open('about:blank').location.href='app-user-blog-qna'">
                     <div class="sub_title">
                         <p>Q&A</p>
                     </div>

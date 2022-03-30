@@ -3,7 +3,6 @@
 header("Pragma:no-cache");
 header("Cache-Control:no-cache,must-revalidate");
 include '../src/method_config.php';
-session_check_app();
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -46,7 +45,7 @@ session_check_app();
                     <p>서비스 등의 돌봄서비스를 지원합니다. </p>
                 </div>
             </div>
-            <div class="box" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685754975'"
+            <div class="box" onclick="window.open('about:blank').location.href='app-user-blog-careinfo'"
             
             >
                 <div class="sub_title">
