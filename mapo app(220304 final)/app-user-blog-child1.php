@@ -30,7 +30,7 @@ include '../src/method_config.php';
             </button>
         </header>
         <main>
-            <iframe id="kakao" src="https://m.blog.naver.com/mapojaram/222685262049" scrolling="no">
+            <iframe id="kakao" src="https://m.blog.naver.com/mapojaram/222685262049" >
             </iframe>
         </main>
         <footer>

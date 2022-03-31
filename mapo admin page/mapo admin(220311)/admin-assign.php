@@ -17,7 +17,7 @@ left join member_child mc on mc.mc_no = o.mc_no
 {$search} order by o_order_date asc";
 $r = sqlresult($sql);
 $rr = sqlrow($sql);
-echo "test";
+// echo "test";
 ?>
 <!doctype html>
 <html lang="ko">
@@ -260,13 +260,13 @@ for($i =0; $i < $rr; $i++){
                                 <option value="">없음</option>
                                 <?php
                                 $p = "select * from partner where p_biz_service_detail = '{$r[$i][o_service]}'";
-                                echo $p;
+                                // echo $p;
                                 $pr = sqlresult($p);
                                 $prr = sqlrow($p);
                                 for($j=0; $j<$prr; $j++){
-                                    ?>
-                                    <option value="<?=$pr[$j][p_no]?>" <?=($r[$i][p_no]==$pr[$j][p_no])?"selected":""?>><?=$pr[$j][p_name]?></option>
-                                        <?php
+                                ?>
+                                <option value="<?=$pr[$j][p_no]?>" <?=($r[$i][p_no]==$pr[$j][p_no])?"selected":""?>><?=$pr[$j][p_name]?></option>
+                                <?php
                                 }
                                 ?>
                             </select>

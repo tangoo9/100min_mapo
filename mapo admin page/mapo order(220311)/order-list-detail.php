@@ -110,7 +110,11 @@ if(sqlrow($sql) == '0'){
                                 상세서비스<br>
                             </label>
                             <select class="form-control" name="o_service_detail">
-                                <option value="아동" <?=($r[o_service_detail]=="아동")?"selected":""?>>아동</option>
+                                <option value="">항목을 선택해 주세요.</option>
+                                <option value="집수리" <?=($r[o_service_detail]=="집수리")?"selected":""?>>집수리</option>
+                                <option value="청소" <?=($r[o_service_detail]=="청소")?"selected":""?>>청소</option>
+                                <option value="소독" <?=($r[o_service_detail]=="소독")?"selected":""?>>소독</option>
+                                <option value="이동" <?=($r[o_service_detail]=="이동")?"selected":""?>>이동</option>
                             </select>
                         </div>
                         <div class="form-group mb-3">
