@@ -36,7 +36,7 @@ session_check_app();
             <h1 >문의사항</h1>
         </div>
         <div class="boxContainer">
-            <div class="box" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685268205'">
+            <div class="box" onclick="window.open('about:blank').location.href='app-user-blog?url=https://m.blog.naver.com/mapojaram/222685268205'">
                 <p>자주 묻는 질문</p>
             </div>
             <div class="box" onclick="location.href='app-user-ask-polices'">

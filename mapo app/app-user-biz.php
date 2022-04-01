@@ -45,7 +45,7 @@ include '../src/method_config.php';
                     <p>서비스 등의 돌봄서비스를 지원합니다. </p>
                 </div>
             </div>
-            <div class="box" onclick="window.open('about:blank').location.href='app-user-blog-careinfo'"
+            <div class="box" onclick="window.open('about:blank').location.href='app-user-blog?url=https://m.blog.naver.com/mapojaram/222685754975'"
             
             >
                 <div class="sub_title">

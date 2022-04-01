@@ -56,8 +56,7 @@ include '../src/method_config.php';
                 </div>
             </div>
             <div class="boxRow">
-                <!-- <div class="box" onclick="window.open('about:blank').location.href='https://blog.naver.com/mapojaram/222685268205'"> -->
-                <div class="box" onclick="window.open('about:blank').location.href='app-user-blog-qna'">
+                <div class="box" onclick="window.open('about:blank').location.href='app-user-blog?url=https://m.blog.naver.com/mapojaram/222685268205'">
                     <div class="sub_title">
                         <p>Q&A</p>
                     </div>

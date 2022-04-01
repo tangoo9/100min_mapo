@@ -15,6 +15,22 @@ include '../src/method_config.php';
     <link rel="stylesheet" href="css/app-user-ask.css">
     <link rel="stylesheet" href="css/app-user-footer.css">
     <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        
+        let sendUrl = getParameterByName("url")
+        // console.log(sendUrl)
+        function url(sendUrl){
+            let iframe = document.querySelector('#blog')
+            iframe.setAttribute("src", sendUrl) ;
+        }
+        window.onload = () => {
+            url(sendUrl);
+        }
     </script>
 </head>
 <body>
@@ -30,7 +46,7 @@ include '../src/method_config.php';
             </button>
         </header>
         <main>
-            <iframe id="kakao" src="https://m.blog.naver.com/mapojaram/222685265305" >
+            <iframe id="blog">
             </iframe>
         </main>
         <footer>
