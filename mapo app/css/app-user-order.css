@@ -103,6 +103,7 @@ header p{
     margin-left: 4vw;
     display: inline-block;
     font-size: 1rem;
+    color: #000;
 }
 /* --header End----- */
 .title{
@@ -131,6 +132,7 @@ header p{
     margin: 0.5rem;
     width: 16rem;
     height: 7rem;
+    line-height: 7rem;
     /* border: 2px solid #bcbcbc; */
     border: 1px solid #000000;
     /* background-color: #f1f1f1; */
@@ -151,6 +153,8 @@ header p{
     margin: 1rem auto;
 }
 #boxContainer .box .sub_title{
+    font-size: 2rem;
+    margin: 0 auto;
     /* font-family: 'GyeonggiTitle-M'; */
     font-family: 'GyeonggiTitle-L';
 }

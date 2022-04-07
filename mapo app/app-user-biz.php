@@ -26,35 +26,35 @@ include '../src/method_config.php';
             <div class="box" onclick="location.href='app-user-biz-child'">
                 <div class="sub_title">
                     <p>아동돌봄</p>
-                    <p class="detail">자세히보기</p>
+                    <!-- <p class="detail">자세히보기</p> -->
                 </div>
-                <div class="content_text">
+                <!-- <div class="content_text">
                     <p>돌봄공백이 있는 초등학생을 대상으로</p>
                     <p>마포구 내 거점공간을 통해 아이들의 학습지원과</p>
                     <p>돌봄 서비스를 전문적으로 제공합니다.</p>
-                </div>
+                </div> -->
             </div>
             <div class="box" onclick="location.href='app-user-biz-senior'">
                 <div class="sub_title">
                     <p>성인돌봄</p>
-                    <p class="detail">자세히보기</p>
+                    <!-- <p class="detail">자세히보기</p> -->
                 </div>
-                <div class="content_text">
+                <!-- <div class="content_text">
                     <p>마포구 내 틈새 돌봄 필요한 어르신들께</p>
                     <p>홈케어주택수리, 일상생활편의, 정서.여가.건강</p>
                     <p>서비스 등의 돌봄서비스를 지원합니다. </p>
-                </div>
+                </div> -->
             </div>
             <div class="box" onclick="window.open('about:blank').location.href='app-user-blog?url=https://m.blog.naver.com/mapojaram/222685754975'"
             
             >
                 <div class="sub_title">
                     <p>마포구 돌봄정보</p>
-                    <p class="detail">자세히보기</p>
+                    <!-- <p class="detail">자세히보기</p> -->
                 </div>
-                <div class="content_text">
+                <!-- <div class="content_text">
                     <p>마포구의 돌봄정보를 안내해드립니다.</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
