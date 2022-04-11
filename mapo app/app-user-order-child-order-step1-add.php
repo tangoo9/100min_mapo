@@ -85,6 +85,9 @@ session_check_app();
                             <option value="1학년">1학년</option>
                             <option value="2학년">2학년</option>
                             <option value="3학년">3학년</option>
+                            <option value="4학년">4학년</option>
+                            <option value="5학년">5학년</option>
+                            <option value="6학년">6학년</option>
                         </select>
                     </div>
                 </div>

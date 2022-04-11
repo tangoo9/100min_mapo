@@ -80,27 +80,20 @@ main h1{
     box-sizing: border-box;
     border-radius: 0.5rem;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: 600;
     cursor: pointer;
 }
-
-
-
+.box p{
+    font-family: 'GyeonggiTitle-L';
+    margin: 0;
+}
 .box .sub_title{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
     height: 100%;
-    /* padding : 0.8rem 1.2rem; */
-}
-
-.box .sub_title p{
-    font-size: 2rem;
-    /* margin: 0; */
-    /* font-family: 'GyeonggiTitle-M'; */
-    font-family: 'GyeonggiTitle-L';
 }
 
 .box .sub_title .detail{

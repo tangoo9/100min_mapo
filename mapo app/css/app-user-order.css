@@ -132,7 +132,6 @@ header p{
     margin: 0.5rem;
     width: 16rem;
     height: 7rem;
-    line-height: 7rem;
     /* border: 2px solid #bcbcbc; */
     border: 1px solid #000000;
     /* background-color: #f1f1f1; */
@@ -142,6 +141,18 @@ header p{
     font-size: 2rem;
     font-weight: 600;
 }
+.box p{
+    font-family: 'GyeonggiTitle-L';
+    margin: 0;
+}
+
+#boxContainer .box .sub_title{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
 .box .order_btn{
     cursor: pointer;
     font-size: 1rem;
@@ -149,15 +160,8 @@ header p{
     font-family:'Noto Sans KR', sans-serif;
     color: #ffc000;
 }
-.box p{
-    margin: 1rem auto;
-}
-#boxContainer .box .sub_title{
-    font-size: 2rem;
-    margin: 0 auto;
-    /* font-family: 'GyeonggiTitle-M'; */
-    font-family: 'GyeonggiTitle-L';
-}
+
+
 .box .info_box{
     margin: 0 2rem;
     display: flex;

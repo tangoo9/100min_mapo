@@ -23,20 +23,26 @@
         </div>
         <div id="boxContainer">
             <div class="box" onclick="location.href='app-user-order-child-order-step1'">
-                <p  class="sub_title">아동돌봄</p>
+                <div class="sub_title">    
+                    <p >아동돌봄</p>
+                </div>
                 <!-- <p class="order_btn">
                     돌봄 신청하기
                 </p> -->
             </div>
             <div class="box" onclick="location.href='app-user-order-child-order-step3-1'">
-                <p class="sub_title">성인돌봄</p>
+                <div class="sub_title">    
+                    <p>성인돌봄</p>
+                </div>
                 <!-- <p class="order_btn">
                     돌봄 신청하기
                 </p> -->
             </div>
             <a href ="tel:07077285178">
                 <div class="box ask">
-                    <p class="sub_title">문의하기</p>
+                    <div class="sub_title">    
+                        <p>문의하기</p>
+                    </div>
                     <!-- <div class="info_box">
                         <p class="info_text">마포형 커뮤니티케어일자리플랫폼 '돌봄이음'</p>
                         <p class="info_text">Tel .  070-7728-5178</p>
